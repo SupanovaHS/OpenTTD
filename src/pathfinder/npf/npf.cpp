@@ -21,7 +21,7 @@
 
 #include "../../safeguards.h"
 
-static const uint NPF_HASH_BITS = 12; ///< The size of the hash used in pathfinding. Just changing this value should be sufficient to change the hash size. Should be an even value.
+static const uint NPF_HASH_BITS = 12; // The size of the hash used in pathfinding. Just changing this value should be sufficient to change the hash size. Should be an even value.
 /* Do no change below values */
 static const uint NPF_HASH_SIZE = 1 << NPF_HASH_BITS;
 static const uint NPF_HASH_HALFBITS = NPF_HASH_BITS / 2;
@@ -29,12 +29,12 @@ static const uint NPF_HASH_HALFMASK = (1 << NPF_HASH_HALFBITS) - 1;
 
 /** Meant to be stored in AyStar.targetdata */
 struct NPFFindStationOrTileData {
-	TileIndex dest_coords;    ///< An indication of where the station is, for heuristic purposes, or the target tile
-	StationID station_index;  ///< station index we're heading for, or INVALID_STATION when we're heading for a tile
-	bool reserve_path;        ///< Indicates whether the found path should be reserved
-	StationType station_type; ///< The type of station we're heading for
-	bool not_articulated;     ///< The (road) vehicle is not articulated
-	const Vehicle *v;         ///< The vehicle we are pathfinding for
+	TileIndex dest_coords;    // An indication of where the station is, for heuristic purposes, or the target tile
+	StationID station_index;  // station index we're heading for, or INVALID_STATION when we're heading for a tile
+	bool reserve_path;        // Indicates whether the found path should be reserved
+	StationType station_type; // The type of station we're heading for
+	bool not_articulated;     // The (road) vehicle is not articulated
+	const Vehicle *v;         // The vehicle we are pathfinding for
 };
 
 /** Indices into AyStar.userdata[] */
@@ -48,30 +48,30 @@ struct AyStarUserData {
 
 /** Indices into AyStarNode.userdata[] */
 enum AyStarNodeUserDataType {
-	NPF_TRACKDIR_CHOICE = 0, ///< The trackdir chosen to get here
+	NPF_TRACKDIR_CHOICE = 0, // The trackdir chosen to get here
 	NPF_NODE_FLAGS,
 };
 
 /** Flags for AyStarNode.userdata[NPF_NODE_FLAGS]. Use NPFSetFlag() and NPFGetFlag() to use them. */
 enum NPFNodeFlag {
-	NPF_FLAG_SEEN_SIGNAL,       ///< Used to mark that a signal was seen on the way, for rail only
-	NPF_FLAG_2ND_SIGNAL,        ///< Used to mark that two signals were seen, rail only
-	NPF_FLAG_3RD_SIGNAL,        ///< Used to mark that three signals were seen, rail only
-	NPF_FLAG_REVERSE,           ///< Used to mark that this node was reached from the second start node, if applicable
-	NPF_FLAG_LAST_SIGNAL_RED,   ///< Used to mark that the last signal on this path was red
-	NPF_FLAG_LAST_SIGNAL_BLOCK, ///< Used to mark that the last signal on this path was a block signal
-	NPF_FLAG_IGNORE_START_TILE, ///< Used to mark that the start tile is invalid, and searching should start from the second tile on
-	NPF_FLAG_TARGET_RESERVED,   ///< Used to mark that the possible reservation target is already reserved
-	NPF_FLAG_IGNORE_RESERVED,   ///< Used to mark that reserved tiles should be considered impassable
+	NPF_FLAG_SEEN_SIGNAL,       // Used to mark that a signal was seen on the way, for rail only
+	NPF_FLAG_2ND_SIGNAL,        // Used to mark that two signals were seen, rail only
+	NPF_FLAG_3RD_SIGNAL,        // Used to mark that three signals were seen, rail only
+	NPF_FLAG_REVERSE,           // Used to mark that this node was reached from the second start node, if applicable
+	NPF_FLAG_LAST_SIGNAL_RED,   // Used to mark that the last signal on this path was red
+	NPF_FLAG_LAST_SIGNAL_BLOCK, // Used to mark that the last signal on this path was a block signal
+	NPF_FLAG_IGNORE_START_TILE, // Used to mark that the start tile is invalid, and searching should start from the second tile on
+	NPF_FLAG_TARGET_RESERVED,   // Used to mark that the possible reservation target is already reserved
+	NPF_FLAG_IGNORE_RESERVED,   // Used to mark that reserved tiles should be considered impassable
 };
 
 /** Meant to be stored in AyStar.userpath */
 struct NPFFoundTargetData {
-	uint best_bird_dist;    ///< The best heuristic found. Is 0 if the target was found
-	uint best_path_dist;    ///< The shortest path. Is UINT_MAX if no path is found
-	Trackdir best_trackdir; ///< The trackdir that leads to the shortest path/closest birds dist
-	AyStarNode node;        ///< The node within the target the search led us to
-	bool res_okay;          ///< True if a path reservation could be made
+	uint best_bird_dist;    // The best heuristic found. Is 0 if the target was found
+	uint best_path_dist;    // The shortest path. Is UINT_MAX if no path is found
+	Trackdir best_trackdir; // The trackdir that leads to the shortest path/closest birds dist
+	AyStarNode node;        // The node within the target the search led us to
+	bool res_okay;          // True if a path reservation could be made
 };
 
 static AyStar _npf_aystar;

@@ -29,14 +29,14 @@ void BuildOwnerLegend();
 
 /** Structure for holding relevant data for legends in small map */
 struct LegendAndColour {
-	uint8 colour;              ///< Colour of the item on the map.
-	StringID legend;           ///< String corresponding to the coloured item.
-	IndustryType type;         ///< Type of industry. Only valid for industry entries.
-	uint8 height;              ///< Height in tiles. Only valid for height legend entries.
-	CompanyID company;         ///< Company to display. Only valid for company entries of the owner legend.
-	bool show_on_map;          ///< For filtering industries, if \c true, industry is shown on the map in colour.
-	bool end;                  ///< This is the end of the list.
-	bool col_break;            ///< Perform a column break and go further at the next column.
+	uint8 colour;              // Colour of the item on the map.
+	StringID legend;           // String corresponding to the coloured item.
+	IndustryType type;         // Type of industry. Only valid for industry entries.
+	uint8 height;              // Height in tiles. Only valid for height legend entries.
+	CompanyID company;         // Company to display. Only valid for company entries of the owner legend.
+	bool show_on_map;          // For filtering industries, if \c true, industry is shown on the map in colour.
+	bool end;                  // This is the end of the list.
+	bool col_break;            // Perform a column break and go further at the next column.
 };
 
 /** Class managing the smallmap window. */
@@ -55,30 +55,30 @@ protected:
 
 	/** Available kinds of zoomlevel changes. */
 	enum ZoomLevelChange {
-		ZLC_INITIALIZE, ///< Initialize zoom level.
-		ZLC_ZOOM_OUT,   ///< Zoom out.
-		ZLC_ZOOM_IN,    ///< Zoom in.
+		ZLC_INITIALIZE, // Initialize zoom level.
+		ZLC_ZOOM_OUT,   // Zoom out.
+		ZLC_ZOOM_IN,    // Zoom in.
 	};
 
-	static SmallMapType map_type; ///< Currently displayed legends.
-	static bool show_towns;       ///< Display town names in the smallmap.
-	static int map_height_limit;  ///< Currently used/cached map height limit.
+	static SmallMapType map_type; // Currently displayed legends.
+	static bool show_towns;       // Display town names in the smallmap.
+	static int map_height_limit;  // Currently used/cached map height limit.
 
-	static const uint INDUSTRY_MIN_NUMBER_OF_COLUMNS = 2; ///< Minimal number of columns in the #WID_SM_LEGEND widget for the #SMT_INDUSTRY legend.
-	static const uint FORCE_REFRESH_PERIOD = 930; ///< map is redrawn after that many milliseconds.
-	static const uint BLINK_PERIOD         = 450; ///< highlight blinking interval in milliseconds.
+	static const uint INDUSTRY_MIN_NUMBER_OF_COLUMNS = 2; // Minimal number of columns in the #WID_SM_LEGEND widget for the #SMT_INDUSTRY legend.
+	static const uint FORCE_REFRESH_PERIOD = 930; // map is redrawn after that many milliseconds.
+	static const uint BLINK_PERIOD         = 450; // highlight blinking interval in milliseconds.
 
-	uint min_number_of_columns;    ///< Minimal number of columns in legends.
-	uint min_number_of_fixed_rows; ///< Minimal number of rows in the legends for the fixed layouts only (all except #SMT_INDUSTRY).
-	uint column_width;             ///< Width of a column in the #WID_SM_LEGEND widget.
-	uint legend_width;             ///< Width of legend 'blob'.
+	uint min_number_of_columns;    // Minimal number of columns in legends.
+	uint min_number_of_fixed_rows; // Minimal number of rows in the legends for the fixed layouts only (all except #SMT_INDUSTRY).
+	uint column_width;             // Width of a column in the #WID_SM_LEGEND widget.
+	uint legend_width;             // Width of legend 'blob'.
 
-	int32 scroll_x;  ///< Horizontal world coordinate of the base tile left of the top-left corner of the smallmap display.
-	int32 scroll_y;  ///< Vertical world coordinate of the base tile left of the top-left corner of the smallmap display.
-	int32 subscroll; ///< Number of pixels (0..3) between the right end of the base tile and the pixel at the top-left corner of the smallmap display.
-	int zoom;        ///< Zoom level. Bigger number means more zoom-out (further away).
+	int32 scroll_x;  // Horizontal world coordinate of the base tile left of the top-left corner of the smallmap display.
+	int32 scroll_y;  // Vertical world coordinate of the base tile left of the top-left corner of the smallmap display.
+	int32 subscroll; // Number of pixels (0..3) between the right end of the base tile and the pixel at the top-left corner of the smallmap display.
+	int zoom;        // Zoom level. Bigger number means more zoom-out (further away).
 
-	GUITimer refresh; ///< Refresh timer.
+	GUITimer refresh; // Refresh timer.
 	LinkGraphOverlay *overlay;
 
 	static void BreakIndustryChainLink();

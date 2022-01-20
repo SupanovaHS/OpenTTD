@@ -69,10 +69,10 @@ static const NWidgetPart _nested_town_authority_widgets[] = {
 /** Town authority window. */
 struct TownAuthorityWindow : Window {
 private:
-	Town *town;    ///< Town being displayed.
-	int sel_index; ///< Currently selected town action, \c 0 to \c TACT_COUNT-1, \c -1 means no action selected.
+	Town *town;    // Town being displayed.
+	int sel_index; // Currently selected town action, \c 0 to \c TACT_COUNT-1, \c -1 means no action selected.
 	Scrollbar *vscroll;
-	uint displayed_actions_on_previous_painting; ///< Actions that were available on the previous call to OnPaint()
+	uint displayed_actions_on_previous_painting; // Actions that were available on the previous call to OnPaint()
 
 	/**
 	 * Get the position of the Nth set bit.
@@ -211,7 +211,7 @@ public:
 				}
 
 				for (int i = 0; buttons; i++, buttons >>= 1) {
-					if (pos <= -5) break; ///< Draw only the 5 fitting lines
+					if (pos <= -5) break; // Draw only the 5 fitting lines
 
 					if ((buttons & 1) && --pos < 0) {
 						DrawString(r.left + WD_FRAMERECT_LEFT, r.right - WD_FRAMERECT_RIGHT, y,
@@ -315,7 +315,7 @@ static void ShowTownAuthorityWindow(uint town)
 /* Town view window. */
 struct TownViewWindow : Window {
 private:
-	Town *town; ///< Town displayed by the window.
+	Town *town; // Town displayed by the window.
 
 public:
 	static const int WID_TV_HEIGHT_NORMAL = 150;
@@ -674,8 +674,8 @@ private:
 	static const StringID sorter_names[];
 	static GUITownList::SortFunction * const sorter_funcs[];
 
-	StringFilter string_filter;             ///< Filter for towns
-	QueryString townname_editbox;           ///< Filter editbox
+	StringFilter string_filter;             // Filter for towns
+	QueryString townname_editbox;           // Filter editbox
 
 	GUITownList towns;
 
@@ -1091,13 +1091,13 @@ static const NWidgetPart _nested_found_town_widgets[] = {
 /** Found a town window class. */
 struct FoundTownWindow : Window {
 private:
-	TownSize town_size;     ///< Selected town size
-	TownLayout town_layout; ///< Selected town layout
-	bool city;              ///< Are we building a city?
-	QueryString townname_editbox; ///< Townname editbox
-	bool townnamevalid;     ///< Is generated town name valid?
-	uint32 townnameparts;   ///< Generated town name
-	TownNameParams params;  ///< Town name parameters
+	TownSize town_size;     // Selected town size
+	TownLayout town_layout; // Selected town layout
+	bool city;              // Are we building a city?
+	QueryString townname_editbox; // Townname editbox
+	bool townnamevalid;     // Is generated town name valid?
+	uint32 townnameparts;   // Generated town name
+	TownNameParams params;  // Town name parameters
 
 public:
 	FoundTownWindow(WindowDesc *desc, WindowNumber window_number) :

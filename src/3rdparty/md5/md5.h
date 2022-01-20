@@ -55,9 +55,9 @@
 
 struct Md5 {
 private:
-	uint32 count[2]; ///< message length in bits, lsw first
-	uint32 abcd[4];  ///< digest buffer
-	uint8 buf[64];   ///< accumulate block
+	uint32 count[2]; // message length in bits, lsw first
+	uint32 abcd[4];  // digest buffer
+	uint8 buf[64];   // accumulate block
 
 	void Process(const uint8 *data);
 

@@ -38,9 +38,9 @@ template <class Types>
 class CYapfReserveTrack
 {
 public:
-	typedef typename Types::Tpf Tpf;                     ///< the pathfinder class (derived from THIS class)
+	typedef typename Types::Tpf Tpf;                     // the pathfinder class (derived from THIS class)
 	typedef typename Types::TrackFollower TrackFollower;
-	typedef typename Types::NodeList::Titem Node;        ///< this will be our node type
+	typedef typename Types::NodeList::Titem Node;        // this will be our node type
 
 protected:
 	/** to access inherited pathfinder */
@@ -50,12 +50,12 @@ protected:
 	}
 
 private:
-	TileIndex m_res_dest;         ///< The reservation target tile
-	Trackdir  m_res_dest_td;      ///< The reservation target trackdir
-	Node      *m_res_node;        ///< The reservation target node
-	TileIndex m_res_fail_tile;    ///< The tile where the reservation failed
-	Trackdir  m_res_fail_td;      ///< The trackdir where the reservation failed
-	TileIndex m_origin_tile;      ///< Tile our reservation will originate from
+	TileIndex m_res_dest;         // The reservation target tile
+	Trackdir  m_res_dest_td;      // The reservation target trackdir
+	Node      *m_res_node;        // The reservation target node
+	TileIndex m_res_fail_tile;    // The tile where the reservation failed
+	Trackdir  m_res_fail_td;      // The trackdir where the reservation failed
+	TileIndex m_origin_tile;      // Tile our reservation will originate from
 
 	bool FindSafePositionProc(TileIndex tile, Trackdir td)
 	{
@@ -189,10 +189,10 @@ template <class Types>
 class CYapfFollowAnyDepotRailT
 {
 public:
-	typedef typename Types::Tpf Tpf;                     ///< the pathfinder class (derived from THIS class)
+	typedef typename Types::Tpf Tpf;                     // the pathfinder class (derived from THIS class)
 	typedef typename Types::TrackFollower TrackFollower;
-	typedef typename Types::NodeList::Titem Node;        ///< this will be our node type
-	typedef typename Node::Key Key;                      ///< key to hash tables
+	typedef typename Types::NodeList::Titem Node;        // this will be our node type
+	typedef typename Node::Key Key;                      // key to hash tables
 
 protected:
 	/** to access inherited path finder */
@@ -280,10 +280,10 @@ template <class Types>
 class CYapfFollowAnySafeTileRailT : public CYapfReserveTrack<Types>
 {
 public:
-	typedef typename Types::Tpf Tpf;                     ///< the pathfinder class (derived from THIS class)
+	typedef typename Types::Tpf Tpf;                     // the pathfinder class (derived from THIS class)
 	typedef typename Types::TrackFollower TrackFollower;
-	typedef typename Types::NodeList::Titem Node;        ///< this will be our node type
-	typedef typename Node::Key Key;                      ///< key to hash tables
+	typedef typename Types::NodeList::Titem Node;        // this will be our node type
+	typedef typename Node::Key Key;                      // key to hash tables
 
 protected:
 	/** to access inherited path finder */
@@ -363,10 +363,10 @@ template <class Types>
 class CYapfFollowRailT : public CYapfReserveTrack<Types>
 {
 public:
-	typedef typename Types::Tpf Tpf;                     ///< the pathfinder class (derived from THIS class)
+	typedef typename Types::Tpf Tpf;                     // the pathfinder class (derived from THIS class)
 	typedef typename Types::TrackFollower TrackFollower;
-	typedef typename Types::NodeList::Titem Node;        ///< this will be our node type
-	typedef typename Node::Key Key;                      ///< key to hash tables
+	typedef typename Types::NodeList::Titem Node;        // this will be our node type
+	typedef typename Node::Key Key;                      // key to hash tables
 
 protected:
 	/** to access inherited path finder */

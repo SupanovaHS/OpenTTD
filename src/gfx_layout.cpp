@@ -123,11 +123,11 @@ le_bool Font::getGlyphPoint(LEGlyphID glyph, le_int32 pointNumber, LEPoint &poin
  * Wrapper for doing layouts with ICU.
  */
 class ICUParagraphLayout : public ParagraphLayouter {
-	icu::ParagraphLayout *p; ///< The actual ICU paragraph layout.
+	icu::ParagraphLayout *p; // The actual ICU paragraph layout.
 public:
 	/** Visual run contains data about the bit of text with the same font. */
 	class ICUVisualRun : public ParagraphLayouter::VisualRun {
-		const icu::ParagraphLayout::VisualRun *vr; ///< The actual ICU vr.
+		const icu::ParagraphLayout::VisualRun *vr; // The actual ICU vr.
 
 	public:
 		ICUVisualRun(const icu::ParagraphLayout::VisualRun *vr) : vr(vr) { }
@@ -142,7 +142,7 @@ public:
 
 	/** A single line worth of VisualRuns. */
 	class ICULine : public std::vector<ICUVisualRun>, public ParagraphLayouter::Line {
-		icu::ParagraphLayout::Line *l; ///< The actual ICU line.
+		icu::ParagraphLayout::Line *l; // The actual ICU line.
 
 	public:
 		ICULine(icu::ParagraphLayout::Line *l) : l(l)
@@ -249,11 +249,11 @@ class FallbackParagraphLayout : public ParagraphLayouter {
 public:
 	/** Visual run contains data about the bit of text with the same font. */
 	class FallbackVisualRun : public ParagraphLayouter::VisualRun {
-		Font *font;       ///< The font used to layout these.
-		GlyphID *glyphs;  ///< The glyphs we're drawing.
-		float *positions; ///< The positions of the glyphs.
-		int *glyph_to_char; ///< The char index of the glyphs.
-		int glyph_count;  ///< The number of glyphs.
+		Font *font;       // The font used to layout these.
+		GlyphID *glyphs;  // The glyphs we're drawing.
+		float *positions; // The positions of the glyphs.
+		int *glyph_to_char; // The char index of the glyphs.
+		int glyph_count;  // The number of glyphs.
 
 	public:
 		FallbackVisualRun(Font *font, const WChar *chars, int glyph_count, int x);
@@ -278,9 +278,9 @@ public:
 		int GetInternalCharLength(WChar c) const override { return 1; }
 	};
 
-	const WChar *buffer_begin; ///< Begin of the buffer.
-	const WChar *buffer;       ///< The current location in the buffer.
-	FontMap &runs;             ///< The fonts we have to use for this paragraph.
+	const WChar *buffer_begin; // Begin of the buffer.
+	const WChar *buffer;       // The current location in the buffer.
+	FontMap &runs;             // The fonts we have to use for this paragraph.
 
 	FallbackParagraphLayout(WChar *buffer, int length, FontMap &runs);
 	void Reflow() override;

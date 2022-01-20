@@ -27,7 +27,7 @@ struct Station;
  * - bits 19-23 Cargo type.
  * - bits 24-31 %Company number.
  */
-typedef uint32 CargoMonitorID; ///< Type of the cargo monitor number.
+typedef uint32 CargoMonitorID; // Type of the cargo monitor number.
 
 /** Map type for storing and updating active cargo monitor numbers and their amounts. */
 typedef std::map<CargoMonitorID, OverflowSafeInt32> CargoMonitorMap;
@@ -38,14 +38,14 @@ extern CargoMonitorMap _cargo_deliveries;
 
 /** Constants for encoding and extracting cargo monitors. */
 enum CargoCompanyBits {
-	CCB_TOWN_IND_NUMBER_START  = 0,  ///< Start bit of the town or industry number.
-	CCB_TOWN_IND_NUMBER_LENGTH = 16, ///< Number of bits of the town or industry number.
-	CCB_IS_INDUSTRY_BIT        = 16, ///< Bit indicating the town/industry number is an industry.
-	CCB_IS_INDUSTRY_BIT_VALUE  = 1ul << CCB_IS_INDUSTRY_BIT, ///< Value of the #CCB_IS_INDUSTRY_BIT bit.
-	CCB_CARGO_TYPE_START       = 19, ///< Start bit of the cargo type field.
-	CCB_CARGO_TYPE_LENGTH      = 6,  ///< Number of bits of the cargo type field.
-	CCB_COMPANY_START          = 25, ///< Start bit of the company field.
-	CCB_COMPANY_LENGTH         = 4,  ///< Number of bits of the company field.
+	CCB_TOWN_IND_NUMBER_START  = 0,  // Start bit of the town or industry number.
+	CCB_TOWN_IND_NUMBER_LENGTH = 16, // Number of bits of the town or industry number.
+	CCB_IS_INDUSTRY_BIT        = 16, // Bit indicating the town/industry number is an industry.
+	CCB_IS_INDUSTRY_BIT_VALUE  = 1ul << CCB_IS_INDUSTRY_BIT, // Value of the #CCB_IS_INDUSTRY_BIT bit.
+	CCB_CARGO_TYPE_START       = 19, // Start bit of the cargo type field.
+	CCB_CARGO_TYPE_LENGTH      = 6,  // Number of bits of the cargo type field.
+	CCB_COMPANY_START          = 25, // Start bit of the company field.
+	CCB_COMPANY_LENGTH         = 4,  // Number of bits of the company field.
 };
 
 static_assert(NUM_CARGO     <= (1 << CCB_CARGO_TYPE_LENGTH));

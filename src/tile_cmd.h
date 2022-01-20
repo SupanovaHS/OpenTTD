@@ -18,9 +18,9 @@
 
 /** The returned bits of VehicleEnterTile. */
 enum VehicleEnterTileStatus {
-	VETS_ENTERED_STATION  = 1, ///< The vehicle entered a station
-	VETS_ENTERED_WORMHOLE = 2, ///< The vehicle either entered a bridge, tunnel or depot tile (this includes the last tile of the bridge/tunnel)
-	VETS_CANNOT_ENTER     = 3, ///< The vehicle cannot enter the tile
+	VETS_ENTERED_STATION  = 1, // The vehicle entered a station
+	VETS_ENTERED_WORMHOLE = 2, // The vehicle either entered a bridge, tunnel or depot tile (this includes the last tile of the bridge/tunnel)
+	VETS_CANNOT_ENTER     = 3, // The vehicle cannot enter the tile
 
 	/**
 	 * Shift the VehicleEnterTileStatus this many bits
@@ -31,41 +31,41 @@ enum VehicleEnterTileStatus {
 	VETS_STATION_MASK      = 0xFFFF << VETS_STATION_ID_OFFSET,
 
 	/** Bit sets of the above specified bits */
-	VETSB_CONTINUE         = 0,                          ///< The vehicle can continue normally
-	VETSB_ENTERED_STATION  = 1 << VETS_ENTERED_STATION,  ///< The vehicle entered a station
-	VETSB_ENTERED_WORMHOLE = 1 << VETS_ENTERED_WORMHOLE, ///< The vehicle either entered a bridge, tunnel or depot tile (this includes the last tile of the bridge/tunnel)
-	VETSB_CANNOT_ENTER     = 1 << VETS_CANNOT_ENTER,     ///< The vehicle cannot enter the tile
+	VETSB_CONTINUE         = 0,                          // The vehicle can continue normally
+	VETSB_ENTERED_STATION  = 1 << VETS_ENTERED_STATION,  // The vehicle entered a station
+	VETSB_ENTERED_WORMHOLE = 1 << VETS_ENTERED_WORMHOLE, // The vehicle either entered a bridge, tunnel or depot tile (this includes the last tile of the bridge/tunnel)
+	VETSB_CANNOT_ENTER     = 1 << VETS_CANNOT_ENTER,     // The vehicle cannot enter the tile
 };
 DECLARE_ENUM_AS_BIT_SET(VehicleEnterTileStatus)
 
 /** Tile information, used while rendering the tile */
 struct TileInfo {
-	uint x;         ///< X position of the tile in unit coordinates
-	uint y;         ///< Y position of the tile in unit coordinates
-	Slope tileh;    ///< Slope of the tile
-	TileIndex tile; ///< Tile index
-	int z;          ///< Height
+	uint x;         // X position of the tile in unit coordinates
+	uint y;         // Y position of the tile in unit coordinates
+	Slope tileh;    // Slope of the tile
+	TileIndex tile; // Tile index
+	int z;          // Height
 };
 
 /** Tile description for the 'land area information' tool */
 struct TileDesc {
-	StringID str;               ///< Description of the tile
-	Owner owner[4];             ///< Name of the owner(s)
-	StringID owner_type[4];     ///< Type of each owner
-	Date build_date;            ///< Date of construction of tile contents
-	StringID station_class;     ///< Class of station
-	StringID station_name;      ///< Type of station within the class
-	StringID airport_class;     ///< Name of the airport class
-	StringID airport_name;      ///< Name of the airport
-	StringID airport_tile_name; ///< Name of the airport tile
-	const char *grf;            ///< newGRF used for the tile contents
-	uint64 dparam[2];           ///< Parameters of the \a str string
-	StringID railtype;          ///< Type of rail on the tile.
-	uint16 rail_speed;          ///< Speed limit of rail (bridges and track)
-	StringID roadtype;          ///< Type of road on the tile.
-	uint16 road_speed;          ///< Speed limit of road (bridges and track)
-	StringID tramtype;          ///< Type of tram on the tile.
-	uint16 tram_speed;          ///< Speed limit of tram (bridges and track)
+	StringID str;               // Description of the tile
+	Owner owner[4];             // Name of the owner(s)
+	StringID owner_type[4];     // Type of each owner
+	Date build_date;            // Date of construction of tile contents
+	StringID station_class;     // Class of station
+	StringID station_name;      // Type of station within the class
+	StringID airport_class;     // Name of the airport class
+	StringID airport_name;      // Name of the airport
+	StringID airport_tile_name; // Name of the airport tile
+	const char *grf;            // newGRF used for the tile contents
+	uint64 dparam[2];           // Parameters of the \a str string
+	StringID railtype;          // Type of rail on the tile.
+	uint16 rail_speed;          // Speed limit of rail (bridges and track)
+	StringID roadtype;          // Type of road on the tile.
+	uint16 road_speed;          // Speed limit of road (bridges and track)
+	StringID tramtype;          // Type of tram on the tile.
+	uint16 tram_speed;          // Speed limit of tram (bridges and track)
 };
 
 /**
@@ -143,20 +143,20 @@ typedef CommandCost TerraformTileProc(TileIndex tile, DoCommandFlag flags, int z
  * @see TileType
  */
 struct TileTypeProcs {
-	DrawTileProc *draw_tile_proc;                  ///< Called to render the tile and its contents to the screen
+	DrawTileProc *draw_tile_proc;                  // Called to render the tile and its contents to the screen
 	GetSlopeZProc *get_slope_z_proc;
 	ClearTileProc *clear_tile_proc;
-	AddAcceptedCargoProc *add_accepted_cargo_proc; ///< Adds accepted cargo of the tile to cargo array supplied as parameter
-	GetTileDescProc *get_tile_desc_proc;           ///< Get a description of a tile (for the 'land area information' tool)
-	GetTileTrackStatusProc *get_tile_track_status_proc; ///< Get available tracks and status of a tile
-	ClickTileProc *click_tile_proc;                ///< Called when tile is clicked
+	AddAcceptedCargoProc *add_accepted_cargo_proc; // Adds accepted cargo of the tile to cargo array supplied as parameter
+	GetTileDescProc *get_tile_desc_proc;           // Get a description of a tile (for the 'land area information' tool)
+	GetTileTrackStatusProc *get_tile_track_status_proc; // Get available tracks and status of a tile
+	ClickTileProc *click_tile_proc;                // Called when tile is clicked
 	AnimateTileProc *animate_tile_proc;
 	TileLoopProc *tile_loop_proc;
 	ChangeTileOwnerProc *change_tile_owner_proc;
-	AddProducedCargoProc *add_produced_cargo_proc; ///< Adds produced cargo of the tile to cargo array supplied as parameter
-	VehicleEnterTileProc *vehicle_enter_tile_proc; ///< Called when a vehicle enters a tile
+	AddProducedCargoProc *add_produced_cargo_proc; // Adds produced cargo of the tile to cargo array supplied as parameter
+	VehicleEnterTileProc *vehicle_enter_tile_proc; // Called when a vehicle enters a tile
 	GetFoundationProc *get_foundation_proc;
-	TerraformTileProc *terraform_tile_proc;        ///< Called when a terraforming operation is about to take place
+	TerraformTileProc *terraform_tile_proc;        // Called when a terraforming operation is about to take place
 };
 
 extern const TileTypeProcs * const _tile_type_procs[16];

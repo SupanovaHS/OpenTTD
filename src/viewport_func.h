@@ -16,7 +16,7 @@
 #include "tile_map.h"
 #include "station_type.h"
 
-static const int TILE_HEIGHT_STEP = 50; ///< One Z unit tile height difference is displayed as 50m.
+static const int TILE_HEIGHT_STEP = 50; // One Z unit tile height difference is displayed as 50m.
 
 void SetSelectionRed(bool);
 

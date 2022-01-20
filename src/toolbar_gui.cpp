@@ -81,7 +81,7 @@ enum CallBackFunction {
 	CBF_PLACE_LANDINFO,
 };
 
-static CallBackFunction _last_started_action = CBF_NONE; ///< Last started user action.
+static CallBackFunction _last_started_action = CBF_NONE; // Last started user action.
 
 
 /**
@@ -204,9 +204,9 @@ static void PopupMainToolbMenu(Window *w, int widget, StringID string, int count
 }
 
 /** Enum for the Company Toolbar's network related buttons */
-static const int CTMN_CLIENT_LIST = -1; ///< Show the client list
-static const int CTMN_SPECTATE    = -2; ///< Become spectator
-static const int CTMN_SPECTATOR   = -3; ///< Show a company window as spectator
+static const int CTMN_CLIENT_LIST = -1; // Show the client list
+static const int CTMN_SPECTATE    = -2; // Become spectator
+static const int CTMN_SPECTATOR   = -3; // Show a company window as spectator
 
 /**
  * Pop up a generic company list menu.
@@ -1313,9 +1313,9 @@ static MenuClickedProc * const _menu_clicked_procs[] = {
 
 /** Full blown container to make it behave exactly as we want :) */
 class NWidgetToolbarContainer : public NWidgetContainer {
-	bool visible[WID_TN_END]; ///< The visible headers
+	bool visible[WID_TN_END]; // The visible headers
 protected:
-	uint spacers;          ///< Number of spacer widgets in this toolbar
+	uint spacers;          // Number of spacer widgets in this toolbar
 
 public:
 	NWidgetToolbarContainer() : NWidgetContainer(NWID_HORIZONTAL)
@@ -1792,7 +1792,7 @@ class NWidgetMainToolbarContainer : public NWidgetToolbarContainer {
 
 /** Container for the scenario editor's toolbar */
 class NWidgetScenarioToolbarContainer : public NWidgetToolbarContainer {
-	uint panel_widths[2]; ///< The width of the two panels (the text panel and date panel)
+	uint panel_widths[2]; // The width of the two panels (the text panel and date panel)
 
 	void SetupSmallestSize(Window *w, bool init_array) override
 	{

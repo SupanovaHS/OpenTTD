@@ -18,9 +18,9 @@
 
 /** Special values for save-load window for the data parameter of #InvalidateWindowData. */
 enum SaveLoadInvalidateWindowData {
-	SLIWD_RESCAN_FILES,          ///< Rescan all files (when changed directory, ...)
-	SLIWD_SELECTION_CHANGES,     ///< File selection has changed (user click, ...)
-	SLIWD_FILTER_CHANGES,        ///< The filename filter has changed (via the editbox)
+	SLIWD_RESCAN_FILES,          // Rescan all files (when changed directory, ...)
+	SLIWD_SELECTION_CHANGES,     // File selection has changed (user click, ...)
+	SLIWD_FILTER_CHANGES,        // The filename filter has changed (via the editbox)
 };
 
 typedef SmallMap<uint, CompanyProperties *> CompanyPropertiesMap;
@@ -29,22 +29,22 @@ typedef SmallMap<uint, CompanyProperties *> CompanyPropertiesMap;
  * Container for loading in mode SL_LOAD_CHECK.
  */
 struct LoadCheckData {
-	bool checkable;     ///< True if the savegame could be checked by SL_LOAD_CHECK. (Old savegames are not checkable.)
-	StringID error;     ///< Error message from loading. INVALID_STRING_ID if no error.
-	char *error_data;   ///< Data to pass to SetDParamStr when displaying #error.
+	bool checkable;     // True if the savegame could be checked by SL_LOAD_CHECK. (Old savegames are not checkable.)
+	StringID error;     // Error message from loading. INVALID_STRING_ID if no error.
+	char *error_data;   // Data to pass to SetDParamStr when displaying #error.
 
 	uint32 map_size_x, map_size_y;
 	Date current_date;
 
 	GameSettings settings;
 
-	CompanyPropertiesMap companies;               ///< Company information.
+	CompanyPropertiesMap companies;               // Company information.
 
-	GRFConfig *grfconfig;                         ///< NewGrf configuration from save.
-	GRFListCompatibility grf_compatibility;       ///< Summary state of NewGrfs, whether missing files or only compatible found.
+	GRFConfig *grfconfig;                         // NewGrf configuration from save.
+	GRFListCompatibility grf_compatibility;       // Summary state of NewGrfs, whether missing files or only compatible found.
 
-	struct LoggedAction *gamelog_action;          ///< Gamelog actions
-	uint gamelog_actions;                         ///< Number of gamelog actions
+	struct LoggedAction *gamelog_action;          // Gamelog actions
+	uint gamelog_actions;                         // Number of gamelog actions
 
 	LoadCheckData() : error_data(nullptr), grfconfig(nullptr),
 			grf_compatibility(GLC_NOT_FOUND), gamelog_action(nullptr), gamelog_actions(0)

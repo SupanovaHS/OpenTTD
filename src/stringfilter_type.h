@@ -32,15 +32,15 @@ struct StringFilter {
 private:
 	/** State of a single filter word */
 	struct WordState {
-		const char *start;                         ///< Word to filter for.
-		bool match;                                ///< Already matched?
+		const char *start;                         // Word to filter for.
+		bool match;                                // Already matched?
 	};
 
-	const char *filter_buffer;                     ///< Parsed filter string. Words separated by 0.
-	std::vector<WordState> word_index;             ///< Word index and filter state.
-	uint word_matches;                             ///< Summary of filter state: Number of words matched.
+	const char *filter_buffer;                     // Parsed filter string. Words separated by 0.
+	std::vector<WordState> word_index;             // Word index and filter state.
+	uint word_matches;                             // Summary of filter state: Number of words matched.
 
-	const bool *case_sensitive;                    ///< Match case-sensitively (usually a static variable).
+	const bool *case_sensitive;                    // Match case-sensitively (usually a static variable).
 
 public:
 	/**

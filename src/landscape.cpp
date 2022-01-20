@@ -60,17 +60,17 @@ extern const TileTypeProcs
  * @see TileType
  */
 const TileTypeProcs * const _tile_type_procs[16] = {
-	&_tile_type_clear_procs,        ///< Callback functions for MP_CLEAR tiles
-	&_tile_type_rail_procs,         ///< Callback functions for MP_RAILWAY tiles
-	&_tile_type_road_procs,         ///< Callback functions for MP_ROAD tiles
-	&_tile_type_town_procs,         ///< Callback functions for MP_HOUSE tiles
-	&_tile_type_trees_procs,        ///< Callback functions for MP_TREES tiles
-	&_tile_type_station_procs,      ///< Callback functions for MP_STATION tiles
-	&_tile_type_water_procs,        ///< Callback functions for MP_WATER tiles
-	&_tile_type_void_procs,         ///< Callback functions for MP_VOID tiles
-	&_tile_type_industry_procs,     ///< Callback functions for MP_INDUSTRY tiles
-	&_tile_type_tunnelbridge_procs, ///< Callback functions for MP_TUNNELBRIDGE tiles
-	&_tile_type_object_procs,       ///< Callback functions for MP_OBJECT tiles
+	&_tile_type_clear_procs,        // Callback functions for MP_CLEAR tiles
+	&_tile_type_rail_procs,         // Callback functions for MP_RAILWAY tiles
+	&_tile_type_road_procs,         // Callback functions for MP_ROAD tiles
+	&_tile_type_town_procs,         // Callback functions for MP_HOUSE tiles
+	&_tile_type_trees_procs,        // Callback functions for MP_TREES tiles
+	&_tile_type_station_procs,      // Callback functions for MP_STATION tiles
+	&_tile_type_water_procs,        // Callback functions for MP_WATER tiles
+	&_tile_type_void_procs,         // Callback functions for MP_VOID tiles
+	&_tile_type_industry_procs,     // Callback functions for MP_INDUSTRY tiles
+	&_tile_type_tunnelbridge_procs, // Callback functions for MP_TUNNELBRIDGE tiles
+	&_tile_type_object_procs,       // Callback functions for MP_OBJECT tiles
 };
 
 /** landscape slope => sprite */
@@ -1138,7 +1138,7 @@ static void River_FoundEndNode(AyStar *aystar, OpenListNode *current)
 	}
 }
 
-static const uint RIVER_HASH_SIZE = 8; ///< The number of bits the hash for river finding should have.
+static const uint RIVER_HASH_SIZE = 8; // The number of bits the hash for river finding should have.
 
 /**
  * Simple hash function for river tiles to be used by AyStar.
@@ -1402,11 +1402,11 @@ void GenerateLandscape(byte mode)
 {
 	/** Number of steps of landscape generation */
 	enum GenLandscapeSteps {
-		GLS_HEIGHTMAP    =  3, ///< Loading a heightmap
-		GLS_TERRAGENESIS =  5, ///< Terragenesis generator
-		GLS_ORIGINAL     =  2, ///< Original generator
-		GLS_TROPIC       = 12, ///< Extra steps needed for tropic landscape
-		GLS_OTHER        =  0, ///< Extra steps for other landscapes
+		GLS_HEIGHTMAP    =  3, // Loading a heightmap
+		GLS_TERRAGENESIS =  5, // Terragenesis generator
+		GLS_ORIGINAL     =  2, // Original generator
+		GLS_TROPIC       = 12, // Extra steps needed for tropic landscape
+		GLS_OTHER        =  0, // Extra steps for other landscapes
 	};
 	uint steps = (_settings_game.game_creation.landscape == LT_TROPIC) ? GLS_TROPIC : GLS_OTHER;
 

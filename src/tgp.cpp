@@ -229,11 +229,11 @@ static height_t TGPGetMaxHeight()
 	 */
 	static const int max_height[5][MAX_MAP_SIZE_BITS - MIN_MAP_SIZE_BITS + 1] = {
 		/* 64  128  256  512 1024 2048 4096 */
-		{   3,   3,   3,   3,   4,   5,   7 }, ///< Very flat
-		{   5,   7,   8,   9,  14,  19,  31 }, ///< Flat
-		{   8,   9,  10,  15,  23,  37,  61 }, ///< Hilly
-		{  10,  11,  17,  19,  49,  63,  73 }, ///< Mountainous
-		{  12,  19,  25,  31,  67,  75,  87 }, ///< Alpinist
+		{   3,   3,   3,   3,   4,   5,   7 }, // Very flat
+		{   5,   7,   8,   9,  14,  19,  31 }, // Flat
+		{   8,   9,  10,  15,  23,  37,  61 }, // Hilly
+		{  10,  11,  17,  19,  49,  63,  73 }, // Mountainous
+		{  12,  19,  25,  31,  67,  75,  87 }, // Alpinist
 	};
 
 	int map_size_bucket = std::min(MapLogX(), MapLogY()) - MIN_MAP_SIZE_BITS;
@@ -266,10 +266,10 @@ static amplitude_t GetAmplitude(int frequency)
 	/* Base noise amplitudes (multiplied by 1024) and indexed by "smoothness setting" and log2(frequency). */
 	static const amplitude_t amplitudes[][7] = {
 		/* lowest frequency ...... highest (every corner) */
-		{16000,  5600,  1968,   688,   240,    16,    16}, ///< Very smooth
-		{24000, 12800,  6400,  2700,  1024,   128,    16}, ///< Smooth
-		{32000, 19200, 12800,  8000,  3200,   256,    64}, ///< Rough
-		{48000, 24000, 19200, 16000,  8000,   512,   320}, ///< Very rough
+		{16000,  5600,  1968,   688,   240,    16,    16}, // Very smooth
+		{24000, 12800,  6400,  2700,  1024,   128,    16}, // Smooth
+		{32000, 19200, 12800,  8000,  3200,   256,    64}, // Rough
+		{48000, 24000, 19200, 16000,  8000,   512,   320}, // Very rough
 	};
 	/*
 	 * Extrapolation factors for ranges before the table.
@@ -550,8 +550,8 @@ static void HeightMapCurves(uint level)
 
 	/** Basically scale height X to height Y. Everything in between is interpolated. */
 	struct control_point_t {
-		height_t x; ///< The height to scale from.
-		height_t y; ///< The height to scale to.
+		height_t x; // The height to scale from.
+		height_t y; // The height to scale to.
 	};
 	/* Scaled curve maps; value is in height_ts. */
 #define F(fraction) ((height_t)(fraction * mh))
@@ -563,8 +563,8 @@ static void HeightMapCurves(uint level)
 
 	/** Helper structure to index the different curve maps. */
 	struct control_point_list_t {
-		size_t length;               ///< The length of the curve map.
-		const control_point_t *list; ///< The actual curve map.
+		size_t length;               // The length of the curve map.
+		const control_point_t *list; // The actual curve map.
 	};
 	const control_point_list_t curve_maps[] = {
 		{ lengthof(curve_map_1), curve_map_1 },

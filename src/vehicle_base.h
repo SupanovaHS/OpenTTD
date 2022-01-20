@@ -31,77 +31,77 @@ const uint TILE_CORNER_DISTANCE = 128;  // Logical length of the tile corner cro
 
 /** Vehicle status bits in #Vehicle::vehstatus. */
 enum VehStatus {
-	VS_HIDDEN          = 0x01, ///< Vehicle is not visible.
-	VS_STOPPED         = 0x02, ///< Vehicle is stopped by the player.
-	VS_UNCLICKABLE     = 0x04, ///< Vehicle is not clickable by the user (shadow vehicles).
-	VS_DEFPAL          = 0x08, ///< Use default vehicle palette. @see DoDrawVehicle
-	VS_TRAIN_SLOWING   = 0x10, ///< Train is slowing down.
-	VS_SHADOW          = 0x20, ///< Vehicle is a shadow vehicle.
-	VS_AIRCRAFT_BROKEN = 0x40, ///< Aircraft is broken down.
-	VS_CRASHED         = 0x80, ///< Vehicle is crashed.
+	VS_HIDDEN          = 0x01, // Vehicle is not visible.
+	VS_STOPPED         = 0x02, // Vehicle is stopped by the player.
+	VS_UNCLICKABLE     = 0x04, // Vehicle is not clickable by the user (shadow vehicles).
+	VS_DEFPAL          = 0x08, // Use default vehicle palette. @see DoDrawVehicle
+	VS_TRAIN_SLOWING   = 0x10, // Train is slowing down.
+	VS_SHADOW          = 0x20, // Vehicle is a shadow vehicle.
+	VS_AIRCRAFT_BROKEN = 0x40, // Aircraft is broken down.
+	VS_CRASHED         = 0x80, // Vehicle is crashed.
 };
 
 /** Bit numbers in #Vehicle::vehicle_flags. */
 enum VehicleFlags {
-	VF_LOADING_FINISHED,        ///< Vehicle has finished loading.
-	VF_CARGO_UNLOADING,         ///< Vehicle is unloading cargo.
-	VF_BUILT_AS_PROTOTYPE,      ///< Vehicle is a prototype (accepted as exclusive preview).
-	VF_TIMETABLE_STARTED,       ///< Whether the vehicle has started running on the timetable yet.
-	VF_AUTOFILL_TIMETABLE,      ///< Whether the vehicle should fill in the timetable automatically.
-	VF_AUTOFILL_PRES_WAIT_TIME, ///< Whether non-destructive auto-fill should preserve waiting times
-	VF_STOP_LOADING,            ///< Don't load anymore during the next load cycle.
-	VF_PATHFINDER_LOST,         ///< Vehicle's pathfinder is lost.
-	VF_SERVINT_IS_CUSTOM,       ///< Service interval is custom.
-	VF_SERVINT_IS_PERCENT,      ///< Service interval is percent.
+	VF_LOADING_FINISHED,        // Vehicle has finished loading.
+	VF_CARGO_UNLOADING,         // Vehicle is unloading cargo.
+	VF_BUILT_AS_PROTOTYPE,      // Vehicle is a prototype (accepted as exclusive preview).
+	VF_TIMETABLE_STARTED,       // Whether the vehicle has started running on the timetable yet.
+	VF_AUTOFILL_TIMETABLE,      // Whether the vehicle should fill in the timetable automatically.
+	VF_AUTOFILL_PRES_WAIT_TIME, // Whether non-destructive auto-fill should preserve waiting times
+	VF_STOP_LOADING,            // Don't load anymore during the next load cycle.
+	VF_PATHFINDER_LOST,         // Vehicle's pathfinder is lost.
+	VF_SERVINT_IS_CUSTOM,       // Service interval is custom.
+	VF_SERVINT_IS_PERCENT,      // Service interval is percent.
 };
 
 /** Bit numbers used to indicate which of the #NewGRFCache values are valid. */
 enum NewGRFCacheValidValues {
-	NCVV_POSITION_CONSIST_LENGTH   = 0, ///< This bit will be set if the NewGRF var 40 currently stored is valid.
-	NCVV_POSITION_SAME_ID_LENGTH   = 1, ///< This bit will be set if the NewGRF var 41 currently stored is valid.
-	NCVV_CONSIST_CARGO_INFORMATION = 2, ///< This bit will be set if the NewGRF var 42 currently stored is valid.
-	NCVV_COMPANY_INFORMATION       = 3, ///< This bit will be set if the NewGRF var 43 currently stored is valid.
-	NCVV_POSITION_IN_VEHICLE       = 4, ///< This bit will be set if the NewGRF var 4D currently stored is valid.
-	NCVV_END,                           ///< End of the bits.
+	NCVV_POSITION_CONSIST_LENGTH   = 0, // This bit will be set if the NewGRF var 40 currently stored is valid.
+	NCVV_POSITION_SAME_ID_LENGTH   = 1, // This bit will be set if the NewGRF var 41 currently stored is valid.
+	NCVV_CONSIST_CARGO_INFORMATION = 2, // This bit will be set if the NewGRF var 42 currently stored is valid.
+	NCVV_COMPANY_INFORMATION       = 3, // This bit will be set if the NewGRF var 43 currently stored is valid.
+	NCVV_POSITION_IN_VEHICLE       = 4, // This bit will be set if the NewGRF var 4D currently stored is valid.
+	NCVV_END,                           // End of the bits.
 };
 
 /** Cached often queried (NewGRF) values */
 struct NewGRFCache {
 	/* Values calculated when they are requested for the first time after invalidating the NewGRF cache. */
-	uint32 position_consist_length;   ///< Cache for NewGRF var 40.
-	uint32 position_same_id_length;   ///< Cache for NewGRF var 41.
-	uint32 consist_cargo_information; ///< Cache for NewGRF var 42. (Note: The cargotype is untranslated in the cache because the accessing GRF is yet unknown.)
-	uint32 company_information;       ///< Cache for NewGRF var 43.
-	uint32 position_in_vehicle;       ///< Cache for NewGRF var 4D.
-	uint8  cache_valid;               ///< Bitset that indicates which cache values are valid.
+	uint32 position_consist_length;   // Cache for NewGRF var 40.
+	uint32 position_same_id_length;   // Cache for NewGRF var 41.
+	uint32 consist_cargo_information; // Cache for NewGRF var 42. (Note: The cargotype is untranslated in the cache because the accessing GRF is yet unknown.)
+	uint32 company_information;       // Cache for NewGRF var 43.
+	uint32 position_in_vehicle;       // Cache for NewGRF var 4D.
+	uint8  cache_valid;               // Bitset that indicates which cache values are valid.
 };
 
 /** Meaning of the various bits of the visual effect. */
 enum VisualEffect {
-	VE_OFFSET_START        = 0, ///< First bit that contains the offset (0 = front, 8 = centre, 15 = rear)
-	VE_OFFSET_COUNT        = 4, ///< Number of bits used for the offset
-	VE_OFFSET_CENTRE       = 8, ///< Value of offset corresponding to a position above the centre of the vehicle
+	VE_OFFSET_START        = 0, // First bit that contains the offset (0 = front, 8 = centre, 15 = rear)
+	VE_OFFSET_COUNT        = 4, // Number of bits used for the offset
+	VE_OFFSET_CENTRE       = 8, // Value of offset corresponding to a position above the centre of the vehicle
 
-	VE_TYPE_START          = 4, ///< First bit used for the type of effect
-	VE_TYPE_COUNT          = 2, ///< Number of bits used for the effect type
-	VE_TYPE_DEFAULT        = 0, ///< Use default from engine class
-	VE_TYPE_STEAM          = 1, ///< Steam plumes
-	VE_TYPE_DIESEL         = 2, ///< Diesel fumes
-	VE_TYPE_ELECTRIC       = 3, ///< Electric sparks
+	VE_TYPE_START          = 4, // First bit used for the type of effect
+	VE_TYPE_COUNT          = 2, // Number of bits used for the effect type
+	VE_TYPE_DEFAULT        = 0, // Use default from engine class
+	VE_TYPE_STEAM          = 1, // Steam plumes
+	VE_TYPE_DIESEL         = 2, // Diesel fumes
+	VE_TYPE_ELECTRIC       = 3, // Electric sparks
 
-	VE_DISABLE_EFFECT      = 6, ///< Flag to disable visual effect
-	VE_ADVANCED_EFFECT     = VE_DISABLE_EFFECT, ///< Flag for advanced effects
-	VE_DISABLE_WAGON_POWER = 7, ///< Flag to disable wagon power
+	VE_DISABLE_EFFECT      = 6, // Flag to disable visual effect
+	VE_ADVANCED_EFFECT     = VE_DISABLE_EFFECT, // Flag for advanced effects
+	VE_DISABLE_WAGON_POWER = 7, // Flag to disable wagon power
 
-	VE_DEFAULT = 0xFF,          ///< Default value to indicate that visual effect should be based on engine class
+	VE_DEFAULT = 0xFF,          // Default value to indicate that visual effect should be based on engine class
 };
 
 /** Models for spawning visual effects. */
 enum VisualEffectSpawnModel {
-	VESM_NONE              = 0, ///< No visual effect
-	VESM_STEAM,                 ///< Steam model
-	VESM_DIESEL,                ///< Diesel model
-	VESM_ELECTRIC,              ///< Electric model
+	VESM_NONE              = 0, // No visual effect
+	VESM_STEAM,                 // Steam model
+	VESM_DIESEL,                // Diesel model
+	VESM_ELECTRIC,              // Electric model
 
 	VESM_END
 };
@@ -112,20 +112,20 @@ enum VisualEffectSpawnModel {
  * Do not access it directly unless you have to. Use the subtype access functions.
  */
 enum GroundVehicleSubtypeFlags {
-	GVSF_FRONT            = 0, ///< Leading engine of a consist.
-	GVSF_ARTICULATED_PART = 1, ///< Articulated part of an engine.
-	GVSF_WAGON            = 2, ///< Wagon (not used for road vehicles).
-	GVSF_ENGINE           = 3, ///< Engine that can be front engine, but might be placed behind another engine (not used for road vehicles).
-	GVSF_FREE_WAGON       = 4, ///< First in a wagon chain (in depot) (not used for road vehicles).
-	GVSF_MULTIHEADED      = 5, ///< Engine is multiheaded (not used for road vehicles).
+	GVSF_FRONT            = 0, // Leading engine of a consist.
+	GVSF_ARTICULATED_PART = 1, // Articulated part of an engine.
+	GVSF_WAGON            = 2, // Wagon (not used for road vehicles).
+	GVSF_ENGINE           = 3, // Engine that can be front engine, but might be placed behind another engine (not used for road vehicles).
+	GVSF_FREE_WAGON       = 4, // First in a wagon chain (in depot) (not used for road vehicles).
+	GVSF_MULTIHEADED      = 5, // Engine is multiheaded (not used for road vehicles).
 };
 
 /** Cached often queried values common to all vehicles. */
 struct VehicleCache {
-	uint16 cached_max_speed;        ///< Maximum speed of the consist (minimum of the max speed of all vehicles in the consist).
-	uint16 cached_cargo_age_period; ///< Number of ticks before carried cargo is aged.
+	uint16 cached_max_speed;        // Maximum speed of the consist (minimum of the max speed of all vehicles in the consist).
+	uint16 cached_cargo_age_period; // Number of ticks before carried cargo is aged.
 
-	byte cached_vis_effect;  ///< Visual effect to show (see #VisualEffect)
+	byte cached_vis_effect;  // Visual effect to show (see #VisualEffect)
 };
 
 /** Sprite sequence for a vehicle part. */
@@ -190,11 +190,11 @@ struct VehicleSpriteSeq {
  * or calculating the viewport.
  */
 struct MutableSpriteCache {
-	Direction last_direction;     ///< Last direction we obtained sprites for
-	bool revalidate_before_draw;  ///< We need to do a GetImage() and check bounds before drawing this sprite
-	Rect old_coord;               ///< Co-ordinates from the last valid bounding box
-	bool is_viewport_candidate;   ///< This vehicle can potentially be drawn on a viewport
-	VehicleSpriteSeq sprite_seq;  ///< Vehicle appearance.
+	Direction last_direction;     // Last direction we obtained sprites for
+	bool revalidate_before_draw;  // We need to do a GetImage() and check bounds before drawing this sprite
+	Rect old_coord;               // Co-ordinates from the last valid bounding box
+	bool is_viewport_candidate;   // This vehicle can potentially be drawn on a viewport
+	VehicleSpriteSeq sprite_seq;  // Vehicle appearance.
 };
 
 /** A vehicle pool for a little over 1 million vehicles. */
@@ -213,9 +213,9 @@ struct GRFFile;
  * Simulated cargo type and capacity for prediction of future links.
  */
 struct RefitDesc {
-	CargoID cargo;    ///< Cargo type the vehicle will be carrying.
-	uint16 capacity;  ///< Capacity the vehicle will have.
-	uint16 remaining; ///< Capacity remaining from before the previous refit.
+	CargoID cargo;    // Cargo type the vehicle will be carrying.
+	uint16 capacity;  // Capacity the vehicle will have.
+	uint16 remaining; // Capacity remaining from before the previous refit.
 	RefitDesc(CargoID cargo, uint16 capacity, uint16 remaining) :
 			cargo(cargo), capacity(capacity), remaining(remaining) {}
 };
@@ -226,23 +226,23 @@ private:
 	typedef std::list<RefitDesc> RefitList;
 	typedef std::map<CargoID, uint> CapacitiesMap;
 
-	Vehicle *next;                      ///< pointer to the next vehicle in the chain
-	Vehicle *previous;                  ///< NOSAVE: pointer to the previous vehicle in the chain
-	Vehicle *first;                     ///< NOSAVE: pointer to the first vehicle in the chain
+	Vehicle *next;                      // pointer to the next vehicle in the chain
+	Vehicle *previous;                  // NOSAVE: pointer to the previous vehicle in the chain
+	Vehicle *first;                     // NOSAVE: pointer to the first vehicle in the chain
 
-	Vehicle *next_shared;               ///< pointer to the next vehicle that shares the order
-	Vehicle *previous_shared;           ///< NOSAVE: pointer to the previous vehicle in the shared order chain
+	Vehicle *next_shared;               // pointer to the next vehicle that shares the order
+	Vehicle *previous_shared;           // NOSAVE: pointer to the previous vehicle in the shared order chain
 
 public:
 	friend void FixOldVehicles();
-	friend void AfterLoadVehicles(bool part_of_load);             ///< So we can set the #previous and #first pointers while loading
-	friend bool LoadOldVehicle(LoadgameState *ls, int num);       ///< So we can set the proper next pointer while loading
+	friend void AfterLoadVehicles(bool part_of_load);             // So we can set the #previous and #first pointers while loading
+	friend bool LoadOldVehicle(LoadgameState *ls, int num);       // So we can set the proper next pointer while loading
 	/* So we can use private/protected variables in the saveload code */
 	friend class SlVehicleCommon;
 	friend class SlVehicleDisaster;
 	friend void Ptrs_VEHS();
 
-	TileIndex tile;                     ///< Current tile index
+	TileIndex tile;                     // Current tile index
 
 	/**
 	 * Heading for this tile.
@@ -251,99 +251,99 @@ public:
 	 */
 	TileIndex dest_tile;
 
-	Money profit_this_year;             ///< Profit this year << 8, low 8 bits are fract
-	Money profit_last_year;             ///< Profit last year << 8, low 8 bits are fract
-	Money value;                        ///< Value of the vehicle
+	Money profit_this_year;             // Profit this year << 8, low 8 bits are fract
+	Money profit_last_year;             // Profit last year << 8, low 8 bits are fract
+	Money value;                        // Value of the vehicle
 
-	CargoPayment *cargo_payment;        ///< The cargo payment we're currently in
+	CargoPayment *cargo_payment;        // The cargo payment we're currently in
 
-	mutable Rect coord;                 ///< NOSAVE: Graphical bounding box of the vehicle, i.e. what to redraw on moves.
+	mutable Rect coord;                 // NOSAVE: Graphical bounding box of the vehicle, i.e. what to redraw on moves.
 
-	Vehicle *hash_viewport_next;        ///< NOSAVE: Next vehicle in the visual location hash.
-	Vehicle **hash_viewport_prev;       ///< NOSAVE: Previous vehicle in the visual location hash.
+	Vehicle *hash_viewport_next;        // NOSAVE: Next vehicle in the visual location hash.
+	Vehicle **hash_viewport_prev;       // NOSAVE: Previous vehicle in the visual location hash.
 
-	Vehicle *hash_tile_next;            ///< NOSAVE: Next vehicle in the tile location hash.
-	Vehicle **hash_tile_prev;           ///< NOSAVE: Previous vehicle in the tile location hash.
-	Vehicle **hash_tile_current;        ///< NOSAVE: Cache of the current hash chain.
+	Vehicle *hash_tile_next;            // NOSAVE: Next vehicle in the tile location hash.
+	Vehicle **hash_tile_prev;           // NOSAVE: Previous vehicle in the tile location hash.
+	Vehicle **hash_tile_current;        // NOSAVE: Cache of the current hash chain.
 
-	SpriteID colourmap;                 ///< NOSAVE: cached colour mapping
+	SpriteID colourmap;                 // NOSAVE: cached colour mapping
 
 	/* Related to age and service time */
-	Year build_year;                    ///< Year the vehicle has been built.
-	Date age;                           ///< Age in days
-	Date max_age;                       ///< Maximum age
-	Date date_of_last_service;          ///< Last date the vehicle had a service at a depot.
-	uint16 reliability;                 ///< Reliability.
-	uint16 reliability_spd_dec;         ///< Reliability decrease speed.
-	byte breakdown_ctr;                 ///< Counter for managing breakdown events. @see Vehicle::HandleBreakdown
-	byte breakdown_delay;               ///< Counter for managing breakdown length.
-	byte breakdowns_since_last_service; ///< Counter for the amount of breakdowns.
-	byte breakdown_chance;              ///< Current chance of breakdowns.
+	Year build_year;                    // Year the vehicle has been built.
+	Date age;                           // Age in days
+	Date max_age;                       // Maximum age
+	Date date_of_last_service;          // Last date the vehicle had a service at a depot.
+	uint16 reliability;                 // Reliability.
+	uint16 reliability_spd_dec;         // Reliability decrease speed.
+	byte breakdown_ctr;                 // Counter for managing breakdown events. @see Vehicle::HandleBreakdown
+	byte breakdown_delay;               // Counter for managing breakdown length.
+	byte breakdowns_since_last_service; // Counter for the amount of breakdowns.
+	byte breakdown_chance;              // Current chance of breakdowns.
 
-	int32 x_pos;                        ///< x coordinate.
-	int32 y_pos;                        ///< y coordinate.
-	int32 z_pos;                        ///< z coordinate.
-	Direction direction;                ///< facing
+	int32 x_pos;                        // x coordinate.
+	int32 y_pos;                        // y coordinate.
+	int32 z_pos;                        // z coordinate.
+	Direction direction;                // facing
 
-	Owner owner;                        ///< Which company owns the vehicle?
+	Owner owner;                        // Which company owns the vehicle?
 	/**
 	 * currently displayed sprite index
 	 * 0xfd == custom sprite, 0xfe == custom second head sprite
 	 * 0xff == reserved for another custom sprite
 	 */
 	byte spritenum;
-	byte x_extent;                      ///< x-extent of vehicle bounding box
-	byte y_extent;                      ///< y-extent of vehicle bounding box
-	byte z_extent;                      ///< z-extent of vehicle bounding box
-	int8 x_bb_offs;                     ///< x offset of vehicle bounding box
-	int8 y_bb_offs;                     ///< y offset of vehicle bounding box
-	int8 x_offs;                        ///< x offset for vehicle sprite
-	int8 y_offs;                        ///< y offset for vehicle sprite
-	EngineID engine_type;               ///< The type of engine used for this vehicle.
+	byte x_extent;                      // x-extent of vehicle bounding box
+	byte y_extent;                      // y-extent of vehicle bounding box
+	byte z_extent;                      // z-extent of vehicle bounding box
+	int8 x_bb_offs;                     // x offset of vehicle bounding box
+	int8 y_bb_offs;                     // y offset of vehicle bounding box
+	int8 x_offs;                        // x offset for vehicle sprite
+	int8 y_offs;                        // y offset for vehicle sprite
+	EngineID engine_type;               // The type of engine used for this vehicle.
 
-	TextEffectID fill_percent_te_id;    ///< a text-effect id to a loading indicator object
-	UnitID unitnumber;                  ///< unit number, for display purposes only
+	TextEffectID fill_percent_te_id;    // a text-effect id to a loading indicator object
+	UnitID unitnumber;                  // unit number, for display purposes only
 
-	uint16 cur_speed;                   ///< current speed
-	byte subspeed;                      ///< fractional speed
-	byte acceleration;                  ///< used by train & aircraft
-	uint32 motion_counter;              ///< counter to occasionally play a vehicle sound.
-	byte progress;                      ///< The percentage (if divided by 256) this vehicle already crossed the tile unit.
+	uint16 cur_speed;                   // current speed
+	byte subspeed;                      // fractional speed
+	byte acceleration;                  // used by train & aircraft
+	uint32 motion_counter;              // counter to occasionally play a vehicle sound.
+	byte progress;                      // The percentage (if divided by 256) this vehicle already crossed the tile unit.
 
-	byte random_bits;                   ///< Bits used for determining which randomized variational spritegroups to use when drawing.
-	byte waiting_triggers;              ///< Triggers to be yet matched before rerandomizing the random bits.
+	byte random_bits;                   // Bits used for determining which randomized variational spritegroups to use when drawing.
+	byte waiting_triggers;              // Triggers to be yet matched before rerandomizing the random bits.
 
-	StationID last_station_visited;     ///< The last station we stopped at.
-	StationID last_loading_station;     ///< Last station the vehicle has stopped at and could possibly leave from with any cargo loaded.
+	StationID last_station_visited;     // The last station we stopped at.
+	StationID last_loading_station;     // Last station the vehicle has stopped at and could possibly leave from with any cargo loaded.
 
-	CargoID cargo_type;                 ///< type of cargo this vehicle is carrying
-	byte cargo_subtype;                 ///< Used for livery refits (NewGRF variations)
-	uint16 cargo_cap;                   ///< total capacity
-	uint16 refit_cap;                   ///< Capacity left over from before last refit.
-	VehicleCargoList cargo;             ///< The cargo this vehicle is carrying
-	uint16 cargo_age_counter;           ///< Ticks till cargo is aged next.
-	int8 trip_occupancy;                ///< NOSAVE: Occupancy of vehicle of the current trip (updated after leaving a station).
+	CargoID cargo_type;                 // type of cargo this vehicle is carrying
+	byte cargo_subtype;                 // Used for livery refits (NewGRF variations)
+	uint16 cargo_cap;                   // total capacity
+	uint16 refit_cap;                   // Capacity left over from before last refit.
+	VehicleCargoList cargo;             // The cargo this vehicle is carrying
+	uint16 cargo_age_counter;           // Ticks till cargo is aged next.
+	int8 trip_occupancy;                // NOSAVE: Occupancy of vehicle of the current trip (updated after leaving a station).
 
-	byte day_counter;                   ///< Increased by one for each day
-	byte tick_counter;                  ///< Increased by one for each tick
-	byte running_ticks;                 ///< Number of ticks this vehicle was not stopped this day
+	byte day_counter;                   // Increased by one for each day
+	byte tick_counter;                  // Increased by one for each tick
+	byte running_ticks;                 // Number of ticks this vehicle was not stopped this day
 
-	byte vehstatus;                     ///< Status
-	Order current_order;                ///< The current order (+ status, like: loading)
+	byte vehstatus;                     // Status
+	Order current_order;                // The current order (+ status, like: loading)
 
 	union {
-		OrderList *list;            ///< Pointer to the order list for this vehicle
-		Order     *old;             ///< Only used during conversion of old save games
-	} orders;                           ///< The orders currently assigned to the vehicle.
+		OrderList *list;            // Pointer to the order list for this vehicle
+		Order     *old;             // Only used during conversion of old save games
+	} orders;                           // The orders currently assigned to the vehicle.
 
-	uint16 load_unload_ticks;           ///< Ticks to wait before starting next cycle.
-	GroupID group_id;                   ///< Index of group Pool array
-	byte subtype;                       ///< subtype (Filled with values from #AircraftSubType/#DisasterSubType/#EffectVehicleType/#GroundVehicleSubtypeFlags)
+	uint16 load_unload_ticks;           // Ticks to wait before starting next cycle.
+	GroupID group_id;                   // Index of group Pool array
+	byte subtype;                       // subtype (Filled with values from #AircraftSubType/#DisasterSubType/#EffectVehicleType/#GroundVehicleSubtypeFlags)
 
-	NewGRFCache grf_cache;              ///< Cache of often used calculated NewGRF values
-	VehicleCache vcache;                ///< Cache of often used vehicle values.
+	NewGRFCache grf_cache;              // Cache of often used calculated NewGRF values
+	VehicleCache vcache;                // Cache of often used vehicle values.
 
-	mutable MutableSpriteCache sprite_cache; ///< Cache of sprites and values related to recalculating them, see #MutableSpriteCache
+	mutable MutableSpriteCache sprite_cache; // Cache of sprites and values related to recalculating them, see #MutableSpriteCache
 
 	Vehicle(VehicleType type = VEH_INVALID);
 
@@ -1047,9 +1047,9 @@ public:
  */
 template <class T, VehicleType Type>
 struct SpecializedVehicle : public Vehicle {
-	static const VehicleType EXPECTED_TYPE = Type; ///< Specialized type
+	static const VehicleType EXPECTED_TYPE = Type; // Specialized type
 
-	typedef SpecializedVehicle<T, Type> SpecializedVehicleBase; ///< Our type
+	typedef SpecializedVehicle<T, Type> SpecializedVehicleBase; // Our type
 
 	/**
 	 * Set vehicle type correctly
@@ -1240,9 +1240,9 @@ struct SpecializedVehicle : public Vehicle {
 
 /** Generates sequence of free UnitID numbers */
 struct FreeUnitIDGenerator {
-	bool *cache;  ///< array of occupied unit id numbers
-	UnitID maxid; ///< maximum ID at the moment of constructor call
-	UnitID curid; ///< last ID returned; 0 if none
+	bool *cache;  // array of occupied unit id numbers
+	UnitID maxid; // maximum ID at the moment of constructor call
+	UnitID curid; // last ID returned; 0 if none
 
 	FreeUnitIDGenerator(VehicleType type, CompanyID owner);
 	UnitID NextID();

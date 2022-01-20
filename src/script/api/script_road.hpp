@@ -50,37 +50,37 @@ public:
 	 */
 	enum RoadType {
 		/* Note: these values represent part of the in-game static values */
-		ROADTYPE_ROAD    = ::ROADTYPE_ROAD,    ///< Build road objects.
-		ROADTYPE_TRAM    = ::ROADTYPE_TRAM,    ///< Build tram objects.
+		ROADTYPE_ROAD    = ::ROADTYPE_ROAD,    // Build road objects.
+		ROADTYPE_TRAM    = ::ROADTYPE_TRAM,    // Build tram objects.
 
 		/* Custom added value, only valid for this API */
-		ROADTYPE_INVALID = -1,                 ///< Invalid RoadType.
+		ROADTYPE_INVALID = -1,                 // Invalid RoadType.
 	};
 
 	/**
 	 * Road/tram types
 	 */
 	enum RoadTramTypes : uint8 {
-		ROADTRAMTYPES_ROAD = ::RTTB_ROAD, ///< Road road types.
-		ROADTRAMTYPES_TRAM = ::RTTB_TRAM, ///< Tram road types.
+		ROADTRAMTYPES_ROAD = ::RTTB_ROAD, // Road road types.
+		ROADTRAMTYPES_TRAM = ::RTTB_TRAM, // Tram road types.
 	};
 
 	/**
 	 * Type of road station.
 	 */
 	enum RoadVehicleType {
-		ROADVEHTYPE_BUS,   ///< Build objects useable for busses and passenger trams
-		ROADVEHTYPE_TRUCK, ///< Build objects useable for trucks and cargo trams
+		ROADVEHTYPE_BUS,   // Build objects useable for busses and passenger trams
+		ROADVEHTYPE_TRUCK, // Build objects useable for trucks and cargo trams
 	};
 
 	/**
 	 * Types of road-related objects in the game.
 	 */
 	enum BuildType {
-		BT_ROAD,       ///< Build a piece of road
-		BT_DEPOT,      ///< Build a road depot
-		BT_BUS_STOP,   ///< Build a bus stop
-		BT_TRUCK_STOP, ///< Build a truck stop
+		BT_ROAD,       // Build a piece of road
+		BT_DEPOT,      // Build a road depot
+		BT_BUS_STOP,   // Build a bus stop
+		BT_TRUCK_STOP, // Build a truck stop
 	};
 
 	/**

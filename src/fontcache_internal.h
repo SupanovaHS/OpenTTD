@@ -14,7 +14,7 @@
 #include "fontcache.h"
 
 
-static const int MAX_FONT_SIZE = 72; ///< Maximum font size.
+static const int MAX_FONT_SIZE = 72; // Maximum font size.
 
 static const byte FACE_COLOUR = 1;
 static const byte SHADOW_COLOUR = 2;
@@ -22,20 +22,20 @@ static const byte SHADOW_COLOUR = 2;
 /** Font cache for fonts that are based on a TrueType font. */
 class TrueTypeFontCache : public FontCache {
 protected:
-	static constexpr int MAX_GLYPH_DIM = 256;          ///< Maximum glyph dimensions.
-	static constexpr uint MAX_FONT_MIN_REC_SIZE = 20u; ///< Upper limit for the recommended font size in case a font file contains nonsensical values.
+	static constexpr int MAX_GLYPH_DIM = 256;          // Maximum glyph dimensions.
+	static constexpr uint MAX_FONT_MIN_REC_SIZE = 20u; // Upper limit for the recommended font size in case a font file contains nonsensical values.
 
-	int req_size;  ///< Requested font size.
-	int used_size; ///< Used font size.
+	int req_size;  // Requested font size.
+	int used_size; // Used font size.
 
-	typedef SmallMap<uint32, std::pair<size_t, const void *> > FontTable; ///< Table with font table cache
-	FontTable font_tables; ///< Cached font tables.
+	typedef SmallMap<uint32, std::pair<size_t, const void *> > FontTable; // Table with font table cache
+	FontTable font_tables; // Cached font tables.
 
 	/** Container for information about a glyph. */
 	struct GlyphEntry {
-		Sprite *sprite; ///< The loaded sprite.
-		byte width;     ///< The width of the glyph.
-		bool duplicate; ///< Whether this glyph entry is a duplicate, i.e. may this be freed?
+		Sprite *sprite; // The loaded sprite.
+		byte width;     // The width of the glyph.
+		bool duplicate; // Whether this glyph entry is a duplicate, i.e. may this be freed?
 	};
 
 	/**

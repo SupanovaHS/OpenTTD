@@ -495,38 +495,38 @@ private:
 	/** Displayed planes of the #NWID_SELECTION widgets. */
 	enum DisplayPane {
 		/* WID_O_SEL_TOP_ROW_GROUNDVEHICLE */
-		DP_GROUNDVEHICLE_ROW_NORMAL      = 0, ///< Display the row for normal/depot orders in the top row of the train/rv order window.
-		DP_GROUNDVEHICLE_ROW_CONDITIONAL = 1, ///< Display the row for conditional orders in the top row of the train/rv order window.
+		DP_GROUNDVEHICLE_ROW_NORMAL      = 0, // Display the row for normal/depot orders in the top row of the train/rv order window.
+		DP_GROUNDVEHICLE_ROW_CONDITIONAL = 1, // Display the row for conditional orders in the top row of the train/rv order window.
 
 		/* WID_O_SEL_TOP_LEFT */
-		DP_LEFT_LOAD       = 0, ///< Display 'load' in the left button of the top row of the train/rv order window.
-		DP_LEFT_REFIT      = 1, ///< Display 'refit' in the left button of the top row of the train/rv order window.
+		DP_LEFT_LOAD       = 0, // Display 'load' in the left button of the top row of the train/rv order window.
+		DP_LEFT_REFIT      = 1, // Display 'refit' in the left button of the top row of the train/rv order window.
 
 		/* WID_O_SEL_TOP_MIDDLE */
-		DP_MIDDLE_UNLOAD   = 0, ///< Display 'unload' in the middle button of the top row of the train/rv order window.
-		DP_MIDDLE_SERVICE  = 1, ///< Display 'service' in the middle button of the top row of the train/rv order window.
+		DP_MIDDLE_UNLOAD   = 0, // Display 'unload' in the middle button of the top row of the train/rv order window.
+		DP_MIDDLE_SERVICE  = 1, // Display 'service' in the middle button of the top row of the train/rv order window.
 
 		/* WID_O_SEL_TOP_RIGHT */
-		DP_RIGHT_EMPTY     = 0, ///< Display an empty panel in the right button of the top row of the train/rv order window.
-		DP_RIGHT_REFIT     = 1, ///< Display 'refit' in the right button of the top  row of the train/rv order window.
+		DP_RIGHT_EMPTY     = 0, // Display an empty panel in the right button of the top row of the train/rv order window.
+		DP_RIGHT_REFIT     = 1, // Display 'refit' in the right button of the top  row of the train/rv order window.
 
 		/* WID_O_SEL_TOP_ROW */
-		DP_ROW_LOAD        = 0, ///< Display 'load' / 'unload' / 'refit' buttons in the top row of the ship/airplane order window.
-		DP_ROW_DEPOT       = 1, ///< Display 'refit' / 'service' buttons in the top row of the ship/airplane order window.
-		DP_ROW_CONDITIONAL = 2, ///< Display the conditional order buttons in the top row of the ship/airplane order window.
+		DP_ROW_LOAD        = 0, // Display 'load' / 'unload' / 'refit' buttons in the top row of the ship/airplane order window.
+		DP_ROW_DEPOT       = 1, // Display 'refit' / 'service' buttons in the top row of the ship/airplane order window.
+		DP_ROW_CONDITIONAL = 2, // Display the conditional order buttons in the top row of the ship/airplane order window.
 
 		/* WID_O_SEL_BOTTOM_MIDDLE */
-		DP_BOTTOM_MIDDLE_DELETE       = 0, ///< Display 'delete' in the middle button of the bottom row of the vehicle order window.
-		DP_BOTTOM_MIDDLE_STOP_SHARING = 1, ///< Display 'stop sharing' in the middle button of the bottom row of the vehicle order window.
+		DP_BOTTOM_MIDDLE_DELETE       = 0, // Display 'delete' in the middle button of the bottom row of the vehicle order window.
+		DP_BOTTOM_MIDDLE_STOP_SHARING = 1, // Display 'stop sharing' in the middle button of the bottom row of the vehicle order window.
 	};
 
 	int selected_order;
-	VehicleOrderID order_over;         ///< Order over which another order is dragged, \c INVALID_VEH_ORDER_ID if none.
+	VehicleOrderID order_over;         // Order over which another order is dragged, \c INVALID_VEH_ORDER_ID if none.
 	OrderPlaceObjectState goto_type;
-	const Vehicle *vehicle; ///< Vehicle owning the orders being displayed and manipulated.
+	const Vehicle *vehicle; // Vehicle owning the orders being displayed and manipulated.
 	Scrollbar *vscroll;
-	bool can_do_refit;     ///< Vehicle chain can be refitted in depot.
-	bool can_do_autorefit; ///< Vehicle chain can be auto-refitted.
+	bool can_do_refit;     // Vehicle chain can be refitted in depot.
+	bool can_do_autorefit; // Vehicle chain can be auto-refitted.
 
 	/**
 	 * Return the memorised selected order.

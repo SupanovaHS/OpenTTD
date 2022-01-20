@@ -14,7 +14,7 @@
 #include "../fileio_func.h"
 #include "../core/string_compare_type.hpp"
 
-typedef std::map<const char *, class ScriptInfo *, StringCompare> ScriptInfoList; ///< Type for the list of scripts.
+typedef std::map<const char *, class ScriptInfo *, StringCompare> ScriptInfoList; // Type for the list of scripts.
 
 /** Scanner to help finding scripts. */
 class ScriptScanner : public FileScanner {
@@ -83,12 +83,12 @@ public:
 	void RescanDir();
 
 protected:
-	class Squirrel *engine;  ///< The engine we're scanning with.
-	std::string main_script; ///< The full path of the script.
-	std::string tar_file;    ///< If, which tar file the script was in.
+	class Squirrel *engine;  // The engine we're scanning with.
+	std::string main_script; // The full path of the script.
+	std::string tar_file;    // If, which tar file the script was in.
 
-	ScriptInfoList info_list;        ///< The list of all script.
-	ScriptInfoList info_single_list; ///< The list of all unique script. The best script (highest version) is shown.
+	ScriptInfoList info_list;        // The list of all script.
+	ScriptInfoList info_single_list; // The list of all unique script. The best script (highest version) is shown.
 
 	/**
 	 * Initialize the scanner.

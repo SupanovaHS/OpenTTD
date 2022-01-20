@@ -19,8 +19,8 @@ enum GroupFlags : uint8;
 
 /** Action for \c CmdAlterGroup. */
 enum class AlterGroupMode : byte {
-	Rename,    ///< Change group name.
-	SetParent, ///< Change group parent.
+	Rename,    // Change group name.
+	SetParent, // Change group parent.
 };
 
 std::tuple<CommandCost, GroupID> CmdCreateGroup(DoCommandFlag flags, VehicleType vt, GroupID parent_group);

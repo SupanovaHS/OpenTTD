@@ -96,7 +96,7 @@ static TileIndex GetOtherAqueductEnd(TileIndex tile_from, TileIndex *tile_to = n
 
 /** Toolbar window for constructing water infrastructure. */
 struct BuildDocksToolbarWindow : Window {
-	DockToolbarWidgets last_clicked_widget; ///< Contains the last widget that has been clicked on this toolbar.
+	DockToolbarWidgets last_clicked_widget; // Contains the last widget that has been clicked on this toolbar.
 
 	BuildDocksToolbarWindow(WindowDesc *desc, WindowNumber window_number) : Window(desc)
 	{
@@ -412,10 +412,10 @@ Window *ShowBuildDocksScenToolbar()
 
 /** Widget numbers of the build-dock GUI. */
 enum BuildDockStationWidgets {
-	BDSW_BACKGROUND, ///< Background panel.
-	BDSW_LT_OFF,     ///< 'Off' button of coverage high light.
-	BDSW_LT_ON,      ///< 'On' button of coverage high light.
-	BDSW_INFO,       ///< 'Coverage highlight' label.
+	BDSW_BACKGROUND, // Background panel.
+	BDSW_LT_OFF,     // 'Off' button of coverage high light.
+	BDSW_LT_ON,      // 'On' button of coverage high light.
+	BDSW_INFO,       // 'Coverage highlight' label.
 };
 
 struct BuildDocksStationWindow : public PickerWindowBase {

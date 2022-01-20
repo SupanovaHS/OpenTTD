@@ -21,14 +21,14 @@
 
 /* Compiles a list of strings into a compiled string list */
 
-static bool _translated;              ///< Whether the current language is not the master language
-static bool _translation;             ///< Is the current file actually a translation or not
-const char *_file = "(unknown file)"; ///< The filename of the input, so we can refer to it in errors/warnings
-int _cur_line;                        ///< The current line we're parsing in the input file
+static bool _translated;              // Whether the current language is not the master language
+static bool _translation;             // Is the current file actually a translation or not
+const char *_file = "(unknown file)"; // The filename of the input, so we can refer to it in errors/warnings
+int _cur_line;                        // The current line we're parsing in the input file
 int _errors, _warnings, _show_todo;
-LanguagePackHeader _lang;             ///< Header information about a language.
+LanguagePackHeader _lang;             // Header information about a language.
 
-static const ptrdiff_t MAX_COMMAND_PARAM_SIZE = 100; ///< Maximum size of every command block, not counting the name of the command itself
+static const ptrdiff_t MAX_COMMAND_PARAM_SIZE = 100; // Maximum size of every command block, not counting the name of the command itself
 static const CmdStruct *ParseCommandString(const char **str, char *param, int *argno, int *casei);
 
 /**

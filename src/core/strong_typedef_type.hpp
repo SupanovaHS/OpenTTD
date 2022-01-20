@@ -27,7 +27,7 @@ template <class T, class Tthis>
 struct StrongTypedef : StrongTypedefBase {
 	using Type = T;
 
-	T value{}; ///< Backing storage field.
+	T value{}; // Backing storage field.
 
 	constexpr StrongTypedef() = default;
 	constexpr StrongTypedef(const StrongTypedef &o) = default;

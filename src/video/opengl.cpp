@@ -198,8 +198,8 @@ static bool IsOpenGLExtensionSupported(const char *extension)
 	return false;
 }
 
-static byte _gl_major_ver = 0; ///< Major OpenGL version.
-static byte _gl_minor_ver = 0; ///< Minor OpenGL version.
+static byte _gl_major_ver = 0; // Major OpenGL version.
+static byte _gl_minor_ver = 0; // Minor OpenGL version.
 
 /**
  * Check if the current OpenGL version is equal or higher than a given one.

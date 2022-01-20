@@ -18,8 +18,8 @@
 
 /** What is the status of our acceleration? */
 enum AccelStatus {
-	AS_ACCEL, ///< We want to go faster, if possible of course.
-	AS_BRAKE, ///< We want to stop.
+	AS_ACCEL, // We want to go faster, if possible of course.
+	AS_BRAKE, // We want to stop.
 };
 
 /**
@@ -28,30 +28,30 @@ enum AccelStatus {
  */
 struct GroundVehicleCache {
 	/* Cached acceleration values, recalculated when the cargo on a vehicle changes (in addition to the conditions below) */
-	uint32 cached_weight;           ///< Total weight of the consist (valid only for the first engine).
-	uint32 cached_slope_resistance; ///< Resistance caused by weight when this vehicle part is at a slope.
-	uint32 cached_max_te;           ///< Maximum tractive effort of consist (valid only for the first engine).
-	uint16 cached_axle_resistance;  ///< Resistance caused by the axles of the vehicle (valid only for the first engine).
+	uint32 cached_weight;           // Total weight of the consist (valid only for the first engine).
+	uint32 cached_slope_resistance; // Resistance caused by weight when this vehicle part is at a slope.
+	uint32 cached_max_te;           // Maximum tractive effort of consist (valid only for the first engine).
+	uint16 cached_axle_resistance;  // Resistance caused by the axles of the vehicle (valid only for the first engine).
 
 	/* Cached acceleration values, recalculated on load and each time a vehicle is added to/removed from the consist. */
-	uint16 cached_max_track_speed;  ///< Maximum consist speed (in internal units) limited by track type (valid only for the first engine).
-	uint32 cached_power;            ///< Total power of the consist (valid only for the first engine).
-	uint32 cached_air_drag;         ///< Air drag coefficient of the vehicle (valid only for the first engine).
+	uint16 cached_max_track_speed;  // Maximum consist speed (in internal units) limited by track type (valid only for the first engine).
+	uint32 cached_power;            // Total power of the consist (valid only for the first engine).
+	uint32 cached_air_drag;         // Air drag coefficient of the vehicle (valid only for the first engine).
 
 	/* Cached NewGRF values, recalculated on load and each time a vehicle is added to/removed from the consist. */
-	uint16 cached_total_length;     ///< Length of the whole vehicle (valid only for the first engine).
-	EngineID first_engine;          ///< Cached EngineID of the front vehicle. INVALID_ENGINE for the front vehicle itself.
-	uint8 cached_veh_length;        ///< Length of this vehicle in units of 1/VEHICLE_LENGTH of normal length. It is cached because this can be set by a callback.
+	uint16 cached_total_length;     // Length of the whole vehicle (valid only for the first engine).
+	EngineID first_engine;          // Cached EngineID of the front vehicle. INVALID_ENGINE for the front vehicle itself.
+	uint8 cached_veh_length;        // Length of this vehicle in units of 1/VEHICLE_LENGTH of normal length. It is cached because this can be set by a callback.
 
 	/* Cached UI information. */
-	uint16 last_speed;              ///< The last speed we did display, so we only have to redraw when this changes.
+	uint16 last_speed;              // The last speed we did display, so we only have to redraw when this changes.
 };
 
 /** Ground vehicle flags. */
 enum GroundVehicleFlags {
-	GVF_GOINGUP_BIT              = 0,  ///< Vehicle is currently going uphill. (Cached track information for acceleration)
-	GVF_GOINGDOWN_BIT            = 1,  ///< Vehicle is currently going downhill. (Cached track information for acceleration)
-	GVF_SUPPRESS_IMPLICIT_ORDERS = 2,  ///< Disable insertion and removal of automatic orders until the vehicle completes the real order.
+	GVF_GOINGUP_BIT              = 0,  // Vehicle is currently going uphill. (Cached track information for acceleration)
+	GVF_GOINGDOWN_BIT            = 1,  // Vehicle is currently going downhill. (Cached track information for acceleration)
+	GVF_SUPPRESS_IMPLICIT_ORDERS = 2,  // Disable insertion and removal of automatic orders until the vehicle completes the real order.
 };
 
 /**
@@ -77,10 +77,10 @@ enum GroundVehicleFlags {
  */
 template <class T, VehicleType Type>
 struct GroundVehicle : public SpecializedVehicle<T, Type> {
-	GroundVehicleCache gcache; ///< Cache of often calculated values.
-	uint16 gv_flags;           ///< @see GroundVehicleFlags.
+	GroundVehicleCache gcache; // Cache of often calculated values.
+	uint16 gv_flags;           // @see GroundVehicleFlags.
 
-	typedef GroundVehicle<T, Type> GroundVehicleBase; ///< Our type
+	typedef GroundVehicle<T, Type> GroundVehicleBase; // Our type
 
 	/**
 	 * The constructor at SpecializedVehicle must be called.

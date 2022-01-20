@@ -25,13 +25,13 @@ static const RailTypeLabel RAILTYPE_MAGLEV_LABEL   = 'MGLV';
  * This enumeration defines all 4 possible railtypes.
  */
 enum RailType : byte {
-	RAILTYPE_BEGIN    = 0,          ///< Used for iterations
-	RAILTYPE_RAIL     = 0,          ///< Standard non-electric rails
-	RAILTYPE_ELECTRIC = 1,          ///< Electric rails
-	RAILTYPE_MONO     = 2,          ///< Monorail
-	RAILTYPE_MAGLEV   = 3,          ///< Maglev
-	RAILTYPE_END      = 64,         ///< Used for iterations
-	INVALID_RAILTYPE  = 0xFF,       ///< Flag for invalid railtype
+	RAILTYPE_BEGIN    = 0,          // Used for iterations
+	RAILTYPE_RAIL     = 0,          // Standard non-electric rails
+	RAILTYPE_ELECTRIC = 1,          // Electric rails
+	RAILTYPE_MONO     = 2,          // Monorail
+	RAILTYPE_MAGLEV   = 3,          // Maglev
+	RAILTYPE_END      = 64,         // Used for iterations
+	INVALID_RAILTYPE  = 0xFF,       // Flag for invalid railtype
 };
 
 /** Allow incrementing of Track variables */
@@ -44,12 +44,12 @@ template <> struct EnumPropsT<RailType> : MakeEnumPropsT<RailType, byte, RAILTYP
  * @note Must be treated as a uint64 type, narrowing it causes bit membership tests to give wrong results, as in bug #6951.
  */
 enum RailTypes : uint64 {
-	RAILTYPES_NONE     = 0,                      ///< No rail types
-	RAILTYPES_RAIL     = 1 << RAILTYPE_RAIL,     ///< Non-electrified rails
-	RAILTYPES_ELECTRIC = 1 << RAILTYPE_ELECTRIC, ///< Electrified rails
-	RAILTYPES_MONO     = 1 << RAILTYPE_MONO,     ///< Monorail!
-	RAILTYPES_MAGLEV   = 1 << RAILTYPE_MAGLEV,   ///< Ever fast maglev
-	INVALID_RAILTYPES  = UINT64_MAX,             ///< Invalid railtypes
+	RAILTYPES_NONE     = 0,                      // No rail types
+	RAILTYPES_RAIL     = 1 << RAILTYPE_RAIL,     // Non-electrified rails
+	RAILTYPES_ELECTRIC = 1 << RAILTYPE_ELECTRIC, // Electrified rails
+	RAILTYPES_MONO     = 1 << RAILTYPE_MONO,     // Monorail!
+	RAILTYPES_MAGLEV   = 1 << RAILTYPE_MAGLEV,   // Ever fast maglev
+	INVALID_RAILTYPES  = UINT64_MAX,             // Invalid railtypes
 };
 DECLARE_ENUM_AS_BIT_SET(RailTypes)
 

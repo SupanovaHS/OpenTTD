@@ -51,15 +51,15 @@
 #include "safeguards.h"
 
 ClientSettings _settings_client;
-GameSettings _settings_game;     ///< Game settings of a running game or the scenario editor.
-GameSettings _settings_newgame;  ///< Game settings for new games (updated from the intro screen).
-VehicleDefaultSettings _old_vds; ///< Used for loading default vehicles settings from old savegames.
-std::string _config_file; ///< Configuration file of OpenTTD.
-std::string _private_file; ///< Private configuration file of OpenTTD.
-std::string _secrets_file; ///< Secrets configuration file of OpenTTD.
+GameSettings _settings_game;     // Game settings of a running game or the scenario editor.
+GameSettings _settings_newgame;  // Game settings for new games (updated from the intro screen).
+VehicleDefaultSettings _old_vds; // Used for loading default vehicles settings from old savegames.
+std::string _config_file; // Configuration file of OpenTTD.
+std::string _private_file; // Private configuration file of OpenTTD.
+std::string _secrets_file; // Secrets configuration file of OpenTTD.
 
 typedef std::list<ErrorMessageData> ErrorList;
-static ErrorList _settings_error_list; ///< Errors while loading minimal settings.
+static ErrorList _settings_error_list; // Errors while loading minimal settings.
 
 /**
  * List of all the generic setting tables.
@@ -155,14 +155,14 @@ public:
  * location. These versions assist with situations like that.
  */
 enum IniFileVersion : uint32 {
-	IFV_0,               ///< 0  All versions prior to introduction.
-	IFV_PRIVATE_SECRETS, ///< 1  PR#9298  Moving of settings from openttd.cfg to private.cfg / secrets.cfg.
-	IFV_GAME_TYPE,       ///< 2  PR#9515  Convert server_advertise to server_game_type.
+	IFV_0,               // 0  All versions prior to introduction.
+	IFV_PRIVATE_SECRETS, // 1  PR#9298  Moving of settings from openttd.cfg to private.cfg / secrets.cfg.
+	IFV_GAME_TYPE,       // 2  PR#9515  Convert server_advertise to server_game_type.
 
-	IFV_MAX_VERSION,     ///< Highest possible ini-file version.
+	IFV_MAX_VERSION,     // Highest possible ini-file version.
 };
 
-const uint16 INIFILE_VERSION = (IniFileVersion)(IFV_MAX_VERSION - 1); ///< Current ini-file version of OpenTTD.
+const uint16 INIFILE_VERSION = (IniFileVersion)(IFV_MAX_VERSION - 1); // Current ini-file version of OpenTTD.
 
 /**
  * Find the index value of a ONEofMANY type in a string separated by |

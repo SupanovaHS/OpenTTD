@@ -31,7 +31,7 @@ private:
 	};
 
 	PriorityComparator        comp;
-	std::vector<PriorityItem> queue;  ///< The priority list
+	std::vector<PriorityItem> queue;  // The priority list
 
 public:
 	~ScriptPriorityQueue();

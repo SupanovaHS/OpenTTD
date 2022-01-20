@@ -17,68 +17,68 @@
 enum LandscapeGenerator {
 	/* Order of these enums has to be the same as in lang/english.txt
 	 * Otherwise you will get inconsistent behaviour. */
-	LG_ORIGINAL     = 0,  ///< The original landscape generator
-	LG_TERRAGENESIS = 1,  ///< TerraGenesis Perlin landscape generator
+	LG_ORIGINAL     = 0,  // The original landscape generator
+	LG_TERRAGENESIS = 1,  // TerraGenesis Perlin landscape generator
 };
 
-static const uint32 GENERATE_NEW_SEED = UINT32_MAX; ///< Create a new random seed
+static const uint32 GENERATE_NEW_SEED = UINT32_MAX; // Create a new random seed
 
 /** Modes for GenerateWorld */
 enum GenWorldMode {
-	GWM_NEWGAME   = 0, ///< Generate a map for a new game
-	GWM_EMPTY     = 1, ///< Generate an empty map (sea-level)
-	GWM_RANDOM    = 2, ///< Generate a random map for SE
-	GWM_HEIGHTMAP = 3, ///< Generate a newgame from a heightmap
+	GWM_NEWGAME   = 0, // Generate a map for a new game
+	GWM_EMPTY     = 1, // Generate an empty map (sea-level)
+	GWM_RANDOM    = 2, // Generate a random map for SE
+	GWM_HEIGHTMAP = 3, // Generate a newgame from a heightmap
 };
 
 /** Smoothness presets. */
 enum TgenSmoothness {
-	TGEN_SMOOTHNESS_BEGIN,      ///< First smoothness value.
-	TGEN_SMOOTHNESS_VERY_SMOOTH = TGEN_SMOOTHNESS_BEGIN, ///< Smoothness preset 'very smooth'.
-	TGEN_SMOOTHNESS_SMOOTH,     ///< Smoothness preset 'smooth'.
-	TGEN_SMOOTHNESS_ROUGH,      ///< Smoothness preset 'rough'.
-	TGEN_SMOOTHNESS_VERY_ROUGH, ///< Smoothness preset 'very rough'.
+	TGEN_SMOOTHNESS_BEGIN,      // First smoothness value.
+	TGEN_SMOOTHNESS_VERY_SMOOTH = TGEN_SMOOTHNESS_BEGIN, // Smoothness preset 'very smooth'.
+	TGEN_SMOOTHNESS_SMOOTH,     // Smoothness preset 'smooth'.
+	TGEN_SMOOTHNESS_ROUGH,      // Smoothness preset 'rough'.
+	TGEN_SMOOTHNESS_VERY_ROUGH, // Smoothness preset 'very rough'.
 
-	TGEN_SMOOTHNESS_END,        ///< Used to iterate.
+	TGEN_SMOOTHNESS_END,        // Used to iterate.
 };
 
-static const uint CUSTOM_TERRAIN_TYPE_NUMBER_DIFFICULTY = 5; ///< Value for custom terrain type in difficulty settings.
+static const uint CUSTOM_TERRAIN_TYPE_NUMBER_DIFFICULTY = 5; // Value for custom terrain type in difficulty settings.
 
-static const uint CUSTOM_SEA_LEVEL_NUMBER_DIFFICULTY = 4; ///< Value for custom sea level in difficulty settings.
-static const uint CUSTOM_SEA_LEVEL_MIN_PERCENTAGE = 1;    ///< Minimum percentage a user can specify for custom sea level.
-static const uint CUSTOM_SEA_LEVEL_MAX_PERCENTAGE = 90;   ///< Maximum percentage a user can specify for custom sea level.
+static const uint CUSTOM_SEA_LEVEL_NUMBER_DIFFICULTY = 4; // Value for custom sea level in difficulty settings.
+static const uint CUSTOM_SEA_LEVEL_MIN_PERCENTAGE = 1;    // Minimum percentage a user can specify for custom sea level.
+static const uint CUSTOM_SEA_LEVEL_MAX_PERCENTAGE = 90;   // Maximum percentage a user can specify for custom sea level.
 
-static const uint MAP_HEIGHT_LIMIT_AUTO_MINIMUM = 30; ///< When map height limit is auto, make this the lowest possible map height limit.
-static const uint MAP_HEIGHT_LIMIT_AUTO_CEILING_ROOM = 15; ///< When map height limit is auto, the map height limit will be the higest peak plus this value.
+static const uint MAP_HEIGHT_LIMIT_AUTO_MINIMUM = 30; // When map height limit is auto, make this the lowest possible map height limit.
+static const uint MAP_HEIGHT_LIMIT_AUTO_CEILING_ROOM = 15; // When map height limit is auto, the map height limit will be the higest peak plus this value.
 
-typedef void GWDoneProc();  ///< Procedure called when the genworld process finishes
-typedef void GWAbortProc(); ///< Called when genworld is aborted
+typedef void GWDoneProc();  // Procedure called when the genworld process finishes
+typedef void GWAbortProc(); // Called when genworld is aborted
 
 /** Properties of current genworld process */
 struct GenWorldInfo {
-	bool abort;            ///< Whether to abort the thread ASAP
-	GenWorldMode mode;     ///< What mode are we making a world in
-	CompanyID lc;          ///< The local_company before generating
-	uint size_x;           ///< X-size of the map
-	uint size_y;           ///< Y-size of the map
-	GWDoneProc *proc;      ///< Proc that is called when done (can be nullptr)
-	GWAbortProc *abortp;   ///< Proc that is called when aborting (can be nullptr)
+	bool abort;            // Whether to abort the thread ASAP
+	GenWorldMode mode;     // What mode are we making a world in
+	CompanyID lc;          // The local_company before generating
+	uint size_x;           // X-size of the map
+	uint size_y;           // Y-size of the map
+	GWDoneProc *proc;      // Proc that is called when done (can be nullptr)
+	GWAbortProc *abortp;   // Proc that is called when aborting (can be nullptr)
 };
 
 /** Current stage of world generation process */
 enum GenWorldProgress {
-	GWP_MAP_INIT,    ///< Initialize/allocate the map, start economy
-	GWP_LANDSCAPE,   ///< Create the landscape
-	GWP_RIVER,       ///< Create the rivers
-	GWP_ROUGH_ROCKY, ///< Make rough and rocky areas
-	GWP_TOWN,        ///< Generate towns
-	GWP_INDUSTRY,    ///< Generate industries
-	GWP_OBJECT,      ///< Generate objects (radio tower, light houses)
-	GWP_TREE,        ///< Generate trees
-	GWP_GAME_INIT,   ///< Initialize the game
-	GWP_RUNTILELOOP, ///< Runs the tile loop 1280 times to make snow etc
-	GWP_RUNSCRIPT,   ///< Runs the game script at most 2500 times, or when ever the script sleeps
-	GWP_GAME_START,  ///< Really prepare to start the game
+	GWP_MAP_INIT,    // Initialize/allocate the map, start economy
+	GWP_LANDSCAPE,   // Create the landscape
+	GWP_RIVER,       // Create the rivers
+	GWP_ROUGH_ROCKY, // Make rough and rocky areas
+	GWP_TOWN,        // Generate towns
+	GWP_INDUSTRY,    // Generate industries
+	GWP_OBJECT,      // Generate objects (radio tower, light houses)
+	GWP_TREE,        // Generate trees
+	GWP_GAME_INIT,   // Initialize the game
+	GWP_RUNTILELOOP, // Runs the tile loop 1280 times to make snow etc
+	GWP_RUNSCRIPT,   // Runs the game script at most 2500 times, or when ever the script sleeps
+	GWP_GAME_START,  // Really prepare to start the game
 	GWP_CLASS_COUNT
 };
 

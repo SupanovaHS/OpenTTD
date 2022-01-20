@@ -16,13 +16,13 @@ const char *GetCurrentScreenshotExtension();
 
 /** Type of requested screenshot */
 enum ScreenshotType {
-	SC_VIEWPORT,    ///< Screenshot of viewport.
-	SC_CRASHLOG,    ///< Raw screenshot from blitter buffer.
-	SC_ZOOMEDIN,    ///< Fully zoomed in screenshot of the visible area.
-	SC_DEFAULTZOOM, ///< Zoomed to default zoom level screenshot of the visible area.
-	SC_WORLD,       ///< World screenshot.
-	SC_HEIGHTMAP,   ///< Heightmap of the world.
-	SC_MINIMAP,     ///< Minimap screenshot.
+	SC_VIEWPORT,    // Screenshot of viewport.
+	SC_CRASHLOG,    // Raw screenshot from blitter buffer.
+	SC_ZOOMEDIN,    // Fully zoomed in screenshot of the visible area.
+	SC_DEFAULTZOOM, // Zoomed to default zoom level screenshot of the visible area.
+	SC_WORLD,       // World screenshot.
+	SC_HEIGHTMAP,   // Heightmap of the world.
+	SC_MINIMAP,     // Minimap screenshot.
 };
 
 void SetupScreenshotViewport(ScreenshotType t, struct Viewport *vp, uint32 width = 0, uint32 height = 0);

@@ -17,12 +17,12 @@
  * Ground types. Valid densities in comments after the enum.
  */
 enum ClearGround {
-	CLEAR_GRASS  = 0, ///< 0-3
-	CLEAR_ROUGH  = 1, ///< 3
-	CLEAR_ROCKS  = 2, ///< 3
-	CLEAR_FIELDS = 3, ///< 3
-	CLEAR_SNOW   = 4, ///< 0-3
-	CLEAR_DESERT = 5, ///< 1,3
+	CLEAR_GRASS  = 0, // 0-3
+	CLEAR_ROUGH  = 1, // 3
+	CLEAR_ROCKS  = 2, // 3
+	CLEAR_FIELDS = 3, // 3
+	CLEAR_SNOW   = 4, // 0-3
+	CLEAR_DESERT = 5, // 1,3
 };
 
 

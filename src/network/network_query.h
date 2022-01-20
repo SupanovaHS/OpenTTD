@@ -15,8 +15,8 @@
 /** Class for handling the client side of quering a game server. */
 class QueryNetworkGameSocketHandler : public ZeroedMemoryAllocator, public NetworkGameSocketHandler {
 private:
-	static std::vector<std::unique_ptr<QueryNetworkGameSocketHandler>> queries; ///< Pending queries.
-	std::string connection_string; ///< Address we are connected to.
+	static std::vector<std::unique_ptr<QueryNetworkGameSocketHandler>> queries; // Pending queries.
+	std::string connection_string; // Address we are connected to.
 
 protected:
 	NetworkRecvStatus Receive_SERVER_FULL(Packet *p) override;

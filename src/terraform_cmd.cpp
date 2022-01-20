@@ -34,8 +34,8 @@ typedef std::map<TileIndex, int> TileIndexToHeightMap;
 
 /** State of the terraforming. */
 struct TerraformerState {
-	TileIndexSet dirty_tiles;                ///< The tiles that need to be redrawn.
-	TileIndexToHeightMap tile_to_new_height; ///< The tiles for which the height has changed.
+	TileIndexSet dirty_tiles;                // The tiles that need to be redrawn.
+	TileIndexToHeightMap tile_to_new_height; // The tiles for which the height has changed.
 };
 
 /**

@@ -104,8 +104,8 @@ LanguageStrings ReadRawLanguageStrings(const std::string &file)
 
 /** A reader that simply reads using fopen. */
 struct StringListReader : StringReader {
-	StringList::const_iterator p;   ///< The current location of the iteration.
-	StringList::const_iterator end; ///< The end of the iteration.
+	StringList::const_iterator p;   // The current location of the iteration.
+	StringList::const_iterator end; // The end of the iteration.
 
 	/**
 	 * Create the reader.
@@ -132,7 +132,7 @@ struct StringListReader : StringReader {
 
 /** Class for writing an encoded language. */
 struct TranslationWriter : LanguageWriter {
-	StringList &strings; ///< The encoded strings.
+	StringList &strings; // The encoded strings.
 
 	/**
 	 * Writer for the encoded data.
@@ -165,7 +165,7 @@ struct TranslationWriter : LanguageWriter {
 
 /** Class for writing the string IDs. */
 struct StringNameWriter : HeaderWriter {
-	StringList &strings; ///< The string names.
+	StringList &strings; // The string names.
 
 	/**
 	 * Writer for the string names.

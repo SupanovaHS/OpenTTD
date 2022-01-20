@@ -322,10 +322,10 @@ static CommandCost GetRefitCost(const Vehicle *v, EngineID engine_type, CargoID 
 
 /** Helper structure for RefitVehicle() */
 struct RefitResult {
-	Vehicle *v;         ///< Vehicle to refit
-	uint capacity;      ///< New capacity of vehicle
-	uint mail_capacity; ///< New mail capacity of aircraft
-	byte subtype;       ///< cargo subtype to refit to
+	Vehicle *v;         // Vehicle to refit
+	uint capacity;      // New capacity of vehicle
+	uint mail_capacity; // New mail capacity of aircraft
+	byte subtype;       // cargo subtype to refit to
 };
 
 /**

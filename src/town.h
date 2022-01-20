@@ -23,77 +23,77 @@ struct BuildingCounts {
 	T class_count[HOUSE_CLASS_MAX];
 };
 
-static const uint CUSTOM_TOWN_NUMBER_DIFFICULTY  = 4; ///< value for custom town number in difficulty settings
-static const uint CUSTOM_TOWN_MAX_NUMBER = 5000;  ///< this is the maximum number of towns a user can specify in customisation
+static const uint CUSTOM_TOWN_NUMBER_DIFFICULTY  = 4; // value for custom town number in difficulty settings
+static const uint CUSTOM_TOWN_MAX_NUMBER = 5000;  // this is the maximum number of towns a user can specify in customisation
 
 static const TownID INVALID_TOWN = 0xFFFF;
 
-static const uint TOWN_GROWTH_WINTER = 0xFFFFFFFE; ///< The town only needs this cargo in the winter (any amount)
-static const uint TOWN_GROWTH_DESERT = 0xFFFFFFFF; ///< The town needs the cargo for growth when on desert (any amount)
-static const uint16 TOWN_GROWTH_RATE_NONE = 0xFFFF; ///< Special value for Town::growth_rate to disable town growth.
-static const uint16 MAX_TOWN_GROWTH_TICKS = 930; ///< Max amount of original town ticks that still fit into uint16, about equal to UINT16_MAX / TOWN_GROWTH_TICKS but slightly less to simplify calculations
+static const uint TOWN_GROWTH_WINTER = 0xFFFFFFFE; // The town only needs this cargo in the winter (any amount)
+static const uint TOWN_GROWTH_DESERT = 0xFFFFFFFF; // The town needs the cargo for growth when on desert (any amount)
+static const uint16 TOWN_GROWTH_RATE_NONE = 0xFFFF; // Special value for Town::growth_rate to disable town growth.
+static const uint16 MAX_TOWN_GROWTH_TICKS = 930; // Max amount of original town ticks that still fit into uint16, about equal to UINT16_MAX / TOWN_GROWTH_TICKS but slightly less to simplify calculations
 
 typedef Pool<Town, TownID, 64, 64000> TownPool;
 extern TownPool _town_pool;
 
 /** Data structure with cached data of towns. */
 struct TownCache {
-	uint32 num_houses;                        ///< Amount of houses
-	uint32 population;                        ///< Current population of people
-	TrackedViewportSign sign;                 ///< Location of name sign, UpdateVirtCoord updates this
-	PartOfSubsidy part_of_subsidy;            ///< Is this town a source/destination of a subsidy?
-	uint32 squared_town_zone_radius[HZB_END]; ///< UpdateTownRadius updates this given the house count
-	BuildingCounts<uint16> building_counts;   ///< The number of each type of building in the town
+	uint32 num_houses;                        // Amount of houses
+	uint32 population;                        // Current population of people
+	TrackedViewportSign sign;                 // Location of name sign, UpdateVirtCoord updates this
+	PartOfSubsidy part_of_subsidy;            // Is this town a source/destination of a subsidy?
+	uint32 squared_town_zone_radius[HZB_END]; // UpdateTownRadius updates this given the house count
+	BuildingCounts<uint16> building_counts;   // The number of each type of building in the town
 };
 
 /** Town data structure. */
 struct Town : TownPool::PoolItem<&_town_pool> {
-	TileIndex xy;                  ///< town center tile
+	TileIndex xy;                  // town center tile
 
-	TownCache cache; ///< Container for all cacheable data.
+	TownCache cache; // Container for all cacheable data.
 
 	/* Town name */
 	uint32 townnamegrfid;
 	uint16 townnametype;
 	uint32 townnameparts;
-	std::string name;                ///< Custom town name. If empty, the town was not renamed and uses the generated name.
-	mutable std::string cached_name; ///< NOSAVE: Cache of the resolved name of the town, if not using a custom town name
+	std::string name;                // Custom town name. If empty, the town was not renamed and uses the generated name.
+	mutable std::string cached_name; // NOSAVE: Cache of the resolved name of the town, if not using a custom town name
 
-	byte flags;                    ///< See #TownFlags.
+	byte flags;                    // See #TownFlags.
 
-	uint16 noise_reached;          ///< level of noise that all the airports are generating
+	uint16 noise_reached;          // level of noise that all the airports are generating
 
-	CompanyMask statues;           ///< which companies have a statue?
+	CompanyMask statues;           // which companies have a statue?
 
 	/* Company ratings. */
-	CompanyMask have_ratings;      ///< which companies have a rating
-	uint8 unwanted[MAX_COMPANIES]; ///< how many months companies aren't wanted by towns (bribe)
-	CompanyID exclusivity;         ///< which company has exclusivity
-	uint8 exclusive_counter;       ///< months till the exclusivity expires
-	int16 ratings[MAX_COMPANIES];  ///< ratings of each company for this town
+	CompanyMask have_ratings;      // which companies have a rating
+	uint8 unwanted[MAX_COMPANIES]; // how many months companies aren't wanted by towns (bribe)
+	CompanyID exclusivity;         // which company has exclusivity
+	uint8 exclusive_counter;       // months till the exclusivity expires
+	int16 ratings[MAX_COMPANIES];  // ratings of each company for this town
 
-	TransportedCargoStat<uint32> supplied[NUM_CARGO]; ///< Cargo statistics about supplied cargo.
-	TransportedCargoStat<uint16> received[NUM_TE];    ///< Cargo statistics about received cargotypes.
-	uint32 goal[NUM_TE];                              ///< Amount of cargo required for the town to grow.
+	TransportedCargoStat<uint32> supplied[NUM_CARGO]; // Cargo statistics about supplied cargo.
+	TransportedCargoStat<uint16> received[NUM_TE];    // Cargo statistics about received cargotypes.
+	uint32 goal[NUM_TE];                              // Amount of cargo required for the town to grow.
 
-	std::string text; ///< General text with additional information.
+	std::string text; // General text with additional information.
 
 	inline byte GetPercentTransported(CargoID cid) const { return this->supplied[cid].old_act * 256 / (this->supplied[cid].old_max + 1); }
 
-	StationList stations_near;       ///< NOSAVE: List of nearby stations.
+	StationList stations_near;       // NOSAVE: List of nearby stations.
 
-	uint16 time_until_rebuild;       ///< time until we rebuild a house
+	uint16 time_until_rebuild;       // time until we rebuild a house
 
-	uint16 grow_counter;             ///< counter to count when to grow, value is smaller than or equal to growth_rate
-	uint16 growth_rate;              ///< town growth rate
+	uint16 grow_counter;             // counter to count when to grow, value is smaller than or equal to growth_rate
+	uint16 growth_rate;              // town growth rate
 
-	byte fund_buildings_months;      ///< fund buildings program in action?
-	byte road_build_months;          ///< fund road reconstruction in action?
+	byte fund_buildings_months;      // fund buildings program in action?
+	byte road_build_months;          // fund road reconstruction in action?
 
-	bool larger_town;                ///< if this is a larger town and should grow more quickly
-	TownLayout layout;               ///< town specific road layout
+	bool larger_town;                // if this is a larger town and should grow more quickly
+	TownLayout layout;               // town specific road layout
 
-	bool show_zone;                  ///< NOSAVE: mark town to show the local authority zone in the viewports
+	bool show_zone;                  // NOSAVE: mark town to show the local authority zone in the viewports
 
 	std::list<PersistentStorage *> psa_list;
 
@@ -158,9 +158,9 @@ void RebuildTownKdtree();
  * @see CheckforTownRating
  */
 enum TownRatingCheckType {
-	ROAD_REMOVE         = 0,      ///< Removal of a road owned by the town.
-	TUNNELBRIDGE_REMOVE = 1,      ///< Removal of a tunnel or bridge owned by the towb.
-	TOWN_RATING_CHECK_TYPE_COUNT, ///< Number of town checking action types.
+	ROAD_REMOVE         = 0,      // Removal of a road owned by the town.
+	TUNNELBRIDGE_REMOVE = 1,      // Removal of a tunnel or bridge owned by the towb.
+	TOWN_RATING_CHECK_TYPE_COUNT, // Number of town checking action types.
 };
 
 /** Special values for town list window for the data parameter of #InvalidateWindowData. */
@@ -178,10 +178,10 @@ enum TownDirectoryInvalidateWindowData {
  * And there are 5 more bits available on flags...
  */
 enum TownFlags {
-	TOWN_IS_GROWING     = 0,   ///< Conditions for town growth are met. Grow according to Town::growth_rate.
-	TOWN_HAS_CHURCH     = 1,   ///< There can be only one church by town.
-	TOWN_HAS_STADIUM    = 2,   ///< There can be only one stadium by town.
-	TOWN_CUSTOM_GROWTH  = 3,   ///< Growth rate is controlled by GS.
+	TOWN_IS_GROWING     = 0,   // Conditions for town growth are met. Grow according to Town::growth_rate.
+	TOWN_HAS_CHURCH     = 1,   // There can be only one church by town.
+	TOWN_HAS_STADIUM    = 2,   // There can be only one stadium by town.
+	TOWN_CUSTOM_GROWTH  = 3,   // Growth rate is controlled by GS.
 };
 
 CommandCost CheckforTownRating(DoCommandFlag flags, Town *t, TownRatingCheckType type);
@@ -207,23 +207,23 @@ const CargoSpec *FindFirstCargoWithTownEffect(TownEffect effect);
 
 /** Town actions of a company. */
 enum TownActions {
-	TACT_NONE             = 0x00, ///< Empty action set.
+	TACT_NONE             = 0x00, // Empty action set.
 
-	TACT_ADVERTISE_SMALL  = 0x01, ///< Small advertising campaign.
-	TACT_ADVERTISE_MEDIUM = 0x02, ///< Medium advertising campaign.
-	TACT_ADVERTISE_LARGE  = 0x04, ///< Large advertising campaign.
-	TACT_ROAD_REBUILD     = 0x08, ///< Rebuild the roads.
-	TACT_BUILD_STATUE     = 0x10, ///< Build a statue.
-	TACT_FUND_BUILDINGS   = 0x20, ///< Fund new buildings.
-	TACT_BUY_RIGHTS       = 0x40, ///< Buy exclusive transport rights.
-	TACT_BRIBE            = 0x80, ///< Try to bribe the council.
+	TACT_ADVERTISE_SMALL  = 0x01, // Small advertising campaign.
+	TACT_ADVERTISE_MEDIUM = 0x02, // Medium advertising campaign.
+	TACT_ADVERTISE_LARGE  = 0x04, // Large advertising campaign.
+	TACT_ROAD_REBUILD     = 0x08, // Rebuild the roads.
+	TACT_BUILD_STATUE     = 0x10, // Build a statue.
+	TACT_FUND_BUILDINGS   = 0x20, // Fund new buildings.
+	TACT_BUY_RIGHTS       = 0x40, // Buy exclusive transport rights.
+	TACT_BRIBE            = 0x80, // Try to bribe the council.
 
-	TACT_COUNT            = 8,    ///< Number of available town actions.
+	TACT_COUNT            = 8,    // Number of available town actions.
 
-	TACT_ADVERTISE        = TACT_ADVERTISE_SMALL | TACT_ADVERTISE_MEDIUM | TACT_ADVERTISE_LARGE, ///< All possible advertising actions.
-	TACT_CONSTRUCTION     = TACT_ROAD_REBUILD | TACT_BUILD_STATUE | TACT_FUND_BUILDINGS,         ///< All possible construction actions.
-	TACT_FUNDS            = TACT_BUY_RIGHTS | TACT_BRIBE,                                        ///< All possible funding actions.
-	TACT_ALL              = TACT_ADVERTISE | TACT_CONSTRUCTION | TACT_FUNDS,                     ///< All possible actions.
+	TACT_ADVERTISE        = TACT_ADVERTISE_SMALL | TACT_ADVERTISE_MEDIUM | TACT_ADVERTISE_LARGE, // All possible advertising actions.
+	TACT_CONSTRUCTION     = TACT_ROAD_REBUILD | TACT_BUILD_STATUE | TACT_FUND_BUILDINGS,         // All possible construction actions.
+	TACT_FUNDS            = TACT_BUY_RIGHTS | TACT_BRIBE,                                        // All possible funding actions.
+	TACT_ALL              = TACT_ADVERTISE | TACT_CONSTRUCTION | TACT_FUNDS,                     // All possible actions.
 };
 DECLARE_ENUM_AS_BIT_SET(TownActions)
 

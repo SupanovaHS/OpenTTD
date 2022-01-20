@@ -37,10 +37,10 @@
 template <typename T>
 class SmallMatrix {
 protected:
-	T *data;       ///< The pointer to the first item
-	uint width;    ///< Number of items over first axis
-	uint height;   ///< Number of items over second axis
-	uint capacity; ///< The available space for storing items
+	T *data;       // The pointer to the first item
+	uint width;    // Number of items over first axis
+	uint height;   // Number of items over second axis
+	uint capacity; // The available space for storing items
 
 public:
 

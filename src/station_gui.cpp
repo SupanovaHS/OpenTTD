@@ -157,8 +157,8 @@ void CheckRedrawStationCoverage(const Window *w)
  */
 static void StationsWndShowStationRating(int left, int right, int y, CargoID type, uint amount, byte rating)
 {
-	static const uint units_full  = 576; ///< number of units to show station as 'full'
-	static const uint rating_full = 224; ///< rating needed so it is shown as 'full'
+	static const uint units_full  = 576; // number of units to show station as 'full'
+	static const uint rating_full = 224; // rating needed so it is shown as 'full'
 
 	const CargoSpec *cs = CargoSpec::Get(type);
 	if (!cs->IsValid()) return;
@@ -858,11 +858,11 @@ enum SortOrder {
 class CargoDataEntry;
 
 enum CargoSortType {
-	ST_AS_GROUPING,    ///< by the same principle the entries are being grouped
-	ST_COUNT,          ///< by amount of cargo
-	ST_STATION_STRING, ///< by station name
-	ST_STATION_ID,     ///< by station id
-	ST_CARGO_ID,       ///< by cargo id
+	ST_AS_GROUPING,    // by the same principle the entries are being grouped
+	ST_COUNT,          // by amount of cargo
+	ST_STATION_STRING, // by station name
+	ST_STATION_ID,     // by station id
+	ST_CARGO_ID,       // by cargo id
 };
 
 class CargoSorter {
@@ -1020,17 +1020,17 @@ private:
 	void Remove(CargoDataEntry *comp);
 	void IncrementSize();
 
-	CargoDataEntry *parent;   ///< the parent of this entry.
+	CargoDataEntry *parent;   // the parent of this entry.
 	const union {
-		StationID station;    ///< ID of the station this entry is associated with.
+		StationID station;    // ID of the station this entry is associated with.
 		struct {
-			CargoID cargo;    ///< ID of the cargo this entry is associated with.
-			bool transfers;   ///< If there are transfers for this cargo.
+			CargoID cargo;    // ID of the cargo this entry is associated with.
+			bool transfers;   // If there are transfers for this cargo.
 		};
 	};
-	uint num_children;        ///< the number of subentries belonging to this entry.
-	uint count;               ///< sum of counts of all children or amount of cargo for this entry.
-	CargoDataSet *children;   ///< the children of this entry.
+	uint num_children;        // the number of subentries belonging to this entry.
+	uint count;               // sum of counts of all children or amount of cargo for this entry.
+	CargoDataSet *children;   // the children of this entry.
 };
 
 CargoDataEntry::CargoDataEntry() :
@@ -1250,47 +1250,47 @@ struct StationViewWindow : public Window {
 
 	typedef std::vector<RowDisplay> CargoDataVector;
 
-	static const int NUM_COLUMNS = 4; ///< Number of "columns" in the cargo view: cargo, from, via, to
+	static const int NUM_COLUMNS = 4; // Number of "columns" in the cargo view: cargo, from, via, to
 
 	/**
 	 * Type of data invalidation.
 	 */
 	enum Invalidation {
-		INV_FLOWS = 0x100, ///< The planned flows have been recalculated and everything has to be updated.
-		INV_CARGO = 0x200  ///< Some cargo has been added or removed.
+		INV_FLOWS = 0x100, // The planned flows have been recalculated and everything has to be updated.
+		INV_CARGO = 0x200  // Some cargo has been added or removed.
 	};
 
 	/**
 	 * Type of grouping used in each of the "columns".
 	 */
 	enum Grouping {
-		GR_SOURCE,      ///< Group by source of cargo ("from").
-		GR_NEXT,        ///< Group by next station ("via").
-		GR_DESTINATION, ///< Group by estimated final destination ("to").
-		GR_CARGO,       ///< Group by cargo type.
+		GR_SOURCE,      // Group by source of cargo ("from").
+		GR_NEXT,        // Group by next station ("via").
+		GR_DESTINATION, // Group by estimated final destination ("to").
+		GR_CARGO,       // Group by cargo type.
 	};
 
 	/**
 	 * Display mode of the cargo view.
 	 */
 	enum Mode {
-		MODE_WAITING, ///< Show cargo waiting at the station.
-		MODE_PLANNED  ///< Show cargo planned to pass through the station.
+		MODE_WAITING, // Show cargo waiting at the station.
+		MODE_PLANNED  // Show cargo planned to pass through the station.
 	};
 
-	uint expand_shrink_width;     ///< The width allocated to the expand/shrink 'button'
-	int rating_lines;             ///< Number of lines in the cargo ratings view.
-	int accepts_lines;            ///< Number of lines in the accepted cargo view.
+	uint expand_shrink_width;     // The width allocated to the expand/shrink 'button'
+	int rating_lines;             // Number of lines in the cargo ratings view.
+	int accepts_lines;            // Number of lines in the accepted cargo view.
 	Scrollbar *vscroll;
 
 	/** Height of the #WID_SV_ACCEPT_RATING_LIST widget for different views. */
 	enum AcceptListHeight {
-		ALH_RATING  = 13, ///< Height of the cargo ratings view.
-		ALH_ACCEPTS = 3,  ///< Height of the accepted cargo view.
+		ALH_RATING  = 13, // Height of the cargo ratings view.
+		ALH_ACCEPTS = 3,  // Height of the accepted cargo view.
 	};
 
-	static const StringID _sort_names[];  ///< Names of the sorting options in the dropdown.
-	static const StringID _group_names[]; ///< Names of the grouping options in the dropdown.
+	static const StringID _sort_names[];  // Names of the sorting options in the dropdown.
+	static const StringID _group_names[]; // Names of the grouping options in the dropdown.
 
 	/**
 	 * Sort types of the different 'columns'.
@@ -1303,14 +1303,14 @@ struct StationViewWindow : public Window {
 	/** Sort order (ascending/descending) for the 'columns'. */
 	SortOrder sort_orders[NUM_COLUMNS];
 
-	int scroll_to_row;                  ///< If set, scroll the main viewport to the station pointed to by this row.
-	int grouping_index;                 ///< Currently selected entry in the grouping drop down.
-	Mode current_mode;                  ///< Currently selected display mode of cargo view.
-	Grouping groupings[NUM_COLUMNS];    ///< Grouping modes for the different columns.
+	int scroll_to_row;                  // If set, scroll the main viewport to the station pointed to by this row.
+	int grouping_index;                 // Currently selected entry in the grouping drop down.
+	Mode current_mode;                  // Currently selected display mode of cargo view.
+	Grouping groupings[NUM_COLUMNS];    // Grouping modes for the different columns.
 
-	CargoDataEntry expanded_rows;       ///< Parent entry of currently expanded rows.
-	CargoDataEntry cached_destinations; ///< Cache for the flows passing through this station.
-	CargoDataVector displayed_rows;     ///< Parent entry of currently displayed rows (including collapsed ones).
+	CargoDataEntry expanded_rows;       // Parent entry of currently expanded rows.
+	CargoDataEntry cached_destinations; // Cache for the flows passing through this station.
+	CargoDataVector displayed_rows;     // Parent entry of currently displayed rows (including collapsed ones).
 
 	StationViewWindow(WindowDesc *desc, WindowNumber window_number) : Window(desc),
 		scroll_to_row(INT_MAX), grouping_index(0)
@@ -2147,8 +2147,8 @@ void ShowStationViewWindow(StationID station)
 
 /** Struct containing TileIndex and StationID */
 struct TileAndStation {
-	TileIndex tile;    ///< TileIndex
-	StationID station; ///< StationID
+	TileIndex tile;    // TileIndex
+	StationID station; // StationID
 };
 
 static std::vector<TileAndStation> _deleted_stations_nearby;
@@ -2266,7 +2266,7 @@ static const NWidgetPart _nested_select_station_widgets[] = {
 template <class T>
 struct SelectStationWindow : Window {
 	StationPickerCmdProc select_station_proc;
-	TileArea area; ///< Location of new station
+	TileArea area; // Location of new station
 	Scrollbar *vscroll;
 
 	SelectStationWindow(WindowDesc *desc, TileArea ta, StationPickerCmdProc&& proc) :

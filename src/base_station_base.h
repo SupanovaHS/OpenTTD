@@ -20,8 +20,8 @@ extern StationPool _station_pool;
 
 struct StationSpecList {
 	const StationSpec *spec;
-	uint32 grfid;      ///< GRF ID of this custom station
-	uint8  localidx;   ///< Station ID within GRF of station
+	uint32 grfid;      // GRF ID of this custom station
+	uint8  localidx;   // Station ID within GRF of station
 };
 
 
@@ -50,30 +50,30 @@ struct StationRect : public Rect {
 
 /** Base class for all station-ish types */
 struct BaseStation : StationPool::PoolItem<&_station_pool> {
-	TileIndex xy;                   ///< Base tile of the station
-	TrackedViewportSign sign;       ///< NOSAVE: Dimensions of sign
-	byte delete_ctr;                ///< Delete counter. If greater than 0 then it is decremented until it reaches 0; the waypoint is then is deleted.
+	TileIndex xy;                   // Base tile of the station
+	TrackedViewportSign sign;       // NOSAVE: Dimensions of sign
+	byte delete_ctr;                // Delete counter. If greater than 0 then it is decremented until it reaches 0; the waypoint is then is deleted.
 
-	std::string name;               ///< Custom name
-	StringID string_id;             ///< Default name (town area) of station
-	mutable std::string cached_name; ///< NOSAVE: Cache of the resolved name of the station, if not using a custom name
+	std::string name;               // Custom name
+	StringID string_id;             // Default name (town area) of station
+	mutable std::string cached_name; // NOSAVE: Cache of the resolved name of the station, if not using a custom name
 
-	Town *town;                     ///< The town this station is associated with
-	Owner owner;                    ///< The owner of this station
-	StationFacility facilities;     ///< The facilities that this station has
+	Town *town;                     // The town this station is associated with
+	Owner owner;                    // The owner of this station
+	StationFacility facilities;     // The facilities that this station has
 
-	uint8 num_specs;                ///< Number of specs in the speclist
-	StationSpecList *speclist;      ///< List of station specs of this station
+	uint8 num_specs;                // Number of specs in the speclist
+	StationSpecList *speclist;      // List of station specs of this station
 
-	Date build_date;                ///< Date of construction
+	Date build_date;                // Date of construction
 
-	uint16 random_bits;             ///< Random bits assigned to this station
-	byte waiting_triggers;          ///< Waiting triggers (NewGRF) for this station
-	uint8 cached_anim_triggers;     ///< NOSAVE: Combined animation trigger bitmask, used to determine if trigger processing should happen.
-	CargoTypes cached_cargo_triggers; ///< NOSAVE: Combined cargo trigger bitmask
+	uint16 random_bits;             // Random bits assigned to this station
+	byte waiting_triggers;          // Waiting triggers (NewGRF) for this station
+	uint8 cached_anim_triggers;     // NOSAVE: Combined animation trigger bitmask, used to determine if trigger processing should happen.
+	CargoTypes cached_cargo_triggers; // NOSAVE: Combined cargo trigger bitmask
 
-	TileArea train_station;         ///< Tile area the train 'station' part covers
-	StationRect rect;               ///< NOSAVE: Station spread out rectangle maintained by StationRect::xxx() functions
+	TileArea train_station;         // Tile area the train 'station' part covers
+	StationRect rect;               // NOSAVE: Station spread out rectangle maintained by StationRect::xxx() functions
 
 	/**
 	 * Initialize the base station.
@@ -180,7 +180,7 @@ private:
  */
 template <class T, bool Tis_waypoint>
 struct SpecializedStation : public BaseStation {
-	static const StationFacility EXPECTED_FACIL = Tis_waypoint ? FACIL_WAYPOINT : FACIL_NONE; ///< Specialized type
+	static const StationFacility EXPECTED_FACIL = Tis_waypoint ? FACIL_WAYPOINT : FACIL_NONE; // Specialized type
 
 	/**
 	 * Set station type correctly

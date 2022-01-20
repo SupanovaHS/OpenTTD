@@ -618,11 +618,11 @@ void UpdateAircraftCache(Aircraft *v, bool update_range)
  * Special velocities for aircraft
  */
 enum AircraftSpeedLimits {
-	SPEED_LIMIT_TAXI     =     50,  ///< Maximum speed of an aircraft while taxiing
-	SPEED_LIMIT_APPROACH =    230,  ///< Maximum speed of an aircraft on finals
-	SPEED_LIMIT_BROKEN   =    320,  ///< Maximum speed of an aircraft that is broken
-	SPEED_LIMIT_HOLD     =    425,  ///< Maximum speed of an aircraft that flies the holding pattern
-	SPEED_LIMIT_NONE     = 0xFFFF,  ///< No environmental speed limit. Speed limit is type dependent
+	SPEED_LIMIT_TAXI     =     50,  // Maximum speed of an aircraft while taxiing
+	SPEED_LIMIT_APPROACH =    230,  // Maximum speed of an aircraft on finals
+	SPEED_LIMIT_BROKEN   =    320,  // Maximum speed of an aircraft that is broken
+	SPEED_LIMIT_HOLD     =    425,  // Maximum speed of an aircraft that flies the holding pattern
+	SPEED_LIMIT_NONE     = 0xFFFF,  // No environmental speed limit. Speed limit is type dependent
 };
 
 /**
@@ -1908,8 +1908,8 @@ static bool AirportSetBlocks(Aircraft *v, const AirportFTA *current_pos, const A
  * airport flag for that terminal block.
  */
 struct MovementTerminalMapping {
-	AirportMovementStates state; ///< Aircraft movement state when going to this terminal.
-	uint64 airport_flag;         ///< Bitmask in the airport flags that need to be free for this terminal.
+	AirportMovementStates state; // Aircraft movement state when going to this terminal.
+	uint64 airport_flag;         // Bitmask in the airport flags that need to be free for this terminal.
 };
 
 /** A list of all valid terminals and their associated blocks. */

@@ -25,8 +25,8 @@
 typedef GUIList<const Vehicle*> GUIVehicleList;
 
 struct GUIVehicleGroup {
-	VehicleList::const_iterator vehicles_begin;    ///< Pointer to beginning element of this vehicle group.
-	VehicleList::const_iterator vehicles_end;      ///< Pointer to past-the-end element of this vehicle group.
+	VehicleList::const_iterator vehicles_begin;    // Pointer to beginning element of this vehicle group.
+	VehicleList::const_iterator vehicles_end;      // Pointer to past-the-end element of this vehicle group.
 
 	GUIVehicleGroup(VehicleList::const_iterator vehicles_begin, VehicleList::const_iterator vehicles_end)
 		: vehicles_begin(vehicles_begin), vehicles_end(vehicles_end) {}
@@ -76,14 +76,14 @@ struct BaseVehicleListWindow : public Window {
 		GB_END,
 	};
 
-	GroupBy grouping;                         ///< How we want to group the list.
-	VehicleList vehicles;                     ///< List of vehicles.  This is the buffer for `vehgroups` to point into; if this is structurally modified, `vehgroups` must be rebuilt.
-	GUIVehicleGroupList vehgroups;            ///< List of (groups of) vehicles.  This stores iterators of `vehicles`, and should be rebuilt if `vehicles` is structurally changed.
-	Listing *sorting;                         ///< Pointer to the vehicle type related sorting.
-	byte unitnumber_digits;                   ///< The number of digits of the highest unit number.
+	GroupBy grouping;                         // How we want to group the list.
+	VehicleList vehicles;                     // List of vehicles.  This is the buffer for `vehgroups` to point into; if this is structurally modified, `vehgroups` must be rebuilt.
+	GUIVehicleGroupList vehgroups;            // List of (groups of) vehicles.  This stores iterators of `vehicles`, and should be rebuilt if `vehicles` is structurally changed.
+	Listing *sorting;                         // Pointer to the vehicle type related sorting.
+	byte unitnumber_digits;                   // The number of digits of the highest unit number.
 	Scrollbar *vscroll;
-	VehicleListIdentifier vli;                ///< Identifier of the vehicle list we want to currently show.
-	uint order_arrow_width;                   ///< Width of the arrow in the small order list.
+	VehicleListIdentifier vli;                // Identifier of the vehicle list we want to currently show.
+	uint order_arrow_width;                   // Width of the arrow in the small order list.
 
 	typedef GUIVehicleGroupList::SortFunction VehicleGroupSortFunction;
 	typedef GUIVehicleList::SortFunction VehicleIndividualSortFunction;

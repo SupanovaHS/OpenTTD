@@ -211,8 +211,8 @@ enum StationNaming {
 
 /** Information to handle station action 0 property 24 correctly */
 struct StationNameInformation {
-	uint32 free_names; ///< Current bitset of free names (we can remove names).
-	bool *indtypes;    ///< Array of bools telling whether an industry type has been found.
+	uint32 free_names; // Current bitset of free names (we can remove names).
+	bool *indtypes;    // Array of bools telling whether an industry type has been found.
 };
 
 /**

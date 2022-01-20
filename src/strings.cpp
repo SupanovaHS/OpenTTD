@@ -41,18 +41,18 @@
 
 #include "safeguards.h"
 
-std::string _config_language_file;                ///< The file (name) stored in the configuration.
-LanguageList _languages;                          ///< The actual list of language meta data.
-const LanguageMetadata *_current_language = nullptr; ///< The currently loaded language.
+std::string _config_language_file;                // The file (name) stored in the configuration.
+LanguageList _languages;                          // The actual list of language meta data.
+const LanguageMetadata *_current_language = nullptr; // The currently loaded language.
 
-TextDirection _current_text_dir; ///< Text direction of the currently selected language.
+TextDirection _current_text_dir; // Text direction of the currently selected language.
 
 #ifdef WITH_ICU_I18N
-std::unique_ptr<icu::Collator> _current_collator;    ///< Collator for the language currently in use.
+std::unique_ptr<icu::Collator> _current_collator;    // Collator for the language currently in use.
 #endif /* WITH_ICU_I18N */
 
-static uint64 _global_string_params_data[20];     ///< Global array of string parameters. To access, use #SetDParam.
-static WChar _global_string_params_type[20];      ///< Type of parameters stored in #_global_string_params
+static uint64 _global_string_params_data[20];     // Global array of string parameters. To access, use #SetDParam.
+static WChar _global_string_params_type[20];      // Type of parameters stored in #_global_string_params
 StringParameters _global_string_params(_global_string_params_data, 20, _global_string_params_type);
 
 /** Reset the type array. */
@@ -188,13 +188,13 @@ struct LoadedLanguagePack {
 
 	std::vector<char *> offsets;
 
-	std::array<uint, TEXT_TAB_END> langtab_num;   ///< Offset into langpack offs
-	std::array<uint, TEXT_TAB_END> langtab_start; ///< Offset into langpack offs
+	std::array<uint, TEXT_TAB_END> langtab_num;   // Offset into langpack offs
+	std::array<uint, TEXT_TAB_END> langtab_start; // Offset into langpack offs
 };
 
 static LoadedLanguagePack _langpack;
 
-static bool _scan_for_gender_data = false;  ///< Are we scanning for the gender of the current string? (instead of formatting it)
+static bool _scan_for_gender_data = false;  // Are we scanning for the gender of the current string? (instead of formatting it)
 
 
 const char *GetStringPtr(StringID string)
@@ -659,8 +659,8 @@ static const char *ParseStringChoice(const char *b, uint form, char **dst, const
 
 /** Helper for unit conversion. */
 struct UnitConversion {
-	int multiplier; ///< Amount to multiply upon conversion.
-	int shift;      ///< Amount to shift upon conversion.
+	int multiplier; // Amount to multiply upon conversion.
+	int shift;      // Amount to shift upon conversion.
 
 	/**
 	 * Convert value from OpenTTD's internal unit into the displayed value.
@@ -688,16 +688,16 @@ struct UnitConversion {
 
 /** Information about a specific unit system. */
 struct Units {
-	UnitConversion c; ///< Conversion
-	StringID s;       ///< String for the unit
-	unsigned int decimal_places; ///< Number of decimal places embedded in the value. For example, 1 if the value is in tenths, and 3 if the value is in thousandths.
+	UnitConversion c; // Conversion
+	StringID s;       // String for the unit
+	unsigned int decimal_places; // Number of decimal places embedded in the value. For example, 1 if the value is in tenths, and 3 if the value is in thousandths.
 };
 
 /** Information about a specific unit system with a long variant. */
 struct UnitsLong {
-	UnitConversion c; ///< Conversion
-	StringID s;       ///< String for the short variant of the unit
-	StringID l;       ///< String for the long variant of the unit
+	UnitConversion c; // Conversion
+	StringID s;       // String for the short variant of the unit
+	StringID l;       // String for the long variant of the unit
 };
 
 /** Unit conversions for velocity. */
@@ -1963,9 +1963,9 @@ void InitializeLanguagePacks()
 	const char *lang = GetCurrentLocale("LC_MESSAGES");
 	if (lang == nullptr) lang = "en_GB";
 
-	const LanguageMetadata *chosen_language   = nullptr; ///< Matching the language in the configuration file or the current locale
-	const LanguageMetadata *language_fallback = nullptr; ///< Using pt_PT for pt_BR locale when pt_BR is not available
-	const LanguageMetadata *en_GB_fallback    = _languages.data(); ///< Fallback when no locale-matching language has been found
+	const LanguageMetadata *chosen_language   = nullptr; // Matching the language in the configuration file or the current locale
+	const LanguageMetadata *language_fallback = nullptr; // Using pt_PT for pt_BR locale when pt_BR is not available
+	const LanguageMetadata *en_GB_fallback    = _languages.data(); // Fallback when no locale-matching language has been found
 
 	/* Find a proper language. */
 	for (const LanguageMetadata &lng : _languages) {
@@ -2046,8 +2046,8 @@ bool MissingGlyphSearcher::FindMissingGlyphs()
 
 /** Helper for searching through the language pack. */
 class LanguagePackGlyphSearcher : public MissingGlyphSearcher {
-	uint i; ///< Iterator for the primary language tables.
-	uint j; ///< Iterator for the secondary language tables.
+	uint i; // Iterator for the primary language tables.
+	uint j; // Iterator for the secondary language tables.
 
 	void Reset() override
 	{

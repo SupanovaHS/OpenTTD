@@ -16,10 +16,10 @@
  * depending of the industry.
  */
 struct DrawIndustryAnimationStruct {
-	int x;        ///< coordinate x of the first image offset
-	byte image_1; ///< image offset 1
-	byte image_2; ///< image offset 2
-	byte image_3; ///< image offset 3
+	int x;        // coordinate x of the first image offset
+	byte image_1; // image offset 1
+	byte image_2; // image offset 2
+	byte image_3; // image offset 3
 };
 
 /**
@@ -27,8 +27,8 @@ struct DrawIndustryAnimationStruct {
  * industries animations
  */
 struct DrawIndustryCoordinates {
-	byte x;  ///< coordinate x of the pair
-	byte y;  ///< coordinate y of the pair
+	byte x;  // coordinate x of the pair
+	byte y;  // coordinate y of the pair
 };
 
 /**

@@ -17,12 +17,12 @@
  * Mode switches to the behaviour of persistent storage array.
  */
 enum PersistentStorageMode {
-	PSM_ENTER_GAMELOOP,   ///< Enter the gameloop, changes will be permanent.
-	PSM_LEAVE_GAMELOOP,   ///< Leave the gameloop, changes will be temporary.
-	PSM_ENTER_COMMAND,    ///< Enter command scope, changes will be permanent.
-	PSM_LEAVE_COMMAND,    ///< Leave command scope, revert to previous mode.
-	PSM_ENTER_TESTMODE,   ///< Enter command test mode, changes will be temporary.
-	PSM_LEAVE_TESTMODE,   ///< Leave command test mode, revert to previous mode.
+	PSM_ENTER_GAMELOOP,   // Enter the gameloop, changes will be permanent.
+	PSM_LEAVE_GAMELOOP,   // Leave the gameloop, changes will be temporary.
+	PSM_ENTER_COMMAND,    // Enter command scope, changes will be permanent.
+	PSM_LEAVE_COMMAND,    // Leave command scope, revert to previous mode.
+	PSM_ENTER_TESTMODE,   // Enter command test mode, changes will be temporary.
+	PSM_LEAVE_TESTMODE,   // Leave command test mode, revert to previous mode.
 };
 
 /**
@@ -30,9 +30,9 @@ enum PersistentStorageMode {
  * so we have a generalised access to the virtual methods.
  */
 struct BasePersistentStorageArray {
-	uint32 grfid;    ///< GRFID associated to this persistent storage. A value of zero means "default".
-	byte feature;    ///< NOSAVE: Used to identify in the owner of the array in debug output.
-	TileIndex tile;  ///< NOSAVE: Used to identify in the owner of the array in debug output.
+	uint32 grfid;    // GRFID associated to this persistent storage. A value of zero means "default".
+	byte feature;    // NOSAVE: Used to identify in the owner of the array in debug output.
+	TileIndex tile;  // NOSAVE: Used to identify in the owner of the array in debug output.
 
 	virtual ~BasePersistentStorageArray();
 
@@ -64,8 +64,8 @@ private:
  */
 template <typename TYPE, uint SIZE>
 struct PersistentStorageArray : BasePersistentStorageArray {
-	TYPE storage[SIZE]; ///< Memory to for the storage array
-	TYPE *prev_storage; ///< Memory to store "old" states so we can revert them on the performance of test cases for commands etc.
+	TYPE storage[SIZE]; // Memory to for the storage array
+	TYPE *prev_storage; // Memory to store "old" states so we can revert them on the performance of test cases for commands etc.
 
 	/** Simply construct the array */
 	PersistentStorageArray() : prev_storage(nullptr)
@@ -148,9 +148,9 @@ struct PersistentStorageArray : BasePersistentStorageArray {
  */
 template <typename TYPE, uint SIZE>
 struct TemporaryStorageArray {
-	TYPE storage[SIZE]; ///< Memory to for the storage array
-	uint16 init[SIZE];  ///< Storage has been assigned, if this equals 'init_key'.
-	uint16 init_key;    ///< Magic key to 'init'.
+	TYPE storage[SIZE]; // Memory to for the storage array
+	uint16 init[SIZE];  // Storage has been assigned, if this equals 'init_key'.
+	uint16 init_key;    // Magic key to 'init'.
 
 	/** Simply construct the array */
 	TemporaryStorageArray()

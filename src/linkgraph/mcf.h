@@ -28,8 +28,8 @@ protected:
 
 	void CleanupPaths(NodeID source, PathVector &paths);
 
-	LinkGraphJob &job;   ///< Job we're working with.
-	uint max_saturation; ///< Maximum saturation for edges.
+	LinkGraphJob &job;   // Job we're working with.
+	uint max_saturation; // Maximum saturation for edges.
 };
 
 /**

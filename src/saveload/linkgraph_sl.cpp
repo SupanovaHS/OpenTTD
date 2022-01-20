@@ -25,8 +25,8 @@ typedef LinkGraph::BaseNode Node;
 typedef LinkGraph::BaseEdge Edge;
 
 static uint16 _num_nodes;
-static LinkGraph *_linkgraph; ///< Contains the current linkgraph being saved/loaded.
-static NodeID _linkgraph_from; ///< Contains the current "from" node being saved/loaded.
+static LinkGraph *_linkgraph; // Contains the current linkgraph being saved/loaded.
+static NodeID _linkgraph_from; // Contains the current "from" node being saved/loaded.
 
 class SlLinkgraphEdge : public DefaultSaveLoadHandler<SlLinkgraphEdge, Node> {
 public:

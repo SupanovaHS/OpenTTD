@@ -15,19 +15,19 @@
 
 enum SettingFlag : uint16 {
 	SF_NONE = 0,
-	SF_GUI_0_IS_SPECIAL        = 1 <<  0, ///< A value of zero is possible and has a custom string (the one after "strval").
-	SF_GUI_NEGATIVE_IS_SPECIAL = 1 <<  1, ///< A negative value has another string (the one after "strval").
-	SF_GUI_DROPDOWN            = 1 <<  2, ///< The value represents a limited number of string-options (internally integer) presented as dropdown.
-	SF_GUI_CURRENCY            = 1 <<  3, ///< The number represents money, so when reading value multiply by exchange rate.
-	SF_NETWORK_ONLY            = 1 <<  4, ///< This setting only applies to network games.
-	SF_NO_NETWORK              = 1 <<  5, ///< This setting does not apply to network games; it may not be changed during the game.
-	SF_NEWGAME_ONLY            = 1 <<  6, ///< This setting cannot be changed in a game.
-	SF_SCENEDIT_TOO            = 1 <<  7, ///< This setting can be changed in the scenario editor (only makes sense when SF_NEWGAME_ONLY is set).
-	SF_SCENEDIT_ONLY           = 1 <<  8, ///< This setting can only be changed in the scenario editor.
-	SF_PER_COMPANY             = 1 <<  9, ///< This setting can be different for each company (saved in company struct).
-	SF_NOT_IN_SAVE             = 1 << 10, ///< Do not save with savegame, basically client-based.
-	SF_NOT_IN_CONFIG           = 1 << 11, ///< Do not save to config file.
-	SF_NO_NETWORK_SYNC         = 1 << 12, ///< Do not synchronize over network (but it is saved if SF_NOT_IN_SAVE is not set).
+	SF_GUI_0_IS_SPECIAL        = 1 <<  0, // A value of zero is possible and has a custom string (the one after "strval").
+	SF_GUI_NEGATIVE_IS_SPECIAL = 1 <<  1, // A negative value has another string (the one after "strval").
+	SF_GUI_DROPDOWN            = 1 <<  2, // The value represents a limited number of string-options (internally integer) presented as dropdown.
+	SF_GUI_CURRENCY            = 1 <<  3, // The number represents money, so when reading value multiply by exchange rate.
+	SF_NETWORK_ONLY            = 1 <<  4, // This setting only applies to network games.
+	SF_NO_NETWORK              = 1 <<  5, // This setting does not apply to network games; it may not be changed during the game.
+	SF_NEWGAME_ONLY            = 1 <<  6, // This setting cannot be changed in a game.
+	SF_SCENEDIT_TOO            = 1 <<  7, // This setting can be changed in the scenario editor (only makes sense when SF_NEWGAME_ONLY is set).
+	SF_SCENEDIT_ONLY           = 1 <<  8, // This setting can only be changed in the scenario editor.
+	SF_PER_COMPANY             = 1 <<  9, // This setting can be different for each company (saved in company struct).
+	SF_NOT_IN_SAVE             = 1 << 10, // Do not save with savegame, basically client-based.
+	SF_NOT_IN_CONFIG           = 1 << 11, // Do not save to config file.
+	SF_NO_NETWORK_SYNC         = 1 << 12, // Do not synchronize over network (but it is saved if SF_NOT_IN_SAVE is not set).
 };
 DECLARE_ENUM_AS_BIT_SET(SettingFlag)
 
@@ -43,14 +43,14 @@ enum SettingCategory {
 	SC_NONE = 0,
 
 	/* Filters for the list */
-	SC_BASIC_LIST      = 1 << 0,    ///< Settings displayed in the list of basic settings.
-	SC_ADVANCED_LIST   = 1 << 1,    ///< Settings displayed in the list of advanced settings.
-	SC_EXPERT_LIST     = 1 << 2,    ///< Settings displayed in the list of expert settings.
+	SC_BASIC_LIST      = 1 << 0,    // Settings displayed in the list of basic settings.
+	SC_ADVANCED_LIST   = 1 << 1,    // Settings displayed in the list of advanced settings.
+	SC_EXPERT_LIST     = 1 << 2,    // Settings displayed in the list of expert settings.
 
 	/* Setting classification */
-	SC_BASIC           = SC_BASIC_LIST | SC_ADVANCED_LIST | SC_EXPERT_LIST,  ///< Basic settings are part of all lists.
-	SC_ADVANCED        = SC_ADVANCED_LIST | SC_EXPERT_LIST,                  ///< Advanced settings are part of advanced and expert list.
-	SC_EXPERT          = SC_EXPERT_LIST,                                     ///< Expert settings can only be seen in the expert list.
+	SC_BASIC           = SC_BASIC_LIST | SC_ADVANCED_LIST | SC_EXPERT_LIST,  // Basic settings are part of all lists.
+	SC_ADVANCED        = SC_ADVANCED_LIST | SC_EXPERT_LIST,                  // Advanced settings are part of advanced and expert list.
+	SC_EXPERT          = SC_EXPERT_LIST,                                     // Expert settings can only be seen in the expert list.
 
 	SC_END,
 };
@@ -59,11 +59,11 @@ enum SettingCategory {
  * Type of settings for filtering.
  */
 enum SettingType {
-	ST_GAME,      ///< Game setting.
-	ST_COMPANY,   ///< Company setting.
-	ST_CLIENT,    ///< Client setting.
+	ST_GAME,      // Game setting.
+	ST_COMPANY,   // Company setting.
+	ST_CLIENT,    // Client setting.
 
-	ST_ALL,       ///< Used in setting filter to match all types.
+	ST_ALL,       // Used in setting filter to match all types.
 };
 
 struct IniItem;
@@ -74,9 +74,9 @@ struct SettingDesc {
 		flags(flags), startup(startup), save(save) {}
 	virtual ~SettingDesc() {}
 
-	SettingFlag flags;  ///< Handles how a setting would show up in the GUI (text/currency, etc.).
-	bool startup;       ///< Setting has to be loaded directly at startup?.
-	SaveLoad save;      ///< Internal structure (going to savegame, parts to config).
+	SettingFlag flags;  // Handles how a setting would show up in the GUI (text/currency, etc.).
+	bool startup;       // Setting has to be loaded directly at startup?.
+	SaveLoad save;      // Internal structure (going to savegame, parts to config).
 
 	bool IsEditable(bool do_command = false) const;
 	SettingType GetType() const;
@@ -157,16 +157,16 @@ struct IntSettingDesc : SettingDesc {
 			post_callback(post_callback) {}
 	virtual ~IntSettingDesc() {}
 
-	int32 def;              ///< default value given when none is present
-	int32 min;              ///< minimum values
-	uint32 max;             ///< maximum values
-	int32 interval;         ///< the interval to use between settings in the 'settings' window. If interval is '0' the interval is dynamically determined
-	StringID str;           ///< (translated) string with descriptive text; gui and console
-	StringID str_help;      ///< (Translated) string with help text; gui only.
-	StringID str_val;       ///< (Translated) first string describing the value.
-	SettingCategory cat;    ///< assigned categories of the setting
-	PreChangeCheck *pre_check;         ///< Callback to check for the validity of the setting.
-	PostChangeCallback *post_callback; ///< Callback when the setting has been changed.
+	int32 def;              // default value given when none is present
+	int32 min;              // minimum values
+	uint32 max;             // maximum values
+	int32 interval;         // the interval to use between settings in the 'settings' window. If interval is '0' the interval is dynamically determined
+	StringID str;           // (translated) string with descriptive text; gui and console
+	StringID str_help;      // (Translated) string with help text; gui only.
+	StringID str_val;       // (Translated) first string describing the value.
+	SettingCategory cat;    // assigned categories of the setting
+	PreChangeCheck *pre_check;         // Callback to check for the validity of the setting.
+	PostChangeCallback *post_callback; // Callback when the setting has been changed.
 
 	/**
 	 * Check whether this setting is a boolean type setting.
@@ -205,7 +205,7 @@ struct BoolSettingDesc : IntSettingDesc {
 
 /** One of many setting. */
 struct OneOfManySettingDesc : IntSettingDesc {
-	typedef size_t OnConvert(const char *value); ///< callback prototype for conversion error
+	typedef size_t OnConvert(const char *value); // callback prototype for conversion error
 
 	OneOfManySettingDesc(SaveLoad save, SettingFlag flags, bool startup, int32 def,
 			int32 max, StringID str, StringID str_help, StringID str_val, SettingCategory cat,
@@ -219,8 +219,8 @@ struct OneOfManySettingDesc : IntSettingDesc {
 
 	virtual ~OneOfManySettingDesc() {}
 
-	std::vector<std::string> many; ///< possible values for this type
-	OnConvert *many_cnvt;          ///< callback procedure when loading value mechanism fails
+	std::vector<std::string> many; // possible values for this type
+	OnConvert *many_cnvt;          // callback procedure when loading value mechanism fails
 
 	static size_t ParseSingleValue(const char *str, size_t len, const std::vector<std::string> &many);
 	char *FormatSingleValue(char *buf, const char *last, uint id) const;
@@ -266,10 +266,10 @@ struct StringSettingDesc : SettingDesc {
 			pre_check(pre_check), post_callback(post_callback) {}
 	virtual ~StringSettingDesc() {}
 
-	std::string def;                   ///< Default value given when none is present
-	uint32 max_length;                 ///< Maximum length of the string, 0 means no maximum length
-	PreChangeCheck *pre_check;         ///< Callback to check for the validity of the setting.
-	PostChangeCallback *post_callback; ///< Callback when the setting has been changed.
+	std::string def;                   // Default value given when none is present
+	uint32 max_length;                 // Maximum length of the string, 0 means no maximum length
+	PreChangeCheck *pre_check;         // Callback to check for the validity of the setting.
+	PostChangeCallback *post_callback; // Callback when the setting has been changed.
 
 	bool IsStringSetting() const override { return true; }
 	void ChangeValue(const void *object, std::string &newval) const;
@@ -290,7 +290,7 @@ struct ListSettingDesc : SettingDesc {
 		SettingDesc(save, flags, startup), def(def) {}
 	virtual ~ListSettingDesc() {}
 
-	const char *def;        ///< default value given when none is present
+	const char *def;        // default value given when none is present
 
 	void FormatValue(char *buf, const char *last, const void *object) const override;
 	void ParseValue(const IniItem *item, void *object) const override;

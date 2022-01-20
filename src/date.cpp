@@ -23,11 +23,11 @@
 
 #include "safeguards.h"
 
-Year      _cur_year;   ///< Current year, starting at 0
-Month     _cur_month;  ///< Current month (0..11)
-Date      _date;       ///< Current date in days (day counter)
-DateFract _date_fract; ///< Fractional part of the day.
-uint16 _tick_counter;  ///< Ever incrementing (and sometimes wrapping) tick counter for setting off various events
+Year      _cur_year;   // Current year, starting at 0
+Month     _cur_month;  // Current month (0..11)
+Date      _date;       // Current date in days (day counter)
+DateFract _date_fract; // Fractional part of the day.
+uint16 _tick_counter;  // Ever incrementing (and sometimes wrapping) tick counter for setting off various events
 
 /**
  * Set the date.
@@ -179,11 +179,11 @@ extern void ShowEndGameChart();
 
 /** Available settings for autosave intervals. */
 static const Month _autosave_months[] = {
-	 0, ///< never
-	 1, ///< every month
-	 3, ///< every 3 months
-	 6, ///< every 6 months
-	12, ///< every 12 months
+	 0, // never
+	 1, // every month
+	 3, // every 3 months
+	 6, // every 6 months
+	12, // every 12 months
 };
 
 /**

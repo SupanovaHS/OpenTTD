@@ -32,14 +32,14 @@
 
 #include "safeguards.h"
 
-static int _smallmap_industry_count; ///< Number of used industries
-static int _smallmap_company_count;  ///< Number of entries in the owner legend.
-static int _smallmap_cargo_count;    ///< Number of cargos in the link stats legend.
+static int _smallmap_industry_count; // Number of used industries
+static int _smallmap_company_count;  // Number of entries in the owner legend.
+static int _smallmap_cargo_count;    // Number of cargos in the link stats legend.
 
 /** Link stat colours shown in legenda. */
 static uint8 _linkstat_colours_in_legenda[] = {0, 1, 3, 5, 7, 9, 11};
 
-static const int NUM_NO_COMPANY_ENTRIES = 4; ///< Number of entries in the owner legend that are not companies.
+static const int NUM_NO_COMPANY_ENTRIES = 4; // Number of entries in the owner legend that are not companies.
 
 /** Macro for ordinary entry of LegendAndColour */
 #define MK(a, b) {a, b, INVALID_INDUSTRYTYPE, 0, INVALID_COMPANY, true, false, false}
@@ -256,17 +256,17 @@ static const LegendAndColour * const _legend_table[] = {
 
 /** Colour scheme of the smallmap. */
 struct SmallMapColourScheme {
-	uint32 *height_colours;            ///< Cached colours for each level in a map.
-	const uint32 *height_colours_base; ///< Base table for determining the colours
-	size_t colour_count;               ///< The number of colours.
-	uint32 default_colour;             ///< Default colour of the land.
+	uint32 *height_colours;            // Cached colours for each level in a map.
+	const uint32 *height_colours_base; // Base table for determining the colours
+	size_t colour_count;               // The number of colours.
+	uint32 default_colour;             // Default colour of the land.
 };
 
 /** Available colour schemes for height maps. */
 static SmallMapColourScheme _heightmap_schemes[] = {
-	{nullptr, _green_map_heights,      lengthof(_green_map_heights),      MKCOLOUR_XXXX(0x54)}, ///< Green colour scheme.
-	{nullptr, _dark_green_map_heights, lengthof(_dark_green_map_heights), MKCOLOUR_XXXX(0x62)}, ///< Dark green colour scheme.
-	{nullptr, _violet_map_heights,     lengthof(_violet_map_heights),     MKCOLOUR_XXXX(0x81)}, ///< Violet colour scheme.
+	{nullptr, _green_map_heights,      lengthof(_green_map_heights),      MKCOLOUR_XXXX(0x54)}, // Green colour scheme.
+	{nullptr, _dark_green_map_heights, lengthof(_dark_green_map_heights), MKCOLOUR_XXXX(0x62)}, // Dark green colour scheme.
+	{nullptr, _violet_map_heights,     lengthof(_violet_map_heights),     MKCOLOUR_XXXX(0x81)}, // Violet colour scheme.
 };
 
 /**
@@ -512,14 +512,14 @@ static inline uint32 GetSmallMapLinkStatsPixels(TileIndex tile, TileType t)
 }
 
 static const uint32 _vegetation_clear_bits[] = {
-	MKCOLOUR_XXXX(PC_GRASS_LAND), ///< full grass
-	MKCOLOUR_XXXX(PC_ROUGH_LAND), ///< rough land
-	MKCOLOUR_XXXX(PC_GREY),       ///< rocks
-	MKCOLOUR_XXXX(PC_FIELDS),     ///< fields
-	MKCOLOUR_XXXX(PC_LIGHT_BLUE), ///< snow
-	MKCOLOUR_XXXX(PC_ORANGE),     ///< desert
-	MKCOLOUR_XXXX(PC_GRASS_LAND), ///< unused
-	MKCOLOUR_XXXX(PC_GRASS_LAND), ///< unused
+	MKCOLOUR_XXXX(PC_GRASS_LAND), // full grass
+	MKCOLOUR_XXXX(PC_ROUGH_LAND), // rough land
+	MKCOLOUR_XXXX(PC_GREY),       // rocks
+	MKCOLOUR_XXXX(PC_FIELDS),     // fields
+	MKCOLOUR_XXXX(PC_LIGHT_BLUE), // snow
+	MKCOLOUR_XXXX(PC_ORANGE),     // desert
+	MKCOLOUR_XXXX(PC_GRASS_LAND), // unused
+	MKCOLOUR_XXXX(PC_GRASS_LAND), // unused
 };
 
 /**
@@ -1703,7 +1703,7 @@ int SmallMapWindow::map_height_limit = -1;
  *       The bar should have a minimal size with a zero-size legends display. Child padding is not supported.
  */
 class NWidgetSmallmapDisplay : public NWidgetContainer {
-	const SmallMapWindow *smallmap_window; ///< Window manager instance.
+	const SmallMapWindow *smallmap_window; // Window manager instance.
 public:
 	NWidgetSmallmapDisplay() : NWidgetContainer(NWID_VERTICAL)
 	{

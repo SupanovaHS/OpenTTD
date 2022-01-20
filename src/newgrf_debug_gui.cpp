@@ -75,18 +75,18 @@ static inline uint GetInspectWindowNumber(GrfSpecFeature feature, uint index)
  * provide an appropriate representation in the GUI.
  */
 enum NIType {
-	NIT_INT,   ///< The property is a simple integer
-	NIT_CARGO, ///< The property is a cargo
+	NIT_INT,   // The property is a simple integer
+	NIT_CARGO, // The property is a cargo
 };
 
 typedef const void *NIOffsetProc(const void *b);
 
 /** Representation of the data from a NewGRF property. */
 struct NIProperty {
-	const char *name;          ///< A (human readable) name for the property
-	NIOffsetProc *offset_proc; ///< Callback proc to get the actual variable address in memory
-	byte read_size;            ///< Number of bytes (i.e. byte, word, dword etc)
-	byte prop;                 ///< The number of the property
+	const char *name;          // A (human readable) name for the property
+	NIOffsetProc *offset_proc; // Callback proc to get the actual variable address in memory
+	byte read_size;            // Number of bytes (i.e. byte, word, dword etc)
+	byte prop;                 // The number of the property
 	byte type;
 };
 
@@ -96,11 +96,11 @@ struct NIProperty {
  * information on when they actually apply.
  */
 struct NICallback {
-	const char *name;          ///< The human readable name of the callback
-	NIOffsetProc *offset_proc; ///< Callback proc to get the actual variable address in memory
-	byte read_size;            ///< The number of bytes (i.e. byte, word, dword etc) to read
-	byte cb_bit;               ///< The bit that needs to be set for this callback to be enabled
-	uint16 cb_id;              ///< The number of the callback
+	const char *name;          // The human readable name of the callback
+	NIOffsetProc *offset_proc; // Callback proc to get the actual variable address in memory
+	byte read_size;            // The number of bytes (i.e. byte, word, dword etc) to read
+	byte cb_bit;               // The bit that needs to be set for this callback to be enabled
+	uint16 cb_id;              // The number of the callback
 };
 /** Mask to show no bit needs to be enabled for the callback. */
 static const int CBM_NO_BIT = UINT8_MAX;
@@ -230,10 +230,10 @@ protected:
 
 /** Container for all information for a given feature. */
 struct NIFeature {
-	const NIProperty *properties; ///< The properties associated with this feature.
-	const NICallback *callbacks;  ///< The callbacks associated with this feature.
-	const NIVariable *variables;  ///< The variables associated with this feature.
-	const NIHelper   *helper;     ///< The class container all helper functions.
+	const NIProperty *properties; // The properties associated with this feature.
+	const NICallback *callbacks;  // The callbacks associated with this feature.
+	const NIVariable *variables;  // The variables associated with this feature.
+	const NIHelper   *helper;     // The class container all helper functions.
 };
 
 /* Load all the NewGRF debug data; externalised as it is just a huge bunch of tables. */
@@ -273,10 +273,10 @@ static inline const NIHelper *GetFeatureHelper(uint window_number)
 
 /** Window used for inspecting NewGRFs. */
 struct NewGRFInspectWindow : Window {
-	static const int LEFT_OFFSET   = 5; ///< Position of left edge
-	static const int RIGHT_OFFSET  = 5; ///< Position of right edge
-	static const int TOP_OFFSET    = 5; ///< Position of top edge
-	static const int BOTTOM_OFFSET = 5; ///< Position of bottom edge
+	static const int LEFT_OFFSET   = 5; // Position of left edge
+	static const int RIGHT_OFFSET  = 5; // Position of right edge
+	static const int TOP_OFFSET    = 5; // Position of top edge
+	static const int BOTTOM_OFFSET = 5; // Position of bottom edge
 
 	/** The value for the variable 60 parameters. */
 	static uint32 var60params[GSF_FAKE_END][0x20];
@@ -806,11 +806,11 @@ GrfSpecFeature GetGrfSpecFeature(VehicleType type)
 
 /** Window used for aligning sprites. */
 struct SpriteAlignerWindow : Window {
-	typedef std::pair<int16, int16> XyOffs;    ///< Pair for x and y offsets of the sprite before alignment. First value contains the x offset, second value y offset.
+	typedef std::pair<int16, int16> XyOffs;    // Pair for x and y offsets of the sprite before alignment. First value contains the x offset, second value y offset.
 
-	SpriteID current_sprite;                   ///< The currently shown sprite.
+	SpriteID current_sprite;                   // The currently shown sprite.
 	Scrollbar *vscroll;
-	SmallMap<SpriteID, XyOffs> offs_start_map; ///< Mapping of starting offsets for the sprites which have been aligned in the sprite aligner window.
+	SmallMap<SpriteID, XyOffs> offs_start_map; // Mapping of starting offsets for the sprites which have been aligned in the sprite aligner window.
 
 	SpriteAlignerWindow(WindowDesc *desc, WindowNumber wno) : Window(desc)
 	{

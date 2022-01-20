@@ -577,8 +577,8 @@ compatible_grf:
 
 /** Helper for scanning for files with GRF as extension */
 class GRFFileScanner : FileScanner {
-	std::chrono::steady_clock::time_point next_update; ///< The next moment we do update the screen.
-	uint num_scanned; ///< The number of GRFs we have scanned.
+	std::chrono::steady_clock::time_point next_update; // The next moment we do update the screen.
+	uint num_scanned; // The number of GRFs we have scanned.
 
 public:
 	GRFFileScanner() : num_scanned(0)

@@ -32,13 +32,13 @@
 
 #include "../safeguards.h"
 
-static bool _network_udp_server;         ///< Is the UDP server started?
-static uint16 _network_udp_broadcast;    ///< Timeout for the UDP broadcasts.
+static bool _network_udp_server;         // Is the UDP server started?
+static uint16 _network_udp_broadcast;    // Timeout for the UDP broadcasts.
 
 /** Some information about a socket, which exists before the actual socket has been created to provide locking and the likes. */
 struct UDPSocket {
-	const std::string name;                     ///< The name of the socket.
-	NetworkUDPSocketHandler *socket;            ///< The actual socket, which may be nullptr when not initialized yet.
+	const std::string name;                     // The name of the socket.
+	NetworkUDPSocketHandler *socket;            // The actual socket, which may be nullptr when not initialized yet.
 
 	UDPSocket(const std::string &name) : name(name), socket(nullptr) {}
 
@@ -55,8 +55,8 @@ struct UDPSocket {
 	}
 };
 
-static UDPSocket _udp_client("Client"); ///< udp client socket
-static UDPSocket _udp_server("Server"); ///< udp server socket
+static UDPSocket _udp_client("Client"); // udp client socket
+static UDPSocket _udp_server("Server"); // udp server socket
 
 ///*** Communication with clients (we are server) ***/
 

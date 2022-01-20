@@ -147,18 +147,18 @@ static void ShowNewGRFInfo(const GRFConfig *c, uint x, uint y, uint right, uint 
  * Window for setting the parameters of a NewGRF.
  */
 struct NewGRFParametersWindow : public Window {
-	static GRFParameterInfo dummy_parameter_info; ///< Dummy info in case a newgrf didn't provide info about some parameter.
-	GRFConfig *grf_config; ///< Set the parameters of this GRFConfig.
-	uint clicked_button;   ///< The row in which a button was clicked or UINT_MAX.
-	bool clicked_increase; ///< True if the increase button was clicked, false for the decrease button.
-	bool clicked_dropdown; ///< Whether the dropdown is open.
-	bool closing_dropdown; ///< True, if the dropdown list is currently closing.
-	GUITimer timeout;      ///< How long before we unpress the last-pressed button?
-	uint clicked_row;      ///< The selected parameter
-	int line_height;       ///< Height of a row in the matrix widget.
+	static GRFParameterInfo dummy_parameter_info; // Dummy info in case a newgrf didn't provide info about some parameter.
+	GRFConfig *grf_config; // Set the parameters of this GRFConfig.
+	uint clicked_button;   // The row in which a button was clicked or UINT_MAX.
+	bool clicked_increase; // True if the increase button was clicked, false for the decrease button.
+	bool clicked_dropdown; // Whether the dropdown is open.
+	bool closing_dropdown; // True, if the dropdown list is currently closing.
+	GUITimer timeout;      // How long before we unpress the last-pressed button?
+	uint clicked_row;      // The selected parameter
+	int line_height;       // Height of a row in the matrix widget.
 	Scrollbar *vscroll;
-	bool action14present;  ///< True if action14 information is present.
-	bool editable;         ///< Allow editing parameters.
+	bool action14present;  // True if action14 information is present.
+	bool editable;         // Allow editing parameters.
 
 	NewGRFParametersWindow(WindowDesc *desc, GRFConfig *c, bool editable) : Window(desc),
 		grf_config(c),
@@ -544,7 +544,7 @@ static void OpenGRFParameterWindow(GRFConfig *c, bool editable)
 
 /** Window for displaying the textfile of a NewGRF. */
 struct NewGRFTextfileWindow : public TextfileWindow {
-	const GRFConfig *grf_config; ///< View the textfile of this GRFConfig.
+	const GRFConfig *grf_config; // View the textfile of this GRFConfig.
 
 	NewGRFTextfileWindow(TextfileType file_type, const GRFConfig *c) : TextfileWindow(file_type), grf_config(c)
 	{
@@ -567,7 +567,7 @@ void ShowNewGRFTextfileWindow(TextfileType file_type, const GRFConfig *c)
 	new NewGRFTextfileWindow(file_type, c);
 }
 
-typedef std::map<uint32, const GRFConfig *> GrfIdMap; ///< Map of grfid to the grf config.
+typedef std::map<uint32, const GRFConfig *> GrfIdMap; // Map of grfid to the grf config.
 
 /**
  * Add all grf configs from \a c into the map.
@@ -594,29 +594,29 @@ struct NewGRFWindow : public Window, NewGRFScanCallback {
 
 	static const uint EDITBOX_MAX_SIZE   =  50;
 
-	static Listing   last_sorting;   ///< Default sorting of #GUIGRFConfigList.
-	static Filtering last_filtering; ///< Default filtering of #GUIGRFConfigList.
-	static GUIGRFConfigList::SortFunction   * const sorter_funcs[]; ///< Sort functions of the #GUIGRFConfigList.
-	static GUIGRFConfigList::FilterFunction * const filter_funcs[]; ///< Filter functions of the #GUIGRFConfigList.
+	static Listing   last_sorting;   // Default sorting of #GUIGRFConfigList.
+	static Filtering last_filtering; // Default filtering of #GUIGRFConfigList.
+	static GUIGRFConfigList::SortFunction   * const sorter_funcs[]; // Sort functions of the #GUIGRFConfigList.
+	static GUIGRFConfigList::FilterFunction * const filter_funcs[]; // Filter functions of the #GUIGRFConfigList.
 
-	GUIGRFConfigList avails;    ///< Available (non-active) grfs.
-	const GRFConfig *avail_sel; ///< Currently selected available grf. \c nullptr is none is selected.
-	int avail_pos;              ///< Index of #avail_sel if existing, else \c -1.
-	StringFilter string_filter; ///< Filter for available grf.
-	QueryString filter_editbox; ///< Filter editbox;
+	GUIGRFConfigList avails;    // Available (non-active) grfs.
+	const GRFConfig *avail_sel; // Currently selected available grf. \c nullptr is none is selected.
+	int avail_pos;              // Index of #avail_sel if existing, else \c -1.
+	StringFilter string_filter; // Filter for available grf.
+	QueryString filter_editbox; // Filter editbox;
 
-	StringList grf_presets;     ///< List of known NewGRF presets.
+	StringList grf_presets;     // List of known NewGRF presets.
 
-	GRFConfig *actives;         ///< Temporary active grf list to which changes are made.
-	GRFConfig *active_sel;      ///< Selected active grf item.
+	GRFConfig *actives;         // Temporary active grf list to which changes are made.
+	GRFConfig *active_sel;      // Selected active grf item.
 
-	GRFConfig **orig_list;      ///< List active grfs in the game. Used as initial value, may be updated by the window.
-	bool editable;              ///< Is the window editable?
-	bool show_params;           ///< Are the grf-parameters shown in the info-panel?
-	bool execute;               ///< On pressing 'apply changes' are grf changes applied immediately, or only list is updated.
-	int preset;                 ///< Selected preset or \c -1 if none selected.
-	int active_over;            ///< Active GRF item over which another one is dragged, \c -1 if none.
-	bool modified;              ///< The list of active NewGRFs has been modified since the last time they got saved.
+	GRFConfig **orig_list;      // List active grfs in the game. Used as initial value, may be updated by the window.
+	bool editable;              // Is the window editable?
+	bool show_params;           // Are the grf-parameters shown in the info-panel?
+	bool execute;               // On pressing 'apply changes' are grf changes applied immediately, or only list is updated.
+	int preset;                 // Selected preset or \c -1 if none selected.
+	int active_over;            // Active GRF item over which another one is dragged, \c -1 if none.
+	bool modified;              // The list of active NewGRFs has been modified since the last time they got saved.
 
 	Scrollbar *vscroll;
 	Scrollbar *vscroll2;
@@ -1577,15 +1577,15 @@ NewGRFWindow::GUIGRFConfigList::FilterFunction * const NewGRFWindow::filter_func
  */
 class NWidgetNewGRFDisplay : public NWidgetContainer {
 public:
-	static const uint INTER_LIST_SPACING;      ///< Empty vertical space between both lists in the 2 column mode.
-	static const uint INTER_COLUMN_SPACING;    ///< Empty horizontal space between two columns.
-	static const uint MAX_EXTRA_INFO_WIDTH;    ///< Maximal additional width given to the panel.
-	static const uint MIN_EXTRA_FOR_3_COLUMNS; ///< Minimal additional width needed before switching to 3 columns.
+	static const uint INTER_LIST_SPACING;      // Empty vertical space between both lists in the 2 column mode.
+	static const uint INTER_COLUMN_SPACING;    // Empty horizontal space between two columns.
+	static const uint MAX_EXTRA_INFO_WIDTH;    // Maximal additional width given to the panel.
+	static const uint MIN_EXTRA_FOR_3_COLUMNS; // Minimal additional width needed before switching to 3 columns.
 
-	NWidgetBase *avs; ///< Widget with the available grfs list and buttons.
-	NWidgetBase *acs; ///< Widget with the active grfs list and buttons.
-	NWidgetBase *inf; ///< Info panel.
-	bool editable;    ///< Editable status of the parent NewGRF window (if \c false, drop all widgets that make the window editable).
+	NWidgetBase *avs; // Widget with the available grfs list and buttons.
+	NWidgetBase *acs; // Widget with the active grfs list and buttons.
+	NWidgetBase *inf; // Info panel.
+	bool editable;    // Editable status of the parent NewGRF window (if \c false, drop all widgets that make the window editable).
 
 	NWidgetNewGRFDisplay(NWidgetBase *avs, NWidgetBase *acs, NWidgetBase *inf) : NWidgetContainer(NWID_HORIZONTAL)
 	{
@@ -2031,10 +2031,10 @@ static WindowDesc _save_preset_desc(
 
 /** Class for the save preset window. */
 struct SavePresetWindow : public Window {
-	QueryString presetname_editbox; ///< Edit box of the save preset.
-	StringList presets; ///< Available presets.
-	Scrollbar *vscroll; ///< Pointer to the scrollbar widget.
-	int selected; ///< Selected entry in the preset list, or \c -1 if none selected.
+	QueryString presetname_editbox; // Edit box of the save preset.
+	StringList presets; // Available presets.
+	Scrollbar *vscroll; // Pointer to the scrollbar widget.
+	int selected; // Selected entry in the preset list, or \c -1 if none selected.
 
 	/**
 	 * Constructor of the save preset window.
@@ -2178,8 +2178,8 @@ static WindowDesc _scan_progress_desc(
 
 /** Window for showing the progress of NewGRF scanning. */
 struct ScanProgressWindow : public Window {
-	char *last_name; ///< The name of the last 'seen' NewGRF.
-	int scanned;     ///< The number of NewGRFs that we have seen.
+	char *last_name; // The name of the last 'seen' NewGRF.
+	int scanned;     // The number of NewGRFs that we have seen.
 
 	/** Create the window. */
 	ScanProgressWindow() : Window(&_scan_progress_desc), last_name(nullptr), scanned(0)

@@ -28,25 +28,25 @@ struct PlaybackSegment {
 };
 
 static struct {
-	UINT time_period;    ///< obtained timer precision value
-	HMIDIOUT midi_out;   ///< handle to open midiOut
-	UINT timer_id;       ///< ID of active multimedia timer
-	std::mutex lock;     ///< synchronization for playback status fields
+	UINT time_period;    // obtained timer precision value
+	HMIDIOUT midi_out;   // handle to open midiOut
+	UINT timer_id;       // ID of active multimedia timer
+	std::mutex lock;     // synchronization for playback status fields
 
-	bool playing;        ///< flag indicating that playback is active
-	int do_start;        ///< flag for starting playback of next_file at next opportunity
-	bool do_stop;        ///< flag for stopping playback at next opportunity
-	byte current_volume; ///< current effective volume setting
-	byte new_volume;     ///< volume setting to change to
+	bool playing;        // flag indicating that playback is active
+	int do_start;        // flag for starting playback of next_file at next opportunity
+	bool do_stop;        // flag for stopping playback at next opportunity
+	byte current_volume; // current effective volume setting
+	byte new_volume;     // volume setting to change to
 
-	MidiFile current_file;           ///< file currently being played from
-	PlaybackSegment current_segment; ///< segment info for current playback
-	DWORD playback_start_time;       ///< timestamp current file began playback
-	size_t current_block;            ///< next block index to send
-	MidiFile next_file;              ///< upcoming file to play
-	PlaybackSegment next_segment;    ///< segment info for upcoming file
+	MidiFile current_file;           // file currently being played from
+	PlaybackSegment current_segment; // segment info for current playback
+	DWORD playback_start_time;       // timestamp current file began playback
+	size_t current_block;            // next block index to send
+	MidiFile next_file;              // upcoming file to play
+	PlaybackSegment next_segment;    // segment info for upcoming file
 
-	byte channel_volumes[16]; ///< last seen volume controller values in raw data
+	byte channel_volumes[16]; // last seen volume controller values in raw data
 } _midi;
 
 static FMusicDriver_Win32 iFMusicDriver_Win32;

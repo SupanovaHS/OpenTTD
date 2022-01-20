@@ -85,12 +85,12 @@ void NetworkHTTPSocketHandler::CloseSocket()
  */
 #define return_error(msg) { Debug(net, 1, msg); return -1; }
 
-static const char * const NEWLINE        = "\r\n";             ///< End of line marker
-static const char * const END_OF_HEADER  = "\r\n\r\n";         ///< End of header marker
-static const char * const HTTP_1_0       = "HTTP/1.0 ";        ///< Preamble for HTTP 1.0 servers
-static const char * const HTTP_1_1       = "HTTP/1.1 ";        ///< Preamble for HTTP 1.1 servers
-static const char * const CONTENT_LENGTH = "Content-Length: "; ///< Header for the length of the content
-static const char * const LOCATION       = "Location: ";       ///< Header for location
+static const char * const NEWLINE        = "\r\n";             // End of line marker
+static const char * const END_OF_HEADER  = "\r\n\r\n";         // End of header marker
+static const char * const HTTP_1_0       = "HTTP/1.0 ";        // Preamble for HTTP 1.0 servers
+static const char * const HTTP_1_1       = "HTTP/1.1 ";        // Preamble for HTTP 1.1 servers
+static const char * const CONTENT_LENGTH = "Content-Length: "; // Header for the length of the content
+static const char * const LOCATION       = "Location: ";       // Header for location
 
 /**
  * Handle the header of a HTTP reply.

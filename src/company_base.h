@@ -20,20 +20,20 @@
 
 /** Statistics about the economy. */
 struct CompanyEconomyEntry {
-	Money income;               ///< The amount of income.
-	Money expenses;             ///< The amount of expenses.
-	CargoArray delivered_cargo; ///< The amount of delivered cargo.
-	int32 performance_history;  ///< Company score (scale 0-1000)
-	Money company_value;        ///< The value of the company.
+	Money income;               // The amount of income.
+	Money expenses;             // The amount of expenses.
+	CargoArray delivered_cargo; // The amount of delivered cargo.
+	int32 performance_history;  // Company score (scale 0-1000)
+	Money company_value;        // The value of the company.
 };
 
 struct CompanyInfrastructure {
-	uint32 road[ROADTYPE_END]; ///< Count of company owned track bits for each road type.
-	uint32 signal;             ///< Count of company owned signals.
-	uint32 rail[RAILTYPE_END]; ///< Count of company owned track bits for each rail type.
-	uint32 water;              ///< Count of company owned track bits for canals.
-	uint32 station;            ///< Count of company owned station tiles.
-	uint32 airport;            ///< Count of company owned airports.
+	uint32 road[ROADTYPE_END]; // Count of company owned track bits for each road type.
+	uint32 signal;             // Count of company owned signals.
+	uint32 rail[RAILTYPE_END]; // Count of company owned track bits for each rail type.
+	uint32 water;              // Count of company owned track bits for canals.
+	uint32 station;            // Count of company owned station tiles.
+	uint32 airport;            // Count of company owned airports.
 
 	/** Get total sum of all owned track bits. */
 	uint32 GetRailTotal() const
@@ -53,39 +53,39 @@ extern CompanyPool _company_pool;
 
 /** Statically loadable part of Company pool item */
 struct CompanyProperties {
-	uint32 name_2;                   ///< Parameter of #name_1.
-	StringID name_1;                 ///< Name of the company if the user did not change it.
-	std::string name;                ///< Name of the company if the user changed it.
+	uint32 name_2;                   // Parameter of #name_1.
+	StringID name_1;                 // Name of the company if the user did not change it.
+	std::string name;                // Name of the company if the user changed it.
 
-	StringID president_name_1;       ///< Name of the president if the user did not change it.
-	uint32 president_name_2;         ///< Parameter of #president_name_1
-	std::string president_name;      ///< Name of the president if the user changed it.
+	StringID president_name_1;       // Name of the president if the user did not change it.
+	uint32 president_name_2;         // Parameter of #president_name_1
+	std::string president_name;      // Name of the president if the user changed it.
 
-	CompanyManagerFace face;         ///< Face description of the president.
+	CompanyManagerFace face;         // Face description of the president.
 
-	Money money;                     ///< Money owned by the company.
-	byte money_fraction;             ///< Fraction of money of the company, too small to represent in #money.
-	Money current_loan;              ///< Amount of money borrowed from the bank.
+	Money money;                     // Money owned by the company.
+	byte money_fraction;             // Fraction of money of the company, too small to represent in #money.
+	Money current_loan;              // Amount of money borrowed from the bank.
 
-	byte colour;                     ///< Company colour.
+	byte colour;                     // Company colour.
 
-	byte block_preview;              ///< Number of quarters that the company is not allowed to get new exclusive engine previews (see CompaniesGenStatistics).
+	byte block_preview;              // Number of quarters that the company is not allowed to get new exclusive engine previews (see CompaniesGenStatistics).
 
-	TileIndex location_of_HQ;        ///< Northern tile of HQ; #INVALID_TILE when there is none.
-	TileIndex last_build_coordinate; ///< Coordinate of the last build thing by this company.
+	TileIndex location_of_HQ;        // Northern tile of HQ; #INVALID_TILE when there is none.
+	TileIndex last_build_coordinate; // Coordinate of the last build thing by this company.
 
-	Owner share_owners[4];           ///< Owners of the 4 shares of the company. #INVALID_OWNER if nobody has bought them yet.
+	Owner share_owners[4];           // Owners of the 4 shares of the company. #INVALID_OWNER if nobody has bought them yet.
 
-	Year inaugurated_year;           ///< Year of starting the company.
+	Year inaugurated_year;           // Year of starting the company.
 
-	byte months_of_bankruptcy;       ///< Number of months that the company is unable to pay its debts
-	CompanyMask bankrupt_asked;      ///< which companies were asked about buying it?
-	int16 bankrupt_timeout;          ///< If bigger than \c 0, amount of time to wait for an answer on an offer to buy this company.
+	byte months_of_bankruptcy;       // Number of months that the company is unable to pay its debts
+	CompanyMask bankrupt_asked;      // which companies were asked about buying it?
+	int16 bankrupt_timeout;          // If bigger than \c 0, amount of time to wait for an answer on an offer to buy this company.
 	Money bankrupt_value;
 
-	uint32 terraform_limit;          ///< Amount of tileheights we can (still) terraform (times 65536).
-	uint32 clear_limit;              ///< Amount of tiles we can (still) clear (times 65536).
-	uint32 tree_limit;               ///< Amount of trees we can (still) plant (times 65536).
+	uint32 terraform_limit;          // Amount of tileheights we can (still) terraform (times 65536).
+	uint32 clear_limit;              // Amount of tiles we can (still) clear (times 65536).
+	uint32 tree_limit;               // Amount of trees we can (still) plant (times 65536).
 
 	/**
 	 * If \c true, the company is (also) controlled by the computer (a NoAI program).
@@ -93,15 +93,15 @@ struct CompanyProperties {
 	 */
 	bool is_ai;
 
-	Money yearly_expenses[3][EXPENSES_END];                ///< Expenses of the company for the last three years, in every #ExpensesType category.
-	CompanyEconomyEntry cur_economy;                       ///< Economic data of the company of this quarter.
-	CompanyEconomyEntry old_economy[MAX_HISTORY_QUARTERS]; ///< Economic data of the company of the last #MAX_HISTORY_QUARTERS quarters.
-	byte num_valid_stat_ent;                               ///< Number of valid statistical entries in #old_economy.
+	Money yearly_expenses[3][EXPENSES_END];                // Expenses of the company for the last three years, in every #ExpensesType category.
+	CompanyEconomyEntry cur_economy;                       // Economic data of the company of this quarter.
+	CompanyEconomyEntry old_economy[MAX_HISTORY_QUARTERS]; // Economic data of the company of the last #MAX_HISTORY_QUARTERS quarters.
+	byte num_valid_stat_ent;                               // Number of valid statistical entries in #old_economy.
 
 	Livery livery[LS_END];
 
-	EngineRenewList engine_renew_list; ///< Engine renewals of this company.
-	CompanySettings settings;          ///< settings specific for each company
+	EngineRenewList engine_renew_list; // Engine renewals of this company.
+	CompanySettings settings;          // settings specific for each company
 
 	// TODO: Change some of these member variables to use relevant INVALID_xxx constants
 	CompanyProperties()
@@ -116,16 +116,16 @@ struct Company : CompanyProperties, CompanyPool::PoolItem<&_company_pool> {
 	Company(uint16 name_1 = 0, bool is_ai = false);
 	~Company();
 
-	RailTypes avail_railtypes;         ///< Rail types available to this company.
-	RoadTypes avail_roadtypes;         ///< Road types available to this company.
+	RailTypes avail_railtypes;         // Rail types available to this company.
+	RoadTypes avail_roadtypes;         // Road types available to this company.
 
 	class AIInstance *ai_instance;
 	class AIInfo *ai_info;
 
-	GroupStatistics group_all[VEH_COMPANY_END];      ///< NOSAVE: Statistics for the ALL_GROUP group.
-	GroupStatistics group_default[VEH_COMPANY_END];  ///< NOSAVE: Statistics for the DEFAULT_GROUP group.
+	GroupStatistics group_all[VEH_COMPANY_END];      // NOSAVE: Statistics for the ALL_GROUP group.
+	GroupStatistics group_default[VEH_COMPANY_END];  // NOSAVE: Statistics for the DEFAULT_GROUP group.
 
-	CompanyInfrastructure infrastructure; ///< NOSAVE: Counts of company owned infrastructure.
+	CompanyInfrastructure infrastructure; // NOSAVE: Counts of company owned infrastructure.
 
 	/**
 	 * Is this company a valid company, controlled by the computer (a NoAI program)?

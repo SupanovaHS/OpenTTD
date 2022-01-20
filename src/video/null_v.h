@@ -15,7 +15,7 @@
 /** The null video driver. */
 class VideoDriver_Null : public VideoDriver {
 private:
-	uint ticks; ///< Amount of ticks to run.
+	uint ticks; // Amount of ticks to run.
 
 public:
 	const char *Start(const StringList &param) override;

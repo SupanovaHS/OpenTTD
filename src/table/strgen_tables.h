@@ -10,10 +10,10 @@
 #include "../core/enum_type.hpp"
 
 enum CmdFlags {
-	C_NONE      = 0x0, ///< Nothing special about this command
-	C_DONTCOUNT = 0x1, ///< These commands aren't counted for comparison
-	C_CASE      = 0x2, ///< These commands support cases
-	C_GENDER    = 0x4, ///< These commands support genders
+	C_NONE      = 0x0, // Nothing special about this command
+	C_DONTCOUNT = 0x1, // These commands aren't counted for comparison
+	C_CASE      = 0x2, // These commands support cases
+	C_GENDER    = 0x4, // These commands support genders
 };
 DECLARE_ENUM_AS_BIT_SET(CmdFlags)
 
@@ -152,9 +152,9 @@ static const CmdStruct _cmd_structs[] = {
 
 /** Description of a plural form */
 struct PluralForm {
-	int plural_count;        ///< The number of plural forms
-	const char *description; ///< Human readable description of the form
-	const char *names;       ///< Plural names
+	int plural_count;        // The number of plural forms
+	const char *description; // Human readable description of the form
+	const char *names;       // Plural names
 };
 
 /** The maximum number of plurals. */

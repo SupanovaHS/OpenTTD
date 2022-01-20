@@ -36,7 +36,7 @@
 
 #include "safeguards.h"
 
-LoadCheckData _load_check_data;    ///< Data loaded from save during SL_LOAD_CHECK.
+LoadCheckData _load_check_data;    // Data loaded from save during SL_LOAD_CHECK.
 
 static bool _fios_path_changed;
 static bool _savegame_sort_dirty;
@@ -266,18 +266,18 @@ struct SaveLoadWindow : public Window {
 private:
 	static const uint EDITBOX_MAX_SIZE   =  50;
 
-	QueryString filename_editbox; ///< Filename editbox.
+	QueryString filename_editbox; // Filename editbox.
 	AbstractFileType abstract_filetype; /// Type of file to select.
-	SaveLoadOperation fop;        ///< File operation to perform.
-	FileList fios_items;          ///< Save game list.
-	FiosItem o_dir;               ///< Original dir (home dir for this browser)
-	const FiosItem *selected;     ///< Selected game in #fios_items, or \c nullptr.
-	const FiosItem *highlighted;  ///< Item in fios_items highlighted by mouse pointer, or \c nullptr.
+	SaveLoadOperation fop;        // File operation to perform.
+	FileList fios_items;          // Save game list.
+	FiosItem o_dir;               // Original dir (home dir for this browser)
+	const FiosItem *selected;     // Selected game in #fios_items, or \c nullptr.
+	const FiosItem *highlighted;  // Item in fios_items highlighted by mouse pointer, or \c nullptr.
 	Scrollbar *vscroll;
 
-	StringFilter string_filter; ///< Filter for available games.
-	QueryString filter_editbox; ///< Filter editbox;
-	std::vector<bool> fios_items_shown; ///< Map of the filtered out fios items
+	StringFilter string_filter; // Filter for available games.
+	QueryString filter_editbox; // Filter editbox;
+	std::vector<bool> fios_items_shown; // Map of the filtered out fios items
 
 	static void SaveGameConfirmationCallback(Window *w, bool confirmed)
 	{
@@ -855,7 +855,7 @@ public:
 			case SLIWD_FILTER_CHANGES:
 				/* Filter changes */
 				this->fios_items_shown.resize(this->fios_items.size());
-				uint items_shown_count = 0; ///< The number of items shown in the list
+				uint items_shown_count = 0; // The number of items shown in the list
 				/* We pass through every fios item */
 				for (uint i = 0; i < this->fios_items.size(); i++) {
 					if (this->string_filter.IsEmpty()) {

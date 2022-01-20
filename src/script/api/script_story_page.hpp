@@ -43,7 +43,7 @@ public:
 	 */
 	enum StoryPageID {
 		/* Note: these values represent part of the in-game StoryPageID enum */
-		STORY_PAGE_INVALID = ::INVALID_STORY_PAGE, ///< An invalid story page id.
+		STORY_PAGE_INVALID = ::INVALID_STORY_PAGE, // An invalid story page id.
 	};
 
 	/**
@@ -51,19 +51,19 @@ public:
 	 */
 	enum StoryPageElementID {
 		/* Note: these values represent part of the in-game StoryPageElementID enum */
-		STORY_PAGE_ELEMENT_INVALID = ::INVALID_STORY_PAGE_ELEMENT, ///< An invalid story page element id.
+		STORY_PAGE_ELEMENT_INVALID = ::INVALID_STORY_PAGE_ELEMENT, // An invalid story page element id.
 	};
 
 	/**
 	 * Story page element types.
 	 */
 	enum StoryPageElementType : byte {
-		SPET_TEXT = ::SPET_TEXT,                     ///< An element that displays a block of text.
-		SPET_LOCATION = ::SPET_LOCATION,             ///< An element that displays a single line of text along with a button to view the referenced location.
-		SPET_GOAL = ::SPET_GOAL,                     ///< An element that displays a goal.
-		SPET_BUTTON_PUSH = ::SPET_BUTTON_PUSH,       ///< A push button that triggers an immediate event.
-		SPET_BUTTON_TILE = ::SPET_BUTTON_TILE,       ///< A button that allows the player to select a tile, and triggers an event with the tile.
-		SPET_BUTTON_VEHICLE = ::SPET_BUTTON_VEHICLE, ///< A button that allows the player to select a vehicle, and triggers an event wih the vehicle.
+		SPET_TEXT = ::SPET_TEXT,                     // An element that displays a block of text.
+		SPET_LOCATION = ::SPET_LOCATION,             // An element that displays a single line of text along with a button to view the referenced location.
+		SPET_GOAL = ::SPET_GOAL,                     // An element that displays a goal.
+		SPET_BUTTON_PUSH = ::SPET_BUTTON_PUSH,       // A push button that triggers an immediate event.
+		SPET_BUTTON_TILE = ::SPET_BUTTON_TILE,       // A button that allows the player to select a tile, and triggers an event with the tile.
+		SPET_BUTTON_VEHICLE = ::SPET_BUTTON_VEHICLE, // A button that allows the player to select a vehicle, and triggers an event wih the vehicle.
 	};
 
 	/**
@@ -76,9 +76,9 @@ public:
 	 * The SPBF_FLOAT_LEFT and SPBF_FLOAT_RIGHT flags can not be combined.
 	 */
 	enum StoryPageButtonFlags : byte {
-		SPBF_NONE        = ::SPBF_NONE,        ///< No special formatting for button.
-		SPBF_FLOAT_LEFT  = ::SPBF_FLOAT_LEFT,  ///< Button is placed to the left of the following paragraph.
-		SPBF_FLOAT_RIGHT = ::SPBF_FLOAT_RIGHT, ///< Button is placed to the right of the following paragraph.
+		SPBF_NONE        = ::SPBF_NONE,        // No special formatting for button.
+		SPBF_FLOAT_LEFT  = ::SPBF_FLOAT_LEFT,  // Button is placed to the left of the following paragraph.
+		SPBF_FLOAT_RIGHT = ::SPBF_FLOAT_RIGHT, // Button is placed to the right of the following paragraph.
 	};
 
 	/**

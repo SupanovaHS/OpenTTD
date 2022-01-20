@@ -45,11 +45,11 @@ public:
 	 * in a separate thread.
 	 */
 	struct BaseNode {
-		uint supply;             ///< Supply at the station.
-		uint demand;             ///< Acceptance at the station.
-		StationID station;       ///< Station ID.
-		TileIndex xy;            ///< Location of the station referred to by the node.
-		Date last_update;        ///< When the supply was last updated.
+		uint supply;             // Supply at the station.
+		uint demand;             // Acceptance at the station.
+		StationID station;       // Station ID.
+		TileIndex xy;            // Location of the station referred to by the node.
+		Date last_update;        // When the supply was last updated.
 		void Init(TileIndex xy = INVALID_TILE, StationID st = INVALID_STATION, uint demand = 0);
 	};
 
@@ -60,12 +60,12 @@ public:
 	 * the column as next_edge.
 	 */
 	struct BaseEdge {
-		uint capacity;                 ///< Capacity of the link.
-		uint usage;                    ///< Usage of the link.
-		uint64 travel_time_sum;        ///< Sum of the travel times of the link, in ticks.
-		Date last_unrestricted_update; ///< When the unrestricted part of the link was last updated.
-		Date last_restricted_update;   ///< When the restricted part of the link was last updated.
-		NodeID next_edge;              ///< Destination of next valid edge starting at the same source node.
+		uint capacity;                 // Capacity of the link.
+		uint usage;                    // Usage of the link.
+		uint64 travel_time_sum;        // Sum of the travel times of the link, in ticks.
+		Date last_unrestricted_update; // When the unrestricted part of the link was last updated.
+		Date last_restricted_update;   // When the restricted part of the link was last updated.
+		NodeID next_edge;              // Destination of next valid edge starting at the same source node.
 		void Init();
 	};
 
@@ -76,7 +76,7 @@ public:
 	template<typename Tedge>
 	class EdgeWrapper {
 	protected:
-		Tedge &edge; ///< Actual edge to be used.
+		Tedge &edge; // Actual edge to be used.
 
 	public:
 
@@ -131,9 +131,9 @@ public:
 	template<typename Tnode, typename Tedge>
 	class NodeWrapper {
 	protected:
-		Tnode &node;  ///< Node being wrapped.
-		Tedge *edges; ///< Outgoing edges for wrapped node.
-		NodeID index; ///< ID of wrapped node.
+		Tnode &node;  // Node being wrapped.
+		Tedge *edges; // Outgoing edges for wrapped node.
+		NodeID index; // ID of wrapped node.
 
 	public:
 
@@ -187,8 +187,8 @@ public:
 	template <class Tedge, class Tedge_wrapper, class Titer>
 	class BaseEdgeIterator {
 	protected:
-		Tedge *base;    ///< Array of edges being iterated.
-		NodeID current; ///< Current offset in edges array.
+		Tedge *base;    // Array of edges being iterated.
+		NodeID current; // Current offset in edges array.
 
 		/**
 		 * A "fake" pointer to enable operator-> on temporaries. As the objects
@@ -540,10 +540,10 @@ protected:
 	friend class SlLinkgraphNode;
 	friend class SlLinkgraphEdge;
 
-	CargoID cargo;         ///< Cargo of this component's link graph.
-	Date last_compression; ///< Last time the capacities and supplies were compressed.
-	NodeVector nodes;      ///< Nodes in the component.
-	EdgeMatrix edges;      ///< Edges in the component.
+	CargoID cargo;         // Cargo of this component's link graph.
+	Date last_compression; // Last time the capacities and supplies were compressed.
+	NodeVector nodes;      // Nodes in the component.
+	EdgeMatrix edges;      // Edges in the component.
 };
 
 #endif /* LINKGRAPH_H */

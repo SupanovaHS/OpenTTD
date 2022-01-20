@@ -43,9 +43,9 @@ struct SignList {
 
 	GUISignList signs;
 
-	StringFilter string_filter;                                       ///< The match string to be used when the GUIList is (re)-sorted.
-	static bool match_case;                                           ///< Should case sensitive matching be used?
-	static char default_name[64];                                     ///< Default sign name, used if Sign::name is nullptr.
+	StringFilter string_filter;                                       // The match string to be used when the GUIList is (re)-sorted.
+	static bool match_case;                                           // Should case sensitive matching be used?
+	static char default_name[64];                                     // Default sign name, used if Sign::name is nullptr.
 
 	/**
 	 * Creates a SignList with filtering disabled by default.
@@ -132,12 +132,12 @@ char SignList::default_name[64];
 
 /** Enum referring to the Hotkeys in the sign list window */
 enum SignListHotkeys {
-	SLHK_FOCUS_FILTER_BOX, ///< Focus the edit box for editing the filter string
+	SLHK_FOCUS_FILTER_BOX, // Focus the edit box for editing the filter string
 };
 
 struct SignListWindow : Window, SignList {
-	QueryString filter_editbox; ///< Filter editbox;
-	int text_offset; ///< Offset of the sign text relative to the left edge of the WID_SIL_LIST widget.
+	QueryString filter_editbox; // Filter editbox;
+	int text_offset; // Offset of the sign text relative to the left edge of the WID_SIL_LIST widget.
 	Scrollbar *vscroll;
 
 	SignListWindow(WindowDesc *desc, WindowNumber window_number) : Window(desc), filter_editbox(MAX_LENGTH_SIGN_NAME_CHARS * MAX_CHAR_LENGTH, MAX_LENGTH_SIGN_NAME_CHARS)

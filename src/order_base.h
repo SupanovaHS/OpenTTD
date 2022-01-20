@@ -35,8 +35,8 @@ class EndianBufferWriter;
  */
 struct Order : OrderPool::PoolItem<&_order_pool> {
 private:
-	friend struct VEHSChunkHandler;                             ///< Loading of ancient vehicles.
-	friend SaveLoadTable GetOrderDescription();                 ///< Saving and loading of orders.
+	friend struct VEHSChunkHandler;                             // Loading of ancient vehicles.
+	friend SaveLoadTable GetOrderDescription();                 // Saving and loading of orders.
 	/* So we can use private/protected variables in the saveload code */
 	friend class SlVehicleCommon;
 	friend class SlVehicleDisaster;
@@ -45,18 +45,18 @@ private:
 	friend EndianBufferWriter<Tcont, Titer> &operator <<(EndianBufferWriter<Tcont, Titer> &buffer, const Order &data);
 	friend class EndianBufferReader &operator >>(class EndianBufferReader &buffer, Order &order);
 
-	uint8 type;           ///< The type of order + non-stop flags
-	uint8 flags;          ///< Load/unload types, depot order/action types.
-	DestinationID dest;   ///< The destination of the order.
+	uint8 type;           // The type of order + non-stop flags
+	uint8 flags;          // Load/unload types, depot order/action types.
+	DestinationID dest;   // The destination of the order.
 
-	CargoID refit_cargo;  ///< Refit CargoID
+	CargoID refit_cargo;  // Refit CargoID
 
-	uint16 wait_time;    ///< How long in ticks to wait at the destination.
-	uint16 travel_time;  ///< How long in ticks the journey to this destination should take.
-	uint16 max_speed;    ///< How fast the vehicle may go on the way to the destination.
+	uint16 wait_time;    // How long in ticks to wait at the destination.
+	uint16 travel_time;  // How long in ticks the journey to this destination should take.
+	uint16 max_speed;    // How fast the vehicle may go on the way to the destination.
 
 public:
-	Order *next;          ///< Pointer to next order. If nullptr, end of list
+	Order *next;          // Pointer to next order. If nullptr, end of list
 
 	Order() : flags(0), refit_cargo(CT_NO_REFIT), wait_time(0), travel_time(0), max_speed(UINT16_MAX) {}
 	~Order();
@@ -259,19 +259,19 @@ void DeleteOrder(Vehicle *v, VehicleOrderID sel_ord);
  */
 struct OrderList : OrderListPool::PoolItem<&_orderlist_pool> {
 private:
-	friend void AfterLoadVehicles(bool part_of_load); ///< For instantiating the shared vehicle chain
-	friend SaveLoadTable GetOrderListDescription(); ///< Saving and loading of order lists.
+	friend void AfterLoadVehicles(bool part_of_load); // For instantiating the shared vehicle chain
+	friend SaveLoadTable GetOrderListDescription(); // Saving and loading of order lists.
 
 	StationID GetBestLoadableNext(const Vehicle *v, const Order *o1, const Order *o2) const;
 
-	Order *first;                     ///< First order of the order list.
-	VehicleOrderID num_orders;        ///< NOSAVE: How many orders there are in the list.
-	VehicleOrderID num_manual_orders; ///< NOSAVE: How many manually added orders are there in the list.
-	uint num_vehicles;                ///< NOSAVE: Number of vehicles that share this order list.
-	Vehicle *first_shared;            ///< NOSAVE: pointer to the first vehicle in the shared order chain.
+	Order *first;                     // First order of the order list.
+	VehicleOrderID num_orders;        // NOSAVE: How many orders there are in the list.
+	VehicleOrderID num_manual_orders; // NOSAVE: How many manually added orders are there in the list.
+	uint num_vehicles;                // NOSAVE: Number of vehicles that share this order list.
+	Vehicle *first_shared;            // NOSAVE: pointer to the first vehicle in the shared order chain.
 
-	Ticks timetable_duration;         ///< NOSAVE: Total timetabled duration of the order list.
-	Ticks total_duration;             ///< NOSAVE: Total (timetabled or not) duration of the order list.
+	Ticks timetable_duration;         // NOSAVE: Total timetabled duration of the order list.
+	Ticks total_duration;             // NOSAVE: Total (timetabled or not) duration of the order list.
 
 public:
 	/** Default constructor producing an invalid order list. */

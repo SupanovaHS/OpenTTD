@@ -30,7 +30,7 @@
  */
 class ScriptCompanyMode : public ScriptObject {
 private:
-	CompanyID last_company; ///< The previous company we were in.
+	CompanyID last_company; // The previous company we were in.
 
 public:
 	/**

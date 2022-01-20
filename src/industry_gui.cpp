@@ -48,27 +48,27 @@
 #include "safeguards.h"
 
 bool _ignore_restrictions;
-std::bitset<NUM_INDUSTRYTYPES> _displayed_industries; ///< Communication from the industry chain window to the smallmap window about what industries to display.
+std::bitset<NUM_INDUSTRYTYPES> _displayed_industries; // Communication from the industry chain window to the smallmap window about what industries to display.
 
 /** Cargo suffix type (for which window is it requested) */
 enum CargoSuffixType {
-	CST_FUND,  ///< Fund-industry window
-	CST_VIEW,  ///< View-industry window
-	CST_DIR,   ///< Industry-directory window
+	CST_FUND,  // Fund-industry window
+	CST_VIEW,  // View-industry window
+	CST_DIR,   // Industry-directory window
 };
 
 /** Ways of displaying the cargo. */
 enum CargoSuffixDisplay {
-	CSD_CARGO,             ///< Display the cargo without sub-type (cb37 result 401).
-	CSD_CARGO_AMOUNT,      ///< Display the cargo and amount (if useful), but no sub-type (cb37 result 400 or fail).
-	CSD_CARGO_TEXT,        ///< Display then cargo and supplied string (cb37 result 800-BFF).
-	CSD_CARGO_AMOUNT_TEXT, ///< Display then cargo, amount, and string (cb37 result 000-3FF).
+	CSD_CARGO,             // Display the cargo without sub-type (cb37 result 401).
+	CSD_CARGO_AMOUNT,      // Display the cargo and amount (if useful), but no sub-type (cb37 result 400 or fail).
+	CSD_CARGO_TEXT,        // Display then cargo and supplied string (cb37 result 800-BFF).
+	CSD_CARGO_AMOUNT_TEXT, // Display then cargo, amount, and string (cb37 result 000-3FF).
 };
 
 /** Transfer storage of cargo suffix information. */
 struct CargoSuffix {
-	CargoSuffixDisplay display; ///< How to display the cargo and text.
-	char text[512];             ///< Cargo suffix text.
+	CargoSuffixDisplay display; // How to display the cargo and text.
+	char text[512];             // Cargo suffix text.
 };
 
 static void ShowIndustryCargoesWindow(IndustryType id);
@@ -184,7 +184,7 @@ static inline void GetAllCargoSuffixes(CargoSuffixInOut use_input, CargoSuffixTy
 	}
 }
 
-std::array<IndustryType, NUM_INDUSTRYTYPES> _sorted_industry_types; ///< Industry types sorted by name.
+std::array<IndustryType, NUM_INDUSTRYTYPES> _sorted_industry_types; // Industry types sorted by name.
 
 /** Sort industry types by their name. */
 static bool IndustryTypeNameSorter(const IndustryType &a, const IndustryType &b)
@@ -277,13 +277,13 @@ static WindowDesc _build_industry_desc(
 
 /** Build (fund or prospect) a new industry, */
 class BuildIndustryWindow : public Window {
-	int selected_index;                         ///< index of the element in the matrix
-	IndustryType selected_type;                 ///< industry corresponding to the above index
-	uint16 count;                               ///< How many industries are loaded
-	IndustryType index[NUM_INDUSTRYTYPES + 1];  ///< Type of industry, in the order it was loaded
-	bool enabled[NUM_INDUSTRYTYPES + 1];        ///< availability state, coming from CBID_INDUSTRY_PROBABILITY (if ever)
+	int selected_index;                         // index of the element in the matrix
+	IndustryType selected_type;                 // industry corresponding to the above index
+	uint16 count;                               // How many industries are loaded
+	IndustryType index[NUM_INDUSTRYTYPES + 1];  // Type of industry, in the order it was loaded
+	bool enabled[NUM_INDUSTRYTYPES + 1];        // availability state, coming from CBID_INDUSTRY_PROBABILITY (if ever)
 	Scrollbar *vscroll;
-	Dimension legend;                           ///< Dimension of the legend 'blob'.
+	Dimension legend;                           // Dimension of the legend 'blob'.
 
 	/** The largest allowed minimum-width of the window, given in line heights */
 	static const int MAX_MINWIDTH_LINEHEIGHTS = 20;
@@ -799,25 +799,25 @@ class IndustryViewWindow : public Window
 {
 	/** Modes for changing production */
 	enum Editability {
-		EA_NONE,              ///< Not alterable
-		EA_MULTIPLIER,        ///< Allow changing the production multiplier
-		EA_RATE,              ///< Allow changing the production rates
+		EA_NONE,              // Not alterable
+		EA_MULTIPLIER,        // Allow changing the production multiplier
+		EA_RATE,              // Allow changing the production rates
 	};
 
 	/** Specific lines in the info panel */
 	enum InfoLine {
-		IL_NONE,              ///< No line
-		IL_MULTIPLIER,        ///< Production multiplier
-		IL_RATE1,             ///< Production rate of cargo 1
-		IL_RATE2,             ///< Production rate of cargo 2
+		IL_NONE,              // No line
+		IL_MULTIPLIER,        // Production multiplier
+		IL_RATE1,             // Production rate of cargo 1
+		IL_RATE2,             // Production rate of cargo 2
 	};
 
-	Editability editable;     ///< Mode for changing production
-	InfoLine editbox_line;    ///< The line clicked to open the edit box
-	InfoLine clicked_line;    ///< The line of the button that has been clicked
-	byte clicked_button;      ///< The button that has been clicked (to raise)
-	int production_offset_y;  ///< The offset of the production texts/buttons
-	int info_height;          ///< Height needed for the #WID_IV_INFO panel
+	Editability editable;     // Mode for changing production
+	InfoLine editbox_line;    // The line clicked to open the edit box
+	InfoLine clicked_line;    // The line of the button that has been clicked
+	byte clicked_button;      // The button that has been clicked (to raise)
+	int production_offset_y;  // The offset of the production texts/buttons
+	int info_height;          // Height needed for the #WID_IV_INFO panel
 
 public:
 	IndustryViewWindow(WindowDesc *desc, WindowNumber window_number) : Window(desc)
@@ -1240,8 +1240,8 @@ typedef GUIList<const Industry *, const std::pair<CargoID, CargoID> &> GUIIndust
 
 /** Special cargo filter criteria */
 enum CargoFilterSpecialType {
-	CF_ANY  = CT_NO_REFIT, ///< Show all industries (i.e. no filtering)
-	CF_NONE = CT_INVALID,  ///< Show only industries which do not produce/accept cargo
+	CF_ANY  = CT_NO_REFIT, // Show all industries (i.e. no filtering)
+	CF_NONE = CT_INVALID,  // Show only industries which do not produce/accept cargo
 };
 
 /** Cargo filter functions */
@@ -1315,17 +1315,17 @@ protected:
 	GUIIndustryList industries;
 	Scrollbar *vscroll;
 
-	CargoID cargo_filter[NUM_CARGO + 2];        ///< Available cargo filters; CargoID or CF_ANY or CF_NONE
-	StringID cargo_filter_texts[NUM_CARGO + 3]; ///< Texts for filter_cargo, terminated by INVALID_STRING_ID
-	byte produced_cargo_filter_criteria;        ///< Selected produced cargo filter index
-	byte accepted_cargo_filter_criteria;        ///< Selected accepted cargo filter index
+	CargoID cargo_filter[NUM_CARGO + 2];        // Available cargo filters; CargoID or CF_ANY or CF_NONE
+	StringID cargo_filter_texts[NUM_CARGO + 3]; // Texts for filter_cargo, terminated by INVALID_STRING_ID
+	byte produced_cargo_filter_criteria;        // Selected produced cargo filter index
+	byte accepted_cargo_filter_criteria;        // Selected accepted cargo filter index
 	static CargoID produced_cargo_filter;
 
 	enum class SorterType : uint8 {
-		ByName,        ///< Sorter type to sort by name
-		ByType,        ///< Sorter type to sort by type
-		ByProduction,  ///< Sorter type to sort by production amount
-		ByTransported, ///< Sorter type to sort by transported percentage
+		ByName,        // Sorter type to sort by name
+		ByType,        // Sorter type to sort by type
+		ByProduction,  // Sorter type to sort by production amount
+		ByTransported, // Sorter type to sort by transported percentage
 	};
 
 	/**
@@ -1891,15 +1891,15 @@ static WindowDesc _industry_cargoes_desc(
 
 /** Available types of field. */
 enum CargoesFieldType {
-	CFT_EMPTY,       ///< Empty field.
-	CFT_SMALL_EMPTY, ///< Empty small field (for the header).
-	CFT_INDUSTRY,    ///< Display industry.
-	CFT_CARGO,       ///< Display cargo connections.
-	CFT_CARGO_LABEL, ///< Display cargo labels.
-	CFT_HEADER,      ///< Header text.
+	CFT_EMPTY,       // Empty field.
+	CFT_SMALL_EMPTY, // Empty small field (for the header).
+	CFT_INDUSTRY,    // Display industry.
+	CFT_CARGO,       // Display cargo connections.
+	CFT_CARGO_LABEL, // Display cargo labels.
+	CFT_HEADER,      // Header text.
 };
 
-static const uint MAX_CARGOES = 16; ///< Maximum number of cargoes carried in a #CFT_CARGO field in #CargoesField.
+static const uint MAX_CARGOES = 16; // Maximum number of cargoes carried in a #CFT_CARGO field in #CargoesField.
 
 /** Data about a single field in the #IndustryCargoesWindow panel. */
 struct CargoesField {
@@ -1920,26 +1920,26 @@ struct CargoesField {
 	static int industry_width;
 	static uint max_cargoes;
 
-	CargoesFieldType type; ///< Type of field.
+	CargoesFieldType type; // Type of field.
 	union {
 		struct {
-			IndustryType ind_type;                 ///< Industry type (#NUM_INDUSTRYTYPES means 'houses').
-			CargoID other_produced[MAX_CARGOES];   ///< Cargoes produced but not used in this figure.
-			CargoID other_accepted[MAX_CARGOES];   ///< Cargoes accepted but not used in this figure.
-		} industry; ///< Industry data (for #CFT_INDUSTRY).
+			IndustryType ind_type;                 // Industry type (#NUM_INDUSTRYTYPES means 'houses').
+			CargoID other_produced[MAX_CARGOES];   // Cargoes produced but not used in this figure.
+			CargoID other_accepted[MAX_CARGOES];   // Cargoes accepted but not used in this figure.
+		} industry; // Industry data (for #CFT_INDUSTRY).
 		struct {
-			CargoID vertical_cargoes[MAX_CARGOES]; ///< Cargoes running from top to bottom (cargo ID or #INVALID_CARGO).
-			byte num_cargoes;                      ///< Number of cargoes.
-			CargoID supp_cargoes[MAX_CARGOES];     ///< Cargoes entering from the left (index in #vertical_cargoes, or #INVALID_CARGO).
-			byte top_end;                          ///< Stop at the top of the vertical cargoes.
-			CargoID cust_cargoes[MAX_CARGOES];     ///< Cargoes leaving to the right (index in #vertical_cargoes, or #INVALID_CARGO).
-			byte bottom_end;                       ///< Stop at the bottom of the vertical cargoes.
-		} cargo; ///< Cargo data (for #CFT_CARGO).
+			CargoID vertical_cargoes[MAX_CARGOES]; // Cargoes running from top to bottom (cargo ID or #INVALID_CARGO).
+			byte num_cargoes;                      // Number of cargoes.
+			CargoID supp_cargoes[MAX_CARGOES];     // Cargoes entering from the left (index in #vertical_cargoes, or #INVALID_CARGO).
+			byte top_end;                          // Stop at the top of the vertical cargoes.
+			CargoID cust_cargoes[MAX_CARGOES];     // Cargoes leaving to the right (index in #vertical_cargoes, or #INVALID_CARGO).
+			byte bottom_end;                       // Stop at the bottom of the vertical cargoes.
+		} cargo; // Cargo data (for #CFT_CARGO).
 		struct {
-			CargoID cargoes[MAX_CARGOES];          ///< Cargoes to display (or #INVALID_CARGO).
-			bool left_align;                       ///< Align all cargo texts to the left (else align to the right).
-		} cargo_label;   ///< Label data (for #CFT_CARGO_LABEL).
-		StringID header; ///< Header text (for #CFT_HEADER).
+			CargoID cargoes[MAX_CARGOES];          // Cargoes to display (or #INVALID_CARGO).
+			bool left_align;                       // Align all cargo texts to the left (else align to the right).
+		} cargo_label;   // Label data (for #CFT_CARGO_LABEL).
+		StringID header; // Header text (for #CFT_HEADER).
 	} u; // Data for each type.
 
 	/**
@@ -2318,27 +2318,27 @@ private:
 static_assert(MAX_CARGOES >= cpp_lengthof(IndustrySpec, produced_cargo));
 static_assert(MAX_CARGOES >= cpp_lengthof(IndustrySpec, accepts_cargo));
 
-Dimension CargoesField::legend;       ///< Dimension of the legend blob.
-Dimension CargoesField::cargo_border; ///< Dimensions of border between cargo lines and industry boxes.
-Dimension CargoesField::cargo_line;   ///< Dimensions of cargo lines.
-Dimension CargoesField::cargo_space;  ///< Dimensions of space between cargo lines.
-Dimension CargoesField::cargo_stub;   ///< Dimensions of cargo stub (unconnected cargo line.)
+Dimension CargoesField::legend;       // Dimension of the legend blob.
+Dimension CargoesField::cargo_border; // Dimensions of border between cargo lines and industry boxes.
+Dimension CargoesField::cargo_line;   // Dimensions of cargo lines.
+Dimension CargoesField::cargo_space;  // Dimensions of space between cargo lines.
+Dimension CargoesField::cargo_stub;   // Dimensions of cargo stub (unconnected cargo line.)
 
-int CargoesField::small_height;      ///< Height of the header row.
-int CargoesField::normal_height;     ///< Height of the non-header rows.
-int CargoesField::industry_width;    ///< Width of an industry field.
-int CargoesField::cargo_field_width; ///< Width of a cargo field.
-uint CargoesField::max_cargoes;      ///< Largest number of cargoes actually on any industry.
-const int CargoesField::VERT_INTER_INDUSTRY_SPACE = 6; ///< Amount of space between two industries in a column.
+int CargoesField::small_height;      // Height of the header row.
+int CargoesField::normal_height;     // Height of the non-header rows.
+int CargoesField::industry_width;    // Width of an industry field.
+int CargoesField::cargo_field_width; // Width of a cargo field.
+uint CargoesField::max_cargoes;      // Largest number of cargoes actually on any industry.
+const int CargoesField::VERT_INTER_INDUSTRY_SPACE = 6; // Amount of space between two industries in a column.
 
-const int CargoesField::BLOB_DISTANCE =  5; ///< Distance of the industry legend colour from the edge of the industry box.
+const int CargoesField::BLOB_DISTANCE =  5; // Distance of the industry legend colour from the edge of the industry box.
 
-const int CargoesField::INDUSTRY_LINE_COLOUR = PC_YELLOW; ///< Line colour of the industry type box.
-const int CargoesField::CARGO_LINE_COLOUR    = PC_YELLOW; ///< Line colour around the cargo.
+const int CargoesField::INDUSTRY_LINE_COLOUR = PC_YELLOW; // Line colour of the industry type box.
+const int CargoesField::CARGO_LINE_COLOUR    = PC_YELLOW; // Line colour around the cargo.
 
 /** A single row of #CargoesField. */
 struct CargoesRow {
-	CargoesField columns[5]; ///< One row of fields.
+	CargoesField columns[5]; // One row of fields.
 
 	/**
 	 * Connect industry production cargoes to the cargo column after it.
@@ -2478,10 +2478,10 @@ struct IndustryCargoesWindow : public Window {
 
 	typedef std::vector<CargoesRow> Fields;
 
-	Fields fields;  ///< Fields to display in the #WID_IC_PANEL.
-	uint ind_cargo; ///< If less than #NUM_INDUSTRYTYPES, an industry type, else a cargo id + NUM_INDUSTRYTYPES.
-	Dimension cargo_textsize; ///< Size to hold any cargo text, as well as STR_INDUSTRY_CARGOES_SELECT_CARGO.
-	Dimension ind_textsize;   ///< Size to hold any industry type text, as well as STR_INDUSTRY_CARGOES_SELECT_INDUSTRY.
+	Fields fields;  // Fields to display in the #WID_IC_PANEL.
+	uint ind_cargo; // If less than #NUM_INDUSTRYTYPES, an industry type, else a cargo id + NUM_INDUSTRYTYPES.
+	Dimension cargo_textsize; // Size to hold any cargo text, as well as STR_INDUSTRY_CARGOES_SELECT_CARGO.
+	Dimension ind_textsize;   // Size to hold any industry type text, as well as STR_INDUSTRY_CARGOES_SELECT_INDUSTRY.
 	Scrollbar *vscroll;
 
 	IndustryCargoesWindow(int id) : Window(&_industry_cargoes_desc)
@@ -2580,7 +2580,7 @@ struct IndustryCargoesWindow : public Window {
 	}
 
 
-	CargoesFieldType type; ///< Type of field.
+	CargoesFieldType type; // Type of field.
 	void SetStringParameters  (int widget) const override
 	{
 		if (widget != WID_IC_CAPTION) return;
@@ -3136,8 +3136,8 @@ struct IndustryCargoesWindow : public Window {
 	}
 };
 
-const int IndustryCargoesWindow::HOR_TEXT_PADDING  = 5; ///< Horizontal padding around the industry type text.
-const int IndustryCargoesWindow::VERT_TEXT_PADDING = 5; ///< Vertical padding around the industry type text.
+const int IndustryCargoesWindow::HOR_TEXT_PADDING  = 5; // Horizontal padding around the industry type text.
+const int IndustryCargoesWindow::VERT_TEXT_PADDING = 5; // Vertical padding around the industry type text.
 
 /**
  * Open the industry and cargoes window.

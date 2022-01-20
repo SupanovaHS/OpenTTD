@@ -15,12 +15,12 @@
 /** The optimised 32 bpp blitter with palette animation. */
 class Blitter_32bppAnim : public Blitter_32bppOptimized {
 protected:
-	uint16 *anim_buf;    ///< In this buffer we keep track of the 8bpp indexes so we can do palette animation
-	void *anim_alloc;    ///< The raw allocated buffer, not necessarily aligned correctly
-	int anim_buf_width;  ///< The width of the animation buffer.
-	int anim_buf_height; ///< The height of the animation buffer.
-	int anim_buf_pitch;  ///< The pitch of the animation buffer (width rounded up to 16 byte boundary).
-	Palette palette;     ///< The current palette.
+	uint16 *anim_buf;    // In this buffer we keep track of the 8bpp indexes so we can do palette animation
+	void *anim_alloc;    // The raw allocated buffer, not necessarily aligned correctly
+	int anim_buf_width;  // The width of the animation buffer.
+	int anim_buf_height; // The height of the animation buffer.
+	int anim_buf_pitch;  // The pitch of the animation buffer (width rounded up to 16 byte boundary).
+	Palette palette;     // The current palette.
 
 public:
 	Blitter_32bppAnim() :

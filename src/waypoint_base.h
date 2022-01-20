@@ -14,7 +14,7 @@
 
 /** Representation of a waypoint. */
 struct Waypoint FINAL : SpecializedStation<Waypoint, true> {
-	uint16 town_cn;    ///< The N-1th waypoint for this town (consecutive number)
+	uint16 town_cn;    // The N-1th waypoint for this town (consecutive number)
 
 	/**
 	 * Create a waypoint at the given tile.

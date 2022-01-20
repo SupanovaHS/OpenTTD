@@ -149,8 +149,8 @@ SpriteID CargoSpec::GetCargoIcon() const
 	return sprite;
 }
 
-std::vector<const CargoSpec *> _sorted_cargo_specs;   ///< Cargo specifications sorted alphabetically by name.
-span<const CargoSpec *> _sorted_standard_cargo_specs; ///< Standard cargo specifications sorted alphabetically by name.
+std::vector<const CargoSpec *> _sorted_cargo_specs;   // Cargo specifications sorted alphabetically by name.
+span<const CargoSpec *> _sorted_standard_cargo_specs; // Standard cargo specifications sorted alphabetically by name.
 
 /** Sort cargo specifications by their name. */
 static bool CargoSpecNameSorter(const CargoSpec * const &a, const CargoSpec * const &b)

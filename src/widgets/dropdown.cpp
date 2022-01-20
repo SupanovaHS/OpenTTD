@@ -115,17 +115,17 @@ static WindowDesc _dropdown_desc(
 
 /** Drop-down menu window */
 struct DropdownWindow : Window {
-	WindowClass parent_wnd_class; ///< Parent window class.
-	WindowNumber parent_wnd_num;  ///< Parent window number.
-	int parent_button;            ///< Parent widget number where the window is dropped from.
-	const DropDownList list;      ///< List with dropdown menu items.
-	int selected_index;           ///< Index of the selected item in the list.
-	byte click_delay;             ///< Timer to delay selection.
+	WindowClass parent_wnd_class; // Parent window class.
+	WindowNumber parent_wnd_num;  // Parent window number.
+	int parent_button;            // Parent widget number where the window is dropped from.
+	const DropDownList list;      // List with dropdown menu items.
+	int selected_index;           // Index of the selected item in the list.
+	byte click_delay;             // Timer to delay selection.
 	bool drag_mode;
-	bool instant_close;           ///< Close the window when the mouse button is raised.
-	int scrolling;                ///< If non-zero, auto-scroll the item list (one time).
-	GUITimer scrolling_timer;     ///< Timer for auto-scroll of the item list.
-	Point position;               ///< Position of the topleft corner of the window.
+	bool instant_close;           // Close the window when the mouse button is raised.
+	int scrolling;                // If non-zero, auto-scroll the item list (one time).
+	GUITimer scrolling_timer;     // Timer for auto-scroll of the item list.
+	Point position;               // Position of the topleft corner of the window.
 	Scrollbar *vscroll;
 
 	/**

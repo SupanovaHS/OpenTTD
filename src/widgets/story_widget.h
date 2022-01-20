@@ -13,12 +13,12 @@
 
 /** Widgets of the #GoalListWindow class. */
 enum StoryBookWidgets {
-	WID_SB_CAPTION,   ///< Caption of the window.
-	WID_SB_SEL_PAGE,  ///< Page selector.
-	WID_SB_PAGE_PANEL,///< Page body.
-	WID_SB_SCROLLBAR, ///< Scrollbar of the goal list.
-	WID_SB_PREV_PAGE, ///< Prev button.
-	WID_SB_NEXT_PAGE, ///< Next button.
+	WID_SB_CAPTION,   // Caption of the window.
+	WID_SB_SEL_PAGE,  // Page selector.
+	WID_SB_PAGE_PANEL,// Page body.
+	WID_SB_SCROLLBAR, // Scrollbar of the goal list.
+	WID_SB_PREV_PAGE, // Prev button.
+	WID_SB_NEXT_PAGE, // Next button.
 };
 
 #endif /* WIDGETS_STORY_WIDGET_H */

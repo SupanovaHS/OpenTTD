@@ -38,7 +38,7 @@ static bool _accepted_external_search = false;
 
 /** Window for displaying the textfile of an item in the content list. */
 struct ContentTextfileWindow : public TextfileWindow {
-	const ContentInfo *ci; ///< View the textfile of this ContentInfo.
+	const ContentInfo *ci; // View the textfile of this ContentInfo.
 
 	ContentTextfileWindow(TextfileType file_type, const ContentInfo *ci) : TextfileWindow(file_type), ci(ci)
 	{
@@ -160,7 +160,7 @@ void BaseNetworkContentDownloadStatusWindow::OnDownloadProgress(const ContentInf
 /** Window for showing the download status of content */
 struct NetworkContentDownloadStatusWindow : public BaseNetworkContentDownloadStatusWindow {
 private:
-	std::vector<ContentType> receivedTypes;     ///< Types we received so we can update their cache
+	std::vector<ContentType> receivedTypes;     // Types we received so we can update their cache
 
 public:
 	/**
@@ -286,14 +286,14 @@ public:
 
 /** Filter data for NetworkContentListWindow. */
 struct ContentListFilterData {
-	StringFilter string_filter; ///< Text filter of content list
-	std::bitset<CONTENT_TYPE_END> types; ///< Content types displayed
+	StringFilter string_filter; // Text filter of content list
+	std::bitset<CONTENT_TYPE_END> types; // Content types displayed
 };
 
 /** Filter criteria for NetworkContentListWindow. */
 enum ContentListFilterCriteria {
-	CONTENT_FILTER_TEXT = 0,        ///< Filter by query sting
-	CONTENT_FILTER_TYPE_OR_SELECTED,///< Filter by being of displayed type or selected for download
+	CONTENT_FILTER_TEXT = 0,        // Filter by query sting
+	CONTENT_FILTER_TYPE_OR_SELECTED,// Filter by being of displayed type or selected for download
 };
 
 /** Window that lists the content that's at the content server */
@@ -301,24 +301,24 @@ class NetworkContentListWindow : public Window, ContentCallback {
 	/** List with content infos. */
 	typedef GUIList<const ContentInfo *, ContentListFilterData &> GUIContentList;
 
-	static const uint EDITBOX_MAX_SIZE   =  50; ///< Maximum size of the editbox in characters.
+	static const uint EDITBOX_MAX_SIZE   =  50; // Maximum size of the editbox in characters.
 
-	static Listing last_sorting;     ///< The last sorting setting.
-	static Filtering last_filtering; ///< The last filtering setting.
-	static GUIContentList::SortFunction * const sorter_funcs[];   ///< Sorter functions
-	static GUIContentList::FilterFunction * const filter_funcs[]; ///< Filter functions.
-	GUIContentList content;      ///< List with content
-	bool auto_select;            ///< Automatically select all content when the meta-data becomes available
-	ContentListFilterData filter_data; ///< Filter for content list
-	QueryString filter_editbox;  ///< Filter editbox;
-	Dimension checkbox_size;     ///< Size of checkbox/"blot" sprite
+	static Listing last_sorting;     // The last sorting setting.
+	static Filtering last_filtering; // The last filtering setting.
+	static GUIContentList::SortFunction * const sorter_funcs[];   // Sorter functions
+	static GUIContentList::FilterFunction * const filter_funcs[]; // Filter functions.
+	GUIContentList content;      // List with content
+	bool auto_select;            // Automatically select all content when the meta-data becomes available
+	ContentListFilterData filter_data; // Filter for content list
+	QueryString filter_editbox;  // Filter editbox;
+	Dimension checkbox_size;     // Size of checkbox/"blot" sprite
 
-	const ContentInfo *selected; ///< The selected content info
-	int list_pos;                ///< Our position in the list
-	uint filesize_sum;           ///< The sum of all selected file sizes
-	Scrollbar *vscroll;          ///< Cache of the vertical scrollbar
+	const ContentInfo *selected; // The selected content info
+	int list_pos;                // Our position in the list
+	uint filesize_sum;           // The sum of all selected file sizes
+	Scrollbar *vscroll;          // Cache of the vertical scrollbar
 
-	static char content_type_strs[CONTENT_TYPE_END][64]; ///< Cached strings for all content types.
+	static char content_type_strs[CONTENT_TYPE_END][64]; // Cached strings for all content types.
 
 	/** Search external websites for content */
 	void OpenExternalSearch()
@@ -670,9 +670,9 @@ public:
 	 */
 	void DrawDetails(const Rect &r) const
 	{
-		static const int DETAIL_LEFT         =  5; ///< Number of pixels at the left
-		static const int DETAIL_RIGHT        =  5; ///< Number of pixels at the right
-		static const int DETAIL_TOP          =  5; ///< Number of pixels at the top
+		static const int DETAIL_LEFT         =  5; // Number of pixels at the left
+		static const int DETAIL_RIGHT        =  5; // Number of pixels at the right
+		static const int DETAIL_TOP          =  5; // Number of pixels at the top
 
 		/* Height for the title banner */
 		int DETAIL_TITLE_HEIGHT = 5 * FONT_HEIGHT_NORMAL;

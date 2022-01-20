@@ -31,11 +31,11 @@ uint _sprite_cache_size = 4;
 struct SpriteCache {
 	void *ptr;
 	size_t file_pos;
-	SpriteFile *file;    ///< The file the sprite in this entry can be found in.
+	SpriteFile *file;    // The file the sprite in this entry can be found in.
 	uint32 id;
 	int16 lru;
-	SpriteType type;     ///< In some cases a single sprite is misused by two NewGRFs. Once as real sprite and once as recolour sprite. If the recolour sprite gets into the cache it might be drawn as real sprite which causes enormous trouble.
-	bool warned;         ///< True iff the user has been warned about incorrect use of this sprite
+	SpriteType type;     // In some cases a single sprite is misused by two NewGRFs. Once as real sprite and once as recolour sprite. If the recolour sprite gets into the cache it might be drawn as real sprite which causes enormous trouble.
+	bool warned;         // True iff the user has been warned about incorrect use of this sprite
 };
 
 

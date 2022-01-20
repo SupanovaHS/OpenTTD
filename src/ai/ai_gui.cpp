@@ -58,11 +58,11 @@ static ScriptConfig *GetConfig(CompanyID slot)
  * Window that let you choose an available AI.
  */
 struct AIListWindow : public Window {
-	const ScriptInfoList *info_list;    ///< The list of Scripts.
-	int selected;                       ///< The currently selected Script.
-	CompanyID slot;                     ///< The company we're selecting a new Script for.
-	int line_height;                    ///< Height of a row in the matrix widget.
-	Scrollbar *vscroll;                 ///< Cache of the vertical scrollbar.
+	const ScriptInfoList *info_list;    // The list of Scripts.
+	int selected;                       // The currently selected Script.
+	CompanyID slot;                     // The company we're selecting a new Script for.
+	int line_height;                    // Height of a row in the matrix widget.
+	Scrollbar *vscroll;                 // Cache of the vertical scrollbar.
 
 	/**
 	 * Constructor for the window.
@@ -286,18 +286,18 @@ static void ShowAIListWindow(CompanyID slot)
  * Window for settings the parameters of an AI.
  */
 struct AISettingsWindow : public Window {
-	CompanyID slot;                       ///< The currently show company's setting.
-	ScriptConfig *ai_config;              ///< The configuration we're modifying.
-	int clicked_button;                   ///< The button we clicked.
-	bool clicked_increase;                ///< Whether we clicked the increase or decrease button.
-	bool clicked_dropdown;                ///< Whether the dropdown is open.
-	bool closing_dropdown;                ///< True, if the dropdown list is currently closing.
-	GUITimer timeout;                     ///< Timeout for unclicking the button.
-	int clicked_row;                      ///< The clicked row of settings.
-	int line_height;                      ///< Height of a row in the matrix widget.
-	Scrollbar *vscroll;                   ///< Cache of the vertical scrollbar.
+	CompanyID slot;                       // The currently show company's setting.
+	ScriptConfig *ai_config;              // The configuration we're modifying.
+	int clicked_button;                   // The button we clicked.
+	bool clicked_increase;                // Whether we clicked the increase or decrease button.
+	bool clicked_dropdown;                // Whether the dropdown is open.
+	bool closing_dropdown;                // True, if the dropdown list is currently closing.
+	GUITimer timeout;                     // Timeout for unclicking the button.
+	int clicked_row;                      // The clicked row of settings.
+	int line_height;                      // Height of a row in the matrix widget.
+	Scrollbar *vscroll;                   // Cache of the vertical scrollbar.
 	typedef std::vector<const ScriptConfigItem *> VisibleSettingsList;
-	VisibleSettingsList visible_settings; ///< List of visible AI settings
+	VisibleSettingsList visible_settings; // List of visible AI settings
 
 	/**
 	 * Constructor for the window.
@@ -638,7 +638,7 @@ static void ShowAISettingsWindow(CompanyID slot)
 
 /** Window for displaying the textfile of a AI. */
 struct ScriptTextfileWindow : public TextfileWindow {
-	CompanyID slot; ///< View the textfile of this CompanyID slot.
+	CompanyID slot; // View the textfile of this CompanyID slot.
 
 	ScriptTextfileWindow(TextfileType file_type, CompanyID slot) : TextfileWindow(file_type), slot(slot)
 	{
@@ -731,9 +731,9 @@ static WindowDesc _ai_config_desc(
  * Window to configure which AIs will start.
  */
 struct AIConfigWindow : public Window {
-	CompanyID selected_slot; ///< The currently selected AI slot or \c INVALID_COMPANY.
-	int line_height;         ///< Height of a single AI-name line.
-	Scrollbar *vscroll;      ///< Cache of the vertical scrollbar.
+	CompanyID selected_slot; // The currently selected AI slot or \c INVALID_COMPANY.
+	int line_height;         // Height of a single AI-name line.
+	Scrollbar *vscroll;      // Cache of the vertical scrollbar.
 
 	AIConfigWindow() : Window(&_ai_config_desc)
 	{
@@ -1003,23 +1003,23 @@ static bool SetScriptButtonColour(NWidgetCore &button, bool dead, bool paused)
  * Window with everything an AI prints via ScriptLog.
  */
 struct AIDebugWindow : public Window {
-	static const int top_offset;    ///< Offset of the text at the top of the WID_AID_LOG_PANEL.
-	static const int bottom_offset; ///< Offset of the text at the bottom of the WID_AID_LOG_PANEL.
+	static const int top_offset;    // Offset of the text at the top of the WID_AID_LOG_PANEL.
+	static const int bottom_offset; // Offset of the text at the bottom of the WID_AID_LOG_PANEL.
 
-	static const uint MAX_BREAK_STR_STRING_LENGTH = 256;   ///< Maximum length of the break string.
+	static const uint MAX_BREAK_STR_STRING_LENGTH = 256;   // Maximum length of the break string.
 
-	static CompanyID ai_debug_company;                     ///< The AI that is (was last) being debugged.
-	int redraw_timer;                                      ///< Timer for redrawing the window, otherwise it'll happen every tick.
-	int last_vscroll_pos;                                  ///< Last position of the scrolling.
-	bool autoscroll;                                       ///< Whether automatically scrolling should be enabled or not.
-	bool show_break_box;                                   ///< Whether the break/debug box is visible.
-	static bool break_check_enabled;                       ///< Stop an AI when it prints a matching string
-	static char break_string[MAX_BREAK_STR_STRING_LENGTH]; ///< The string to match to the AI output
-	QueryString break_editbox;                             ///< Break editbox
-	static StringFilter break_string_filter;               ///< Log filter for break.
-	static bool case_sensitive_break_check;                ///< Is the matching done case-sensitive
-	int highlight_row;                                     ///< The output row that matches the given string, or -1
-	Scrollbar *vscroll;                                    ///< Cache of the vertical scrollbar.
+	static CompanyID ai_debug_company;                     // The AI that is (was last) being debugged.
+	int redraw_timer;                                      // Timer for redrawing the window, otherwise it'll happen every tick.
+	int last_vscroll_pos;                                  // Last position of the scrolling.
+	bool autoscroll;                                       // Whether automatically scrolling should be enabled or not.
+	bool show_break_box;                                   // Whether the break/debug box is visible.
+	static bool break_check_enabled;                       // Stop an AI when it prints a matching string
+	static char break_string[MAX_BREAK_STR_STRING_LENGTH]; // The string to match to the AI output
+	QueryString break_editbox;                             // Break editbox
+	static StringFilter break_string_filter;               // Log filter for break.
+	static bool case_sensitive_break_check;                // Is the matching done case-sensitive
+	int highlight_row;                                     // The output row that matches the given string, or -1
+	Scrollbar *vscroll;                                    // Cache of the vertical scrollbar.
 
 	ScriptLog::LogData *GetLogPointer() const
 	{

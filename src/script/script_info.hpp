@@ -145,23 +145,23 @@ public:
 	virtual bool IsDeveloperOnly() const { return false; }
 
 protected:
-	class Squirrel *engine;           ///< Engine used to register for Squirrel.
-	HSQOBJECT *SQ_instance;           ///< The Squirrel instance created for this info.
-	ScriptConfigItemList config_list; ///< List of settings from this Script.
+	class Squirrel *engine;           // Engine used to register for Squirrel.
+	HSQOBJECT *SQ_instance;           // The Squirrel instance created for this info.
+	ScriptConfigItemList config_list; // List of settings from this Script.
 
 private:
-	std::string main_script;      ///< The full path of the script.
-	std::string tar_file;         ///< If, which tar file the script was in.
-	const char *author;           ///< Author of the script.
-	const char *name;             ///< Full name of the script.
-	const char *short_name;       ///< Short name (4 chars) which uniquely identifies the script.
-	const char *description;      ///< Small description of the script.
-	const char *date;             ///< The date the script was written at.
-	const char *instance_name;    ///< Name of the main class in the script.
-	int version;                  ///< Version of the script.
-	const char *url;              ///< URL of the script.
+	std::string main_script;      // The full path of the script.
+	std::string tar_file;         // If, which tar file the script was in.
+	const char *author;           // Author of the script.
+	const char *name;             // Full name of the script.
+	const char *short_name;       // Short name (4 chars) which uniquely identifies the script.
+	const char *description;      // Small description of the script.
+	const char *date;             // The date the script was written at.
+	const char *instance_name;    // Name of the main class in the script.
+	int version;                  // Version of the script.
+	const char *url;              // URL of the script.
 
-	class ScriptScanner *scanner; ///< ScriptScanner object that was used to scan this script info.
+	class ScriptScanner *scanner; // ScriptScanner object that was used to scan this script info.
 };
 
 #endif /* SCRIPT_INFO_HPP */

@@ -15,8 +15,8 @@ class StringIterator {
 public:
 	/** Type of the iterator. */
 	enum IterType {
-		ITER_CHARACTER, ///< Iterate over characters (or more exactly grapheme clusters).
-		ITER_WORD,      ///< Iterate over words.
+		ITER_CHARACTER, // Iterate over characters (or more exactly grapheme clusters).
+		ITER_WORD,      // Iterate over words.
 	};
 
 	/** Sentinel to indicate end-of-iteration. */

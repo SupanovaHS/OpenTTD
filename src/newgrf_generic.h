@@ -18,31 +18,31 @@ struct SpriteGroup;
 
 /** AI events for asking the NewGRF for information. */
 enum AIConstructionEvent {
-	AICE_TRAIN_CHECK_RAIL_ENGINE     = 0x00, ///< Check if we should build an engine
-	AICE_TRAIN_CHECK_ELRAIL_ENGINE   = 0x01, ///< Check if we should build an engine
-	AICE_TRAIN_CHECK_MONORAIL_ENGINE = 0x02, ///< Check if we should build an engine
-	AICE_TRAIN_CHECK_MAGLEV_ENGINE   = 0x03, ///< Check if we should build an engine
-	AICE_TRAIN_GET_RAIL_WAGON        = 0x08, ///< Check if we should build an engine
-	AICE_TRAIN_GET_ELRAIL_WAGON      = 0x09, ///< Check if we should build an engine
-	AICE_TRAIN_GET_MONORAIL_WAGON    = 0x0A, ///< Check if we should build an engine
-	AICE_TRAIN_GET_MAGLEV_WAGON      = 0x0B, ///< Check if we should build an engine
-	AICE_TRAIN_GET_RAILTYPE          = 0x0F, ///< Check if we should build a railtype
+	AICE_TRAIN_CHECK_RAIL_ENGINE     = 0x00, // Check if we should build an engine
+	AICE_TRAIN_CHECK_ELRAIL_ENGINE   = 0x01, // Check if we should build an engine
+	AICE_TRAIN_CHECK_MONORAIL_ENGINE = 0x02, // Check if we should build an engine
+	AICE_TRAIN_CHECK_MAGLEV_ENGINE   = 0x03, // Check if we should build an engine
+	AICE_TRAIN_GET_RAIL_WAGON        = 0x08, // Check if we should build an engine
+	AICE_TRAIN_GET_ELRAIL_WAGON      = 0x09, // Check if we should build an engine
+	AICE_TRAIN_GET_MONORAIL_WAGON    = 0x0A, // Check if we should build an engine
+	AICE_TRAIN_GET_MAGLEV_WAGON      = 0x0B, // Check if we should build an engine
+	AICE_TRAIN_GET_RAILTYPE          = 0x0F, // Check if we should build a railtype
 
-	AICE_ROAD_CHECK_ENGINE           = 0x00, ///< Check if we should build an engine
-	AICE_ROAD_GET_FIRST_ENGINE       = 0x01, ///< Unused, we check all
-	AICE_ROAD_GET_NUMBER_ENGINES     = 0x02, ///< Unused, we check all
+	AICE_ROAD_CHECK_ENGINE           = 0x00, // Check if we should build an engine
+	AICE_ROAD_GET_FIRST_ENGINE       = 0x01, // Unused, we check all
+	AICE_ROAD_GET_NUMBER_ENGINES     = 0x02, // Unused, we check all
 
-	AICE_SHIP_CHECK_ENGINE           = 0x00, ///< Check if we should build an engine
-	AICE_SHIP_GET_FIRST_ENGINE       = 0x01, ///< Unused, we check all
-	AICE_SHIP_GET_NUMBER_ENGINES     = 0x02, ///< Unused, we check all
+	AICE_SHIP_CHECK_ENGINE           = 0x00, // Check if we should build an engine
+	AICE_SHIP_GET_FIRST_ENGINE       = 0x01, // Unused, we check all
+	AICE_SHIP_GET_NUMBER_ENGINES     = 0x02, // Unused, we check all
 
-	AICE_AIRCRAFT_CHECK_ENGINE       = 0x00, ///< Check if we should build an engine
+	AICE_AIRCRAFT_CHECK_ENGINE       = 0x00, // Check if we should build an engine
 
-	AICE_STATION_GET_STATION_ID      = 0x00, ///< Get a station ID to build
+	AICE_STATION_GET_STATION_ID      = 0x00, // Get a station ID to build
 };
 
-static const IndustryType IT_AI_UNKNOWN = 0xFE; ///< The AI has no specific industry in mind.
-static const IndustryType IT_AI_TOWN    = 0xFF; ///< The AI actually wants to transport to/from a town, not an industry.
+static const IndustryType IT_AI_UNKNOWN = 0xFE; // The AI has no specific industry in mind.
+static const IndustryType IT_AI_TOWN    = 0xFF; // The AI actually wants to transport to/from a town, not an industry.
 
 void ResetGenericCallbacks();
 void AddGenericCallback(uint8 feature, const GRFFile *file, const SpriteGroup *group);

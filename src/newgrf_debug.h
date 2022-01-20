@@ -24,9 +24,9 @@ enum NewGrfDebugSpritePickerMode {
 
 /** Spritepicker of SpriteAligner */
 struct NewGrfDebugSpritePicker {
-	NewGrfDebugSpritePickerMode mode;   ///< Current state
-	void *clicked_pixel;                ///< Clicked pixel (pointer to blitter buffer)
-	std::vector<SpriteID> sprites;       ///< Sprites found
+	NewGrfDebugSpritePickerMode mode;   // Current state
+	void *clicked_pixel;                // Clicked pixel (pointer to blitter buffer)
+	std::vector<SpriteID> sprites;       // Sprites found
 };
 
 extern NewGrfDebugSpritePicker _newgrf_debug_sprite_picker;

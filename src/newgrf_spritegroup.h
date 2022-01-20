@@ -86,8 +86,8 @@ struct RealSpriteGroup : SpriteGroup {
 	 * with small amount of cargo whilst loading is for stations with a lot
 	 * of da stuff. */
 
-	std::vector<const SpriteGroup *> loaded;  ///< List of loaded groups (can be SpriteIDs or Callback results)
-	std::vector<const SpriteGroup *> loading; ///< List of loading groups (can be SpriteIDs or Callback results)
+	std::vector<const SpriteGroup *> loaded;  // List of loaded groups (can be SpriteIDs or Callback results)
+	std::vector<const SpriteGroup *> loading; // List of loading groups (can be SpriteIDs or Callback results)
 
 protected:
 	const SpriteGroup *Resolve(ResolverObject &object) const;
@@ -97,9 +97,9 @@ protected:
 enum VarSpriteGroupScope {
 	VSG_BEGIN,
 
-	VSG_SCOPE_SELF = VSG_BEGIN, ///< Resolved object itself
-	VSG_SCOPE_PARENT,           ///< Related object of the resolved one
-	VSG_SCOPE_RELATIVE,         ///< Relative position (vehicles only)
+	VSG_SCOPE_SELF = VSG_BEGIN, // Resolved object itself
+	VSG_SCOPE_PARENT,           // Related object of the resolved one
+	VSG_SCOPE_RELATIVE,         // Relative position (vehicles only)
 
 	VSG_END
 };
@@ -118,29 +118,29 @@ enum DeterministicSpriteGroupAdjustType {
 };
 
 enum DeterministicSpriteGroupAdjustOperation {
-	DSGA_OP_ADD,  ///< a + b
-	DSGA_OP_SUB,  ///< a - b
-	DSGA_OP_SMIN, ///< (signed) min(a, b)
-	DSGA_OP_SMAX, ///< (signed) max(a, b)
-	DSGA_OP_UMIN, ///< (unsigned) min(a, b)
-	DSGA_OP_UMAX, ///< (unsigned) max(a, b)
-	DSGA_OP_SDIV, ///< (signed) a / b
-	DSGA_OP_SMOD, ///< (signed) a % b
-	DSGA_OP_UDIV, ///< (unsigned) a / b
-	DSGA_OP_UMOD, ///< (unsigned) a & b
-	DSGA_OP_MUL,  ///< a * b
-	DSGA_OP_AND,  ///< a & b
-	DSGA_OP_OR,   ///< a | b
-	DSGA_OP_XOR,  ///< a ^ b
-	DSGA_OP_STO,  ///< store a into temporary storage, indexed by b. return a
-	DSGA_OP_RST,  ///< return b
-	DSGA_OP_STOP, ///< store a into persistent storage, indexed by b, return a
-	DSGA_OP_ROR,  ///< rotate a b positions to the right
-	DSGA_OP_SCMP, ///< (signed) comparison (a < b -> 0, a == b = 1, a > b = 2)
-	DSGA_OP_UCMP, ///< (unsigned) comparison (a < b -> 0, a == b = 1, a > b = 2)
-	DSGA_OP_SHL,  ///< a << b
-	DSGA_OP_SHR,  ///< (unsigned) a >> b
-	DSGA_OP_SAR,  ///< (signed) a >> b
+	DSGA_OP_ADD,  // a + b
+	DSGA_OP_SUB,  // a - b
+	DSGA_OP_SMIN, // (signed) min(a, b)
+	DSGA_OP_SMAX, // (signed) max(a, b)
+	DSGA_OP_UMIN, // (unsigned) min(a, b)
+	DSGA_OP_UMAX, // (unsigned) max(a, b)
+	DSGA_OP_SDIV, // (signed) a / b
+	DSGA_OP_SMOD, // (signed) a % b
+	DSGA_OP_UDIV, // (unsigned) a / b
+	DSGA_OP_UMOD, // (unsigned) a & b
+	DSGA_OP_MUL,  // a * b
+	DSGA_OP_AND,  // a & b
+	DSGA_OP_OR,   // a | b
+	DSGA_OP_XOR,  // a ^ b
+	DSGA_OP_STO,  // store a into temporary storage, indexed by b. return a
+	DSGA_OP_RST,  // return b
+	DSGA_OP_STOP, // store a into persistent storage, indexed by b, return a
+	DSGA_OP_ROR,  // rotate a b positions to the right
+	DSGA_OP_SCMP, // (signed) comparison (a < b -> 0, a == b = 1, a > b = 2)
+	DSGA_OP_UCMP, // (unsigned) comparison (a < b -> 0, a == b = 1, a > b = 2)
+	DSGA_OP_SHL,  // a << b
+	DSGA_OP_SHR,  // (unsigned) a >> b
+	DSGA_OP_SAR,  // (signed) a >> b
 };
 
 
@@ -148,7 +148,7 @@ struct DeterministicSpriteGroupAdjust {
 	DeterministicSpriteGroupAdjustOperation operation;
 	DeterministicSpriteGroupAdjustType type;
 	byte variable;
-	byte parameter; ///< Used for variables between 0x60 and 0x7F inclusive.
+	byte parameter; // Used for variables between 0x60 and 0x7F inclusive.
 	byte shift_num;
 	uint32 and_mask;
 	uint32 add_val;
@@ -190,15 +190,15 @@ enum RandomizedSpriteGroupCompareMode {
 struct RandomizedSpriteGroup : SpriteGroup {
 	RandomizedSpriteGroup() : SpriteGroup(SGT_RANDOMIZED) {}
 
-	VarSpriteGroupScope var_scope;  ///< Take this object:
+	VarSpriteGroupScope var_scope;  // Take this object:
 
-	RandomizedSpriteGroupCompareMode cmp_mode; ///< Check for these triggers:
+	RandomizedSpriteGroupCompareMode cmp_mode; // Check for these triggers:
 	byte triggers;
 	byte count;
 
-	byte lowest_randbit; ///< Look for this in the per-object randomized bitmask:
+	byte lowest_randbit; // Look for this in the per-object randomized bitmask:
 
-	std::vector<const SpriteGroup *> groups; ///< Take the group with appropriate index:
+	std::vector<const SpriteGroup *> groups; // Take the group with appropriate index:
 
 protected:
 	const SpriteGroup *Resolve(ResolverObject &object) const;
@@ -268,13 +268,13 @@ struct TileLayoutSpriteGroup : SpriteGroup {
 struct IndustryProductionSpriteGroup : SpriteGroup {
 	IndustryProductionSpriteGroup() : SpriteGroup(SGT_INDUSTRY_PRODUCTION) {}
 
-	uint8 version;                              ///< Production callback version used, or 0xFF if marked invalid
-	uint8 num_input;                            ///< How many subtract_input values are valid
-	int16 subtract_input[INDUSTRY_NUM_INPUTS];  ///< Take this much of the input cargo (can be negative, is indirect in cb version 1+)
-	CargoID cargo_input[INDUSTRY_NUM_INPUTS];   ///< Which input cargoes to take from (only cb version 2)
-	uint8 num_output;                           ///< How many add_output values are valid
-	uint16 add_output[INDUSTRY_NUM_OUTPUTS];    ///< Add this much output cargo when successful (unsigned, is indirect in cb version 1+)
-	CargoID cargo_output[INDUSTRY_NUM_OUTPUTS]; ///< Which output cargoes to add to (only cb version 2)
+	uint8 version;                              // Production callback version used, or 0xFF if marked invalid
+	uint8 num_input;                            // How many subtract_input values are valid
+	int16 subtract_input[INDUSTRY_NUM_INPUTS];  // Take this much of the input cargo (can be negative, is indirect in cb version 1+)
+	CargoID cargo_input[INDUSTRY_NUM_INPUTS];   // Which input cargoes to take from (only cb version 2)
+	uint8 num_output;                           // How many add_output values are valid
+	uint16 add_output[INDUSTRY_NUM_OUTPUTS];    // Add this much output cargo when successful (unsigned, is indirect in cb version 1+)
+	CargoID cargo_output[INDUSTRY_NUM_OUTPUTS]; // Which output cargoes to add to (only cb version 2)
 	uint8 again;
 
 };
@@ -286,7 +286,7 @@ struct IndustryProductionSpriteGroup : SpriteGroup {
  * to different game entities from a #SpriteGroup-chain (action 1-2-3 chain).
  */
 struct ScopeResolver {
-	ResolverObject &ro; ///< Surrounding resolver object.
+	ResolverObject &ro; // Surrounding resolver object.
 
 	ScopeResolver(ResolverObject &ro) : ro(ro) {}
 	virtual ~ScopeResolver() {}
@@ -320,20 +320,20 @@ struct ResolverObject {
 
 	virtual ~ResolverObject() {}
 
-	ScopeResolver default_scope; ///< Default implementation of the grf scope.
+	ScopeResolver default_scope; // Default implementation of the grf scope.
 
-	CallbackID callback;        ///< Callback being resolved.
-	uint32 callback_param1;     ///< First parameter (var 10) of the callback.
-	uint32 callback_param2;     ///< Second parameter (var 18) of the callback.
+	CallbackID callback;        // Callback being resolved.
+	uint32 callback_param1;     // First parameter (var 10) of the callback.
+	uint32 callback_param2;     // Second parameter (var 18) of the callback.
 
-	uint32 last_value;          ///< Result of most recent DeterministicSpriteGroup (including procedure calls)
+	uint32 last_value;          // Result of most recent DeterministicSpriteGroup (including procedure calls)
 
-	uint32 waiting_triggers;    ///< Waiting triggers to be used by any rerandomisation. (scope independent)
-	uint32 used_triggers;       ///< Subset of cur_triggers, which actually triggered some rerandomisation. (scope independent)
-	uint32 reseed[VSG_END];     ///< Collects bits to rerandomise while triggering triggers.
+	uint32 waiting_triggers;    // Waiting triggers to be used by any rerandomisation. (scope independent)
+	uint32 used_triggers;       // Subset of cur_triggers, which actually triggered some rerandomisation. (scope independent)
+	uint32 reseed[VSG_END];     // Collects bits to rerandomise while triggering triggers.
 
-	const GRFFile *grffile;     ///< GRFFile the resolved SpriteGroup belongs to
-	const SpriteGroup *root_spritegroup; ///< Root SpriteGroup to use for resolving
+	const GRFFile *grffile;     // GRFFile the resolved SpriteGroup belongs to
+	const SpriteGroup *root_spritegroup; // Root SpriteGroup to use for resolving
 
 	/**
 	 * Resolve SpriteGroup.

@@ -15,13 +15,13 @@ template <class Types>
 class CYapfOriginTileT
 {
 public:
-	typedef typename Types::Tpf Tpf;              ///< the pathfinder class (derived from THIS class)
-	typedef typename Types::NodeList::Titem Node; ///< this will be our node type
-	typedef typename Node::Key Key;               ///< key to hash tables
+	typedef typename Types::Tpf Tpf;              // the pathfinder class (derived from THIS class)
+	typedef typename Types::NodeList::Titem Node; // this will be our node type
+	typedef typename Node::Key Key;               // key to hash tables
 
 protected:
-	TileIndex    m_orgTile;                       ///< origin tile
-	TrackdirBits m_orgTrackdirs;                  ///< origin trackdir mask
+	TileIndex    m_orgTile;                       // origin tile
+	TrackdirBits m_orgTrackdirs;                  // origin trackdir mask
 
 	/** to access inherited path finder */
 	inline Tpf& Yapf()
@@ -55,17 +55,17 @@ template <class Types>
 class CYapfOriginTileTwoWayT
 {
 public:
-	typedef typename Types::Tpf Tpf;              ///< the pathfinder class (derived from THIS class)
-	typedef typename Types::NodeList::Titem Node; ///< this will be our node type
-	typedef typename Node::Key Key;               ///< key to hash tables
+	typedef typename Types::Tpf Tpf;              // the pathfinder class (derived from THIS class)
+	typedef typename Types::NodeList::Titem Node; // this will be our node type
+	typedef typename Node::Key Key;               // key to hash tables
 
 protected:
-	TileIndex   m_orgTile;                        ///< first origin tile
-	Trackdir    m_orgTd;                          ///< first origin trackdir
-	TileIndex   m_revTile;                        ///< second (reversed) origin tile
-	Trackdir    m_revTd;                          ///< second (reversed) origin trackdir
-	int         m_reverse_penalty;                ///< penalty to be added for using the reversed origin
-	bool        m_treat_first_red_two_way_signal_as_eol; ///< in some cases (leaving station) we need to handle first two-way signal differently
+	TileIndex   m_orgTile;                        // first origin tile
+	Trackdir    m_orgTd;                          // first origin trackdir
+	TileIndex   m_revTile;                        // second (reversed) origin tile
+	Trackdir    m_revTd;                          // second (reversed) origin trackdir
+	int         m_reverse_penalty;                // penalty to be added for using the reversed origin
+	bool        m_treat_first_red_two_way_signal_as_eol; // in some cases (leaving station) we need to handle first two-way signal differently
 
 	/** to access inherited path finder */
 	inline Tpf& Yapf()
@@ -113,13 +113,13 @@ template <class Types>
 class CYapfDestinationTileT
 {
 public:
-	typedef typename Types::Tpf Tpf;              ///< the pathfinder class (derived from THIS class)
-	typedef typename Types::NodeList::Titem Node; ///< this will be our node type
-	typedef typename Node::Key Key;               ///< key to hash tables
+	typedef typename Types::Tpf Tpf;              // the pathfinder class (derived from THIS class)
+	typedef typename Types::NodeList::Titem Node; // this will be our node type
+	typedef typename Node::Key Key;               // key to hash tables
 
 protected:
-	TileIndex    m_destTile;                      ///< destination tile
-	TrackdirBits m_destTrackdirs;                 ///< destination trackdir mask
+	TileIndex    m_destTile;                      // destination tile
+	TrackdirBits m_destTrackdirs;                 // destination trackdir mask
 
 public:
 	/** set the destination tile / more trackdirs */
@@ -181,12 +181,12 @@ public:
  */
 template <class Ttypes>
 class CYapfT
-	: public Ttypes::PfBase         ///< Instance of CYapfBaseT - main YAPF loop and support base class
-	, public Ttypes::PfCost         ///< Cost calculation provider base class
-	, public Ttypes::PfCache        ///< Segment cost cache provider
-	, public Ttypes::PfOrigin       ///< Origin (tile or two-tile origin)
-	, public Ttypes::PfDestination  ///< Destination detector and distance (estimate) calculation provider
-	, public Ttypes::PfFollow       ///< Node follower (stepping provider)
+	: public Ttypes::PfBase         // Instance of CYapfBaseT - main YAPF loop and support base class
+	, public Ttypes::PfCost         // Cost calculation provider base class
+	, public Ttypes::PfCache        // Segment cost cache provider
+	, public Ttypes::PfOrigin       // Origin (tile or two-tile origin)
+	, public Ttypes::PfDestination  // Destination detector and distance (estimate) calculation provider
+	, public Ttypes::PfFollow       // Node follower (stepping provider)
 {
 };
 

@@ -22,7 +22,7 @@ WaterFeature _water_feature[CF_END];
 
 /** Scope resolver of a canal tile. */
 struct CanalScopeResolver : public ScopeResolver {
-	TileIndex tile; ///< Tile containing the canal.
+	TileIndex tile; // Tile containing the canal.
 
 	CanalScopeResolver(ResolverObject &ro, TileIndex tile)
 		: ScopeResolver(ro), tile(tile)

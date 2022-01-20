@@ -49,24 +49,24 @@
 #include "safeguards.h"
 
 
-static RailType _cur_railtype;               ///< Rail type of the current build-rail toolbar.
-static bool _remove_button_clicked;          ///< Flag whether 'remove' toggle-button is currently enabled
-static DiagDirection _build_depot_direction; ///< Currently selected depot direction
-static byte _waypoint_count = 1;             ///< Number of waypoint types
-static byte _cur_waypoint_type;              ///< Currently selected waypoint type
-static bool _convert_signal_button;          ///< convert signal button in the signal GUI pressed
-static SignalVariant _cur_signal_variant;    ///< set the signal variant (for signal GUI)
-static SignalType _cur_signal_type;          ///< set the signal type (for signal GUI)
+static RailType _cur_railtype;               // Rail type of the current build-rail toolbar.
+static bool _remove_button_clicked;          // Flag whether 'remove' toggle-button is currently enabled
+static DiagDirection _build_depot_direction; // Currently selected depot direction
+static byte _waypoint_count = 1;             // Number of waypoint types
+static byte _cur_waypoint_type;              // Currently selected waypoint type
+static bool _convert_signal_button;          // convert signal button in the signal GUI pressed
+static SignalVariant _cur_signal_variant;    // set the signal variant (for signal GUI)
+static SignalType _cur_signal_type;          // set the signal type (for signal GUI)
 
 struct RailStationGUISettings {
-	Axis orientation;                 ///< Currently selected rail station orientation
+	Axis orientation;                 // Currently selected rail station orientation
 
-	bool newstations;                 ///< Are custom station definitions available?
-	StationClassID station_class;     ///< Currently selected custom station class (if newstations is \c true )
-	byte station_type;                ///< %Station type within the currently selected custom station class (if newstations is \c true )
-	byte station_count;               ///< Number of custom stations (if newstations is \c true )
+	bool newstations;                 // Are custom station definitions available?
+	StationClassID station_class;     // Currently selected custom station class (if newstations is \c true )
+	byte station_type;                // %Station type within the currently selected custom station class (if newstations is \c true )
+	byte station_count;               // Number of custom stations (if newstations is \c true )
 };
-static RailStationGUISettings _railstation; ///< Settings of the station builder GUI
+static RailStationGUISettings _railstation; // Settings of the station builder GUI
 
 
 static void HandleStationPlacement(TileIndex start, TileIndex end);
@@ -406,8 +406,8 @@ static void HandleAutoSignalPlacement()
 
 /** Rail toolbar management class. */
 struct BuildRailToolbarWindow : Window {
-	RailType railtype;    ///< Rail type to build.
-	int last_user_action; ///< Last started user action.
+	RailType railtype;    // Rail type to build.
+	int last_user_action; // Last started user action.
 
 	BuildRailToolbarWindow(WindowDesc *desc, RailType railtype) : Window(desc)
 	{
@@ -890,27 +890,27 @@ static void HandleStationPlacement(TileIndex start, TileIndex end)
 
 /** Enum referring to the Hotkeys in the build rail station window */
 enum BuildRalStationHotkeys {
-	BRASHK_FOCUS_FILTER_BOX, ///< Focus the edit box for editing the filter string
+	BRASHK_FOCUS_FILTER_BOX, // Focus the edit box for editing the filter string
 };
 
 struct BuildRailStationWindow : public PickerWindowBase {
 private:
-	uint line_height;     ///< Height of a single line in the newstation selection matrix (#WID_BRAS_NEWST_LIST widget).
-	uint coverage_height; ///< Height of the coverage texts.
-	Scrollbar *vscroll;   ///< Vertical scrollbar of the new station list.
-	Scrollbar *vscroll2;  ///< Vertical scrollbar of the matrix with new stations.
+	uint line_height;     // Height of a single line in the newstation selection matrix (#WID_BRAS_NEWST_LIST widget).
+	uint coverage_height; // Height of the coverage texts.
+	Scrollbar *vscroll;   // Vertical scrollbar of the new station list.
+	Scrollbar *vscroll2;  // Vertical scrollbar of the matrix with new stations.
 
-	typedef GUIList<StationClassID, StringFilter &> GUIStationClassList; ///< Type definition for the list to hold available station classes.
+	typedef GUIList<StationClassID, StringFilter &> GUIStationClassList; // Type definition for the list to hold available station classes.
 
-	static const uint EDITBOX_MAX_SIZE = 16; ///< The maximum number of characters for the filter edit box.
+	static const uint EDITBOX_MAX_SIZE = 16; // The maximum number of characters for the filter edit box.
 
-	static Listing   last_sorting;           ///< Default sorting of #GUIStationClassList.
-	static Filtering last_filtering;         ///< Default filtering of #GUIStationClassList.
-	static GUIStationClassList::SortFunction * const sorter_funcs[];   ///< Sort functions of the #GUIStationClassList.
-	static GUIStationClassList::FilterFunction * const filter_funcs[]; ///< Filter functions of the #GUIStationClassList.
-	GUIStationClassList station_classes;     ///< Available station classes.
-	StringFilter string_filter;              ///< Filter for available station classes.
-	QueryString filter_editbox;              ///< Filter editbox.
+	static Listing   last_sorting;           // Default sorting of #GUIStationClassList.
+	static Filtering last_filtering;         // Default filtering of #GUIStationClassList.
+	static GUIStationClassList::SortFunction * const sorter_funcs[];   // Sort functions of the #GUIStationClassList.
+	static GUIStationClassList::FilterFunction * const filter_funcs[]; // Filter functions of the #GUIStationClassList.
+	GUIStationClassList station_classes;     // Available station classes.
+	StringFilter string_filter;              // Filter for available station classes.
+	QueryString filter_editbox;              // Filter editbox.
 
 	/**
 	 * Scrolls #WID_BRAS_NEWST_SCROLL so that the selected station class is visible.
@@ -1664,8 +1664,8 @@ static Window *ShowStationBuilder(Window *parent)
 
 struct BuildSignalWindow : public PickerWindowBase {
 private:
-	Dimension sig_sprite_size;     ///< Maximum size of signal GUI sprites.
-	int sig_sprite_bottom_offset;  ///< Maximum extent of signal GUI sprite from reference point towards bottom.
+	Dimension sig_sprite_size;     // Maximum size of signal GUI sprites.
+	int sig_sprite_bottom_offset;  // Maximum extent of signal GUI sprite from reference point towards bottom.
 
 	/**
 	 * Draw dynamic a signal-sprite in a button in the signal GUI

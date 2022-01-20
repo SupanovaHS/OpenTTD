@@ -15,13 +15,13 @@
  * Look at docs/landscape.html for the exact meaning of the members.
  */
 struct Tile {
-	byte   type;        ///< The type (bits 4..7), bridges (2..3), rainforest/desert (0..1)
-	byte   height;      ///< The height of the northern corner.
-	uint16 m2;          ///< Primarily used for indices to towns, industries and stations
-	byte   m1;          ///< Primarily used for ownership information
-	byte   m3;          ///< General purpose
-	byte   m4;          ///< General purpose
-	byte   m5;          ///< General purpose
+	byte   type;        // The type (bits 4..7), bridges (2..3), rainforest/desert (0..1)
+	byte   height;      // The height of the northern corner.
+	uint16 m2;          // Primarily used for indices to towns, industries and stations
+	byte   m1;          // Primarily used for ownership information
+	byte   m3;          // General purpose
+	byte   m4;          // General purpose
+	byte   m5;          // General purpose
 };
 
 static_assert(sizeof(Tile) == 8);
@@ -31,9 +31,9 @@ static_assert(sizeof(Tile) == 8);
  * Look at docs/landscape.html for the exact meaning of the members.
  */
 struct TileExtended {
-	byte m6;   ///< General purpose
-	byte m7;   ///< Primarily used for newgrf support
-	uint16 m8; ///< General purpose
+	byte m6;   // General purpose
+	byte m7;   // Primarily used for newgrf support
+	uint16 m8; // General purpose
 };
 
 /**
@@ -55,15 +55,15 @@ typedef int32 TileIndexDiff;
  * tiles as a pair of x and y value.
  */
 struct TileIndexDiffC {
-	int16 x;        ///< The x value of the coordinate
-	int16 y;        ///< The y value of the coordinate
+	int16 x;        // The x value of the coordinate
+	int16 y;        // The y value of the coordinate
 };
 
 /** Minimal and maximal map width and height */
-static const uint MIN_MAP_SIZE_BITS = 6;                      ///< Minimal size of map is equal to 2 ^ MIN_MAP_SIZE_BITS
-static const uint MAX_MAP_SIZE_BITS = 12;                     ///< Maximal size of map is equal to 2 ^ MAX_MAP_SIZE_BITS
-static const uint MIN_MAP_SIZE      = 1 << MIN_MAP_SIZE_BITS; ///< Minimal map size = 64
-static const uint MAX_MAP_SIZE      = 1 << MAX_MAP_SIZE_BITS; ///< Maximal map size = 4096
+static const uint MIN_MAP_SIZE_BITS = 6;                      // Minimal size of map is equal to 2 ^ MIN_MAP_SIZE_BITS
+static const uint MAX_MAP_SIZE_BITS = 12;                     // Maximal size of map is equal to 2 ^ MAX_MAP_SIZE_BITS
+static const uint MIN_MAP_SIZE      = 1 << MIN_MAP_SIZE_BITS; // Minimal map size = 64
+static const uint MAX_MAP_SIZE      = 1 << MAX_MAP_SIZE_BITS; // Maximal map size = 4096
 
 /**
  * Approximation of the length of a straight track, relative to a diagonal
@@ -79,9 +79,9 @@ static const uint MAX_MAP_SIZE      = 1 << MAX_MAP_SIZE_BITS; ///< Maximal map s
 
 /** Argument for CmdLevelLand describing what to do. */
 enum LevelMode : byte {
-	LM_LEVEL, ///< Level the land.
-	LM_LOWER, ///< Lower the land.
-	LM_RAISE, ///< Raise the land.
+	LM_LEVEL, // Level the land.
+	LM_LOWER, // Lower the land.
+	LM_RAISE, // Raise the land.
 };
 
 #endif /* MAP_TYPE_H */

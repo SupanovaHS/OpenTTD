@@ -48,10 +48,10 @@ protected:
 		ActiveInstance(ScriptInstance *instance);
 		~ActiveInstance();
 	private:
-		ScriptInstance *last_active;    ///< The active instance before we go instantiated.
-		ScriptAllocatorScope alc_scope; ///< Keep the correct allocator for the script instance activated
+		ScriptInstance *last_active;    // The active instance before we go instantiated.
+		ScriptAllocatorScope alc_scope; // Keep the correct allocator for the script instance activated
 
-		static ScriptInstance *active;  ///< The global current active instance.
+		static ScriptInstance *active;  // The global current active instance.
 	};
 
 public:

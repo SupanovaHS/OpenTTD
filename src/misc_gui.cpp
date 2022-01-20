@@ -40,10 +40,10 @@
 
 /** Method to open the OSK. */
 enum OskActivation {
-	OSKA_DISABLED,           ///< The OSK shall not be activated at all.
-	OSKA_DOUBLE_CLICK,       ///< Double click on the edit box opens OSK.
-	OSKA_SINGLE_CLICK,       ///< Single click after focus click opens OSK.
-	OSKA_IMMEDIATELY,        ///< Focusing click already opens OSK.
+	OSKA_DISABLED,           // The OSK shall not be activated at all.
+	OSKA_DOUBLE_CLICK,       // Double click on the edit box opens OSK.
+	OSKA_SINGLE_CLICK,       // Single click after focus click opens OSK.
+	OSKA_IMMEDIATELY,        // Focusing click already opens OSK.
 };
 
 
@@ -65,8 +65,8 @@ static WindowDesc _land_info_desc(
 );
 
 class LandInfoWindow : public Window {
-	StringList  landinfo_data;    ///< Info lines to show.
-	std::string cargo_acceptance; ///< Centered multi-line string for cargo acceptance.
+	StringList  landinfo_data;    // Info lines to show.
+	std::string cargo_acceptance; // Centered multi-line string for cargo acceptance.
 
 public:
 	TileIndex tile;
@@ -471,11 +471,11 @@ static const char * const _credits[] = {
 };
 
 struct AboutWindow : public Window {
-	int text_position;                       ///< The top of the scrolling text
-	int line_height;                         ///< The height of a single line
-	static const int num_visible_lines = 19; ///< The number of lines visible simultaneously
+	int text_position;                       // The top of the scrolling text
+	int line_height;                         // The height of a single line
+	static const int num_visible_lines = 19; // The number of lines visible simultaneously
 
-	static const uint TIMER_INTERVAL = 2100; ///< Scrolling interval, scaled by line text line height. This value chosen to maintain parity: 2100 / FONT_HEIGHT_NORMAL = 150ms
+	static const uint TIMER_INTERVAL = 2100; // Scrolling interval, scaled by line text line height. This value chosen to maintain parity: 2100 / FONT_HEIGHT_NORMAL = 150ms
 	GUITimer timer;
 
 	AboutWindow() : Window(&_about_desc)
@@ -668,10 +668,10 @@ static WindowDesc _tool_tips_desc(
 /** Window for displaying a tooltip. */
 struct TooltipsWindow : public Window
 {
-	StringID string_id;               ///< String to display as tooltip.
-	byte paramcount;                  ///< Number of string parameters in #string_id.
-	uint64 params[5];                 ///< The string parameters.
-	TooltipCloseCondition close_cond; ///< Condition for closing the window.
+	StringID string_id;               // String to display as tooltip.
+	byte paramcount;                  // Number of string parameters in #string_id.
+	uint64 params[5];                 // The string parameters.
+	TooltipCloseCondition close_cond; // Condition for closing the window.
 
 	TooltipsWindow(Window *parent, StringID str, uint paramcount, const uint64 params[], TooltipCloseCondition close_tooltip) : Window(&_tool_tips_desc)
 	{
@@ -966,9 +966,9 @@ void QueryString::ClickEditBox(Window *w, Point pt, int wid, int click_count, bo
 /** Class for the string query window. */
 struct QueryStringWindow : public Window
 {
-	QueryString editbox;    ///< Editbox.
-	QueryStringFlags flags; ///< Flags controlling behaviour of the window.
-	Dimension warning_size; ///< How much space to use for the warning text
+	QueryString editbox;    // Editbox.
+	QueryStringFlags flags; // Flags controlling behaviour of the window.
+	Dimension warning_size; // How much space to use for the warning text
 
 	QueryStringWindow(StringID str, StringID caption, uint max_bytes, uint max_chars, WindowDesc *desc, Window *parent, CharSetFilter afilter, QueryStringFlags flags) :
 			Window(desc), editbox(max_bytes, max_chars)
@@ -1128,10 +1128,10 @@ void ShowQueryString(StringID str, StringID caption, uint maxsize, Window *paren
  * Window used for asking the user a YES/NO question.
  */
 struct QueryWindow : public Window {
-	QueryCallbackProc *proc; ///< callback function executed on closing of popup. Window* points to parent, bool is true if 'yes' clicked, false otherwise
-	uint64 params[10];       ///< local copy of #_global_string_params
-	StringID message;        ///< message shown for query window
-	StringID caption;        ///< title of window
+	QueryCallbackProc *proc; // callback function executed on closing of popup. Window* points to parent, bool is true if 'yes' clicked, false otherwise
+	uint64 params[10];       // local copy of #_global_string_params
+	StringID message;        // message shown for query window
+	StringID caption;        // title of window
 
 	QueryWindow(WindowDesc *desc, StringID caption, StringID message, Window *parent, QueryCallbackProc *callback) : Window(desc)
 	{

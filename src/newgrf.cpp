@@ -79,15 +79,15 @@ static uint32 _ttdpatch_flags[8];
 /** Indicates which are the newgrf features currently loaded ingame */
 GRFLoadedFeatures _loaded_newgrf_features;
 
-static const uint MAX_SPRITEGROUP = UINT8_MAX; ///< Maximum GRF-local ID for a spritegroup.
+static const uint MAX_SPRITEGROUP = UINT8_MAX; // Maximum GRF-local ID for a spritegroup.
 
 /** Temporary data during loading of GRFs */
 struct GrfProcessingState {
 private:
 	/** Definition of a single Action1 spriteset */
 	struct SpriteSet {
-		SpriteID sprite;  ///< SpriteID of the first sprite of the set.
-		uint num_sprites; ///< Number of sprites in the set.
+		SpriteID sprite;  // SpriteID of the first sprite of the set.
+		uint num_sprites; // Number of sprites in the set.
 	};
 
 	/** Currently referenceable spritesets */
@@ -95,17 +95,17 @@ private:
 
 public:
 	/* Global state */
-	GrfLoadingStage stage;    ///< Current loading stage
-	SpriteID spriteid;        ///< First available SpriteID for loading realsprites.
+	GrfLoadingStage stage;    // Current loading stage
+	SpriteID spriteid;        // First available SpriteID for loading realsprites.
 
 	/* Local state in the file */
-	SpriteFile *file;         ///< File of currently processed GRF file.
-	GRFFile *grffile;         ///< Currently processed GRF file.
-	GRFConfig *grfconfig;     ///< Config of the currently processed GRF file.
-	uint32 nfo_line;          ///< Currently processed pseudo sprite number in the GRF.
+	SpriteFile *file;         // File of currently processed GRF file.
+	GRFFile *grffile;         // Currently processed GRF file.
+	GRFConfig *grfconfig;     // Config of the currently processed GRF file.
+	uint32 nfo_line;          // Currently processed pseudo sprite number in the GRF.
 
 	/* Kind of return values when processing certain actions */
-	int skip_sprites;         ///< Number of pseudo sprites to skip before processing the next one. (-1 to skip to end of file)
+	int skip_sprites;         // Number of pseudo sprites to skip before processing the next one. (-1 to skip to end of file)
 
 	/* Currently referenceable spritegroups */
 	const SpriteGroup *spritegroups[MAX_SPRITEGROUP + 1];
@@ -310,27 +310,27 @@ public:
 
 typedef void (*SpecialSpriteHandler)(ByteReader *buf);
 
-static const uint NUM_STATIONS_PER_GRF = 255; ///< Number of StationSpecs per NewGRF; limited to 255 to allow extending Action3 with an extended byte later on.
+static const uint NUM_STATIONS_PER_GRF = 255; // Number of StationSpecs per NewGRF; limited to 255 to allow extending Action3 with an extended byte later on.
 
 /** Temporary engine data used when loading only */
 struct GRFTempEngineData {
 	/** Summary state of refittability properties */
 	enum Refittability {
-		UNSET    =  0,  ///< No properties assigned. Default refit masks shall be activated.
-		EMPTY,          ///< GRF defined vehicle as not-refittable. The vehicle shall only carry the default cargo.
-		NONEMPTY,       ///< GRF defined the vehicle as refittable. If the refitmask is empty after translation (cargotypes not available), disable the vehicle.
+		UNSET    =  0,  // No properties assigned. Default refit masks shall be activated.
+		EMPTY,          // GRF defined vehicle as not-refittable. The vehicle shall only carry the default cargo.
+		NONEMPTY,       // GRF defined the vehicle as refittable. If the refitmask is empty after translation (cargotypes not available), disable the vehicle.
 	};
 
 	uint16 cargo_allowed;
 	uint16 cargo_disallowed;
 	RailTypeLabel railtypelabel;
 	uint8 roadtramtype;
-	const GRFFile *defaultcargo_grf; ///< GRF defining the cargo translation table to use if the default cargo is the 'first refittable'.
-	Refittability refittability;     ///< Did the newgrf set any refittability property? If not, default refittability will be applied.
-	bool prop27_set;         ///< Did the NewGRF set property 27 (misc flags)?
-	uint8 rv_max_speed;      ///< Temporary storage of RV prop 15, maximum speed in mph/0.8
-	CargoTypes ctt_include_mask; ///< Cargo types always included in the refit mask.
-	CargoTypes ctt_exclude_mask; ///< Cargo types always excluded from the refit mask.
+	const GRFFile *defaultcargo_grf; // GRF defining the cargo translation table to use if the default cargo is the 'first refittable'.
+	Refittability refittability;     // Did the newgrf set any refittability property? If not, default refittability will be applied.
+	bool prop27_set;         // Did the NewGRF set property 27 (misc flags)?
+	uint8 rv_max_speed;      // Temporary storage of RV prop 15, maximum speed in mph/0.8
+	CargoTypes ctt_include_mask; // Cargo types always included in the refit mask.
+	CargoTypes ctt_exclude_mask; // Cargo types always excluded from the refit mask.
 
 	/**
 	 * Update the summary refittability on setting a refittability property.
@@ -346,7 +346,7 @@ struct GRFTempEngineData {
 	}
 };
 
-static GRFTempEngineData *_gted;  ///< Temporary engine data used during NewGRF loading
+static GRFTempEngineData *_gted;  // Temporary engine data used during NewGRF loading
 
 /**
  * Contains the GRF ID of the owner of a vehicle if it has been reserved.
@@ -471,9 +471,9 @@ static GRFError *DisableGrf(StringID message = STR_NULL, GRFConfig *config = nul
  * Information for mapping static StringIDs.
  */
 struct StringIDMapping {
-	uint32 grfid;     ///< Source NewGRF.
-	StringID source;  ///< Source StringID (GRF local).
-	StringID *target; ///< Destination for mapping result.
+	uint32 grfid;     // Source NewGRF.
+	StringID source;  // Source StringID (GRF local).
+	StringID *target; // Destination for mapping result.
 };
 typedef std::vector<StringIDMapping> StringIDMappingVector;
 static StringIDMappingVector _string_to_grf_mapping;
@@ -982,8 +982,8 @@ static void ConvertTTDBasePrice(uint32 base_pointer, const char *error_location,
 		return;
 	}
 
-	static const uint32 start = 0x4B34; ///< Position of first base price
-	static const uint32 size  = 6;      ///< Size of each base price record
+	static const uint32 start = 0x4B34; // Position of first base price
+	static const uint32 size  = 6;      // Size of each base price record
 
 	if (base_pointer < start || (base_pointer - start) % size != 0 || (base_pointer - start) / size >= PR_END) {
 		grfmsg(1, "%s: Unsupported running cost base 0x%04X, ignoring", error_location, base_pointer);
@@ -995,11 +995,11 @@ static void ConvertTTDBasePrice(uint32 base_pointer, const char *error_location,
 
 /** Possible return values for the FeatureChangeInfo functions */
 enum ChangeInfoResult {
-	CIR_SUCCESS,    ///< Variable was parsed and read
-	CIR_DISABLED,   ///< GRF was disabled due to error
-	CIR_UNHANDLED,  ///< Variable was parsed but unread
-	CIR_UNKNOWN,    ///< Variable is unknown
-	CIR_INVALID_ID, ///< Attempt to modify an invalid ID
+	CIR_SUCCESS,    // Variable was parsed and read
+	CIR_DISABLED,   // GRF was disabled due to error
+	CIR_UNHANDLED,  // Variable was parsed but unread
+	CIR_UNKNOWN,    // Variable is unknown
+	CIR_INVALID_ID, // Attempt to modify an invalid ID
 };
 
 typedef ChangeInfoResult (*VCI_Handler)(uint engine, int numinfo, int prop, ByteReader *buf);
@@ -6110,17 +6110,17 @@ static uint16 SanitizeSpriteOffset(uint16& num, uint16 offset, int max_sprites, 
 
 /** The type of action 5 type. */
 enum Action5BlockType {
-	A5BLOCK_FIXED,                ///< Only allow replacing a whole block of sprites. (TTDP compatible)
-	A5BLOCK_ALLOW_OFFSET,         ///< Allow replacing any subset by specifiing an offset.
-	A5BLOCK_INVALID,              ///< unknown/not-implemented type
+	A5BLOCK_FIXED,                // Only allow replacing a whole block of sprites. (TTDP compatible)
+	A5BLOCK_ALLOW_OFFSET,         // Allow replacing any subset by specifiing an offset.
+	A5BLOCK_INVALID,              // unknown/not-implemented type
 };
 /** Information about a single action 5 type. */
 struct Action5Type {
-	Action5BlockType block_type;  ///< How is this Action5 type processed?
-	SpriteID sprite_base;         ///< Load the sprites starting from this sprite.
-	uint16 min_sprites;           ///< If the Action5 contains less sprites, the whole block will be ignored.
-	uint16 max_sprites;           ///< If the Action5 contains more sprites, only the first max_sprites sprites will be used.
-	const char *name;             ///< Name for error messages.
+	Action5BlockType block_type;  // How is this Action5 type processed?
+	SpriteID sprite_base;         // Load the sprites starting from this sprite.
+	uint16 min_sprites;           // If the Action5 contains less sprites, the whole block will be ignored.
+	uint16 max_sprites;           // If the Action5 contains more sprites, only the first max_sprites sprites will be used.
+	const char *name;             // Name for error messages.
 };
 
 /** The information about action 5 types. */
@@ -7940,7 +7940,7 @@ static bool ChangeGRFMinVersion(size_t len, ByteReader *buf)
 	return true;
 }
 
-static GRFParameterInfo *_cur_parameter; ///< The parameter which info is currently changed by the newgrf.
+static GRFParameterInfo *_cur_parameter; // The parameter which info is currently changed by the newgrf.
 
 /** Callback function for 'INFO'->'PARAM'->param_num->'NAME' to set the name of a parameter. */
 static bool ChangeGRFParamName(byte langid, const char *str)
@@ -8029,9 +8029,9 @@ static bool ChangeGRFParamDefault(size_t len, ByteReader *buf)
 	return true;
 }
 
-typedef bool (*DataHandler)(size_t, ByteReader *);  ///< Type of callback function for binary nodes
-typedef bool (*TextHandler)(byte, const char *str); ///< Type of callback function for text nodes
-typedef bool (*BranchHandler)(ByteReader *);        ///< Type of callback function for branch nodes
+typedef bool (*DataHandler)(size_t, ByteReader *);  // Type of callback function for binary nodes
+typedef bool (*TextHandler)(byte, const char *str); // Type of callback function for text nodes
+typedef bool (*BranchHandler)(ByteReader *);        // Type of callback function for branch nodes
 
 /**
  * Data structure to store the allowed id/type combinations for action 14. The
@@ -8097,17 +8097,17 @@ struct AllowedSubtags {
 		this->handler.u.subtags = subtags;
 	}
 
-	uint32 id; ///< The identifier for this node
-	byte type; ///< The type of the node, must be one of 'C', 'B' or 'T'.
+	uint32 id; // The identifier for this node
+	byte type; // The type of the node, must be one of 'C', 'B' or 'T'.
 	union {
-		DataHandler data; ///< Callback function for a binary node, only valid if type == 'B'.
-		TextHandler text; ///< Callback function for a text node, only valid if type == 'T'.
+		DataHandler data; // Callback function for a binary node, only valid if type == 'B'.
+		TextHandler text; // Callback function for a text node, only valid if type == 'T'.
 		struct {
 			union {
-				BranchHandler branch;    ///< Callback function for a branch node, only valid if type == 'C' && call_handler.
-				AllowedSubtags *subtags; ///< Pointer to a list of subtags, only valid if type == 'C' && !call_handler.
+				BranchHandler branch;    // Callback function for a branch node, only valid if type == 'C' && call_handler.
+				AllowedSubtags *subtags; // Pointer to a list of subtags, only valid if type == 'C' && !call_handler.
 			} u;
-			bool call_handler; ///< True if there is a callback function for this node, false if there is a list of subnodes.
+			bool call_handler; // True if there is a callback function for this node, false if there is a list of subnodes.
 		};
 	} handler;
 };
@@ -8773,7 +8773,7 @@ static void CalculateRefitMasks()
 	for (Engine *e : Engine::Iterate()) {
 		EngineID engine = e->index;
 		EngineInfo *ei = &e->info;
-		bool only_defaultcargo; ///< Set if the vehicle shall carry only the default cargo
+		bool only_defaultcargo; // Set if the vehicle shall carry only the default cargo
 
 		/* If the NewGRF did not set any cargo properties, we apply default values. */
 		if (_gted[engine].defaultcargo_grf == nullptr) {

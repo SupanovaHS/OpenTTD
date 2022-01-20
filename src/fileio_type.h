@@ -14,42 +14,42 @@
 
 /** The different abstract types of files that the system knows about. */
 enum AbstractFileType {
-	FT_NONE,      ///< nothing to do
-	FT_SAVEGAME,  ///< old or new savegame
-	FT_SCENARIO,  ///< old or new scenario
-	FT_HEIGHTMAP, ///< heightmap file
+	FT_NONE,      // nothing to do
+	FT_SAVEGAME,  // old or new savegame
+	FT_SCENARIO,  // old or new scenario
+	FT_HEIGHTMAP, // heightmap file
 
-	FT_INVALID = 7, ///< Invalid or unknown file type.
-	FT_NUMBITS = 3, ///< Number of bits required for storing a #AbstractFileType value.
-	FT_MASK = (1 << FT_NUMBITS) - 1, ///< Bitmask for extracting an abstract file type.
+	FT_INVALID = 7, // Invalid or unknown file type.
+	FT_NUMBITS = 3, // Number of bits required for storing a #AbstractFileType value.
+	FT_MASK = (1 << FT_NUMBITS) - 1, // Bitmask for extracting an abstract file type.
 };
 
 /** Kinds of files in each #AbstractFileType. */
 enum DetailedFileType {
 	/* Save game and scenario files. */
-	DFT_OLD_GAME_FILE, ///< Old save game or scenario file.
-	DFT_GAME_FILE,     ///< Save game or scenario file.
+	DFT_OLD_GAME_FILE, // Old save game or scenario file.
+	DFT_GAME_FILE,     // Save game or scenario file.
 
 	/* Heightmap files. */
-	DFT_HEIGHTMAP_BMP, ///< BMP file.
-	DFT_HEIGHTMAP_PNG, ///< PNG file.
+	DFT_HEIGHTMAP_BMP, // BMP file.
+	DFT_HEIGHTMAP_PNG, // PNG file.
 
 	/* fios 'files' */
-	DFT_FIOS_DRIVE,  ///< A drive (letter) entry.
-	DFT_FIOS_PARENT, ///< A parent directory entry.
-	DFT_FIOS_DIR,    ///< A directory entry.
-	DFT_FIOS_DIRECT, ///< Direct filename.
+	DFT_FIOS_DRIVE,  // A drive (letter) entry.
+	DFT_FIOS_PARENT, // A parent directory entry.
+	DFT_FIOS_DIR,    // A directory entry.
+	DFT_FIOS_DIRECT, // Direct filename.
 
-	DFT_INVALID = 255, ///< Unknown or invalid file.
+	DFT_INVALID = 255, // Unknown or invalid file.
 };
 
 /** Operation performed on the file. */
 enum SaveLoadOperation {
-	SLO_CHECK,   ///< Load file for checking and/or preview.
-	SLO_LOAD,    ///< File is being loaded.
-	SLO_SAVE,    ///< File is being saved.
+	SLO_CHECK,   // Load file for checking and/or preview.
+	SLO_LOAD,    // File is being loaded.
+	SLO_SAVE,    // File is being saved.
 
-	SLO_INVALID, ///< Unknown file operation.
+	SLO_INVALID, // Unknown file operation.
 };
 
 /**
@@ -106,23 +106,23 @@ inline DetailedFileType GetDetailedFileType(FiosType fios_type)
  * The different kinds of subdirectories OpenTTD uses
  */
 enum Subdirectory {
-	BASE_DIR,      ///< Base directory for all subdirectories
-	SAVE_DIR,      ///< Base directory for all savegames
-	AUTOSAVE_DIR,  ///< Subdirectory of save for autosaves
-	SCENARIO_DIR,  ///< Base directory for all scenarios
-	HEIGHTMAP_DIR, ///< Subdirectory of scenario for heightmaps
-	OLD_GM_DIR,    ///< Old subdirectory for the music
-	OLD_DATA_DIR,  ///< Old subdirectory for the data.
-	BASESET_DIR,   ///< Subdirectory for all base data (base sets, intro game)
-	NEWGRF_DIR,    ///< Subdirectory for all NewGRFs
-	LANG_DIR,      ///< Subdirectory for all translation files
-	AI_DIR,        ///< Subdirectory for all %AI files
-	AI_LIBRARY_DIR,///< Subdirectory for all %AI libraries
-	GAME_DIR,      ///< Subdirectory for all game scripts
-	GAME_LIBRARY_DIR, ///< Subdirectory for all GS libraries
-	SCREENSHOT_DIR,   ///< Subdirectory for all screenshots
-	NUM_SUBDIRS,   ///< Number of subdirectories
-	NO_DIRECTORY,  ///< A path without any base directory
+	BASE_DIR,      // Base directory for all subdirectories
+	SAVE_DIR,      // Base directory for all savegames
+	AUTOSAVE_DIR,  // Subdirectory of save for autosaves
+	SCENARIO_DIR,  // Base directory for all scenarios
+	HEIGHTMAP_DIR, // Subdirectory of scenario for heightmaps
+	OLD_GM_DIR,    // Old subdirectory for the music
+	OLD_DATA_DIR,  // Old subdirectory for the data.
+	BASESET_DIR,   // Subdirectory for all base data (base sets, intro game)
+	NEWGRF_DIR,    // Subdirectory for all NewGRFs
+	LANG_DIR,      // Subdirectory for all translation files
+	AI_DIR,        // Subdirectory for all %AI files
+	AI_LIBRARY_DIR,// Subdirectory for all %AI libraries
+	GAME_DIR,      // Subdirectory for all game scripts
+	GAME_LIBRARY_DIR, // Subdirectory for all GS libraries
+	SCREENSHOT_DIR,   // Subdirectory for all screenshots
+	NUM_SUBDIRS,   // Number of subdirectories
+	NO_DIRECTORY,  // A path without any base directory
 };
 
 /**
@@ -130,18 +130,18 @@ enum Subdirectory {
  */
 enum Searchpath : unsigned {
 	SP_FIRST_DIR,
-	SP_WORKING_DIR = SP_FIRST_DIR, ///< Search in the working directory
+	SP_WORKING_DIR = SP_FIRST_DIR, // Search in the working directory
 #ifdef USE_XDG
-	SP_PERSONAL_DIR_XDG,           ///< Search in the personal directory from the XDG specification
+	SP_PERSONAL_DIR_XDG,           // Search in the personal directory from the XDG specification
 #endif
-	SP_PERSONAL_DIR,               ///< Search in the personal directory
-	SP_SHARED_DIR,                 ///< Search in the shared directory, like 'Shared Files' under Windows
-	SP_BINARY_DIR,                 ///< Search in the directory where the binary resides
-	SP_INSTALLATION_DIR,           ///< Search in the installation directory
-	SP_APPLICATION_BUNDLE_DIR,     ///< Search within the application bundle
-	SP_AUTODOWNLOAD_DIR,           ///< Search within the autodownload directory
-	SP_AUTODOWNLOAD_PERSONAL_DIR,  ///< Search within the autodownload directory located in the personal directory
-	SP_AUTODOWNLOAD_PERSONAL_DIR_XDG, ///< Search within the autodownload directory located in the personal directory (XDG variant)
+	SP_PERSONAL_DIR,               // Search in the personal directory
+	SP_SHARED_DIR,                 // Search in the shared directory, like 'Shared Files' under Windows
+	SP_BINARY_DIR,                 // Search in the directory where the binary resides
+	SP_INSTALLATION_DIR,           // Search in the installation directory
+	SP_APPLICATION_BUNDLE_DIR,     // Search within the application bundle
+	SP_AUTODOWNLOAD_DIR,           // Search within the autodownload directory
+	SP_AUTODOWNLOAD_PERSONAL_DIR,  // Search within the autodownload directory located in the personal directory
+	SP_AUTODOWNLOAD_PERSONAL_DIR_XDG, // Search within the autodownload directory located in the personal directory (XDG variant)
 	NUM_SEARCHPATHS
 };
 

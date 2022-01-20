@@ -38,8 +38,8 @@ enum MidiStatus {
 	/* not defined:      0xF4, */
 	/* not defined:      0xF5, */
 	MIDIST_TUNEREQ     = 0xF6,
-	MIDIST_ENDSYSEX    = 0xF7, ///< only occurs in realtime data
-	MIDIST_SMF_ESCAPE  = 0xF7, ///< only occurs in SMF data
+	MIDIST_ENDSYSEX    = 0xF7, // only occurs in realtime data
+	MIDIST_SMF_ESCAPE  = 0xF7, // only occurs in SMF data
 	MIDIST_RT_CLOCK    = 0xF8,
 	/* not defined:      0xF9, */
 	MIDIST_RT_START    = 0xFA,
@@ -47,8 +47,8 @@ enum MidiStatus {
 	MIDIST_RT_STOP     = 0xFC,
 	/* not defined:      0xFD, */
 	MIDIST_RT_ACTSENS  = 0xFE,
-	MIDIST_SYSRESET    = 0xFF, ///< only occurs in realtime data
-	MIDIST_SMF_META    = 0xFF, ///< only occurs in SMF data
+	MIDIST_SYSRESET    = 0xFF, // only occurs in realtime data
+	MIDIST_SMF_META    = 0xFF, // only occurs in SMF data
 };
 
 /**

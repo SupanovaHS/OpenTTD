@@ -24,13 +24,13 @@ protected:
 	/** header for fixed size array */
 	struct ArrayHeader
 	{
-		uint items;           ///< number of items in the array
-		uint reference_count; ///< block reference counter (used by copy constructor and by destructor)
+		uint items;           // number of items in the array
+		uint reference_count; // block reference counter (used by copy constructor and by destructor)
 	};
 
 	/* make constants visible from outside */
-	static const uint Tsize = sizeof(T);                ///< size of item
-	static const uint HeaderSize = sizeof(ArrayHeader); ///< size of header
+	static const uint Tsize = sizeof(T);                // size of item
+	static const uint HeaderSize = sizeof(ArrayHeader); // size of header
 
 	/**
 	 * the only member of fixed size array is pointer to the block

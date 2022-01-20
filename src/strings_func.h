@@ -58,13 +58,13 @@ static inline StringID MakeStringID(StringTab tab, uint index)
 }
 
 class StringParameters {
-	StringParameters *parent; ///< If not nullptr, this instance references data from this parent instance.
-	uint64 *data;             ///< Array with the actual data.
-	WChar *type;              ///< Array with type information about the data. Can be nullptr when no type information is needed. See #StringControlCode.
+	StringParameters *parent; // If not nullptr, this instance references data from this parent instance.
+	uint64 *data;             // Array with the actual data.
+	WChar *type;              // Array with type information about the data. Can be nullptr when no type information is needed. See #StringControlCode.
 
 public:
-	uint offset;              ///< Current offset in the data/type arrays.
-	uint num_param;           ///< Length of the data array.
+	uint offset;              // Current offset in the data/type arrays.
+	uint num_param;           // Length of the data array.
 
 	/** Create a new StringParameters instance. */
 	StringParameters(uint64 *data, uint num_param, WChar *type) :
@@ -229,7 +229,7 @@ static inline uint64 GetDParam(uint n)
 	return _global_string_params.GetParam(n);
 }
 
-extern TextDirection _current_text_dir; ///< Text direction of the currently selected language
+extern TextDirection _current_text_dir; // Text direction of the currently selected language
 
 void InitializeLanguagePacks();
 const char *GetCurrentLanguageIsoCode();

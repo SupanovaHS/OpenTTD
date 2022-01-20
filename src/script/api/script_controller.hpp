@@ -209,11 +209,11 @@ public:
 	static HSQOBJECT Import(const char *library, const char *class_name, int version);
 
 private:
-	typedef std::map<const char *, const char *, StringCompare> LoadedLibraryList; ///< The type for loaded libraries.
+	typedef std::map<const char *, const char *, StringCompare> LoadedLibraryList; // The type for loaded libraries.
 
-	uint ticks;                       ///< The amount of ticks we're sleeping.
-	LoadedLibraryList loaded_library; ///< The libraries we loaded.
-	int loaded_library_count;         ///< The amount of libraries.
+	uint ticks;                       // The amount of ticks we're sleeping.
+	LoadedLibraryList loaded_library; // The libraries we loaded.
+	int loaded_library_count;         // The amount of libraries.
 
 	/**
 	 * Register all classes that are known inside the script API.

@@ -42,7 +42,7 @@ public:
 	 */
 	enum RailType : byte {
 		/* Note: these values represent part of the in-game static values */
-		RAILTYPE_INVALID  = ::INVALID_RAILTYPE, ///< Invalid RailType.
+		RAILTYPE_INVALID  = ::INVALID_RAILTYPE, // Invalid RailType.
 	};
 
 	/**
@@ -50,13 +50,13 @@ public:
 	 */
 	enum RailTrack {
 		/* Note: these values represent part of the in-game TrackBits enum */
-		RAILTRACK_NE_SW   = ::TRACK_BIT_X,       ///< Track along the x-axis (north-east to south-west).
-		RAILTRACK_NW_SE   = ::TRACK_BIT_Y,       ///< Track along the y-axis (north-west to south-east).
-		RAILTRACK_NW_NE   = ::TRACK_BIT_UPPER,   ///< Track in the upper corner of the tile (north).
-		RAILTRACK_SW_SE   = ::TRACK_BIT_LOWER,   ///< Track in the lower corner of the tile (south).
-		RAILTRACK_NW_SW   = ::TRACK_BIT_LEFT,    ///< Track in the left corner of the tile (west).
-		RAILTRACK_NE_SE   = ::TRACK_BIT_RIGHT,   ///< Track in the right corner of the tile (east).
-		RAILTRACK_INVALID = ::INVALID_TRACK_BIT, ///< Flag for an invalid track.
+		RAILTRACK_NE_SW   = ::TRACK_BIT_X,       // Track along the x-axis (north-east to south-west).
+		RAILTRACK_NW_SE   = ::TRACK_BIT_Y,       // Track along the y-axis (north-west to south-east).
+		RAILTRACK_NW_NE   = ::TRACK_BIT_UPPER,   // Track in the upper corner of the tile (north).
+		RAILTRACK_SW_SE   = ::TRACK_BIT_LOWER,   // Track in the lower corner of the tile (south).
+		RAILTRACK_NW_SW   = ::TRACK_BIT_LEFT,    // Track in the left corner of the tile (west).
+		RAILTRACK_NE_SE   = ::TRACK_BIT_RIGHT,   // Track in the right corner of the tile (east).
+		RAILTRACK_INVALID = ::INVALID_TRACK_BIT, // Flag for an invalid track.
 	};
 
 	/**
@@ -64,31 +64,31 @@ public:
 	 */
 	enum SignalType {
 		/* Note: these values represent part of the in-game SignalType enum */
-		SIGNALTYPE_NORMAL        = ::SIGTYPE_NORMAL,     ///< Normal signal.
-		SIGNALTYPE_ENTRY         = ::SIGTYPE_ENTRY,      ///< Entry presignal.
-		SIGNALTYPE_EXIT          = ::SIGTYPE_EXIT,       ///< Exit signal.
-		SIGNALTYPE_COMBO         = ::SIGTYPE_COMBO,      ///< Combo signal.
-		SIGNALTYPE_PBS           = ::SIGTYPE_PBS,        ///< Normal PBS signal.
-		SIGNALTYPE_PBS_ONEWAY    = ::SIGTYPE_PBS_ONEWAY, ///< No-entry PBS signal.
+		SIGNALTYPE_NORMAL        = ::SIGTYPE_NORMAL,     // Normal signal.
+		SIGNALTYPE_ENTRY         = ::SIGTYPE_ENTRY,      // Entry presignal.
+		SIGNALTYPE_EXIT          = ::SIGTYPE_EXIT,       // Exit signal.
+		SIGNALTYPE_COMBO         = ::SIGTYPE_COMBO,      // Combo signal.
+		SIGNALTYPE_PBS           = ::SIGTYPE_PBS,        // Normal PBS signal.
+		SIGNALTYPE_PBS_ONEWAY    = ::SIGTYPE_PBS_ONEWAY, // No-entry PBS signal.
 
-		SIGNALTYPE_TWOWAY        = 8, ///< Bit mask for twoway signal.
-		SIGNALTYPE_NORMAL_TWOWAY = SIGNALTYPE_NORMAL | SIGNALTYPE_TWOWAY, ///< Normal twoway signal.
-		SIGNALTYPE_ENTRY_TWOWAY  = SIGNALTYPE_ENTRY  | SIGNALTYPE_TWOWAY, ///< Entry twoway signal.
-		SIGNALTYPE_EXIT_TWOWAY   = SIGNALTYPE_EXIT   | SIGNALTYPE_TWOWAY, ///< Exit twoway signal.
-		SIGNALTYPE_COMBO_TWOWAY  = SIGNALTYPE_COMBO  | SIGNALTYPE_TWOWAY, ///< Combo twoway signal.
+		SIGNALTYPE_TWOWAY        = 8, // Bit mask for twoway signal.
+		SIGNALTYPE_NORMAL_TWOWAY = SIGNALTYPE_NORMAL | SIGNALTYPE_TWOWAY, // Normal twoway signal.
+		SIGNALTYPE_ENTRY_TWOWAY  = SIGNALTYPE_ENTRY  | SIGNALTYPE_TWOWAY, // Entry twoway signal.
+		SIGNALTYPE_EXIT_TWOWAY   = SIGNALTYPE_EXIT   | SIGNALTYPE_TWOWAY, // Exit twoway signal.
+		SIGNALTYPE_COMBO_TWOWAY  = SIGNALTYPE_COMBO  | SIGNALTYPE_TWOWAY, // Combo twoway signal.
 
-		SIGNALTYPE_NONE          = 0xFF, ///< No signal.
+		SIGNALTYPE_NONE          = 0xFF, // No signal.
 	};
 
 	/**
 	 * Types of rail-related objects in the game.
 	 */
 	enum BuildType {
-		BT_TRACK,    ///< Build a track
-		BT_SIGNAL,   ///< Build a signal
-		BT_DEPOT,    ///< Build a depot
-		BT_STATION,  ///< Build a station
-		BT_WAYPOINT, ///< Build a rail waypoint
+		BT_TRACK,    // Build a track
+		BT_SIGNAL,   // Build a signal
+		BT_DEPOT,    // Build a depot
+		BT_STATION,  // Build a station
+		BT_WAYPOINT, // Build a rail waypoint
 	};
 
 	/**

@@ -15,20 +15,20 @@
 
 /** Various types of a pool. */
 enum PoolType {
-	PT_NONE    = 0x00, ///< No pool is selected.
-	PT_NORMAL  = 0x01, ///< Normal pool containing game objects.
-	PT_NCLIENT = 0x02, ///< Network client pools.
-	PT_NADMIN  = 0x04, ///< Network admin pool.
-	PT_DATA    = 0x08, ///< NewGRF or other data, that is not reset together with normal pools.
-	PT_ALL     = 0x0F, ///< All pool types.
+	PT_NONE    = 0x00, // No pool is selected.
+	PT_NORMAL  = 0x01, // Normal pool containing game objects.
+	PT_NCLIENT = 0x02, // Network client pools.
+	PT_NADMIN  = 0x04, // Network admin pool.
+	PT_DATA    = 0x08, // NewGRF or other data, that is not reset together with normal pools.
+	PT_ALL     = 0x0F, // All pool types.
 };
 DECLARE_ENUM_AS_BIT_SET(PoolType)
 
-typedef std::vector<struct PoolBase *> PoolVector; ///< Vector of pointers to PoolBase
+typedef std::vector<struct PoolBase *> PoolVector; // Vector of pointers to PoolBase
 
 /** Base class for base of all pools. */
 struct PoolBase {
-	const PoolType type; ///< Type of this pool.
+	const PoolType type; // Type of this pool.
 
 	/**
 	 * Function used to access the vector of all pools.
@@ -82,20 +82,20 @@ struct Pool : PoolBase {
 	/* Ensure Tmax_size is within the bounds of Tindex. */
 	static_assert((uint64)(Tmax_size - 1) >> 8 * sizeof(Tindex) == 0);
 
-	static constexpr size_t MAX_SIZE = Tmax_size; ///< Make template parameter accessible from outside
+	static constexpr size_t MAX_SIZE = Tmax_size; // Make template parameter accessible from outside
 
-	const char * const name; ///< Name of this pool
+	const char * const name; // Name of this pool
 
-	size_t size;         ///< Current allocated size
-	size_t first_free;   ///< No item with index lower than this is free (doesn't say anything about this one!)
-	size_t first_unused; ///< This and all higher indexes are free (doesn't say anything about first_unused-1 !)
-	size_t items;        ///< Number of used indexes (non-nullptr)
+	size_t size;         // Current allocated size
+	size_t first_free;   // No item with index lower than this is free (doesn't say anything about this one!)
+	size_t first_unused; // This and all higher indexes are free (doesn't say anything about first_unused-1 !)
+	size_t items;        // Number of used indexes (non-nullptr)
 #ifdef WITH_ASSERT
-	size_t checked;      ///< Number of items we checked for
+	size_t checked;      // Number of items we checked for
 #endif /* WITH_ASSERT */
-	bool cleaning;       ///< True if cleaning pool (deleting all items)
+	bool cleaning;       // True if cleaning pool (deleting all items)
 
-	Titem **data;        ///< Pointer to array of pointers to Titem
+	Titem **data;        // Pointer to array of pointers to Titem
 
 	Pool(const char *name);
 	virtual void CleanPool();
@@ -232,7 +232,7 @@ struct Pool : PoolBase {
 	 */
 	template <struct Pool<Titem, Tindex, Tgrowth_step, Tmax_size, Tpool_type, Tcache, Tzero> *Tpool>
 	struct PoolItem {
-		Tindex index; ///< Index of this pool item
+		Tindex index; // Index of this pool item
 
 		/** Type of the pool this item is going to be part of */
 		typedef struct Pool<Titem, Tindex, Tgrowth_step, Tmax_size, Tpool_type, Tcache, Tzero> Pool;
@@ -387,7 +387,7 @@ struct Pool : PoolBase {
 	};
 
 private:
-	static const size_t NO_FREE_ITEM = MAX_UVALUE(size_t); ///< Constant to indicate we can't allocate any more items
+	static const size_t NO_FREE_ITEM = MAX_UVALUE(size_t); // Constant to indicate we can't allocate any more items
 
 	/**
 	 * Helper struct to cache 'freed' PoolItems so we

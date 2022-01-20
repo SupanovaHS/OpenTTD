@@ -17,9 +17,9 @@
  * It automatically detects and stores the container version upload opening the file.
  */
 class SpriteFile : public RandomAccessFile {
-	bool palette_remap;     ///< Whether or not a remap of the palette is required for this file.
-	byte container_version; ///< Container format of the sprite file.
-	size_t content_begin;   ///< The begin of the content of the sprite file, i.e. after the container metadata.
+	bool palette_remap;     // Whether or not a remap of the palette is required for this file.
+	byte container_version; // Container format of the sprite file.
+	size_t content_begin;   // The begin of the content of the sprite file, i.e. after the container metadata.
 public:
 	SpriteFile(const std::string &filename, Subdirectory subdir, bool palette_remap);
 	SpriteFile(const SpriteFile&) = delete;

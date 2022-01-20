@@ -28,12 +28,12 @@ extern uint32 _story_page_next_sort_value;
  * Each story page element is one of these types.
  */
 enum StoryPageElementType : byte {
-	SPET_TEXT = 0,       ///< A text element.
-	SPET_LOCATION,       ///< An element that references a tile along with a one-line text.
-	SPET_GOAL,           ///< An element that references a goal.
-	SPET_BUTTON_PUSH,    ///< A push button that triggers an immediate event.
-	SPET_BUTTON_TILE,    ///< A button that allows the player to select a tile, and triggers an event with the tile.
-	SPET_BUTTON_VEHICLE, ///< A button that allows the player to select a vehicle, and triggers an event wih the vehicle.
+	SPET_TEXT = 0,       // A text element.
+	SPET_LOCATION,       // An element that references a tile along with a one-line text.
+	SPET_GOAL,           // An element that references a goal.
+	SPET_BUTTON_PUSH,    // A push button that triggers an immediate event.
+	SPET_BUTTON_TILE,    // A button that allows the player to select a tile, and triggers an event with the tile.
+	SPET_BUTTON_VEHICLE, // A button that allows the player to select a vehicle, and triggers an event wih the vehicle.
 	SPET_END,
 	INVALID_SPET = 0xFF,
 };
@@ -137,12 +137,12 @@ struct StoryPageButtonData {
  * page content. Each element only contain one type of content.
  **/
 struct StoryPageElement : StoryPageElementPool::PoolItem<&_story_page_element_pool> {
-	uint32 sort_value;         ///< A number that increases for every created story page element. Used for sorting. The id of a story page element is the pool index.
-	StoryPageID page;          ///< Id of the page which the page element belongs to
-	StoryPageElementType type; ///< Type of page element
+	uint32 sort_value;         // A number that increases for every created story page element. Used for sorting. The id of a story page element is the pool index.
+	StoryPageID page;          // Id of the page which the page element belongs to
+	StoryPageElementType type; // Type of page element
 
-	uint32 referenced_id;      ///< Id of referenced object (location, goal etc.)
-	char *text;                ///< Static content text of page element
+	uint32 referenced_id;      // Id of referenced object (location, goal etc.)
+	char *text;                // Static content text of page element
 
 	/**
 	 * We need an (empty) constructor so struct isn't zeroed (as C++ standard states)
@@ -157,11 +157,11 @@ struct StoryPageElement : StoryPageElementPool::PoolItem<&_story_page_element_po
 
 /** Struct about stories, current and completed */
 struct StoryPage : StoryPagePool::PoolItem<&_story_page_pool> {
-	uint32 sort_value;   ///< A number that increases for every created story page. Used for sorting. The id of a story page is the pool index.
-	Date date;           ///< Date when the page was created.
-	CompanyID company;   ///< StoryPage is for a specific company; INVALID_COMPANY if it is global
+	uint32 sort_value;   // A number that increases for every created story page. Used for sorting. The id of a story page is the pool index.
+	Date date;           // Date when the page was created.
+	CompanyID company;   // StoryPage is for a specific company; INVALID_COMPANY if it is global
 
-	char *title;         ///< Title of story page
+	char *title;         // Title of story page
 
 	/**
 	 * We need an (empty) constructor so struct isn't zeroed (as C++ standard states)

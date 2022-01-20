@@ -22,10 +22,10 @@
  */
 class BlitterFactory {
 private:
-	const std::string name;        ///< The name of the blitter factory.
-	const std::string description; ///< The description of the blitter.
+	const std::string name;        // The name of the blitter factory.
+	const std::string description; // The description of the blitter.
 
-	typedef std::map<std::string, BlitterFactory *> Blitters; ///< Map of blitter factories.
+	typedef std::map<std::string, BlitterFactory *> Blitters; // Map of blitter factories.
 
 	/**
 	 * Get the map with currently known blitters.

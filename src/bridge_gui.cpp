@@ -45,7 +45,7 @@ struct BuildBridgeData {
 	Money cost;
 };
 
-typedef GUIList<BuildBridgeData> GUIBridgeList; ///< List of bridges, used in #BuildBridgeWindow.
+typedef GUIList<BuildBridgeData> GUIBridgeList; // List of bridges, used in #BuildBridgeWindow.
 
 /**
  * Callback executed after a build Bridge CMD has been called
@@ -74,7 +74,7 @@ void CcBuildBridge(Commands cmd, const CommandCost &result, TileIndex end_tile, 
 class BuildBridgeWindow : public Window {
 private:
 	/* Runtime saved values */
-	static Listing last_sorting; ///< Last setting of the sort.
+	static Listing last_sorting; // Last setting of the sort.
 
 	/* Constants for sorting the bridges */
 	static const StringID sorter_names[];
@@ -86,7 +86,7 @@ private:
 	TransportType transport_type;
 	byte road_rail_type;
 	GUIBridgeList *bridges;
-	int bridgetext_offset; ///< Horizontal offset of the text describing the bridge properties in #WID_BBS_BRIDGE_LIST relative to the left edge.
+	int bridgetext_offset; // Horizontal offset of the text describing the bridge properties in #WID_BBS_BRIDGE_LIST relative to the left edge.
 	Scrollbar *vscroll;
 
 	/** Sort the bridges by their index */

@@ -14,9 +14,9 @@
 enum TextfileType {
 	TFT_BEGIN,
 
-	TFT_README = TFT_BEGIN, ///< NewGRF readme
-	TFT_CHANGELOG,          ///< NewGRF changelog
-	TFT_LICENSE,            ///< NewGRF license
+	TFT_README = TFT_BEGIN, // NewGRF readme
+	TFT_CHANGELOG,          // NewGRF changelog
+	TFT_LICENSE,            // NewGRF license
 
 	TFT_END,
 };

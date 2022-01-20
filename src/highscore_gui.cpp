@@ -154,7 +154,7 @@ struct EndGameWindow : EndGameHighScoreBaseWindow {
 };
 
 struct HighScoreWindow : EndGameHighScoreBaseWindow {
-	bool game_paused_by_player; ///< True if the game was paused by the player when the highscore window was opened.
+	bool game_paused_by_player; // True if the game was paused by the player when the highscore window was opened.
 
 	HighScoreWindow(WindowDesc *desc, int difficulty, int8 ranking) : EndGameHighScoreBaseWindow(desc)
 	{

@@ -12,9 +12,9 @@
 
 #include "company_type.h"
 
-static const byte LIT_NONE    = 0; ///< Don't show the liveries at all
-static const byte LIT_COMPANY = 1; ///< Show the liveries of your own company
-static const byte LIT_ALL     = 2; ///< Show the liveries of all companies
+static const byte LIT_NONE    = 0; // Don't show the liveries at all
+static const byte LIT_COMPANY = 1; // Show the liveries of your own company
+static const byte LIT_ALL     = 2; // Show the liveries of all companies
 
 /** List of different livery schemes. */
 enum LiveryScheme : byte {
@@ -76,9 +76,9 @@ enum LiveryClass {
 
 /** Information about a particular livery. */
 struct Livery {
-	byte in_use;  ///< Bit 0 set if this livery should override the default livery first colour, Bit 1 for the second colour.
-	byte colour1; ///< First colour, for all vehicles.
-	byte colour2; ///< Second colour, for vehicles with 2CC support.
+	byte in_use;  // Bit 0 set if this livery should override the default livery first colour, Bit 1 for the second colour.
+	byte colour1; // First colour, for all vehicles.
+	byte colour2; // Second colour, for vehicles with 2CC support.
 };
 
 void ResetCompanyLivery(Company *c);

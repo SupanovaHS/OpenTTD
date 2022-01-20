@@ -51,7 +51,7 @@ enum IndustryGraphics {
 	GFX_BUBBLE_CATCHER                 = 162,
 	GFX_TOFFEE_QUARY                   = 165,
 	GFX_SUGAR_MINE_SIEVE               = 174,
-	GFX_WATERTILE_SPECIALCHECK         = 255,  ///< not really a tile, but rather a very special check
+	GFX_WATERTILE_SPECIALCHECK         = 255,  // not really a tile, but rather a very special check
 };
 
 /**

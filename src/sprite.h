@@ -23,9 +23,9 @@
 
 /** A tile child sprite and palette to draw for stations etc, with 3D bounding box */
 struct DrawTileSeqStruct {
-	int8 delta_x; ///< \c 0x80 is sequence terminator
+	int8 delta_x; // \c 0x80 is sequence terminator
 	int8 delta_y;
-	int8 delta_z; ///< \c 0x80 identifies child sprites
+	int8 delta_z; // \c 0x80 identifies child sprites
 	byte size_x;
 	byte size_y;
 	byte size_z;
@@ -56,8 +56,8 @@ struct DrawTileSeqStruct {
  * For allocated ones from NewGRF see #NewGRFSpriteLayout.
  */
 struct DrawTileSprites {
-	PalSpriteID ground;           ///< Palette and sprite for the ground
-	const DrawTileSeqStruct *seq; ///< Array of child sprites. Terminated with a terminator entry
+	PalSpriteID ground;           // Palette and sprite for the ground
+	const DrawTileSeqStruct *seq; // Array of child sprites. Terminated with a terminator entry
 };
 
 /**

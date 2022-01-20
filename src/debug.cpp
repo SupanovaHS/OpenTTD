@@ -29,13 +29,13 @@ SOCKET _debug_socket = INVALID_SOCKET;
 
 /** Element in the queue of debug messages that have to be passed to either NetworkAdminConsole or IConsolePrint.*/
 struct QueuedDebugItem {
-	std::string level;   ///< The used debug level.
-	std::string message; ///< The actual formatted message.
+	std::string level;   // The used debug level.
+	std::string message; // The actual formatted message.
 };
-std::atomic<bool> _debug_remote_console; ///< Whether we need to send data to either NetworkAdminConsole or IConsolePrint.
-std::mutex _debug_remote_console_mutex; ///< Mutex to guard the queue of debug messages for either NetworkAdminConsole or IConsolePrint.
-std::vector<QueuedDebugItem> _debug_remote_console_queue; ///< Queue for debug messages to be passed to NetworkAdminConsole or IConsolePrint.
-std::vector<QueuedDebugItem> _debug_remote_console_queue_spare; ///< Spare queue to swap with _debug_remote_console_queue.
+std::atomic<bool> _debug_remote_console; // Whether we need to send data to either NetworkAdminConsole or IConsolePrint.
+std::mutex _debug_remote_console_mutex; // Mutex to guard the queue of debug messages for either NetworkAdminConsole or IConsolePrint.
+std::vector<QueuedDebugItem> _debug_remote_console_queue; // Queue for debug messages to be passed to NetworkAdminConsole or IConsolePrint.
+std::vector<QueuedDebugItem> _debug_remote_console_queue_spare; // Spare queue to swap with _debug_remote_console_queue.
 
 int _debug_driver_level;
 int _debug_grf_level;

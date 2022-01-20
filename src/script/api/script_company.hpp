@@ -23,54 +23,54 @@ class ScriptCompany : public ScriptObject {
 public:
 	/** The range of possible quarters to get company information of. */
 	enum Quarter {
-		CURRENT_QUARTER  = 0,                      ///< The current quarter.
-		EARLIEST_QUARTER = ::MAX_HISTORY_QUARTERS, ///< The earliest quarter company information is available for.
+		CURRENT_QUARTER  = 0,                      // The current quarter.
+		EARLIEST_QUARTER = ::MAX_HISTORY_QUARTERS, // The earliest quarter company information is available for.
 	};
 
 	/** Different constants related to CompanyID. */
 	enum CompanyID {
 		/* Note: these values represent part of the in-game Owner enum */
-		COMPANY_FIRST     = ::COMPANY_FIRST,   ///< The first available company.
-		COMPANY_LAST      = ::MAX_COMPANIES,   ///< The last available company.
+		COMPANY_FIRST     = ::COMPANY_FIRST,   // The first available company.
+		COMPANY_LAST      = ::MAX_COMPANIES,   // The last available company.
 
 		/* Custom added value, only valid for this API */
-		COMPANY_INVALID   = -1,                ///< An invalid company.
-		COMPANY_SELF      = 254,               ///< Constant that gets resolved to the correct company index for your company.
-		COMPANY_SPECTATOR = 255,               ///< Constant indicating that player is spectating (gets resolved to COMPANY_INVALID)
+		COMPANY_INVALID   = -1,                // An invalid company.
+		COMPANY_SELF      = 254,               // Constant that gets resolved to the correct company index for your company.
+		COMPANY_SPECTATOR = 255,               // Constant indicating that player is spectating (gets resolved to COMPANY_INVALID)
 	};
 
 	/** Possible genders for company presidents. */
 	enum Gender {
-		GENDER_MALE,         ///< A male person.
-		GENDER_FEMALE,       ///< A female person.
-		GENDER_INVALID = -1, ///< An invalid gender.
+		GENDER_MALE,         // A male person.
+		GENDER_FEMALE,       // A female person.
+		GENDER_INVALID = -1, // An invalid gender.
 	};
 
 	/** List of different livery schemes. */
 	enum LiveryScheme {
-		LS_DEFAULT,                  ///< Default scheme.
-		LS_STEAM,                    ///< Steam engines.
-		LS_DIESEL,                   ///< Diesel engines.
-		LS_ELECTRIC,                 ///< Electric engines.
-		LS_MONORAIL,                 ///< Monorail engines.
-		LS_MAGLEV,                   ///< Maglev engines.
-		LS_DMU,                      ///< DMUs and their passenger wagons.
-		LS_EMU,                      ///< EMUs and their passenger wagons.
-		LS_PASSENGER_WAGON_STEAM,    ///< Passenger wagons attached to steam engines.
-		LS_PASSENGER_WAGON_DIESEL,   ///< Passenger wagons attached to diesel engines.
-		LS_PASSENGER_WAGON_ELECTRIC, ///< Passenger wagons attached to electric engines.
-		LS_PASSENGER_WAGON_MONORAIL, ///< Passenger wagons attached to monorail engines.
-		LS_PASSENGER_WAGON_MAGLEV,   ///< Passenger wagons attached to maglev engines.
-		LS_FREIGHT_WAGON,            ///< Freight wagons.
-		LS_BUS,                      ///< Buses.
-		LS_TRUCK,                    ///< Trucks.
-		LS_PASSENGER_SHIP,           ///< Passenger ships.
-		LS_FREIGHT_SHIP,             ///< Freight ships.
-		LS_HELICOPTER,               ///< Helicopters.
-		LS_SMALL_PLANE,              ///< Small aeroplanes.
-		LS_LARGE_PLANE,              ///< Large aeroplanes.
-		LS_PASSENGER_TRAM,           ///< Passenger trams.
-		LS_FREIGHT_TRAM,             ///< Freight trams.
+		LS_DEFAULT,                  // Default scheme.
+		LS_STEAM,                    // Steam engines.
+		LS_DIESEL,                   // Diesel engines.
+		LS_ELECTRIC,                 // Electric engines.
+		LS_MONORAIL,                 // Monorail engines.
+		LS_MAGLEV,                   // Maglev engines.
+		LS_DMU,                      // DMUs and their passenger wagons.
+		LS_EMU,                      // EMUs and their passenger wagons.
+		LS_PASSENGER_WAGON_STEAM,    // Passenger wagons attached to steam engines.
+		LS_PASSENGER_WAGON_DIESEL,   // Passenger wagons attached to diesel engines.
+		LS_PASSENGER_WAGON_ELECTRIC, // Passenger wagons attached to electric engines.
+		LS_PASSENGER_WAGON_MONORAIL, // Passenger wagons attached to monorail engines.
+		LS_PASSENGER_WAGON_MAGLEV,   // Passenger wagons attached to maglev engines.
+		LS_FREIGHT_WAGON,            // Freight wagons.
+		LS_BUS,                      // Buses.
+		LS_TRUCK,                    // Trucks.
+		LS_PASSENGER_SHIP,           // Passenger ships.
+		LS_FREIGHT_SHIP,             // Freight ships.
+		LS_HELICOPTER,               // Helicopters.
+		LS_SMALL_PLANE,              // Small aeroplanes.
+		LS_LARGE_PLANE,              // Large aeroplanes.
+		LS_PASSENGER_TRAM,           // Passenger trams.
+		LS_FREIGHT_TRAM,             // Freight trams.
 		LS_INVALID = -1,
 	};
 
@@ -100,20 +100,20 @@ public:
 	 * @api -ai
 	 */
 	enum ExpensesType : byte {
-		EXPENSES_CONSTRUCTION = ::EXPENSES_CONSTRUCTION, ///< Construction costs.
-		EXPENSES_NEW_VEHICLES = ::EXPENSES_NEW_VEHICLES, ///< New vehicles.
-		EXPENSES_TRAIN_RUN    = ::EXPENSES_TRAIN_RUN,    ///< Running costs trains.
-		EXPENSES_ROADVEH_RUN  = ::EXPENSES_ROADVEH_RUN,  ///< Running costs road vehicles.
-		EXPENSES_AIRCRAFT_RUN = ::EXPENSES_AIRCRAFT_RUN, ///< Running costs aircraft.
-		EXPENSES_SHIP_RUN     = ::EXPENSES_SHIP_RUN,     ///< Running costs ships.
-		EXPENSES_PROPERTY     = ::EXPENSES_PROPERTY,     ///< Property costs.
-		EXPENSES_TRAIN_INC    = ::EXPENSES_TRAIN_INC,    ///< Income from trains.
-		EXPENSES_ROADVEH_INC  = ::EXPENSES_ROADVEH_INC,  ///< Income from road vehicles.
-		EXPENSES_AIRCRAFT_INC = ::EXPENSES_AIRCRAFT_INC, ///< Income from aircraft.
-		EXPENSES_SHIP_INC     = ::EXPENSES_SHIP_INC,     ///< Income from ships.
-		EXPENSES_LOAN_INT     = ::EXPENSES_LOAN_INT,     ///< Interest payments over the loan.
-		EXPENSES_OTHER        = ::EXPENSES_OTHER,        ///< Other expenses.
-		EXPENSES_INVALID      = ::INVALID_EXPENSES,      ///< Invalid expense type.
+		EXPENSES_CONSTRUCTION = ::EXPENSES_CONSTRUCTION, // Construction costs.
+		EXPENSES_NEW_VEHICLES = ::EXPENSES_NEW_VEHICLES, // New vehicles.
+		EXPENSES_TRAIN_RUN    = ::EXPENSES_TRAIN_RUN,    // Running costs trains.
+		EXPENSES_ROADVEH_RUN  = ::EXPENSES_ROADVEH_RUN,  // Running costs road vehicles.
+		EXPENSES_AIRCRAFT_RUN = ::EXPENSES_AIRCRAFT_RUN, // Running costs aircraft.
+		EXPENSES_SHIP_RUN     = ::EXPENSES_SHIP_RUN,     // Running costs ships.
+		EXPENSES_PROPERTY     = ::EXPENSES_PROPERTY,     // Property costs.
+		EXPENSES_TRAIN_INC    = ::EXPENSES_TRAIN_INC,    // Income from trains.
+		EXPENSES_ROADVEH_INC  = ::EXPENSES_ROADVEH_INC,  // Income from road vehicles.
+		EXPENSES_AIRCRAFT_INC = ::EXPENSES_AIRCRAFT_INC, // Income from aircraft.
+		EXPENSES_SHIP_INC     = ::EXPENSES_SHIP_INC,     // Income from ships.
+		EXPENSES_LOAN_INT     = ::EXPENSES_LOAN_INT,     // Interest payments over the loan.
+		EXPENSES_OTHER        = ::EXPENSES_OTHER,        // Other expenses.
+		EXPENSES_INVALID      = ::INVALID_EXPENSES,      // Invalid expense type.
 	};
 
 	/**

@@ -34,7 +34,7 @@
  */
 static const uint GITHASH_SUFFIX_LEN = 12;
 
-NetworkServerGameInfo _network_game_info; ///< Information about our game.
+NetworkServerGameInfo _network_game_info; // Information about our game.
 
 /**
  * Get the network version string used by this build.

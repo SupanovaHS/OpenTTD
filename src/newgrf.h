@@ -37,8 +37,8 @@ enum CanalFeature {
 
 /** Canal properties local to the NewGRF */
 struct CanalProperties {
-	uint8 callback_mask;  ///< Bitmask of canal callbacks that have to be called.
-	uint8 flags;          ///< Flags controlling display.
+	uint8 callback_mask;  // Bitmask of canal callbacks that have to be called.
+	uint8 flags;          // Flags controlling display.
 };
 
 enum GrfLoadingStage {
@@ -57,7 +57,7 @@ enum GrfMiscBit {
 	GMB_DESERT_TREES_FIELDS    = 0, // Unsupported.
 	GMB_DESERT_PAVED_ROADS     = 1,
 	GMB_FIELD_BOUNDING_BOX     = 2, // Unsupported.
-	GMB_TRAIN_WIDTH_32_PIXELS  = 3, ///< Use 32 pixels per train vehicle in depot gui and vehicle details. Never set in the global variable; @see GRFFile::traininfo_vehicle_width
+	GMB_TRAIN_WIDTH_32_PIXELS  = 3, // Use 32 pixels per train vehicle in depot gui and vehicle details. Never set in the global variable; @see GRFFile::traininfo_vehicle_width
 	GMB_AMBIENT_SOUND_CALLBACK = 4,
 	GMB_CATENARY_ON_3RD_TRACK  = 5, // Unsupported.
 	GMB_SECOND_ROCKY_TILE_SET  = 6,
@@ -86,10 +86,10 @@ enum GrfSpecFeature {
 	GSF_TRAMTYPES,
 	GSF_END,
 
-	GSF_FAKE_TOWNS = GSF_END, ///< Fake town GrfSpecFeature for NewGRF debugging (parent scope)
-	GSF_FAKE_END,             ///< End of the fake features
+	GSF_FAKE_TOWNS = GSF_END, // Fake town GrfSpecFeature for NewGRF debugging (parent scope)
+	GSF_FAKE_END,             // End of the fake features
 
-	GSF_INVALID = 0xFF,       ///< An invalid spec feature
+	GSF_INVALID = 0xFF,       // An invalid spec feature
 };
 
 static const uint32 INVALID_GRFID = 0xFFFFFFFF;
@@ -119,31 +119,31 @@ struct GRFFile : ZeroedMemoryAllocator {
 	struct AirportTileSpec **airtspec;
 
 	uint32 param[0x80];
-	uint param_end;  ///< one more than the highest set parameter
+	uint param_end;  // one more than the highest set parameter
 
-	GRFLabel *label; ///< Pointer to the first label. This is a linked list, not an array.
+	GRFLabel *label; // Pointer to the first label. This is a linked list, not an array.
 
-	std::vector<CargoLabel> cargo_list;             ///< Cargo translation table (local ID -> label)
-	uint8 cargo_map[NUM_CARGO];                     ///< Inverse cargo translation table (CargoID -> local ID)
+	std::vector<CargoLabel> cargo_list;             // Cargo translation table (local ID -> label)
+	uint8 cargo_map[NUM_CARGO];                     // Inverse cargo translation table (CargoID -> local ID)
 
-	std::vector<RailTypeLabel> railtype_list;       ///< Railtype translation table
+	std::vector<RailTypeLabel> railtype_list;       // Railtype translation table
 	RailType railtype_map[RAILTYPE_END];
 
-	std::vector<RoadTypeLabel> roadtype_list;       ///< Roadtype translation table (road)
+	std::vector<RoadTypeLabel> roadtype_list;       // Roadtype translation table (road)
 	RoadType roadtype_map[ROADTYPE_END];
 
-	std::vector<RoadTypeLabel> tramtype_list;       ///< Roadtype translation table (tram)
+	std::vector<RoadTypeLabel> tramtype_list;       // Roadtype translation table (tram)
 	RoadType tramtype_map[ROADTYPE_END];
 
-	CanalProperties canal_local_properties[CF_END]; ///< Canal properties as set by this NewGRF
+	CanalProperties canal_local_properties[CF_END]; // Canal properties as set by this NewGRF
 
-	struct LanguageMap *language_map; ///< Mappings related to the languages.
+	struct LanguageMap *language_map; // Mappings related to the languages.
 
-	int traininfo_vehicle_pitch;  ///< Vertical offset for drawing train images in depot GUI and vehicle details
-	uint traininfo_vehicle_width; ///< Width (in pixels) of a 8/8 train vehicle in depot GUI and vehicle details
+	int traininfo_vehicle_pitch;  // Vertical offset for drawing train images in depot GUI and vehicle details
+	uint traininfo_vehicle_width; // Width (in pixels) of a 8/8 train vehicle in depot GUI and vehicle details
 
-	uint32 grf_features;                     ///< Bitset of GrfSpecFeature the grf uses
-	PriceMultipliers price_base_multipliers; ///< Price base multipliers as set by the grf.
+	uint32 grf_features;                     // Bitset of GrfSpecFeature the grf uses
+	PriceMultipliers price_base_multipliers; // Price base multipliers as set by the grf.
 
 	GRFFile(const struct GRFConfig *config);
 	~GRFFile();
@@ -159,23 +159,23 @@ struct GRFFile : ZeroedMemoryAllocator {
 };
 
 enum ShoreReplacement {
-	SHORE_REPLACE_NONE,       ///< No shore sprites were replaced.
-	SHORE_REPLACE_ACTION_5,   ///< Shore sprites were replaced by Action5.
-	SHORE_REPLACE_ACTION_A,   ///< Shore sprites were replaced by ActionA (using grass tiles for the corner-shores).
-	SHORE_REPLACE_ONLY_NEW,   ///< Only corner-shores were loaded by Action5 (openttd(w/d).grf only).
+	SHORE_REPLACE_NONE,       // No shore sprites were replaced.
+	SHORE_REPLACE_ACTION_5,   // Shore sprites were replaced by Action5.
+	SHORE_REPLACE_ACTION_A,   // Shore sprites were replaced by ActionA (using grass tiles for the corner-shores).
+	SHORE_REPLACE_ONLY_NEW,   // Only corner-shores were loaded by Action5 (openttd(w/d).grf only).
 };
 
 enum TramReplacement {
-	TRAMWAY_REPLACE_DEPOT_NONE,       ///< No tram depot graphics were loaded.
-	TRAMWAY_REPLACE_DEPOT_WITH_TRACK, ///< Electrified depot graphics with tram track were loaded.
-	TRAMWAY_REPLACE_DEPOT_NO_TRACK,   ///< Electrified depot graphics without tram track were loaded.
+	TRAMWAY_REPLACE_DEPOT_NONE,       // No tram depot graphics were loaded.
+	TRAMWAY_REPLACE_DEPOT_WITH_TRACK, // Electrified depot graphics with tram track were loaded.
+	TRAMWAY_REPLACE_DEPOT_NO_TRACK,   // Electrified depot graphics without tram track were loaded.
 };
 
 struct GRFLoadedFeatures {
-	bool has_2CC;             ///< Set if any vehicle is loaded which uses 2cc (two company colours).
-	uint64 used_liveries;     ///< Bitmask of #LiveryScheme used by the defined engines.
-	ShoreReplacement shore;   ///< In which way shore sprites were replaced.
-	TramReplacement tram;     ///< In which way tram depots were replaced.
+	bool has_2CC;             // Set if any vehicle is loaded which uses 2cc (two company colours).
+	uint64 used_liveries;     // Bitmask of #LiveryScheme used by the defined engines.
+	ShoreReplacement shore;   // In which way shore sprites were replaced.
+	TramReplacement tram;     // In which way tram depots were replaced.
 };
 
 /**

@@ -22,19 +22,19 @@
 template <class Titem_, int Thash_bits_open_, int Thash_bits_closed_>
 class CNodeList_HashTableT {
 public:
-	typedef Titem_ Titem;                                        ///< Make #Titem_ visible from outside of class.
-	typedef typename Titem_::Key Key;                            ///< Make Titem_::Key a property of this class.
-	typedef SmallArray<Titem_, 65536, 256> CItemArray;           ///< Type that we will use as item container.
-	typedef CHashTableT<Titem_, Thash_bits_open_  > COpenList;   ///< How pointers to open nodes will be stored.
-	typedef CHashTableT<Titem_, Thash_bits_closed_> CClosedList; ///< How pointers to closed nodes will be stored.
-	typedef CBinaryHeapT<Titem_> CPriorityQueue;                 ///< How the priority queue will be managed.
+	typedef Titem_ Titem;                                        // Make #Titem_ visible from outside of class.
+	typedef typename Titem_::Key Key;                            // Make Titem_::Key a property of this class.
+	typedef SmallArray<Titem_, 65536, 256> CItemArray;           // Type that we will use as item container.
+	typedef CHashTableT<Titem_, Thash_bits_open_  > COpenList;   // How pointers to open nodes will be stored.
+	typedef CHashTableT<Titem_, Thash_bits_closed_> CClosedList; // How pointers to closed nodes will be stored.
+	typedef CBinaryHeapT<Titem_> CPriorityQueue;                 // How the priority queue will be managed.
 
 protected:
-	CItemArray      m_arr;        ///< Here we store full item data (Titem_).
-	COpenList       m_open;       ///< Hash table of pointers to open item data.
-	CClosedList     m_closed;     ///< Hash table of pointers to closed item data.
-	CPriorityQueue  m_open_queue; ///< Priority queue of pointers to open item data.
-	Titem          *m_new_node;   ///< New open node under construction.
+	CItemArray      m_arr;        // Here we store full item data (Titem_).
+	COpenList       m_open;       // Hash table of pointers to open item data.
+	CClosedList     m_closed;     // Hash table of pointers to closed item data.
+	CPriorityQueue  m_open_queue; // Priority queue of pointers to open item data.
+	Titem          *m_new_node;   // New open node under construction.
 
 public:
 	/** default constructor */

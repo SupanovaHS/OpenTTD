@@ -79,17 +79,17 @@ static const StringID _start_replace_dropdown[] = {
  * Window for the autoreplacing of vehicles.
  */
 class ReplaceVehicleWindow : public Window {
-	EngineID sel_engine[2];       ///< Selected engine left and right.
-	GUIEngineList engines[2];     ///< Left and right list of engines.
-	bool replace_engines;         ///< If \c true, engines are replaced, if \c false, wagons are replaced (only for trains).
-	bool reset_sel_engine;        ///< Also reset #sel_engine while updating left and/or right and no valid engine selected.
-	GroupID sel_group;            ///< Group selected to replace.
-	int details_height;           ///< Minimal needed height of the details panels, in text lines (found so far).
-	byte sort_criteria;           ///< Criteria of sorting vehicles.
-	bool descending_sort_order;   ///< Order of sorting vehicles.
-	bool show_hidden_engines;     ///< Whether to show the hidden engines.
-	RailType sel_railtype;        ///< Type of rail tracks selected. #INVALID_RAILTYPE to show all.
-	RoadType sel_roadtype;        ///< Type of road selected. #INVALID_ROADTYPE to show all.
+	EngineID sel_engine[2];       // Selected engine left and right.
+	GUIEngineList engines[2];     // Left and right list of engines.
+	bool replace_engines;         // If \c true, engines are replaced, if \c false, wagons are replaced (only for trains).
+	bool reset_sel_engine;        // Also reset #sel_engine while updating left and/or right and no valid engine selected.
+	GroupID sel_group;            // Group selected to replace.
+	int details_height;           // Minimal needed height of the details panels, in text lines (found so far).
+	byte sort_criteria;           // Criteria of sorting vehicles.
+	bool descending_sort_order;   // Order of sorting vehicles.
+	bool show_hidden_engines;     // Whether to show the hidden engines.
+	RailType sel_railtype;        // Type of rail tracks selected. #INVALID_RAILTYPE to show all.
+	RoadType sel_roadtype;        // Type of road selected. #INVALID_ROADTYPE to show all.
 	Scrollbar *vscroll[2];
 
 	/**

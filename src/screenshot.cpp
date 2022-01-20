@@ -32,15 +32,15 @@
 
 #include "safeguards.h"
 
-static const char * const SCREENSHOT_NAME = "screenshot"; ///< Default filename of a saved screenshot.
-static const char * const HEIGHTMAP_NAME  = "heightmap";  ///< Default filename of a saved heightmap.
+static const char * const SCREENSHOT_NAME = "screenshot"; // Default filename of a saved screenshot.
+static const char * const HEIGHTMAP_NAME  = "heightmap";  // Default filename of a saved heightmap.
 
-std::string _screenshot_format_name;  ///< Extension of the current screenshot format (corresponds with #_cur_screenshot_format).
-uint _num_screenshot_formats;         ///< Number of available screenshot formats.
-uint _cur_screenshot_format;          ///< Index of the currently selected screenshot format in #_screenshot_formats.
-static char _screenshot_name[128];    ///< Filename of the screenshot file.
-char _full_screenshot_name[MAX_PATH]; ///< Pathname of the screenshot file.
-uint _heightmap_highest_peak;         ///< When saving a heightmap, this contains the highest peak on the map.
+std::string _screenshot_format_name;  // Extension of the current screenshot format (corresponds with #_cur_screenshot_format).
+uint _num_screenshot_formats;         // Number of available screenshot formats.
+uint _cur_screenshot_format;          // Index of the currently selected screenshot format in #_screenshot_formats.
+static char _screenshot_name[128];    // Filename of the screenshot file.
+char _full_screenshot_name[MAX_PATH]; // Pathname of the screenshot file.
+uint _heightmap_highest_peak;         // When saving a heightmap, this contains the highest peak on the map.
 
 /**
  * Callback function signature for generating lines of pixel data to be written to the screenshot file.
@@ -67,8 +67,8 @@ typedef bool ScreenshotHandlerProc(const char *name, ScreenshotCallback *callb, 
 
 /** Screenshot format information. */
 struct ScreenshotFormat {
-	const char *extension;       ///< File extension.
-	ScreenshotHandlerProc *proc; ///< Function for writing the screenshot.
+	const char *extension;       // File extension.
+	ScreenshotHandlerProc *proc; // Function for writing the screenshot.
 };
 
 #define MKCOLOUR(x)         TO_LE32X(x)
@@ -856,7 +856,7 @@ bool MakeHeightmapScreenshot(const char *filename)
 	return sf->proc(filename, HeightmapCallback, nullptr, MapSizeX(), MapSizeY(), 8, palette);
 }
 
-static ScreenshotType _confirmed_screenshot_type; ///< Screenshot type the current query is about to confirm.
+static ScreenshotType _confirmed_screenshot_type; // Screenshot type the current query is about to confirm.
 
 /**
  * Callback on the confirmation window for huge screenshots.

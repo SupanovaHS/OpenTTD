@@ -57,14 +57,14 @@ struct IntroGameViewportCommand {
 		BOTTOM,
 	};
 
-	int command_index = 0;               ///< Sequence number of the command (order they are performed in).
-	Point position{ 0, 0 };              ///< Calculated world coordinate to position viewport top-left at.
-	VehicleID vehicle = INVALID_VEHICLE; ///< Vehicle to follow, or INVALID_VEHICLE if not following a vehicle.
-	uint delay = 0;                      ///< Delay until next command.
-	int zoom_adjust = 0;                 ///< Adjustment to zoom level from base zoom level.
-	bool pan_to_next = false;            ///< If true, do a smooth pan from this position to the next.
-	AlignmentH align_h = CENTRE;         ///< Horizontal alignment.
-	AlignmentV align_v = MIDDLE;         ///< Vertical alignment.
+	int command_index = 0;               // Sequence number of the command (order they are performed in).
+	Point position{ 0, 0 };              // Calculated world coordinate to position viewport top-left at.
+	VehicleID vehicle = INVALID_VEHICLE; // Vehicle to follow, or INVALID_VEHICLE if not following a vehicle.
+	uint delay = 0;                      // Delay until next command.
+	int zoom_adjust = 0;                 // Adjustment to zoom level from base zoom level.
+	bool pan_to_next = false;            // If true, do a smooth pan from this position to the next.
+	AlignmentH align_h = CENTRE;         // Horizontal alignment.
+	AlignmentV align_v = MIDDLE;         // Vertical alignment.
 
 	/**
 	 * Calculate effective position.

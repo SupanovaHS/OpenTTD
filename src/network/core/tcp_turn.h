@@ -19,10 +19,10 @@
 
 /** Enum with all types of TCP TURN packets. The order MUST not be changed. **/
 enum PacketTurnType {
-	PACKET_TURN_TURN_ERROR,     ///< TURN server is unable to relay.
-	PACKET_TURN_SERCLI_CONNECT, ///< Client or server is connecting to the TURN server.
-	PACKET_TURN_TURN_CONNECTED, ///< TURN server indicates the socket is now being relayed.
-	PACKET_TURN_END,            ///< Must ALWAYS be on the end of this list!! (period)
+	PACKET_TURN_TURN_ERROR,     // TURN server is unable to relay.
+	PACKET_TURN_SERCLI_CONNECT, // Client or server is connecting to the TURN server.
+	PACKET_TURN_TURN_CONNECTED, // TURN server indicates the socket is now being relayed.
+	PACKET_TURN_END,            // Must ALWAYS be on the end of this list!! (period)
 };
 
 /** Base socket handler for all TURN TCP sockets. */

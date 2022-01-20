@@ -37,9 +37,9 @@
 
 #include "../safeguards.h"
 
-static bool _read_ttdpatch_flags;    ///< Have we (tried to) read TTDPatch extra flags?
-static uint16 _old_extra_chunk_nums; ///< Number of extra TTDPatch chunks
-static byte _old_vehicle_multiplier; ///< TTDPatch vehicle multiplier
+static bool _read_ttdpatch_flags;    // Have we (tried to) read TTDPatch extra flags?
+static uint16 _old_extra_chunk_nums; // Number of extra TTDPatch chunks
+static byte _old_vehicle_multiplier; // TTDPatch vehicle multiplier
 
 static uint8 *_old_map3;
 
@@ -539,15 +539,15 @@ static void ReadTTDPatchFlags()
 
 static const OldChunks town_chunk[] = {
 	OCL_SVAR(   OC_TILE, Town, xy ),
-	OCL_NULL( 2 ),         ///< population,        no longer in use
+	OCL_NULL( 2 ),         // population,        no longer in use
 	OCL_SVAR( OC_UINT16, Town, townnametype ),
 	OCL_SVAR( OC_UINT32, Town, townnameparts ),
 	OCL_SVAR(  OC_FILE_U8 | OC_VAR_U16, Town, grow_counter ),
-	OCL_NULL( 1 ),         ///< sort_index,        no longer in use
-	OCL_NULL( 4 ),         ///< sign-coordinates,  no longer in use
-	OCL_NULL( 2 ),         ///< namewidth,         no longer in use
+	OCL_NULL( 1 ),         // sort_index,        no longer in use
+	OCL_NULL( 4 ),         // sign-coordinates,  no longer in use
+	OCL_NULL( 2 ),         // namewidth,         no longer in use
 	OCL_SVAR( OC_FILE_U16 |  OC_VAR_U8, Town, flags ),
-	OCL_NULL( 10 ),        ///< radius,            no longer in use
+	OCL_NULL( 10 ),        // radius,            no longer in use
 
 	OCL_SVAR( OC_INT16, Town, ratings[0] ),
 	OCL_SVAR( OC_INT16, Town, ratings[1] ),
@@ -560,7 +560,7 @@ static const OldChunks town_chunk[] = {
 
 	OCL_SVAR( OC_FILE_U32 | OC_VAR_U16, Town, have_ratings ),
 	OCL_SVAR( OC_FILE_U32 | OC_VAR_U16, Town, statues ),
-	OCL_NULL( 2 ),         ///< num_houses,        no longer in use
+	OCL_NULL( 2 ),         // num_houses,        no longer in use
 	OCL_SVAR(  OC_FILE_U8 | OC_VAR_U16, Town, time_until_rebuild ),
 	OCL_SVAR(  OC_FILE_U8 | OC_VAR_U16, Town, growth_rate ),
 
@@ -573,7 +573,7 @@ static const OldChunks town_chunk[] = {
 	OCL_SVAR( OC_FILE_U16 | OC_VAR_U32, Town, supplied[CT_PASSENGERS].old_act ),
 	OCL_SVAR( OC_FILE_U16 | OC_VAR_U32, Town, supplied[CT_MAIL].old_act ),
 
-	OCL_NULL( 2 ),         ///< pct_pass_transported / pct_mail_transported, now computed on the fly
+	OCL_NULL( 2 ),         // pct_pass_transported / pct_mail_transported, now computed on the fly
 
 	OCL_SVAR( OC_TTD | OC_UINT16, Town, received[TE_FOOD].new_act ),
 	OCL_SVAR( OC_TTD | OC_UINT16, Town, received[TE_WATER].new_act ),
@@ -583,7 +583,7 @@ static const OldChunks town_chunk[] = {
 	OCL_SVAR(  OC_UINT8, Town, road_build_months ),
 	OCL_SVAR(  OC_UINT8, Town, fund_buildings_months ),
 
-	OCL_CNULL( OC_TTD, 8 ),         ///< some junk at the end of the record
+	OCL_CNULL( OC_TTD, 8 ),         // some junk at the end of the record
 
 	OCL_END()
 };
@@ -713,18 +713,18 @@ static const OldChunks station_chunk[] = {
 	OCL_SVAR(   OC_TILE, Station, xy ),
 	OCL_VAR ( OC_UINT32,   1, &_old_town_index ),
 
-	OCL_NULL( 4 ), ///< bus/lorry tile
+	OCL_NULL( 4 ), // bus/lorry tile
 	OCL_SVAR(   OC_TILE, Station, train_station.tile ),
 	OCL_SVAR(   OC_TILE, Station, airport.tile ),
-	OCL_NULL( 2 ), ///< dock tile
+	OCL_NULL( 2 ), // dock tile
 	OCL_SVAR( OC_FILE_U8 | OC_VAR_U16, Station, train_station.w ),
 
-	OCL_NULL( 1 ),         ///< sort-index, no longer in use
-	OCL_NULL( 2 ),         ///< sign-width, no longer in use
+	OCL_NULL( 1 ),         // sort-index, no longer in use
+	OCL_NULL( 2 ),         // sign-width, no longer in use
 
 	OCL_VAR ( OC_UINT16,   1, &_old_string_id ),
 
-	OCL_NULL( 4 ),         ///< sign left/top, no longer in use
+	OCL_NULL( 4 ),         // sign left/top, no longer in use
 
 	OCL_SVAR( OC_FILE_U16 | OC_VAR_U8, Station, had_vehicle_of_type ),
 
@@ -737,11 +737,11 @@ static const OldChunks station_chunk[] = {
 	OCL_SVAR(  OC_UINT8, Station, facilities ),
 	OCL_SVAR( OC_TTD | OC_UINT8, Station, airport.type ),
 	OCL_SVAR( OC_TTO | OC_FILE_U16 | OC_VAR_U64, Station, airport.flags ),
-	OCL_NULL( 3 ),          ///< bus/truck status, blocked months, no longer in use
-	OCL_CNULL( OC_TTD, 1 ), ///< unknown
+	OCL_NULL( 3 ),          // bus/truck status, blocked months, no longer in use
+	OCL_CNULL( OC_TTD, 1 ), // unknown
 	OCL_SVAR( OC_TTD | OC_FILE_U16 | OC_VAR_U64, Station, airport.flags ),
-	OCL_CNULL( OC_TTD, 2 ), ///< last_vehicle. now last_vehicle_type
-	OCL_CNULL( OC_TTD, 4 ), ///< junk at end of chunk
+	OCL_CNULL( OC_TTD, 2 ), // last_vehicle. now last_vehicle_type
+	OCL_CNULL( OC_TTD, 4 ), // junk at end of chunk
 
 	OCL_END()
 };
@@ -785,7 +785,7 @@ static const OldChunks industry_chunk[] = {
 	OCL_VAR ( OC_UINT32,   1, &_old_town_index ),
 	OCL_SVAR( OC_FILE_U8 | OC_VAR_U16, Industry, location.w ),
 	OCL_SVAR( OC_FILE_U8 | OC_VAR_U16, Industry, location.h ),
-	OCL_NULL( 2 ),  ///< used to be industry's produced_cargo
+	OCL_NULL( 2 ),  // used to be industry's produced_cargo
 
 	OCL_SVAR( OC_TTD | OC_UINT16, Industry, produced_cargo_waiting[0] ),
 	OCL_SVAR( OC_TTD | OC_UINT16, Industry, produced_cargo_waiting[1] ),
@@ -795,7 +795,7 @@ static const OldChunks industry_chunk[] = {
 	OCL_SVAR(  OC_UINT8, Industry, production_rate[0] ),
 	OCL_SVAR(  OC_UINT8, Industry, production_rate[1] ),
 
-	OCL_NULL( 3 ),  ///< used to be industry's accepts_cargo
+	OCL_NULL( 3 ),  // used to be industry's accepts_cargo
 
 	OCL_SVAR(  OC_UINT8, Industry, prod_level ),
 
@@ -820,7 +820,7 @@ static const OldChunks industry_chunk[] = {
 	OCL_SVAR( OC_TTD | OC_UINT16, Industry, counter ),
 	OCL_SVAR( OC_TTD | OC_UINT8, Industry, was_cargo_delivered ),
 
-	OCL_CNULL( OC_TTD, 9 ), ///< Random junk at the end of this chunk
+	OCL_CNULL( OC_TTD, 9 ), // Random junk at the end of this chunk
 
 	OCL_END()
 };
@@ -945,7 +945,7 @@ static const OldChunks _company_chunk[] = {
 	OCL_SVAR( OC_TTD | OC_UINT8, Company, share_owners[2] ),
 	OCL_SVAR( OC_TTD | OC_UINT8, Company, share_owners[3] ),
 
-	OCL_CNULL( OC_TTD, 8 ), ///< junk at end of chunk
+	OCL_CNULL( OC_TTD, 8 ), // junk at end of chunk
 
 	OCL_END()
 };
@@ -1030,7 +1030,7 @@ static const OldChunks vehicle_train_chunk[] = {
 	OCL_SVAR( OC_UINT16, Train, crash_anim_pos ),
 	OCL_SVAR(  OC_UINT8, Train, railtype ),
 
-	OCL_NULL( 5 ), ///< Junk
+	OCL_NULL( 5 ), // Junk
 
 	OCL_END()
 };
@@ -1044,7 +1044,7 @@ static const OldChunks vehicle_road_chunk[] = {
 	OCL_SVAR( OC_UINT16, RoadVehicle, crashed_ctr ),
 	OCL_SVAR(  OC_UINT8, RoadVehicle, reverse_ctr ),
 
-	OCL_NULL( 1 ), ///< Junk
+	OCL_NULL( 1 ), // Junk
 
 	OCL_END()
 };
@@ -1052,7 +1052,7 @@ static const OldChunks vehicle_road_chunk[] = {
 static const OldChunks vehicle_ship_chunk[] = {
 	OCL_SVAR(  OC_UINT8, Ship, state ),
 
-	OCL_NULL( 9 ), ///< Junk
+	OCL_NULL( 9 ), // Junk
 
 	OCL_END()
 };
@@ -1063,7 +1063,7 @@ static const OldChunks vehicle_air_chunk[] = {
 	OCL_SVAR( OC_UINT16, Aircraft, crashed_counter ),
 	OCL_SVAR(  OC_UINT8, Aircraft, state ),
 
-	OCL_NULL( 5 ), ///< Junk
+	OCL_NULL( 5 ), // Junk
 
 	OCL_END()
 };
@@ -1081,13 +1081,13 @@ static const OldChunks vehicle_disaster_chunk[] = {
 	OCL_SVAR( OC_UINT16, DisasterVehicle, image_override ),
 	OCL_SVAR( OC_UINT16, DisasterVehicle, big_ufo_destroyer_target ),
 
-	OCL_NULL( 6 ), ///< Junk
+	OCL_NULL( 6 ), // Junk
 
 	OCL_END()
 };
 
 static const OldChunks vehicle_empty_chunk[] = {
-	OCL_NULL( 10 ), ///< Junk
+	OCL_NULL( 10 ), // Junk
 
 	OCL_END()
 };
@@ -1126,13 +1126,13 @@ static uint16 _cargo_count;
 static const OldChunks vehicle_chunk[] = {
 	OCL_SVAR(  OC_UINT8, Vehicle, subtype ),
 
-	OCL_NULL( 2 ),         ///< Hash, calculated automatically
-	OCL_NULL( 2 ),         ///< Index, calculated automatically
+	OCL_NULL( 2 ),         // Hash, calculated automatically
+	OCL_NULL( 2 ),         // Index, calculated automatically
 
 	OCL_VAR ( OC_UINT32,   1, &_old_order_ptr ),
 	OCL_VAR ( OC_UINT16,   1, &_old_order ),
 
-	OCL_NULL ( 1 ), ///< num_orders, now calculated
+	OCL_NULL ( 1 ), // num_orders, now calculated
 	OCL_SVAR(  OC_UINT8, Vehicle, cur_implicit_order_index ),
 	OCL_SVAR(   OC_TILE, Vehicle, dest_tile ),
 	OCL_SVAR( OC_UINT16, Vehicle, load_unload_ticks ),
@@ -1140,22 +1140,22 @@ static const OldChunks vehicle_chunk[] = {
 	OCL_SVAR( OC_UINT16, Vehicle, service_interval ),
 	OCL_SVAR( OC_FILE_U8 | OC_VAR_U16, Vehicle, last_station_visited ),
 	OCL_SVAR( OC_TTD | OC_UINT8, Vehicle, tick_counter ),
-	OCL_CNULL( OC_TTD, 2 ), ///< max_speed, now it is calculated.
-	OCL_CNULL( OC_TTO, 1 ), ///< max_speed, now it is calculated.
+	OCL_CNULL( OC_TTD, 2 ), // max_speed, now it is calculated.
+	OCL_CNULL( OC_TTO, 1 ), // max_speed, now it is calculated.
 
 	OCL_SVAR( OC_FILE_U16 | OC_VAR_I32, Vehicle, x_pos ),
 	OCL_SVAR( OC_FILE_U16 | OC_VAR_I32, Vehicle, y_pos ),
 	OCL_SVAR( OC_FILE_U8  | OC_VAR_I32, Vehicle, z_pos ),
 	OCL_SVAR(  OC_UINT8, Vehicle, direction ),
-	OCL_NULL( 2 ),         ///< x_offs and y_offs, calculated automatically
-	OCL_NULL( 2 ),         ///< x_extent and y_extent, calculated automatically
-	OCL_NULL( 1 ),         ///< z_extent, calculated automatically
+	OCL_NULL( 2 ),         // x_offs and y_offs, calculated automatically
+	OCL_NULL( 2 ),         // x_extent and y_extent, calculated automatically
+	OCL_NULL( 1 ),         // z_extent, calculated automatically
 
 	OCL_SVAR(  OC_UINT8, Vehicle, owner ),
 	OCL_SVAR(   OC_TILE, Vehicle, tile ),
 	OCL_SVAR( OC_FILE_U16 | OC_VAR_U32, Vehicle, sprite_cache.sprite_seq.seq[0].sprite ),
 
-	OCL_NULL( 8 ),        ///< Vehicle sprite box, calculated automatically
+	OCL_NULL( 8 ),        // Vehicle sprite box, calculated automatically
 
 	OCL_SVAR( OC_FILE_U16 | OC_VAR_U8, Vehicle, vehstatus ),
 	OCL_SVAR( OC_TTD | OC_UINT16, Vehicle, cur_speed ),
@@ -1206,8 +1206,8 @@ static const OldChunks vehicle_chunk[] = {
 
 	OCL_CHUNK( 1, LoadOldVehicleUnion ),
 
-	OCL_CNULL( OC_TTO, 24 ), ///< junk
-	OCL_CNULL( OC_TTD, 20 ), ///< junk at end of struct (TTDPatch has some data in it)
+	OCL_CNULL( OC_TTO, 24 ), // junk
+	OCL_CNULL( OC_TTD, 20 ), // junk at end of struct (TTDPatch has some data in it)
 
 	OCL_END()
 };
@@ -1357,7 +1357,7 @@ static const OldChunks sign_chunk[] = {
 	OCL_SVAR( OC_FILE_U16 | OC_VAR_I32, Sign, y ),
 	OCL_SVAR( OC_FILE_U16 | OC_VAR_I8, Sign, z ),
 
-	OCL_NULL( 6 ),         ///< Width of sign, no longer in use
+	OCL_NULL( 6 ),         // Width of sign, no longer in use
 
 	OCL_END()
 };
@@ -1399,7 +1399,7 @@ static const OldChunks engine_chunk[] = {
 	OCL_NULL( 1 ), // preview_company_rank
 	OCL_SVAR(  OC_UINT8, Engine, preview_wait ),
 
-	OCL_CNULL( OC_TTD, 2 ), ///< railtype + junk
+	OCL_CNULL( OC_TTD, 2 ), // railtype + junk
 
 	OCL_END()
 };
@@ -1575,7 +1575,7 @@ static const OldChunks main_chunk[] = {
 	OCL_ASSERT( OC_TTO, 0 ),
 	OCL_VAR ( OC_FILE_U16 | OC_VAR_U32, 1, &_date ),
 	OCL_VAR ( OC_UINT16,   1, &_date_fract ),
-	OCL_NULL( 600 ),            ///< TextEffects
+	OCL_NULL( 600 ),            // TextEffects
 	OCL_VAR ( OC_UINT32,   2, &_random.state ),
 
 	OCL_ASSERT( OC_TTD, 0x264 ),
@@ -1594,7 +1594,7 @@ static const OldChunks main_chunk[] = {
 	OCL_ASSERT( OC_TTO, 0x3234 ),
 
 	OCL_CHUNK( 1, LoadOldAnimTileList ),
-	OCL_NULL( 4 ),              ///< old end-of-order-list-pointer, no longer in use
+	OCL_NULL( 4 ),              // old end-of-order-list-pointer, no longer in use
 
 	OCL_ASSERT( OC_TTO, 0x3438 ),
 
@@ -1604,9 +1604,9 @@ static const OldChunks main_chunk[] = {
 	OCL_ASSERT( OC_TTD, 0x4B26 ),
 	OCL_ASSERT( OC_TTO, 0x3A20 ),
 
-	OCL_NULL( 4 ),              ///< town counter,  no longer in use
-	OCL_NULL( 2 ),              ///< timer_counter, no longer in use
-	OCL_NULL( 2 ),              ///< land_code,     no longer in use
+	OCL_NULL( 4 ),              // town counter,  no longer in use
+	OCL_NULL( 2 ),              // timer_counter, no longer in use
+	OCL_NULL( 2 ),              // land_code,     no longer in use
 
 	OCL_VAR ( OC_FILE_U16 | OC_VAR_U8, 1, &_age_cargo_skip_counter ),
 	OCL_VAR ( OC_UINT16,   1, &_tick_counter ),
@@ -1614,13 +1614,13 @@ static const OldChunks main_chunk[] = {
 
 	OCL_ASSERT( OC_TTO, 0x3A2E ),
 
-	OCL_CNULL( OC_TTO, 48 * 6 ), ///< prices
-	OCL_CNULL( OC_TTD, 49 * 6 ), ///< prices
+	OCL_CNULL( OC_TTO, 48 * 6 ), // prices
+	OCL_CNULL( OC_TTD, 49 * 6 ), // prices
 
 	OCL_ASSERT( OC_TTO, 0x3B4E ),
 
-	OCL_CNULL( OC_TTO, 11 * 8 ), ///< cargo payment rates
-	OCL_CNULL( OC_TTD, 12 * 8 ), ///< cargo payment rates
+	OCL_CNULL( OC_TTO, 11 * 8 ), // cargo payment rates
+	OCL_CNULL( OC_TTD, 12 * 8 ), // cargo payment rates
 
 	OCL_ASSERT( OC_TTD, 0x4CBA ),
 	OCL_ASSERT( OC_TTO, 0x3BA6 ),
@@ -1656,7 +1656,7 @@ static const OldChunks main_chunk[] = {
 
 	OCL_ASSERT( OC_TTO, 0x46A06 ),
 
-	OCL_NULL( 0x2000 ),            ///< Old hash-table, no longer in use
+	OCL_NULL( 0x2000 ),            // Old hash-table, no longer in use
 
 	OCL_CHUNK( 40, LoadOldSign ),
 
@@ -1675,13 +1675,13 @@ static const OldChunks main_chunk[] = {
 
 	OCL_VAR ( OC_FILE_U16 | OC_VAR_U32,   1, &_next_competitor_start ),
 
-	OCL_CNULL( OC_TTO, 2 ),  ///< available monorail bitmask
+	OCL_CNULL( OC_TTO, 2 ),  // available monorail bitmask
 
 	OCL_VAR ( OC_FILE_I16 | OC_VAR_I32,   1, &_saved_scrollpos_x ),
 	OCL_VAR ( OC_FILE_I16 | OC_VAR_I32,   1, &_saved_scrollpos_y ),
 	OCL_VAR ( OC_FILE_U16 | OC_VAR_U8,    1, &_saved_scrollpos_zoom ),
 
-	OCL_NULL( 4 ),           ///< max_loan
+	OCL_NULL( 4 ),           // max_loan
 	OCL_VAR ( OC_FILE_U32 | OC_VAR_I64,   1, &_economy.old_max_loan_unround ),
 	OCL_VAR (  OC_INT16,    1, &_economy.fluct ),
 
@@ -1689,20 +1689,20 @@ static const OldChunks main_chunk[] = {
 
 	OCL_ASSERT( OC_TTO, 0x496E4 ),
 
-	OCL_CNULL( OC_TTD, 144 ),             ///< cargo-stuff
+	OCL_CNULL( OC_TTD, 144 ),             // cargo-stuff
 
 	OCL_CCHUNK( OC_TTD, 256, LoadOldEngineName ),
 
-	OCL_CNULL( OC_TTD, 144 ),             ///< AI cargo-stuff
-	OCL_NULL( 2 ),               ///< Company indexes of companies, no longer in use
-	OCL_NULL( 1 ),               ///< Station tick counter, no longer in use
+	OCL_CNULL( OC_TTD, 144 ),             // AI cargo-stuff
+	OCL_NULL( 2 ),               // Company indexes of companies, no longer in use
+	OCL_NULL( 1 ),               // Station tick counter, no longer in use
 
 	OCL_VAR (  OC_UINT8,    1, &_settings_game.locale.currency ),
 	OCL_VAR (  OC_UINT8,    1, &_old_units ),
 	OCL_VAR ( OC_FILE_U8 | OC_VAR_U32,    1, &_cur_company_tick_index ),
 
-	OCL_NULL( 2 ),               ///< Date stuff, calculated automatically
-	OCL_NULL( 8 ),               ///< Company colours, calculated automatically
+	OCL_NULL( 2 ),               // Date stuff, calculated automatically
+	OCL_NULL( 8 ),               // Company colours, calculated automatically
 
 	OCL_VAR (  OC_UINT8,    1, &_economy.infl_amount ),
 	OCL_VAR (  OC_UINT8,    1, &_economy.infl_amount_pr ),
@@ -1720,11 +1720,11 @@ static const OldChunks main_chunk[] = {
 	OCL_VAR ( OC_TTD | OC_UINT8,    1, &_settings_game.game_creation.landscape ),
 	OCL_VAR ( OC_TTD | OC_UINT8,    1, &_trees_tick_ctr ),
 
-	OCL_CNULL( OC_TTD, 1 ),               ///< Custom vehicle types yes/no, no longer used
+	OCL_CNULL( OC_TTD, 1 ),               // Custom vehicle types yes/no, no longer used
 	OCL_VAR ( OC_TTD | OC_UINT8,    1, &_settings_game.game_creation.snow_line_height ),
 
-	OCL_CNULL( OC_TTD, 32 ),              ///< new_industry_randtable, no longer used (because of new design)
-	OCL_CNULL( OC_TTD, 36 ),              ///< cargo-stuff
+	OCL_CNULL( OC_TTD, 32 ),              // new_industry_randtable, no longer used (because of new design)
+	OCL_CNULL( OC_TTD, 36 ),              // cargo-stuff
 
 	OCL_ASSERT( OC_TTD, 0x77179 ),
 	OCL_ASSERT( OC_TTO, 0x4971D ),

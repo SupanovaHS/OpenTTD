@@ -81,33 +81,33 @@
 
 /** The different types/ways a NewGRF can be serialized in the GameInfo since version 6. */
 enum NewGRFSerializationType {
-	NST_GRFID_MD5      = 0, ///< Unique GRF ID and MD5 checksum.
-	NST_GRFID_MD5_NAME = 1, ///< Unique GRF ID, MD5 checksum and name.
-	NST_LOOKUP_ID      = 2, ///< Unique ID into a lookup table that is sent before.
-	NST_END                 ///< The end of the list (period).
+	NST_GRFID_MD5      = 0, // Unique GRF ID and MD5 checksum.
+	NST_GRFID_MD5_NAME = 1, // Unique GRF ID, MD5 checksum and name.
+	NST_LOOKUP_ID      = 2, // Unique ID into a lookup table that is sent before.
+	NST_END                 // The end of the list (period).
 };
 
 /**
  * The game information that is sent from the server to the client.
  */
 struct NetworkServerGameInfo {
-	GRFConfig *grfconfig;        ///< List of NewGRF files used
-	Date start_date;             ///< When the game started
-	Date game_date;              ///< Current date
-	uint16 map_width;            ///< Map width
-	uint16 map_height;           ///< Map height
-	std::string server_name;     ///< Server name
-	std::string server_revision; ///< The version number the server is using (e.g.: 'r304' or 0.5.0)
-	bool dedicated;              ///< Is this a dedicated server?
-	bool use_password;           ///< Is this server passworded?
-	byte clients_on;             ///< Current count of clients on server
-	byte clients_max;            ///< Max clients allowed on server
-	byte companies_on;           ///< How many started companies do we have
-	byte companies_max;          ///< Max companies allowed on server
-	byte spectators_on;          ///< How many spectators do we have?
-	byte landscape;              ///< The used landscape
-	int gamescript_version;      ///< Version of the gamescript.
-	std::string gamescript_name; ///< Name of the gamescript.
+	GRFConfig *grfconfig;        // List of NewGRF files used
+	Date start_date;             // When the game started
+	Date game_date;              // Current date
+	uint16 map_width;            // Map width
+	uint16 map_height;           // Map height
+	std::string server_name;     // Server name
+	std::string server_revision; // The version number the server is using (e.g.: 'r304' or 0.5.0)
+	bool dedicated;              // Is this a dedicated server?
+	bool use_password;           // Is this server passworded?
+	byte clients_on;             // Current count of clients on server
+	byte clients_max;            // Max clients allowed on server
+	byte companies_on;           // How many started companies do we have
+	byte companies_max;          // Max companies allowed on server
+	byte spectators_on;          // How many spectators do we have?
+	byte landscape;              // The used landscape
+	int gamescript_version;      // Version of the gamescript.
+	std::string gamescript_name; // Name of the gamescript.
 };
 
 /**
@@ -115,8 +115,8 @@ struct NetworkServerGameInfo {
  * with extra information only required at the client side.
  */
 struct NetworkGameInfo : NetworkServerGameInfo {
-	bool version_compatible;                        ///< Can we connect to this server or not? (based on server_revision)
-	bool compatible;                                ///< Can we connect to this server or not? (based on server_revision _and_ grf_match
+	bool version_compatible;                        // Can we connect to this server or not? (based on server_revision)
+	bool compatible;                                // Can we connect to this server or not? (based on server_revision _and_ grf_match
 };
 
 /**
@@ -124,8 +124,8 @@ struct NetworkGameInfo : NetworkServerGameInfo {
  * associated with that NewGRF.
  */
 struct NamedGRFIdentifier {
-	GRFIdentifier ident; ///< The unique identifier of the NewGRF.
-	std::string name;    ///< The name of the NewGRF.
+	GRFIdentifier ident; // The unique identifier of the NewGRF.
+	std::string name;    // The name of the NewGRF.
 };
 /** Lookup table for the GameInfo in case of #NST_LOOKUP_ID. */
 typedef std::unordered_map<uint32, NamedGRFIdentifier> GameInfoNewGRFLookupTable;

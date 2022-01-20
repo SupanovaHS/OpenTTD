@@ -26,8 +26,8 @@ static std::vector<HotkeyList*> *_hotkey_lists = nullptr;
 
 /** String representation of a keycode */
 struct KeycodeNames {
-	const char *name;       ///< Name of the keycode
-	WindowKeyCodes keycode; ///< The keycode
+	const char *name;       // Name of the keycode
+	WindowKeyCodes keycode; // The keycode
 };
 
 /** Array of non-standard keycodes that can be used in the hotkeys config file. */

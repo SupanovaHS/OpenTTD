@@ -47,7 +47,7 @@ protected:
 	void RegisterAPI(class Squirrel *engine) override;
 
 private:
-	AIInfo *info_dummy; ///< The dummy AI.
+	AIInfo *info_dummy; // The dummy AI.
 };
 
 class AIScannerLibrary : public ScriptScanner {

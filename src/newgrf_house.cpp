@@ -178,8 +178,8 @@ static uint32 GetNearbyTileInformation(byte parameter, TileIndex tile, bool grf_
 
 /** Structure with user-data for SearchNearbyHouseXXX - functions */
 struct SearchNearbyHouseData {
-	const HouseSpec *hs;  ///< Specs of the house that started the search.
-	TileIndex north_tile; ///< Northern tile of the house.
+	const HouseSpec *hs;  // Specs of the house that started the search.
+	TileIndex north_tile; // Northern tile of the house.
 };
 
 /**

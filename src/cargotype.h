@@ -25,59 +25,59 @@ typedef uint32 CargoLabel;
 /** Town growth effect when delivering cargo. */
 enum TownEffect : byte {
 	TE_BEGIN = 0,
-	TE_NONE = TE_BEGIN, ///< Cargo has no effect.
-	TE_PASSENGERS,      ///< Cargo behaves passenger-like.
-	TE_MAIL,            ///< Cargo behaves mail-like.
-	TE_GOODS,           ///< Cargo behaves goods/candy-like.
-	TE_WATER,           ///< Cargo behaves water-like.
-	TE_FOOD,            ///< Cargo behaves food/fizzy-drinks-like.
-	TE_END,             ///< End of town effects.
-	NUM_TE = TE_END,    ///< Amount of town effects.
+	TE_NONE = TE_BEGIN, // Cargo has no effect.
+	TE_PASSENGERS,      // Cargo behaves passenger-like.
+	TE_MAIL,            // Cargo behaves mail-like.
+	TE_GOODS,           // Cargo behaves goods/candy-like.
+	TE_WATER,           // Cargo behaves water-like.
+	TE_FOOD,            // Cargo behaves food/fizzy-drinks-like.
+	TE_END,             // End of town effects.
+	NUM_TE = TE_END,    // Amount of town effects.
 };
 
 /** Cargo classes. */
 enum CargoClass {
-	CC_NOAVAILABLE  = 0,       ///< No cargo class has been specified
-	CC_PASSENGERS   = 1 <<  0, ///< Passengers
-	CC_MAIL         = 1 <<  1, ///< Mail
-	CC_EXPRESS      = 1 <<  2, ///< Express cargo (Goods, Food, Candy, but also possible for passengers)
-	CC_ARMOURED     = 1 <<  3, ///< Armoured cargo (Valuables, Gold, Diamonds)
-	CC_BULK         = 1 <<  4, ///< Bulk cargo (Coal, Grain etc., Ores, Fruit)
-	CC_PIECE_GOODS  = 1 <<  5, ///< Piece goods (Livestock, Wood, Steel, Paper)
-	CC_LIQUID       = 1 <<  6, ///< Liquids (Oil, Water, Rubber)
-	CC_REFRIGERATED = 1 <<  7, ///< Refrigerated cargo (Food, Fruit)
-	CC_HAZARDOUS    = 1 <<  8, ///< Hazardous cargo (Nuclear Fuel, Explosives, etc.)
-	CC_COVERED      = 1 <<  9, ///< Covered/Sheltered Freight (Transportation in Box Vans, Silo Wagons, etc.)
-	CC_SPECIAL      = 1 << 15, ///< Special bit used for livery refit tricks instead of normal cargoes.
+	CC_NOAVAILABLE  = 0,       // No cargo class has been specified
+	CC_PASSENGERS   = 1 <<  0, // Passengers
+	CC_MAIL         = 1 <<  1, // Mail
+	CC_EXPRESS      = 1 <<  2, // Express cargo (Goods, Food, Candy, but also possible for passengers)
+	CC_ARMOURED     = 1 <<  3, // Armoured cargo (Valuables, Gold, Diamonds)
+	CC_BULK         = 1 <<  4, // Bulk cargo (Coal, Grain etc., Ores, Fruit)
+	CC_PIECE_GOODS  = 1 <<  5, // Piece goods (Livestock, Wood, Steel, Paper)
+	CC_LIQUID       = 1 <<  6, // Liquids (Oil, Water, Rubber)
+	CC_REFRIGERATED = 1 <<  7, // Refrigerated cargo (Food, Fruit)
+	CC_HAZARDOUS    = 1 <<  8, // Hazardous cargo (Nuclear Fuel, Explosives, etc.)
+	CC_COVERED      = 1 <<  9, // Covered/Sheltered Freight (Transportation in Box Vans, Silo Wagons, etc.)
+	CC_SPECIAL      = 1 << 15, // Special bit used for livery refit tricks instead of normal cargoes.
 };
 
-static const byte INVALID_CARGO = 0xFF; ///< Constant representing invalid cargo
+static const byte INVALID_CARGO = 0xFF; // Constant representing invalid cargo
 
 /** Specification of a cargo type. */
 struct CargoSpec {
-	uint8 bitnum;                    ///< Cargo bit number, is #INVALID_CARGO for a non-used spec.
-	CargoLabel label;                ///< Unique label of the cargo type.
+	uint8 bitnum;                    // Cargo bit number, is #INVALID_CARGO for a non-used spec.
+	CargoLabel label;                // Unique label of the cargo type.
 	uint8 legend_colour;
 	uint8 rating_colour;
-	uint8 weight;                    ///< Weight of a single unit of this cargo type in 1/16 ton (62.5 kg).
-	uint16 multiplier;               ///< Capacity multiplier for vehicles. (8 fractional bits)
-	int32 initial_payment;           ///< Initial payment rate before inflation is applied.
+	uint8 weight;                    // Weight of a single unit of this cargo type in 1/16 ton (62.5 kg).
+	uint16 multiplier;               // Capacity multiplier for vehicles. (8 fractional bits)
+	int32 initial_payment;           // Initial payment rate before inflation is applied.
 	uint8 transit_days[2];
 
-	bool is_freight;                 ///< Cargo type is considered to be freight (affects train freight multiplier).
-	TownEffect town_effect;          ///< The effect that delivering this cargo type has on towns. Also affects destination of subsidies.
-	uint8 callback_mask;             ///< Bitmask of cargo callbacks that have to be called
+	bool is_freight;                 // Cargo type is considered to be freight (affects train freight multiplier).
+	TownEffect town_effect;          // The effect that delivering this cargo type has on towns. Also affects destination of subsidies.
+	uint8 callback_mask;             // Bitmask of cargo callbacks that have to be called
 
-	StringID name;                   ///< Name of this type of cargo.
-	StringID name_single;            ///< Name of a single entity of this type of cargo.
-	StringID units_volume;           ///< Name of a single unit of cargo of this type.
-	StringID quantifier;             ///< Text for multiple units of cargo of this type.
-	StringID abbrev;                 ///< Two letter abbreviation for this cargo type.
+	StringID name;                   // Name of this type of cargo.
+	StringID name_single;            // Name of a single entity of this type of cargo.
+	StringID units_volume;           // Name of a single unit of cargo of this type.
+	StringID quantifier;             // Text for multiple units of cargo of this type.
+	StringID abbrev;                 // Two letter abbreviation for this cargo type.
 
-	SpriteID sprite;                 ///< Icon to display this cargo type, may be \c 0xFFF (which means to resolve an action123 chain).
+	SpriteID sprite;                 // Icon to display this cargo type, may be \c 0xFFF (which means to resolve an action123 chain).
 
-	uint16 classes;                  ///< Classes of this cargo type. @see CargoClass
-	const struct GRFFile *grffile;   ///< NewGRF where #group belongs to.
+	uint16 classes;                  // Classes of this cargo type. @see CargoClass
+	const struct GRFFile *grffile;   // NewGRF where #group belongs to.
 	const struct SpriteGroup *group;
 
 	Money current_payment;
@@ -167,7 +167,7 @@ struct CargoSpec {
 	static IterateWrapper Iterate(size_t from = 0) { return IterateWrapper(from); }
 
 private:
-	static CargoSpec array[NUM_CARGO]; ///< Array holding all CargoSpecs
+	static CargoSpec array[NUM_CARGO]; // Array holding all CargoSpecs
 
 	friend void SetupCargoForClimate(LandscapeID l);
 };

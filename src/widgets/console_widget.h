@@ -12,7 +12,7 @@
 
 /** Widgets of the #IConsoleWindow class. */
 enum ConsoleWidgets {
-	WID_C_BACKGROUND, ///< Background of the console.
+	WID_C_BACKGROUND, // Background of the console.
 };
 
 #endif /* WIDGETS_CONSOLE_WIDGET_H */

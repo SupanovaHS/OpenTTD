@@ -16,25 +16,25 @@
 /* Enum used in PfCalcCost() to see why was the segment closed. */
 enum EndSegmentReason {
 	/* The following reasons can be saved into cached segment */
-	ESR_DEAD_END = 0,      ///< track ends here
-	ESR_RAIL_TYPE,         ///< the next tile has a different rail type than our tiles
-	ESR_INFINITE_LOOP,     ///< infinite loop detected
-	ESR_SEGMENT_TOO_LONG,  ///< the segment is too long (possible infinite loop)
-	ESR_CHOICE_FOLLOWS,    ///< the next tile contains a choice (the track splits to more than one segments)
-	ESR_DEPOT,             ///< stop in the depot (could be a target next time)
-	ESR_WAYPOINT,          ///< waypoint encountered (could be a target next time)
-	ESR_STATION,           ///< station encountered (could be a target next time)
-	ESR_SAFE_TILE,         ///< safe waiting position found (could be a target)
+	ESR_DEAD_END = 0,      // track ends here
+	ESR_RAIL_TYPE,         // the next tile has a different rail type than our tiles
+	ESR_INFINITE_LOOP,     // infinite loop detected
+	ESR_SEGMENT_TOO_LONG,  // the segment is too long (possible infinite loop)
+	ESR_CHOICE_FOLLOWS,    // the next tile contains a choice (the track splits to more than one segments)
+	ESR_DEPOT,             // stop in the depot (could be a target next time)
+	ESR_WAYPOINT,          // waypoint encountered (could be a target next time)
+	ESR_STATION,           // station encountered (could be a target next time)
+	ESR_SAFE_TILE,         // safe waiting position found (could be a target)
 
 	/* The following reasons are used only internally by PfCalcCost().
 	 *  They should not be found in the cached segment. */
-	ESR_PATH_TOO_LONG,     ///< the path is too long (searching for the nearest depot in the given radius)
-	ESR_FIRST_TWO_WAY_RED, ///< first signal was 2-way and it was red
-	ESR_LOOK_AHEAD_END,    ///< we have just passed the last look-ahead signal
-	ESR_TARGET_REACHED,    ///< we have just reached the destination
+	ESR_PATH_TOO_LONG,     // the path is too long (searching for the nearest depot in the given radius)
+	ESR_FIRST_TWO_WAY_RED, // first signal was 2-way and it was red
+	ESR_LOOK_AHEAD_END,    // we have just passed the last look-ahead signal
+	ESR_TARGET_REACHED,    // we have just reached the destination
 
 	/* Special values */
-	ESR_NONE = 0xFF,          ///< no reason to end the segment here
+	ESR_NONE = 0xFF,          // no reason to end the segment here
 };
 
 enum EndSegmentReasonBits {

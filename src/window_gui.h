@@ -26,10 +26,10 @@
  */
 enum FrameFlags {
 	FR_NONE         =  0,
-	FR_TRANSPARENT  =  1 << 0,  ///< Makes the background transparent if set
-	FR_BORDERONLY   =  1 << 4,  ///< Draw border only, no background
-	FR_LOWERED      =  1 << 5,  ///< If set the frame is lowered and the background colour brighter (ie. buttons when pressed)
-	FR_DARKENED     =  1 << 6,  ///< If set the background is darker, allows for lowered frames with normal background colour when used with FR_LOWERED (ie. dropdown boxes)
+	FR_TRANSPARENT  =  1 << 0,  // Makes the background transparent if set
+	FR_BORDERONLY   =  1 << 4,  // Draw border only, no background
+	FR_LOWERED      =  1 << 5,  // If set the frame is lowered and the background colour brighter (ie. buttons when pressed)
+	FR_DARKENED     =  1 << 6,  // If set the background is darker, allows for lowered frames with normal background colour when used with FR_LOWERED (ie. dropdown boxes)
 };
 
 DECLARE_ENUM_AS_BIT_SET(FrameFlags)
@@ -37,107 +37,107 @@ DECLARE_ENUM_AS_BIT_SET(FrameFlags)
 /** Distances used in drawing widgets. */
 enum WidgetDrawDistances {
 	/* WWT_IMGBTN(_2) */
-	WD_IMGBTN_LEFT    = 1,      ///< Left offset of the image in the button.
-	WD_IMGBTN_RIGHT   = 2,      ///< Right offset of the image in the button.
-	WD_IMGBTN_TOP     = 1,      ///< Top offset of image in the button.
-	WD_IMGBTN_BOTTOM  = 2,      ///< Bottom offset of image in the button.
+	WD_IMGBTN_LEFT    = 1,      // Left offset of the image in the button.
+	WD_IMGBTN_RIGHT   = 2,      // Right offset of the image in the button.
+	WD_IMGBTN_TOP     = 1,      // Top offset of image in the button.
+	WD_IMGBTN_BOTTOM  = 2,      // Bottom offset of image in the button.
 
 	/* WWT_INSET */
-	WD_INSET_LEFT  = 2,         ///< Left offset of string.
-	WD_INSET_RIGHT = 2,         ///< Right offset of string.
-	WD_INSET_TOP   = 1,         ///< Top offset of string.
+	WD_INSET_LEFT  = 2,         // Left offset of string.
+	WD_INSET_RIGHT = 2,         // Right offset of string.
+	WD_INSET_TOP   = 1,         // Top offset of string.
 
-	WD_SCROLLBAR_LEFT   = 2,    ///< Left offset of scrollbar.
-	WD_SCROLLBAR_RIGHT  = 2,    ///< Right offset of scrollbar.
-	WD_SCROLLBAR_TOP    = 2,    ///< Top offset of scrollbar.
-	WD_SCROLLBAR_BOTTOM = 2,    ///< Bottom offset of scrollbar.
+	WD_SCROLLBAR_LEFT   = 2,    // Left offset of scrollbar.
+	WD_SCROLLBAR_RIGHT  = 2,    // Right offset of scrollbar.
+	WD_SCROLLBAR_TOP    = 2,    // Top offset of scrollbar.
+	WD_SCROLLBAR_BOTTOM = 2,    // Bottom offset of scrollbar.
 
 	/* Size of the pure frame bevel without any padding. */
-	WD_BEVEL_LEFT       = 1,    ///< Width of left bevel border.
-	WD_BEVEL_RIGHT      = 1,    ///< Width of right bevel border.
-	WD_BEVEL_TOP        = 1,    ///< Height of top bevel border.
-	WD_BEVEL_BOTTOM     = 1,    ///< Height of bottom bevel border.
+	WD_BEVEL_LEFT       = 1,    // Width of left bevel border.
+	WD_BEVEL_RIGHT      = 1,    // Width of right bevel border.
+	WD_BEVEL_TOP        = 1,    // Height of top bevel border.
+	WD_BEVEL_BOTTOM     = 1,    // Height of bottom bevel border.
 
 	/* FrameRect widgets, all text buttons, panel, editbox */
-	WD_FRAMERECT_LEFT   = 2,    ///< Offset at left to draw the frame rectangular area
-	WD_FRAMERECT_RIGHT  = 2,    ///< Offset at right to draw the frame rectangular area
-	WD_FRAMERECT_TOP    = 1,    ///< Offset at top to draw the frame rectangular area
-	WD_FRAMERECT_BOTTOM = 1,    ///< Offset at bottom to draw the frame rectangular area
+	WD_FRAMERECT_LEFT   = 2,    // Offset at left to draw the frame rectangular area
+	WD_FRAMERECT_RIGHT  = 2,    // Offset at right to draw the frame rectangular area
+	WD_FRAMERECT_TOP    = 1,    // Offset at top to draw the frame rectangular area
+	WD_FRAMERECT_BOTTOM = 1,    // Offset at bottom to draw the frame rectangular area
 
 	/* Extra space at top/bottom of text panels */
-	WD_TEXTPANEL_TOP    = 6,    ///< Offset at top to draw above the text
-	WD_TEXTPANEL_BOTTOM = 6,    ///< Offset at bottom to draw below the text
+	WD_TEXTPANEL_TOP    = 6,    // Offset at top to draw above the text
+	WD_TEXTPANEL_BOTTOM = 6,    // Offset at bottom to draw below the text
 
 	/* WWT_FRAME */
-	WD_FRAMETEXT_LEFT   = 6,    ///< Left offset of the text of the frame.
-	WD_FRAMETEXT_RIGHT  = 6,    ///< Right offset of the text of the frame.
-	WD_FRAMETEXT_TOP    = 6,    ///< Top offset of the text of the frame
-	WD_FRAMETEXT_BOTTOM = 6,    ///< Bottom offset of the text of the frame
+	WD_FRAMETEXT_LEFT   = 6,    // Left offset of the text of the frame.
+	WD_FRAMETEXT_RIGHT  = 6,    // Right offset of the text of the frame.
+	WD_FRAMETEXT_TOP    = 6,    // Top offset of the text of the frame
+	WD_FRAMETEXT_BOTTOM = 6,    // Bottom offset of the text of the frame
 
 	/* WWT_MATRIX */
-	WD_MATRIX_LEFT   = 2,       ///< Offset at left of a matrix cell.
-	WD_MATRIX_RIGHT  = 2,       ///< Offset at right of a matrix cell.
-	WD_MATRIX_TOP    = 3,       ///< Offset at top of a matrix cell.
-	WD_MATRIX_BOTTOM = 1,       ///< Offset at bottom of a matrix cell.
+	WD_MATRIX_LEFT   = 2,       // Offset at left of a matrix cell.
+	WD_MATRIX_RIGHT  = 2,       // Offset at right of a matrix cell.
+	WD_MATRIX_TOP    = 3,       // Offset at top of a matrix cell.
+	WD_MATRIX_BOTTOM = 1,       // Offset at bottom of a matrix cell.
 
 	/* WWT_SHADEBOX */
-	WD_SHADEBOX_WIDTH  = 12,    ///< Width of a standard shade box widget.
-	WD_SHADEBOX_LEFT   = 2,     ///< Left offset of shade sprite.
-	WD_SHADEBOX_RIGHT  = 2,     ///< Right offset of shade sprite.
-	WD_SHADEBOX_TOP    = 3,     ///< Top offset of shade sprite.
-	WD_SHADEBOX_BOTTOM = 3,     ///< Bottom offset of shade sprite.
+	WD_SHADEBOX_WIDTH  = 12,    // Width of a standard shade box widget.
+	WD_SHADEBOX_LEFT   = 2,     // Left offset of shade sprite.
+	WD_SHADEBOX_RIGHT  = 2,     // Right offset of shade sprite.
+	WD_SHADEBOX_TOP    = 3,     // Top offset of shade sprite.
+	WD_SHADEBOX_BOTTOM = 3,     // Bottom offset of shade sprite.
 
 	/* WWT_STICKYBOX */
-	WD_STICKYBOX_WIDTH  = 12,   ///< Width of a standard sticky box widget.
-	WD_STICKYBOX_LEFT   = 2,    ///< Left offset of sticky sprite.
-	WD_STICKYBOX_RIGHT  = 2,    ///< Right offset of sticky sprite.
-	WD_STICKYBOX_TOP    = 3,    ///< Top offset of sticky sprite.
-	WD_STICKYBOX_BOTTOM = 3,    ///< Bottom offset of sticky sprite.
+	WD_STICKYBOX_WIDTH  = 12,   // Width of a standard sticky box widget.
+	WD_STICKYBOX_LEFT   = 2,    // Left offset of sticky sprite.
+	WD_STICKYBOX_RIGHT  = 2,    // Right offset of sticky sprite.
+	WD_STICKYBOX_TOP    = 3,    // Top offset of sticky sprite.
+	WD_STICKYBOX_BOTTOM = 3,    // Bottom offset of sticky sprite.
 
 	/* WWT_DEBUGBOX */
-	WD_DEBUGBOX_WIDTH  = 12,    ///< Width of a standard debug box widget.
-	WD_DEBUGBOX_LEFT   = 2,     ///< Left offset of debug sprite.
-	WD_DEBUGBOX_RIGHT  = 2,     ///< Right offset of debug sprite.
-	WD_DEBUGBOX_TOP    = 3,     ///< Top offset of debug sprite.
-	WD_DEBUGBOX_BOTTOM = 3,     ///< Bottom offset of debug sprite.
+	WD_DEBUGBOX_WIDTH  = 12,    // Width of a standard debug box widget.
+	WD_DEBUGBOX_LEFT   = 2,     // Left offset of debug sprite.
+	WD_DEBUGBOX_RIGHT  = 2,     // Right offset of debug sprite.
+	WD_DEBUGBOX_TOP    = 3,     // Top offset of debug sprite.
+	WD_DEBUGBOX_BOTTOM = 3,     // Bottom offset of debug sprite.
 
 	/* WWT_DEFSIZEBOX */
-	WD_DEFSIZEBOX_WIDTH  = 12,  ///< Width of a standard defsize box widget.
-	WD_DEFSIZEBOX_LEFT   = 2,   ///< Left offset of defsize sprite.
-	WD_DEFSIZEBOX_RIGHT  = 2,   ///< Right offset of defsize sprite.
-	WD_DEFSIZEBOX_TOP    = 3,   ///< Top offset of defsize sprite.
-	WD_DEFSIZEBOX_BOTTOM = 3,   ///< Bottom offset of defsize sprite.
+	WD_DEFSIZEBOX_WIDTH  = 12,  // Width of a standard defsize box widget.
+	WD_DEFSIZEBOX_LEFT   = 2,   // Left offset of defsize sprite.
+	WD_DEFSIZEBOX_RIGHT  = 2,   // Right offset of defsize sprite.
+	WD_DEFSIZEBOX_TOP    = 3,   // Top offset of defsize sprite.
+	WD_DEFSIZEBOX_BOTTOM = 3,   // Bottom offset of defsize sprite.
 
 	/* WWT_RESIZEBOX */
-	WD_RESIZEBOX_WIDTH  = 12,   ///< Width of a resize box widget.
-	WD_RESIZEBOX_LEFT   = 3,    ///< Left offset of resize sprite.
-	WD_RESIZEBOX_RIGHT  = 2,    ///< Right offset of resize sprite.
-	WD_RESIZEBOX_TOP    = 3,    ///< Top offset of resize sprite.
-	WD_RESIZEBOX_BOTTOM = 2,    ///< Bottom offset of resize sprite.
+	WD_RESIZEBOX_WIDTH  = 12,   // Width of a resize box widget.
+	WD_RESIZEBOX_LEFT   = 3,    // Left offset of resize sprite.
+	WD_RESIZEBOX_RIGHT  = 2,    // Right offset of resize sprite.
+	WD_RESIZEBOX_TOP    = 3,    // Top offset of resize sprite.
+	WD_RESIZEBOX_BOTTOM = 2,    // Bottom offset of resize sprite.
 
 	/* WWT_CLOSEBOX */
-	WD_CLOSEBOX_WIDTH  = 11,    ///< Width of a close box widget.
-	WD_CLOSEBOX_LEFT   = 2,     ///< Left offset of closebox string.
-	WD_CLOSEBOX_RIGHT  = 1,     ///< Right offset of closebox string.
-	WD_CLOSEBOX_TOP    = 2,     ///< Top offset of closebox string.
-	WD_CLOSEBOX_BOTTOM = 2,     ///< Bottom offset of closebox string.
+	WD_CLOSEBOX_WIDTH  = 11,    // Width of a close box widget.
+	WD_CLOSEBOX_LEFT   = 2,     // Left offset of closebox string.
+	WD_CLOSEBOX_RIGHT  = 1,     // Right offset of closebox string.
+	WD_CLOSEBOX_TOP    = 2,     // Top offset of closebox string.
+	WD_CLOSEBOX_BOTTOM = 2,     // Bottom offset of closebox string.
 
 	/* WWT_CAPTION */
-	WD_CAPTION_HEIGHT     = 14, ///< Height of a title bar.
-	WD_CAPTIONTEXT_LEFT   = 2,  ///< Offset of the caption text at the left.
-	WD_CAPTIONTEXT_RIGHT  = 2,  ///< Offset of the caption text at the right.
-	WD_CAPTIONTEXT_TOP    = 2,  ///< Offset of the caption text at the top.
-	WD_CAPTIONTEXT_BOTTOM = 2,  ///< Offset of the caption text at the bottom.
+	WD_CAPTION_HEIGHT     = 14, // Height of a title bar.
+	WD_CAPTIONTEXT_LEFT   = 2,  // Offset of the caption text at the left.
+	WD_CAPTIONTEXT_RIGHT  = 2,  // Offset of the caption text at the right.
+	WD_CAPTIONTEXT_TOP    = 2,  // Offset of the caption text at the top.
+	WD_CAPTIONTEXT_BOTTOM = 2,  // Offset of the caption text at the bottom.
 
 	/* Dropdown widget. */
-	WD_DROPDOWN_HEIGHT     = 12, ///< Height of a drop down widget.
-	WD_DROPDOWNTEXT_LEFT   = 2,  ///< Left offset of the dropdown widget string.
-	WD_DROPDOWNTEXT_RIGHT  = 2,  ///< Right offset of the dropdown widget string.
-	WD_DROPDOWNTEXT_TOP    = 1,  ///< Top offset of the dropdown widget string.
-	WD_DROPDOWNTEXT_BOTTOM = 1,  ///< Bottom offset of the dropdown widget string.
+	WD_DROPDOWN_HEIGHT     = 12, // Height of a drop down widget.
+	WD_DROPDOWNTEXT_LEFT   = 2,  // Left offset of the dropdown widget string.
+	WD_DROPDOWNTEXT_RIGHT  = 2,  // Right offset of the dropdown widget string.
+	WD_DROPDOWNTEXT_TOP    = 1,  // Top offset of the dropdown widget string.
+	WD_DROPDOWNTEXT_BOTTOM = 1,  // Bottom offset of the dropdown widget string.
 
-	WD_PAR_VSEP_NORMAL = 2,      ///< Normal amount of vertical space between two paragraphs of text.
-	WD_PAR_VSEP_WIDE   = 8,      ///< Large amount of vertical space between two paragraphs of text.
+	WD_PAR_VSEP_NORMAL = 2,      // Normal amount of vertical space between two paragraphs of text.
+	WD_PAR_VSEP_WIDE   = 8,      // Large amount of vertical space between two paragraphs of text.
 };
 
 /* widget.cpp */
@@ -152,10 +152,10 @@ extern Window *_focused_window;
 
 /** How do we the window to be placed? */
 enum WindowPosition {
-	WDP_MANUAL,        ///< Manually align the window (so no automatic location finding)
-	WDP_AUTO,          ///< Find a place automatically
-	WDP_CENTER,        ///< Center the window
-	WDP_ALIGN_TOOLBAR, ///< Align toward the toolbar
+	WDP_MANUAL,        // Manually align the window (so no automatic location finding)
+	WDP_AUTO,          // Find a place automatically
+	WDP_CENTER,        // Center the window
+	WDP_ALIGN_TOOLBAR, // Align toward the toolbar
 };
 
 Point GetToolbarAlignedWindowPosition(int window_width);
@@ -173,18 +173,18 @@ struct WindowDesc : ZeroedMemoryAllocator {
 
 	~WindowDesc();
 
-	WindowPosition default_pos;    ///< Preferred position of the window. @see WindowPosition()
-	WindowClass cls;               ///< Class of the window, @see WindowClass.
-	WindowClass parent_cls;        ///< Class of the parent window. @see WindowClass
-	const char *ini_key;           ///< Key to store window defaults in openttd.cfg. \c nullptr if nothing shall be stored.
-	uint32 flags;                  ///< Flags. @see WindowDefaultFlag
-	const NWidgetPart *nwid_parts; ///< Nested widget parts describing the window.
-	int16 nwid_length;             ///< Length of the #nwid_parts array.
-	HotkeyList *hotkeys;           ///< Hotkeys for the window.
+	WindowPosition default_pos;    // Preferred position of the window. @see WindowPosition()
+	WindowClass cls;               // Class of the window, @see WindowClass.
+	WindowClass parent_cls;        // Class of the parent window. @see WindowClass
+	const char *ini_key;           // Key to store window defaults in openttd.cfg. \c nullptr if nothing shall be stored.
+	uint32 flags;                  // Flags. @see WindowDefaultFlag
+	const NWidgetPart *nwid_parts; // Nested widget parts describing the window.
+	int16 nwid_length;             // Length of the #nwid_parts array.
+	HotkeyList *hotkeys;           // Hotkeys for the window.
 
-	bool pref_sticky;              ///< Preferred stickyness.
-	int16 pref_width;              ///< User-preferred width of the window. Zero if unset.
-	int16 pref_height;             ///< User-preferred height of the window. Zero if unset.
+	bool pref_sticky;              // Preferred stickyness.
+	int16 pref_width;              // User-preferred width of the window. Zero if unset.
+	int16 pref_height;             // User-preferred height of the window. Zero if unset.
 
 	int16 GetDefaultWidth() const;
 	int16 GetDefaultHeight() const;
@@ -193,8 +193,8 @@ struct WindowDesc : ZeroedMemoryAllocator {
 	static void SaveToConfig();
 
 private:
-	int16 default_width_trad;      ///< Preferred initial width of the window (pixels at 1x zoom).
-	int16 default_height_trad;     ///< Preferred initial height of the window (pixels at 1x zoom).
+	int16 default_width_trad;      // Preferred initial width of the window (pixels at 1x zoom).
+	int16 default_height_trad;     // Preferred initial height of the window (pixels at 1x zoom).
 
 	/**
 	 * Dummy private copy constructor to prevent compilers from
@@ -207,46 +207,46 @@ private:
  * Window default widget/window handling flags
  */
 enum WindowDefaultFlag {
-	WDF_CONSTRUCTION    =   1 << 0, ///< This window is used for construction; close it whenever changing company.
-	WDF_MODAL           =   1 << 1, ///< The window is a modal child of some other window, meaning the parent is 'inactive'
-	WDF_NO_FOCUS        =   1 << 2, ///< This window won't get focus/make any other window lose focus when click
+	WDF_CONSTRUCTION    =   1 << 0, // This window is used for construction; close it whenever changing company.
+	WDF_MODAL           =   1 << 1, // The window is a modal child of some other window, meaning the parent is 'inactive'
+	WDF_NO_FOCUS        =   1 << 2, // This window won't get focus/make any other window lose focus when click
 };
 
 /**
  * Data structure for resizing a window
  */
 struct ResizeInfo {
-	uint step_width;  ///< Step-size of width resize changes
-	uint step_height; ///< Step-size of height resize changes
+	uint step_width;  // Step-size of width resize changes
+	uint step_height; // Step-size of height resize changes
 };
 
 /** State of a sort direction button. */
 enum SortButtonState {
-	SBS_OFF,  ///< Do not sort (with this button).
-	SBS_DOWN, ///< Sort ascending.
-	SBS_UP,   ///< Sort descending.
+	SBS_OFF,  // Do not sort (with this button).
+	SBS_DOWN, // Sort ascending.
+	SBS_UP,   // Sort descending.
 };
 
 /**
  * Window flags.
  */
 enum WindowFlags {
-	WF_TIMEOUT           = 1 <<  0, ///< Window timeout counter.
+	WF_TIMEOUT           = 1 <<  0, // Window timeout counter.
 
-	WF_DRAGGING          = 1 <<  3, ///< Window is being dragged.
-	WF_SIZING_RIGHT      = 1 <<  4, ///< Window is being resized towards the right.
-	WF_SIZING_LEFT       = 1 <<  5, ///< Window is being resized towards the left.
-	WF_SIZING            = WF_SIZING_RIGHT | WF_SIZING_LEFT, ///< Window is being resized.
-	WF_STICKY            = 1 <<  6, ///< Window is made sticky by user
-	WF_DISABLE_VP_SCROLL = 1 <<  7, ///< Window does not do autoscroll, @see HandleAutoscroll().
-	WF_WHITE_BORDER      = 1 <<  8, ///< Window white border counter bit mask.
-	WF_HIGHLIGHTED       = 1 <<  9, ///< Window has a widget that has a highlight.
-	WF_CENTERED          = 1 << 10, ///< Window is centered and shall stay centered after ReInit.
+	WF_DRAGGING          = 1 <<  3, // Window is being dragged.
+	WF_SIZING_RIGHT      = 1 <<  4, // Window is being resized towards the right.
+	WF_SIZING_LEFT       = 1 <<  5, // Window is being resized towards the left.
+	WF_SIZING            = WF_SIZING_RIGHT | WF_SIZING_LEFT, // Window is being resized.
+	WF_STICKY            = 1 <<  6, // Window is made sticky by user
+	WF_DISABLE_VP_SCROLL = 1 <<  7, // Window does not do autoscroll, @see HandleAutoscroll().
+	WF_WHITE_BORDER      = 1 <<  8, // Window white border counter bit mask.
+	WF_HIGHLIGHTED       = 1 <<  9, // Window has a widget that has a highlight.
+	WF_CENTERED          = 1 << 10, // Window is centered and shall stay centered after ReInit.
 };
 DECLARE_ENUM_AS_BIT_SET(WindowFlags)
 
-static const int TIMEOUT_DURATION = 7; ///< The initial timeout value for WF_TIMEOUT.
-static const int WHITE_BORDER_DURATION = 3; ///< The initial timeout value for WF_WHITE_BORDER.
+static const int TIMEOUT_DURATION = 7; // The initial timeout value for WF_TIMEOUT.
+static const int WHITE_BORDER_DURATION = 3; // The initial timeout value for WF_WHITE_BORDER.
 
 /**
  * Data structure for a window viewport.
@@ -256,11 +256,11 @@ static const int WHITE_BORDER_DURATION = 3; ///< The initial timeout value for W
  * @see InitializeViewport(), UpdateViewportPosition(), UpdateViewportCoordinates().
  */
 struct ViewportData : Viewport {
-	VehicleID follow_vehicle; ///< VehicleID to follow if following a vehicle, #INVALID_VEHICLE otherwise.
-	int32 scrollpos_x;        ///< Currently shown x coordinate (virtual screen coordinate of topleft corner of the viewport).
-	int32 scrollpos_y;        ///< Currently shown y coordinate (virtual screen coordinate of topleft corner of the viewport).
-	int32 dest_scrollpos_x;   ///< Current destination x coordinate to display (virtual screen coordinate of topleft corner of the viewport).
-	int32 dest_scrollpos_y;   ///< Current destination y coordinate to display (virtual screen coordinate of topleft corner of the viewport).
+	VehicleID follow_vehicle; // VehicleID to follow if following a vehicle, #INVALID_VEHICLE otherwise.
+	int32 scrollpos_x;        // Currently shown x coordinate (virtual screen coordinate of topleft corner of the viewport).
+	int32 scrollpos_y;        // Currently shown y coordinate (virtual screen coordinate of topleft corner of the viewport).
+	int32 dest_scrollpos_x;   // Current destination x coordinate to display (virtual screen coordinate of topleft corner of the viewport).
+	int32 dest_scrollpos_y;   // Current destination y coordinate to display (virtual screen coordinate of topleft corner of the viewport).
 };
 
 struct QueryString;
@@ -285,7 +285,7 @@ protected:
 	void InitializePositionSize(int x, int y, int min_width, int min_height);
 	virtual void FindWindowPlacementAndResize(int def_width, int def_height);
 
-	std::vector<int> scheduled_invalidation_data;  ///< Data of scheduled OnInvalidateData() calls.
+	std::vector<int> scheduled_invalidation_data;  // Data of scheduled OnInvalidateData() calls.
 
 	/* Protected to prevent deletion anywhere outside Window::DeleteClosedWindows(). */
 	virtual ~Window();
@@ -301,35 +301,35 @@ public:
 	 */
 	inline void *operator new[](size_t size) = delete;
 
-	WindowDesc *window_desc;    ///< Window description
-	WindowFlags flags;          ///< Window flags
-	WindowClass window_class;   ///< Window class
-	WindowNumber window_number; ///< Window number within the window class
+	WindowDesc *window_desc;    // Window description
+	WindowFlags flags;          // Window flags
+	WindowClass window_class;   // Window class
+	WindowNumber window_number; // Window number within the window class
 
-	uint8 timeout_timer;      ///< Timer value of the WF_TIMEOUT for flags.
-	uint8 white_border_timer; ///< Timer value of the WF_WHITE_BORDER for flags.
+	uint8 timeout_timer;      // Timer value of the WF_TIMEOUT for flags.
+	uint8 white_border_timer; // Timer value of the WF_WHITE_BORDER for flags.
 
-	int left;   ///< x position of left edge of the window
-	int top;    ///< y position of top edge of the window
-	int width;  ///< width of the window (number of pixels to the right in x direction)
-	int height; ///< Height of the window (number of pixels down in y direction)
+	int left;   // x position of left edge of the window
+	int top;    // y position of top edge of the window
+	int width;  // width of the window (number of pixels to the right in x direction)
+	int height; // Height of the window (number of pixels down in y direction)
 
-	ResizeInfo resize;  ///< Resize information
+	ResizeInfo resize;  // Resize information
 
-	Owner owner;        ///< The owner of the content shown in this window. Company colour is acquired from this variable.
+	Owner owner;        // The owner of the content shown in this window. Company colour is acquired from this variable.
 
-	ViewportData *viewport;          ///< Pointer to viewport data, if present.
-	const NWidgetCore *nested_focus; ///< Currently focused nested widget, or \c nullptr if no nested widget has focus.
-	SmallMap<int, QueryString*> querystrings; ///< QueryString associated to WWT_EDITBOX widgets.
-	NWidgetBase *nested_root;        ///< Root of the nested tree.
-	NWidgetBase **nested_array;      ///< Array of pointers into the tree. Do not access directly, use #Window::GetWidget() instead.
-	uint nested_array_size;          ///< Size of the nested array.
-	NWidgetStacked *shade_select;    ///< Selection widget (#NWID_SELECTION) to use for shading the window. If \c nullptr, window cannot shade.
-	Dimension unshaded_size;         ///< Last known unshaded size (only valid while shaded).
+	ViewportData *viewport;          // Pointer to viewport data, if present.
+	const NWidgetCore *nested_focus; // Currently focused nested widget, or \c nullptr if no nested widget has focus.
+	SmallMap<int, QueryString*> querystrings; // QueryString associated to WWT_EDITBOX widgets.
+	NWidgetBase *nested_root;        // Root of the nested tree.
+	NWidgetBase **nested_array;      // Array of pointers into the tree. Do not access directly, use #Window::GetWidget() instead.
+	uint nested_array_size;          // Size of the nested array.
+	NWidgetStacked *shade_select;    // Selection widget (#NWID_SELECTION) to use for shading the window. If \c nullptr, window cannot shade.
+	Dimension unshaded_size;         // Last known unshaded size (only valid while shaded).
 
-	int mouse_capture_widget;        ///< Widgetindex of current mouse capture widget (e.g. dragged scrollbar). -1 if no widget has mouse capture.
+	int mouse_capture_widget;        // Widgetindex of current mouse capture widget (e.g. dragged scrollbar). -1 if no widget has mouse capture.
 
-	Window *parent;                  ///< Parent window.
+	Window *parent;                  // Parent window.
 	WindowList::iterator z_position;
 
 	template <class NWID>
@@ -962,11 +962,11 @@ extern bool _mouse_hovering;
 
 /** Mouse modes. */
 enum SpecialMouseMode {
-	WSM_NONE,     ///< No special mouse mode.
-	WSM_DRAGDROP, ///< Drag&drop an object.
-	WSM_SIZING,   ///< Sizing mode.
-	WSM_PRESIZE,  ///< Presizing mode (docks, tunnels).
-	WSM_DRAGGING, ///< Dragging mode (trees).
+	WSM_NONE,     // No special mouse mode.
+	WSM_DRAGDROP, // Drag&drop an object.
+	WSM_SIZING,   // Sizing mode.
+	WSM_PRESIZE,  // Presizing mode (docks, tunnels).
+	WSM_DRAGGING, // Dragging mode (trees).
 };
 extern SpecialMouseMode _special_mouse_mode;
 

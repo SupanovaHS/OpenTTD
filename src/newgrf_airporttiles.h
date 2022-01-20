@@ -19,9 +19,9 @@
 
 /** Scope resolver for handling the tiles of an airport. */
 struct AirportTileScopeResolver : public ScopeResolver {
-	struct Station *st;  ///< %Station of the airport for which the callback is run, or \c nullptr for build gui.
-	byte airport_id;     ///< Type of airport for which the callback is run.
-	TileIndex tile;      ///< Tile for the callback, only valid for airporttile callbacks.
+	struct Station *st;  // %Station of the airport for which the callback is run, or \c nullptr for build gui.
+	byte airport_id;     // Type of airport for which the callback is run.
+	TileIndex tile;      // Tile for the callback, only valid for airporttile callbacks.
 	const AirportTileSpec *ats;
 
 	/**
@@ -43,7 +43,7 @@ struct AirportTileScopeResolver : public ScopeResolver {
 
 /** Resolver for tiles of an airport. */
 struct AirportTileResolverObject : public ResolverObject {
-	AirportTileScopeResolver tiles_scope; ///< Scope resolver for the tiles.
+	AirportTileScopeResolver tiles_scope; // Scope resolver for the tiles.
 
 	AirportTileResolverObject(const AirportTileSpec *ats, TileIndex tile, Station *st,
 			CallbackID callback = CBID_NO_CALLBACK, uint32 callback_param1 = 0, uint32 callback_param2 = 0);
@@ -64,12 +64,12 @@ struct AirportTileResolverObject : public ResolverObject {
  * Defines the data structure of each individual tile of an airport.
  */
 struct AirportTileSpec {
-	AnimationInfo animation;              ///< Information about the animation.
-	StringID name;                        ///< Tile Subname string, land information on this tile will give you "AirportName (TileSubname)"
-	uint8 callback_mask;                  ///< Bitmask telling which grf callback is set
-	uint8 animation_special_flags;        ///< Extra flags to influence the animation
-	bool enabled;                         ///< entity still available (by default true). newgrf can disable it, though
-	GRFFileProps grf_prop;                ///< properties related the the grf file
+	AnimationInfo animation;              // Information about the animation.
+	StringID name;                        // Tile Subname string, land information on this tile will give you "AirportName (TileSubname)"
+	uint8 callback_mask;                  // Bitmask telling which grf callback is set
+	uint8 animation_special_flags;        // Extra flags to influence the animation
+	bool enabled;                         // entity still available (by default true). newgrf can disable it, though
+	GRFFileProps grf_prop;                // properties related the the grf file
 
 	static const AirportTileSpec *Get(StationGfx gfx);
 	static const AirportTileSpec *GetByTile(TileIndex tile);

@@ -20,9 +20,9 @@
 
 /** Resolver for a vehicle scope. */
 struct VehicleScopeResolver : public ScopeResolver {
-	const struct Vehicle *v; ///< The vehicle being resolved.
-	EngineID self_type;      ///< Type of the vehicle.
-	bool rotor_in_gui;       ///< Helicopter rotor is drawn in GUI.
+	const struct Vehicle *v; // The vehicle being resolved.
+	EngineID self_type;      // Type of the vehicle.
+	bool rotor_in_gui;       // Helicopter rotor is drawn in GUI.
 
 	/**
 	 * Scope resolver of a single vehicle.
@@ -53,11 +53,11 @@ struct VehicleResolverObject : public ResolverObject {
 		WO_SELF,     //!< Resolve self-override (helicopter rotors and such).
 	};
 
-	VehicleScopeResolver self_scope;     ///< Scope resolver for the indicated vehicle.
-	VehicleScopeResolver parent_scope;   ///< Scope resolver for its parent vehicle.
+	VehicleScopeResolver self_scope;     // Scope resolver for the indicated vehicle.
+	VehicleScopeResolver parent_scope;   // Scope resolver for its parent vehicle.
 
-	VehicleScopeResolver relative_scope; ///< Scope resolver for an other vehicle in the chain.
-	byte cached_relative_count;          ///< Relative position of the other vehicle.
+	VehicleScopeResolver relative_scope; // Scope resolver for an other vehicle in the chain.
+	byte cached_relative_count;          // Relative position of the other vehicle.
 
 	VehicleResolverObject(EngineID engine_type, const Vehicle *v, WagonOverride wagon_override, bool rotor_in_gui = false,
 			CallbackID callback = CBID_NO_CALLBACK, uint32 callback_param1 = 0, uint32 callback_param2 = 0);

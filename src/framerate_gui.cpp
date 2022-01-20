@@ -419,14 +419,14 @@ struct FramerateWindow : Window {
 		}
 	};
 
-	CachedDecimal rate_gameloop;            ///< cached game loop tick rate
-	CachedDecimal rate_drawing;             ///< cached drawing frame rate
-	CachedDecimal speed_gameloop;           ///< cached game loop speed factor
-	CachedDecimal times_shortterm[PFE_MAX]; ///< cached short term average times
-	CachedDecimal times_longterm[PFE_MAX];  ///< cached long term average times
+	CachedDecimal rate_gameloop;            // cached game loop tick rate
+	CachedDecimal rate_drawing;             // cached drawing frame rate
+	CachedDecimal speed_gameloop;           // cached game loop speed factor
+	CachedDecimal times_shortterm[PFE_MAX]; // cached short term average times
+	CachedDecimal times_longterm[PFE_MAX];  // cached long term average times
 
-	static constexpr int VSPACING = 3;          ///< space between column heading and values
-	static constexpr int MIN_ELEMENTS = 5;      ///< smallest number of elements to display
+	static constexpr int VSPACING = 3;          // space between column heading and values
+	static constexpr int MIN_ELEMENTS = 5;      // smallest number of elements to display
 
 	FramerateWindow(WindowDesc *desc, WindowNumber number) : Window(desc)
 	{
@@ -731,12 +731,12 @@ static const NWidgetPart _frametime_graph_window_widgets[] = {
 };
 
 struct FrametimeGraphWindow : Window {
-	int vertical_scale;       ///< number of TIMESTAMP_PRECISION units vertically
-	int horizontal_scale;     ///< number of half-second units horizontally
-	GUITimer next_scale_update; ///< interval for next scale update
+	int vertical_scale;       // number of TIMESTAMP_PRECISION units vertically
+	int horizontal_scale;     // number of half-second units horizontally
+	GUITimer next_scale_update; // interval for next scale update
 
-	PerformanceElement element; ///< what element this window renders graph for
-	Dimension graph_size;       ///< size of the main graph area (excluding axis labels)
+	PerformanceElement element; // what element this window renders graph for
+	Dimension graph_size;       // size of the main graph area (excluding axis labels)
 
 	FrametimeGraphWindow(WindowDesc *desc, WindowNumber number) : Window(desc)
 	{

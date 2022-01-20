@@ -23,9 +23,9 @@ class ScriptIndustry : public ScriptObject {
 public:
 	/** Ways for an industry to accept a cargo. */
 	enum CargoAcceptState {
-		CAS_NOT_ACCEPTED, ///< The CargoID is not accepted by this industry.
-		CAS_ACCEPTED,     ///< The industry currently accepts this CargoID.
-		CAS_TEMP_REFUSED, ///< The industry temporarily refuses to accept this CargoID but may do so again in the future.
+		CAS_NOT_ACCEPTED, // The CargoID is not accepted by this industry.
+		CAS_ACCEPTED,     // The industry currently accepts this CargoID.
+		CAS_TEMP_REFUSED, // The industry temporarily refuses to accept this CargoID but may do so again in the future.
 	};
 
 	/**

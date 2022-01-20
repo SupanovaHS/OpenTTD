@@ -24,15 +24,15 @@ class RandomAccessFile {
 	/** The number of bytes to allocate for the buffer. */
 	static constexpr int BUFFER_SIZE = 512;
 
-	std::string filename;            ///< Full name of the file; relative path to subdir plus the extension of the file.
-	std::string simplified_filename; ///< Simplified lowecase name of the file; only the name, no path or extension.
+	std::string filename;            // Full name of the file; relative path to subdir plus the extension of the file.
+	std::string simplified_filename; // Simplified lowecase name of the file; only the name, no path or extension.
 
-	FILE *file_handle;               ///< File handle of the open file.
-	size_t pos;                      ///< Position in the file of the end of the read buffer.
+	FILE *file_handle;               // File handle of the open file.
+	size_t pos;                      // Position in the file of the end of the read buffer.
 
-	byte *buffer;                    ///< Current position within the local buffer.
-	byte *buffer_end;                ///< Last valid byte of buffer.
-	byte buffer_start[BUFFER_SIZE];  ///< Local buffer when read from file.
+	byte *buffer;                    // Current position within the local buffer.
+	byte *buffer_end;                // Last valid byte of buffer.
+	byte buffer_start[BUFFER_SIZE];  // Local buffer when read from file.
 
 public:
 	RandomAccessFile(const std::string &filename, Subdirectory subdir);

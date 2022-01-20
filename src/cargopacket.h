@@ -42,16 +42,16 @@ typedef uint32 TileOrStationID;
  */
 struct CargoPacket : CargoPacketPool::PoolItem<&_cargopacket_pool> {
 private:
-	Money feeder_share;     ///< Value of feeder pickup to be paid for on delivery of cargo.
-	uint16 count;           ///< The amount of cargo in this packet.
-	byte days_in_transit;   ///< Amount of days this packet has been in transit.
-	SourceType source_type; ///< Type of \c source_id.
-	SourceID source_id;     ///< Index of source, INVALID_SOURCE if unknown/invalid.
-	StationID source;       ///< The station where the cargo came from first.
-	TileIndex source_xy;    ///< The origin of the cargo (first station in feeder chain).
+	Money feeder_share;     // Value of feeder pickup to be paid for on delivery of cargo.
+	uint16 count;           // The amount of cargo in this packet.
+	byte days_in_transit;   // Amount of days this packet has been in transit.
+	SourceType source_type; // Type of \c source_id.
+	SourceID source_id;     // Index of source, INVALID_SOURCE if unknown/invalid.
+	StationID source;       // The station where the cargo came from first.
+	TileIndex source_xy;    // The origin of the cargo (first station in feeder chain).
 	union {
-		TileOrStationID loaded_at_xy; ///< Location where this cargo has been loaded into the vehicle.
-		TileOrStationID next_station; ///< Station where the cargo wants to go next.
+		TileOrStationID loaded_at_xy; // Location where this cargo has been loaded into the vehicle.
+		TileOrStationID next_station; // Station where the cargo wants to go next.
 	};
 
 	/** The CargoList caches, thus needs to know about it. */
@@ -212,19 +212,19 @@ public:
 	/** Kind of actions that could be done with packets on move. */
 	enum MoveToAction {
 		MTA_BEGIN = 0,
-		MTA_TRANSFER = 0, ///< Transfer the cargo to the station.
-		MTA_DELIVER,      ///< Deliver the cargo to some town or industry.
-		MTA_KEEP,         ///< Keep the cargo in the vehicle.
-		MTA_LOAD,         ///< Load the cargo from the station.
+		MTA_TRANSFER = 0, // Transfer the cargo to the station.
+		MTA_DELIVER,      // Deliver the cargo to some town or industry.
+		MTA_KEEP,         // Keep the cargo in the vehicle.
+		MTA_LOAD,         // Load the cargo from the station.
 		MTA_END,
 		NUM_MOVE_TO_ACTION = MTA_END
 	};
 
 protected:
-	uint count;                 ///< Cache for the number of cargo entities.
-	uint cargo_days_in_transit; ///< Cache for the sum of number of days in transit of each entity; comparable to man-hours.
+	uint count;                 // Cache for the number of cargo entities.
+	uint cargo_days_in_transit; // Cache for the sum of number of days in transit of each entity; comparable to man-hours.
 
-	Tcont packets;              ///< The cargo packets in this list.
+	Tcont packets;              // The cargo packets in this list.
 
 	void AddToCache(const CargoPacket *cp);
 
@@ -271,8 +271,8 @@ protected:
 	/** The (direct) parent of this class. */
 	typedef CargoList<VehicleCargoList, CargoPacketList> Parent;
 
-	Money feeder_share;                     ///< Cache for the feeder share.
-	uint action_counts[NUM_MOVE_TO_ACTION]; ///< Counts of cargo to be transferred, delivered, kept and loaded.
+	Money feeder_share;                     // Cache for the feeder share.
+	uint action_counts[NUM_MOVE_TO_ACTION]; // Counts of cargo to be transferred, delivered, kept and loaded.
 
 	template<class Taction>
 	void ShiftCargo(Taction action);
@@ -451,7 +451,7 @@ protected:
 	/** The (direct) parent of this class. */
 	typedef CargoList<StationCargoList, StationCargoPacketMap> Parent;
 
-	uint reserved_count; ///< Amount of cargo being reserved for loading.
+	uint reserved_count; // Amount of cargo being reserved for loading.
 
 public:
 	/** The super class ought to know what it's doing. */

@@ -24,9 +24,9 @@ void UnreserveRailTrack(TileIndex tile, Track t);
 
 /** This struct contains information about the end of a reserved path. */
 struct PBSTileInfo {
-	TileIndex tile;      ///< Tile the path ends, INVALID_TILE if no valid path was found.
-	Trackdir  trackdir;  ///< The reserved trackdir on the tile.
-	bool      okay;      ///< True if tile is a safe waiting position, false otherwise.
+	TileIndex tile;      // Tile the path ends, INVALID_TILE if no valid path was found.
+	Trackdir  trackdir;  // The reserved trackdir on the tile.
+	bool      okay;      // True if tile is a safe waiting position, false otherwise.
 
 	/**
 	 * Create an empty PBSTileInfo.

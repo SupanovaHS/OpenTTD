@@ -75,9 +75,9 @@ public:
 	void SetDemands(LinkGraphJob &job, NodeID from, NodeID to, uint demand_forw);
 
 private:
-	uint mod_size;        ///< Size modifier. Determines how much demands increase with the supply of the remote station.
-	uint supply_sum;      ///< Sum of all supplies in the component.
-	uint demand_per_node; ///< Mean demand associated with each node.
+	uint mod_size;        // Size modifier. Determines how much demands increase with the supply of the remote station.
+	uint supply_sum;      // Sum of all supplies in the component.
+	uint demand_per_node; // Mean demand associated with each node.
 };
 
 /**

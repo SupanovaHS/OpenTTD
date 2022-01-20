@@ -49,9 +49,9 @@ public:
 	const char *GetAPIVersion() const { return this->api_version; }
 
 private:
-	int min_loadable_version; ///< The AI can load savegame data if the version is equal or greater than this.
-	bool use_as_random;       ///< Should this AI be used when the user wants a "random AI"?
-	const char *api_version;  ///< API version used by this AI.
+	int min_loadable_version; // The AI can load savegame data if the version is equal or greater than this.
+	bool use_as_random;       // Should this AI be used when the user wants a "random AI"?
+	const char *api_version;  // API version used by this AI.
 };
 
 /** All static information from an AI library like name, version, etc. */
@@ -76,7 +76,7 @@ public:
 	const char *GetCategory() const { return this->category; }
 
 private:
-	const char *category; ///< The category this library is in.
+	const char *category; // The category this library is in.
 };
 
 #endif /* AI_INFO_HPP */

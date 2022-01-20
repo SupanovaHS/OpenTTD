@@ -21,21 +21,21 @@ extern RoadStopPool _roadstop_pool;
 /** A Stop for a Road Vehicle */
 struct RoadStop : RoadStopPool::PoolItem<&_roadstop_pool> {
 	enum RoadStopStatusFlags {
-		RSSFB_BAY0_FREE  = 0, ///< Non-zero when bay 0 is free
-		RSSFB_BAY1_FREE  = 1, ///< Non-zero when bay 1 is free
-		RSSFB_BAY_COUNT  = 2, ///< Max. number of bays
-		RSSFB_BASE_ENTRY = 6, ///< Non-zero when the entries on this road stop are the primary, i.e. the ones to delete
-		RSSFB_ENTRY_BUSY = 7, ///< Non-zero when roadstop entry is busy
+		RSSFB_BAY0_FREE  = 0, // Non-zero when bay 0 is free
+		RSSFB_BAY1_FREE  = 1, // Non-zero when bay 1 is free
+		RSSFB_BAY_COUNT  = 2, // Max. number of bays
+		RSSFB_BASE_ENTRY = 6, // Non-zero when the entries on this road stop are the primary, i.e. the ones to delete
+		RSSFB_ENTRY_BUSY = 7, // Non-zero when roadstop entry is busy
 	};
 
 	/** Container for each entry point of a drive through road stop */
 	struct Entry {
 	private:
-		int length;      ///< The length of the stop in tile 'units'
-		int occupied;    ///< The amount of occupied stop in tile 'units'
+		int length;      // The length of the stop in tile 'units'
+		int occupied;    // The amount of occupied stop in tile 'units'
 
 	public:
-		friend struct RoadStop; ///< Oh yeah, the road stop may play with me.
+		friend struct RoadStop; // Oh yeah, the road stop may play with me.
 
 		/** Create an entry */
 		Entry() : length(0), occupied(0) {}
@@ -64,9 +64,9 @@ struct RoadStop : RoadStopPool::PoolItem<&_roadstop_pool> {
 		void Rebuild(const RoadStop *rs, int side = -1);
 	};
 
-	TileIndex       xy;     ///< Position on the map
-	byte            status; ///< Current status of the Stop, @see RoadStopSatusFlag. Access using *Bay and *Busy functions.
-	struct RoadStop *next;  ///< Next stop of the given type at this station
+	TileIndex       xy;     // Position on the map
+	byte            status; // Current status of the Stop, @see RoadStopSatusFlag. Access using *Bay and *Busy functions.
+	struct RoadStop *next;  // Next stop of the given type at this station
 
 	/** Initializes a RoadStop */
 	inline RoadStop(TileIndex tile = INVALID_TILE) :
@@ -147,8 +147,8 @@ struct RoadStop : RoadStopPool::PoolItem<&_roadstop_pool> {
 	static bool IsDriveThroughRoadStopContinuation(TileIndex rs, TileIndex next);
 
 private:
-	Entry *east; ///< The vehicles that entered from the east
-	Entry *west; ///< The vehicles that entered from the west
+	Entry *east; // The vehicles that entered from the east
+	Entry *west; // The vehicles that entered from the west
 
 	/**
 	 * Allocates a bay

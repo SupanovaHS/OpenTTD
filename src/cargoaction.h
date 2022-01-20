@@ -19,8 +19,8 @@
 template<class Tsource>
 class CargoRemoval {
 protected:
-	Tsource *source; ///< Source of the cargo.
-	uint max_move;   ///< Maximum amount of cargo to be removed with this action.
+	Tsource *source; // Source of the cargo.
+	uint max_move;   // Maximum amount of cargo to be removed with this action.
 	uint Preprocess(CargoPacket *cp);
 	bool Postprocess(CargoPacket *cp, uint remove);
 public:
@@ -38,7 +38,7 @@ public:
 /** Action of final delivery of cargo. */
 class CargoDelivery : public CargoRemoval<VehicleCargoList> {
 protected:
-	CargoPayment *payment; ///< Payment object where payments will be registered.
+	CargoPayment *payment; // Payment object where payments will be registered.
 public:
 	CargoDelivery(VehicleCargoList *source, uint max_move, CargoPayment *payment) :
 			CargoRemoval<VehicleCargoList>(source, max_move), payment(payment) {}
@@ -53,9 +53,9 @@ public:
 template<class Tsource, class Tdest>
 class CargoMovement {
 protected:
-	Tsource *source;    ///< Source of the cargo.
-	Tdest *destination; ///< Destination for the cargo.
-	uint max_move;      ///< Maximum amount of cargo to be moved with this action.
+	Tsource *source;    // Source of the cargo.
+	Tdest *destination; // Destination for the cargo.
+	uint max_move;      // Maximum amount of cargo to be moved with this action.
 	CargoPacket *Preprocess(CargoPacket *cp);
 public:
 	CargoMovement(Tsource *source, Tdest *destination, uint max_move) : source(source), destination(destination), max_move(max_move) {}
@@ -78,7 +78,7 @@ public:
 /** Action of loading cargo from a station onto a vehicle. */
 class CargoLoad : public CargoMovement<StationCargoList, VehicleCargoList> {
 protected:
-	TileIndex load_place; ///< TileIndex to be saved in the packets' loaded_at_xy.
+	TileIndex load_place; // TileIndex to be saved in the packets' loaded_at_xy.
 public:
 	CargoLoad(StationCargoList *source, VehicleCargoList *destination, uint max_move, TileIndex load_place) :
 			CargoMovement<StationCargoList, VehicleCargoList>(source, destination, max_move), load_place(load_place) {}

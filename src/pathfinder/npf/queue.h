@@ -49,7 +49,7 @@ struct BinaryHeap {
 
 	uint max_size;
 	uint size;
-	uint blocks; ///< The amount of blocks for which space is reserved in elements
+	uint blocks; // The amount of blocks for which space is reserved in elements
 	BinaryHeapNode **elements;
 };
 

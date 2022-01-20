@@ -15,15 +15,15 @@
 
 /** Flags controlling the display of canals. */
 enum CanalFeatureFlag {
-	CFF_HAS_FLAT_SPRITE = 0, ///< Additional flat ground sprite in the beginning.
+	CFF_HAS_FLAT_SPRITE = 0, // Additional flat ground sprite in the beginning.
 };
 
 /** Information about a water feature. */
 struct WaterFeature {
-	const SpriteGroup *group; ///< Sprite group to start resolving.
-	const GRFFile *grffile;   ///< NewGRF where 'group' belongs to.
-	uint8 callback_mask;      ///< Bitmask of canal callbacks that have to be called.
-	uint8 flags;              ///< Flags controlling display.
+	const SpriteGroup *group; // Sprite group to start resolving.
+	const GRFFile *grffile;   // NewGRF where 'group' belongs to.
+	uint8 callback_mask;      // Bitmask of canal callbacks that have to be called.
+	uint8 flags;              // Flags controlling display.
 };
 
 

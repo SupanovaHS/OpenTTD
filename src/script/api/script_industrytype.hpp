@@ -22,8 +22,8 @@ public:
 	 * Special IndustryTypes.
 	 */
 	enum SpecialIndustryType {
-		INDUSTRYTYPE_UNKNOWN = 0xFE, ///< Unknown/unspecific industrytype. (Usable for ScriptRail::BuildNewGRFRailStation())
-		INDUSTRYTYPE_TOWN    = 0xFF, ///< No industry, but town. (Usable for ScriptRail::BuildNewGRFRailStation())
+		INDUSTRYTYPE_UNKNOWN = 0xFE, // Unknown/unspecific industrytype. (Usable for ScriptRail::BuildNewGRFRailStation())
+		INDUSTRYTYPE_TOWN    = 0xFF, // No industry, but town. (Usable for ScriptRail::BuildNewGRFRailStation())
 	};
 
 	/**

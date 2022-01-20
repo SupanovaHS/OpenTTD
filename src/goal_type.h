@@ -12,7 +12,7 @@
 
 #include "core/enum_type.hpp"
 
-static const uint32 GOAL_QUESTION_BUTTON_COUNT = 18; ///< Amount of buttons available.
+static const uint32 GOAL_QUESTION_BUTTON_COUNT = 18; // Amount of buttons available.
 
 enum GoalQuestionType : byte {
 	GQT_QUESTION = 0,
@@ -24,19 +24,19 @@ enum GoalQuestionType : byte {
 
 /** Types of goal destinations */
 enum GoalType : byte {
-	GT_NONE,         ///< Destination is not linked
-	GT_TILE,         ///< Destination is a tile
-	GT_INDUSTRY,     ///< Destination is an industry
-	GT_TOWN,         ///< Destination is a town
-	GT_COMPANY,      ///< Destination is a company
-	GT_STORY_PAGE,   ///< Destination is a story page
+	GT_NONE,         // Destination is not linked
+	GT_TILE,         // Destination is a tile
+	GT_INDUSTRY,     // Destination is an industry
+	GT_TOWN,         // Destination is a town
+	GT_COMPANY,      // Destination is a company
+	GT_STORY_PAGE,   // Destination is a story page
 };
 
-typedef uint32 GoalTypeID; ///< Contains either tile, industry ID, town ID or company ID (or INVALID_GOALTYPE)
-static const GoalTypeID INVALID_GOALTYPE = 0xFFFFFFFF; ///< Invalid/unknown index of GoalType
+typedef uint32 GoalTypeID; // Contains either tile, industry ID, town ID or company ID (or INVALID_GOALTYPE)
+static const GoalTypeID INVALID_GOALTYPE = 0xFFFFFFFF; // Invalid/unknown index of GoalType
 
-typedef uint16 GoalID; ///< ID of a goal
+typedef uint16 GoalID; // ID of a goal
 struct Goal;
-static const GoalID INVALID_GOAL = 0xFFFF; ///< Constant representing a non-existing goal.
+static const GoalID INVALID_GOAL = 0xFFFF; // Constant representing a non-existing goal.
 
 #endif /* GOAL_TYPE_H */

@@ -30,7 +30,7 @@
 
 #include "safeguards.h"
 
-SubsidyPool _subsidy_pool("Subsidy"); ///< Pool for the subsidies.
+SubsidyPool _subsidy_pool("Subsidy"); // Pool for the subsidies.
 INSTANTIATE_POOL_METHODS(Subsidy)
 
 /**

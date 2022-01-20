@@ -286,122 +286,122 @@ enum CallbackID {
  * Some callbacks are always used and don't have a mask.
  */
 enum VehicleCallbackMask {
-	CBM_VEHICLE_VISUAL_EFFECT  = 0, ///< Visual effects and wagon power (trains, road vehicles and ships)
-	CBM_VEHICLE_LENGTH         = 1, ///< Vehicle length (trains and road vehicles)
-	CBM_VEHICLE_LOAD_AMOUNT    = 2, ///< Load amount
-	CBM_VEHICLE_REFIT_CAPACITY = 3, ///< Cargo capacity after refit
-	CBM_VEHICLE_ARTIC_ENGINE   = 4, ///< Add articulated engines (trains and road vehicles)
-	CBM_VEHICLE_CARGO_SUFFIX   = 5, ///< Show suffix after cargo name
-	CBM_VEHICLE_COLOUR_REMAP   = 6, ///< Change colour mapping of vehicle
-	CBM_VEHICLE_SOUND_EFFECT   = 7, ///< Vehicle uses custom sound effects
+	CBM_VEHICLE_VISUAL_EFFECT  = 0, // Visual effects and wagon power (trains, road vehicles and ships)
+	CBM_VEHICLE_LENGTH         = 1, // Vehicle length (trains and road vehicles)
+	CBM_VEHICLE_LOAD_AMOUNT    = 2, // Load amount
+	CBM_VEHICLE_REFIT_CAPACITY = 3, // Cargo capacity after refit
+	CBM_VEHICLE_ARTIC_ENGINE   = 4, // Add articulated engines (trains and road vehicles)
+	CBM_VEHICLE_CARGO_SUFFIX   = 5, // Show suffix after cargo name
+	CBM_VEHICLE_COLOUR_REMAP   = 6, // Change colour mapping of vehicle
+	CBM_VEHICLE_SOUND_EFFECT   = 7, // Vehicle uses custom sound effects
 };
 
 /**
  * Callback masks for stations.
  */
 enum StationCallbackMask {
-	CBM_STATION_AVAIL                = 0, ///< Availability of station in construction window
-	CBM_STATION_SPRITE_LAYOUT        = 1, ///< Use callback to select a sprite layout to use
-	CBM_STATION_ANIMATION_NEXT_FRAME = 2, ///< Use a custom next frame callback
-	CBM_STATION_ANIMATION_SPEED      = 3, ///< Customize the animation speed of the station
-	CBM_STATION_SLOPE_CHECK          = 4, ///< Check slope of new station tiles
+	CBM_STATION_AVAIL                = 0, // Availability of station in construction window
+	CBM_STATION_SPRITE_LAYOUT        = 1, // Use callback to select a sprite layout to use
+	CBM_STATION_ANIMATION_NEXT_FRAME = 2, // Use a custom next frame callback
+	CBM_STATION_ANIMATION_SPEED      = 3, // Customize the animation speed of the station
+	CBM_STATION_SLOPE_CHECK          = 4, // Check slope of new station tiles
 };
 
 /**
  * Callback masks for houses.
  */
 enum HouseCallbackMask {
-	CBM_HOUSE_ALLOW_CONSTRUCTION        =  0, ///< decide whether the house can be built on a given tile
-	CBM_HOUSE_ANIMATION_NEXT_FRAME      =  1, ///< decides next animation frame
-	CBM_HOUSE_ANIMATION_START_STOP      =  2, ///< periodically start/stop the animation
-	CBM_HOUSE_CONSTRUCTION_STATE_CHANGE =  3, ///< change animation when construction state changes
-	CBM_HOUSE_COLOUR                    =  4, ///< decide the colour of the building
-	CBM_HOUSE_CARGO_ACCEPTANCE          =  5, ///< decides amount of cargo acceptance
-	CBM_HOUSE_ANIMATION_SPEED           =  6, ///< decides animation speed
-	CBM_HOUSE_DESTRUCTION               =  7, ///< trigger destruction of building
-	CBM_HOUSE_ACCEPT_CARGO              =  8, ///< decides accepted types
-	CBM_HOUSE_PRODUCE_CARGO             =  9, ///< custom cargo production
-	CBM_HOUSE_DENY_DESTRUCTION          = 10, ///< conditional protection
-	CBM_HOUSE_DRAW_FOUNDATIONS          = 11, ///< decides if default foundations need to be drawn
-	CBM_HOUSE_AUTOSLOPE                 = 12, ///< decides allowance of autosloping
+	CBM_HOUSE_ALLOW_CONSTRUCTION        =  0, // decide whether the house can be built on a given tile
+	CBM_HOUSE_ANIMATION_NEXT_FRAME      =  1, // decides next animation frame
+	CBM_HOUSE_ANIMATION_START_STOP      =  2, // periodically start/stop the animation
+	CBM_HOUSE_CONSTRUCTION_STATE_CHANGE =  3, // change animation when construction state changes
+	CBM_HOUSE_COLOUR                    =  4, // decide the colour of the building
+	CBM_HOUSE_CARGO_ACCEPTANCE          =  5, // decides amount of cargo acceptance
+	CBM_HOUSE_ANIMATION_SPEED           =  6, // decides animation speed
+	CBM_HOUSE_DESTRUCTION               =  7, // trigger destruction of building
+	CBM_HOUSE_ACCEPT_CARGO              =  8, // decides accepted types
+	CBM_HOUSE_PRODUCE_CARGO             =  9, // custom cargo production
+	CBM_HOUSE_DENY_DESTRUCTION          = 10, // conditional protection
+	CBM_HOUSE_DRAW_FOUNDATIONS          = 11, // decides if default foundations need to be drawn
+	CBM_HOUSE_AUTOSLOPE                 = 12, // decides allowance of autosloping
 };
 
 /**
  * Callback masks for canals.
  */
 enum CanalCallbackMask {
-	CBM_CANAL_SPRITE_OFFSET       = 0, ///< Enable add sprite offset callback
+	CBM_CANAL_SPRITE_OFFSET       = 0, // Enable add sprite offset callback
 };
 
 /**
  * Callback masks for cargoes.
  */
 enum CargoCallbackMask {
-	CBM_CARGO_PROFIT_CALC         = 0, ///< custom profit calculation
-	CBM_CARGO_STATION_RATING_CALC = 1, ///< custom station rating for this cargo type
+	CBM_CARGO_PROFIT_CALC         = 0, // custom profit calculation
+	CBM_CARGO_STATION_RATING_CALC = 1, // custom station rating for this cargo type
 };
 
 /**
  * Callback masks for Industries
  */
 enum IndustryCallbackMask {
-	CBM_IND_PROBABILITY               =  0, ///< industry availability/probability callback
-	CBM_IND_PRODUCTION_CARGO_ARRIVAL  =  1, ///< call production callback when cargo arrives at the industry
-	CBM_IND_PRODUCTION_256_TICKS      =  2, ///< call production callback every 256 ticks
-	CBM_IND_LOCATION                  =  3, ///< check industry construction on given area
-	CBM_IND_PRODUCTION_CHANGE         =  4, ///< controls random production change
-	CBM_IND_MONTHLYPROD_CHANGE        =  5, ///< controls monthly random production change
-	CBM_IND_CARGO_SUFFIX              =  6, ///< cargo sub-type display
-	CBM_IND_FUND_MORE_TEXT            =  7, ///< additional text in fund window
-	CBM_IND_WINDOW_MORE_TEXT          =  8, ///< additional text in industry window
-	CBM_IND_SPECIAL_EFFECT            =  9, ///< control special effects
-	CBM_IND_REFUSE_CARGO              = 10, ///< option out of accepting cargo
-	CBM_IND_DECIDE_COLOUR             = 11, ///< give a custom colour to newly build industries
-	CBM_IND_INPUT_CARGO_TYPES         = 12, ///< customize the cargoes the industry requires
-	CBM_IND_OUTPUT_CARGO_TYPES        = 13, ///< customize the cargoes the industry produces
-	CBM_IND_PROD_CHANGE_BUILD         = 14, ///< initialise production level on construction
+	CBM_IND_PROBABILITY               =  0, // industry availability/probability callback
+	CBM_IND_PRODUCTION_CARGO_ARRIVAL  =  1, // call production callback when cargo arrives at the industry
+	CBM_IND_PRODUCTION_256_TICKS      =  2, // call production callback every 256 ticks
+	CBM_IND_LOCATION                  =  3, // check industry construction on given area
+	CBM_IND_PRODUCTION_CHANGE         =  4, // controls random production change
+	CBM_IND_MONTHLYPROD_CHANGE        =  5, // controls monthly random production change
+	CBM_IND_CARGO_SUFFIX              =  6, // cargo sub-type display
+	CBM_IND_FUND_MORE_TEXT            =  7, // additional text in fund window
+	CBM_IND_WINDOW_MORE_TEXT          =  8, // additional text in industry window
+	CBM_IND_SPECIAL_EFFECT            =  9, // control special effects
+	CBM_IND_REFUSE_CARGO              = 10, // option out of accepting cargo
+	CBM_IND_DECIDE_COLOUR             = 11, // give a custom colour to newly build industries
+	CBM_IND_INPUT_CARGO_TYPES         = 12, // customize the cargoes the industry requires
+	CBM_IND_OUTPUT_CARGO_TYPES        = 13, // customize the cargoes the industry produces
+	CBM_IND_PROD_CHANGE_BUILD         = 14, // initialise production level on construction
 };
 
 /**
  * Callback masks for industry tiles
  */
 enum IndustryTileCallbackMask {
-	CBM_INDT_ANIM_NEXT_FRAME          = 0,  ///< decides next animation frame
-	CBM_INDT_ANIM_SPEED               = 1,  ///< decides animation speed
-	CBM_INDT_CARGO_ACCEPTANCE         = 2,  ///< decides amount of cargo acceptance
-	CBM_INDT_ACCEPT_CARGO             = 3,  ///< decides accepted types
-	CBM_INDT_SHAPE_CHECK              = 4,  ///< decides slope suitability
-	CBM_INDT_DRAW_FOUNDATIONS         = 5,  ///< decides if default foundations need to be drawn
-	CBM_INDT_AUTOSLOPE                = 6,  ///< decides allowance of autosloping
+	CBM_INDT_ANIM_NEXT_FRAME          = 0,  // decides next animation frame
+	CBM_INDT_ANIM_SPEED               = 1,  // decides animation speed
+	CBM_INDT_CARGO_ACCEPTANCE         = 2,  // decides amount of cargo acceptance
+	CBM_INDT_ACCEPT_CARGO             = 3,  // decides accepted types
+	CBM_INDT_SHAPE_CHECK              = 4,  // decides slope suitability
+	CBM_INDT_DRAW_FOUNDATIONS         = 5,  // decides if default foundations need to be drawn
+	CBM_INDT_AUTOSLOPE                = 6,  // decides allowance of autosloping
 };
 
 /**
  * Callback masks for objects
  */
 enum ObjectCallbackMask {
-	CBM_OBJ_SLOPE_CHECK               =  0, ///< decides slope suitability
-	CBM_OBJ_ANIMATION_NEXT_FRAME      =  1, ///< decides next animation frame
-	CBM_OBJ_ANIMATION_SPEED           =  2, ///< decides animation speed
-	CBM_OBJ_COLOUR                    =  3, ///< decide the colour of the building
-	CBM_OBJ_FUND_MORE_TEXT            =  4, ///< additional text in fund window
-	CBM_OBJ_AUTOSLOPE                 =  5, ///< decides allowance of autosloping
+	CBM_OBJ_SLOPE_CHECK               =  0, // decides slope suitability
+	CBM_OBJ_ANIMATION_NEXT_FRAME      =  1, // decides next animation frame
+	CBM_OBJ_ANIMATION_SPEED           =  2, // decides animation speed
+	CBM_OBJ_COLOUR                    =  3, // decide the colour of the building
+	CBM_OBJ_FUND_MORE_TEXT            =  4, // additional text in fund window
+	CBM_OBJ_AUTOSLOPE                 =  5, // decides allowance of autosloping
 };
 
 /**
  * Callback masks for airport tiles
  */
 enum AirportTileCallbackMask {
-	CBM_AIRT_ANIM_NEXT_FRAME          = 0,  ///< decides next animation frame
-	CBM_AIRT_ANIM_SPEED               = 1,  ///< decides animation speed
-	CBM_AIRT_SHAPE_CHECK              = 4,  ///< decides slope suitability
-	CBM_AIRT_DRAW_FOUNDATIONS         = 5,  ///< decides if default foundations need to be drawn
-	CBM_AIRT_AUTOSLOPE                = 6,  ///< decides allowance of autosloping
+	CBM_AIRT_ANIM_NEXT_FRAME          = 0,  // decides next animation frame
+	CBM_AIRT_ANIM_SPEED               = 1,  // decides animation speed
+	CBM_AIRT_SHAPE_CHECK              = 4,  // decides slope suitability
+	CBM_AIRT_DRAW_FOUNDATIONS         = 5,  // decides if default foundations need to be drawn
+	CBM_AIRT_AUTOSLOPE                = 6,  // decides allowance of autosloping
 };
 
 /**
  * Different values for Callback result evaluations
  */
-static const uint CALLBACK_FAILED              = 0xFFFF; ///< Result of a failed callback.
-static const uint CALLBACK_HOUSEPRODCARGO_END  = 0x20FF; ///< Sentinel indicating that the loop for CBID_HOUSE_PRODUCE_CARGO has ended
+static const uint CALLBACK_FAILED              = 0xFFFF; // Result of a failed callback.
+static const uint CALLBACK_HOUSEPRODCARGO_END  = 0x20FF; // Sentinel indicating that the loop for CBID_HOUSE_PRODUCE_CARGO has ended
 
 #endif /* NEWGRF_CALLBACKS_H */

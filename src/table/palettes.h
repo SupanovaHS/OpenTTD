@@ -94,21 +94,21 @@ static const Palette _palette = {
 };
 
 /** Description of the length of the palette cycle animations */
-static const uint EPV_CYCLES_DARK_WATER    =  5; ///< length of the dark blue water animation
-static const uint EPV_CYCLES_LIGHTHOUSE    =  4; ///< length of the lighthouse/stadium animation
-static const uint EPV_CYCLES_OIL_REFINERY  =  7; ///< length of the oil refinery's fire animation
-static const uint EPV_CYCLES_FIZZY_DRINK   =  5; ///< length of the fizzy drinks animation
-static const uint EPV_CYCLES_GLITTER_WATER = 15; ///< length of the glittery water animation
+static const uint EPV_CYCLES_DARK_WATER    =  5; // length of the dark blue water animation
+static const uint EPV_CYCLES_LIGHTHOUSE    =  4; // length of the lighthouse/stadium animation
+static const uint EPV_CYCLES_OIL_REFINERY  =  7; // length of the oil refinery's fire animation
+static const uint EPV_CYCLES_FIZZY_DRINK   =  5; // length of the fizzy drinks animation
+static const uint EPV_CYCLES_GLITTER_WATER = 15; // length of the glittery water animation
 
 /** Description of tables for the palette animation */
 struct ExtraPaletteValues {
-	Colour dark_water[EPV_CYCLES_DARK_WATER];               ///< dark blue water
-	Colour dark_water_toyland[EPV_CYCLES_DARK_WATER];       ///< dark blue water Toyland
-	Colour lighthouse[EPV_CYCLES_LIGHTHOUSE];               ///< lighthouse & stadium
-	Colour oil_refinery[EPV_CYCLES_OIL_REFINERY];           ///< oil refinery
-	Colour fizzy_drink[EPV_CYCLES_FIZZY_DRINK];             ///< fizzy drinks
-	Colour glitter_water[EPV_CYCLES_GLITTER_WATER];         ///< glittery water
-	Colour glitter_water_toyland[EPV_CYCLES_GLITTER_WATER]; ///< glittery water Toyland
+	Colour dark_water[EPV_CYCLES_DARK_WATER];               // dark blue water
+	Colour dark_water_toyland[EPV_CYCLES_DARK_WATER];       // dark blue water Toyland
+	Colour lighthouse[EPV_CYCLES_LIGHTHOUSE];               // lighthouse & stadium
+	Colour oil_refinery[EPV_CYCLES_OIL_REFINERY];           // oil refinery
+	Colour fizzy_drink[EPV_CYCLES_FIZZY_DRINK];             // fizzy drinks
+	Colour glitter_water[EPV_CYCLES_GLITTER_WATER];         // glittery water
+	Colour glitter_water_toyland[EPV_CYCLES_GLITTER_WATER]; // glittery water Toyland
 };
 
 /** Actual palette animation tables */

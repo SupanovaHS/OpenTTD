@@ -23,8 +23,8 @@
 template <typename T>
 class ReusableBuffer {
 private:
-	T *buffer;    ///< The real data buffer
-	size_t count; ///< Number of T elements in the buffer
+	T *buffer;    // The real data buffer
+	size_t count; // Number of T elements in the buffer
 
 public:
 	/** Create a new buffer */

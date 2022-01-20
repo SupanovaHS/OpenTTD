@@ -67,7 +67,7 @@ std::array<TarList, NUM_SUBDIRS> _tar_list;
 TarFileList _tar_filelist[NUM_SUBDIRS];
 
 typedef std::map<std::string, std::string> TarLinkList;
-static TarLinkList _tar_linklist[NUM_SUBDIRS]; ///< List of directory links
+static TarLinkList _tar_linklist[NUM_SUBDIRS]; // List of directory links
 
 /**
  * Checks whether the given search path is a valid search path
@@ -462,11 +462,11 @@ bool TarScanner::AddFile(const std::string &filename, size_t basepath_length, co
 
 	/* The TAR-header, repeated for every file */
 	struct TarHeader {
-		char name[100];      ///< Name of the file
+		char name[100];      // Name of the file
 		char mode[8];
 		char uid[8];
 		char gid[8];
-		char size[12];       ///< Size of the file, in ASCII
+		char size[12];       // Size of the file, in ASCII
 		char mtime[12];
 		char chksum[8];
 		char typeflag;
@@ -477,7 +477,7 @@ bool TarScanner::AddFile(const std::string &filename, size_t basepath_length, co
 		char gname[32];
 		char devmajor[8];
 		char devminor[8];
-		char prefix[155];    ///< Path of the file
+		char prefix[155];    // Path of the file
 
 		char unused[12];
 	};
@@ -495,7 +495,7 @@ bool TarScanner::AddFile(const std::string &filename, size_t basepath_length, co
 
 	_tar_list[this->subdir][filename] = std::string{};
 
-	TarLinkList links; ///< Temporary list to collect links
+	TarLinkList links; // Temporary list to collect links
 
 	TarHeader th;
 	char buf[sizeof(th.name) + 1], *end;

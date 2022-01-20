@@ -24,10 +24,10 @@
 struct LinkProperties {
 	LinkProperties() : capacity(0), usage(0), planned(0), shared(false) {}
 
-	uint capacity; ///< Capacity of the link.
-	uint usage;    ///< Actual usage of the link.
-	uint planned;  ///< Planned usage of the link.
-	bool shared;   ///< If this is a shared link to be drawn dashed.
+	uint capacity; // Capacity of the link.
+	uint usage;    // Actual usage of the link.
+	uint planned;  // Planned usage of the link.
+	bool shared;   // If this is a shared link to be drawn dashed.
 };
 
 /**
@@ -68,14 +68,14 @@ public:
 	uint32 GetCompanyMask() { return this->company_mask; }
 
 protected:
-	const Window *window;              ///< Window to be drawn into.
-	const uint widget_id;              ///< ID of Widget in Window to be drawn to.
-	CargoTypes cargo_mask;             ///< Bitmask of cargos to be displayed.
-	uint32 company_mask;               ///< Bitmask of companies to be displayed.
-	LinkMap cached_links;              ///< Cache for links to reduce recalculation.
-	StationSupplyList cached_stations; ///< Cache for stations to be drawn.
-	uint scale;                        ///< Width of link lines.
-	bool dirty;                        ///< Set if overlay should be rebuilt.
+	const Window *window;              // Window to be drawn into.
+	const uint widget_id;              // ID of Widget in Window to be drawn to.
+	CargoTypes cargo_mask;             // Bitmask of cargos to be displayed.
+	uint32 company_mask;               // Bitmask of companies to be displayed.
+	LinkMap cached_links;              // Cache for links to reduce recalculation.
+	StationSupplyList cached_stations; // Cache for stations to be drawn.
+	uint scale;                        // Width of link lines.
+	bool dirty;                        // Set if overlay should be rebuilt.
 
 	Point GetStationMiddle(const Station *st) const;
 

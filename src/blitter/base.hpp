@@ -15,11 +15,11 @@
 
 /** The modes of blitting we can do. */
 enum BlitterMode {
-	BM_NORMAL,       ///< Perform the simple blitting.
-	BM_COLOUR_REMAP, ///< Perform a colour remapping.
-	BM_TRANSPARENT,  ///< Perform transparency colour remapping.
-	BM_CRASH_REMAP,  ///< Perform a crash remapping.
-	BM_BLACK_REMAP,  ///< Perform remapping to a completely blackened sprite
+	BM_NORMAL,       // Perform the simple blitting.
+	BM_COLOUR_REMAP, // Perform a colour remapping.
+	BM_TRANSPARENT,  // Perform transparency colour remapping.
+	BM_CRASH_REMAP,  // Perform a crash remapping.
+	BM_BLACK_REMAP,  // Perform remapping to a completely blackened sprite
 };
 
 /**
@@ -29,27 +29,27 @@ class Blitter : public SpriteEncoder {
 public:
 	/** Parameters related to blitting. */
 	struct BlitterParams {
-		const void *sprite; ///< Pointer to the sprite how ever the encoder stored it
-		const byte *remap;  ///< XXX -- Temporary storage for remap array
+		const void *sprite; // Pointer to the sprite how ever the encoder stored it
+		const byte *remap;  // XXX -- Temporary storage for remap array
 
-		int skip_left;      ///< How much pixels of the source to skip on the left (based on zoom of dst)
-		int skip_top;       ///< How much pixels of the source to skip on the top (based on zoom of dst)
-		int width;          ///< The width in pixels that needs to be drawn to dst
-		int height;         ///< The height in pixels that needs to be drawn to dst
-		int sprite_width;   ///< Real width of the sprite
-		int sprite_height;  ///< Real height of the sprite
-		int left;           ///< The left offset in the 'dst' in pixels to start drawing
-		int top;            ///< The top offset in the 'dst' in pixels to start drawing
+		int skip_left;      // How much pixels of the source to skip on the left (based on zoom of dst)
+		int skip_top;       // How much pixels of the source to skip on the top (based on zoom of dst)
+		int width;          // The width in pixels that needs to be drawn to dst
+		int height;         // The height in pixels that needs to be drawn to dst
+		int sprite_width;   // Real width of the sprite
+		int sprite_height;  // Real height of the sprite
+		int left;           // The left offset in the 'dst' in pixels to start drawing
+		int top;            // The top offset in the 'dst' in pixels to start drawing
 
-		void *dst;          ///< Destination buffer
-		int pitch;          ///< The pitch of the destination buffer
+		void *dst;          // Destination buffer
+		int pitch;          // The pitch of the destination buffer
 	};
 
 	/** Types of palette animation. */
 	enum PaletteAnimation {
-		PALETTE_ANIMATION_NONE,           ///< No palette animation
-		PALETTE_ANIMATION_VIDEO_BACKEND,  ///< Palette animation should be done by video backend (8bpp only!)
-		PALETTE_ANIMATION_BLITTER,        ///< The blitter takes care of the palette animation
+		PALETTE_ANIMATION_NONE,           // No palette animation
+		PALETTE_ANIMATION_VIDEO_BACKEND,  // Palette animation should be done by video backend (8bpp only!)
+		PALETTE_ANIMATION_BLITTER,        // The blitter takes care of the palette animation
 	};
 
 	/**

@@ -25,16 +25,16 @@ public:
 	 */
 	enum CargoClass {
 		/* Note: these values represent part of the in-game CargoClass enum */
-		CC_PASSENGERS   = ::CC_PASSENGERS,   ///< Passengers. Cargoes of this class appear at bus stops. Cargoes not of this class appear at truck stops.
-		CC_MAIL         = ::CC_MAIL,         ///< Mail
-		CC_EXPRESS      = ::CC_EXPRESS,      ///< Express cargo (Goods, Food, Candy, but also possible for passengers)
-		CC_ARMOURED     = ::CC_ARMOURED,     ///< Armoured cargo (Valuables, Gold, Diamonds)
-		CC_BULK         = ::CC_BULK,         ///< Bulk cargo (Coal, Grain etc., Ores, Fruit)
-		CC_PIECE_GOODS  = ::CC_PIECE_GOODS,  ///< Piece goods (Livestock, Wood, Steel, Paper)
-		CC_LIQUID       = ::CC_LIQUID,       ///< Liquids (Oil, Water, Rubber)
-		CC_REFRIGERATED = ::CC_REFRIGERATED, ///< Refrigerated cargo (Food, Fruit)
-		CC_HAZARDOUS    = ::CC_HAZARDOUS,    ///< Hazardous cargo (Nuclear Fuel, Explosives, etc.)
-		CC_COVERED      = ::CC_COVERED,      ///< Covered/Sheltered Freight (Transportation in Box Vans, Silo Wagons, etc.)
+		CC_PASSENGERS   = ::CC_PASSENGERS,   // Passengers. Cargoes of this class appear at bus stops. Cargoes not of this class appear at truck stops.
+		CC_MAIL         = ::CC_MAIL,         // Mail
+		CC_EXPRESS      = ::CC_EXPRESS,      // Express cargo (Goods, Food, Candy, but also possible for passengers)
+		CC_ARMOURED     = ::CC_ARMOURED,     // Armoured cargo (Valuables, Gold, Diamonds)
+		CC_BULK         = ::CC_BULK,         // Bulk cargo (Coal, Grain etc., Ores, Fruit)
+		CC_PIECE_GOODS  = ::CC_PIECE_GOODS,  // Piece goods (Livestock, Wood, Steel, Paper)
+		CC_LIQUID       = ::CC_LIQUID,       // Liquids (Oil, Water, Rubber)
+		CC_REFRIGERATED = ::CC_REFRIGERATED, // Refrigerated cargo (Food, Fruit)
+		CC_HAZARDOUS    = ::CC_HAZARDOUS,    // Hazardous cargo (Nuclear Fuel, Explosives, etc.)
+		CC_COVERED      = ::CC_COVERED,      // Covered/Sheltered Freight (Transportation in Box Vans, Silo Wagons, etc.)
 	};
 
 	/**
@@ -42,12 +42,12 @@ public:
 	 */
 	enum TownEffect {
 		/* Note: these values represent part of the in-game TownEffect enum */
-		TE_NONE       = ::TE_NONE,       ///< This cargo has no effect on a town
-		TE_PASSENGERS = ::TE_PASSENGERS, ///< This cargo supplies passengers to a town
-		TE_MAIL       = ::TE_MAIL,       ///< This cargo supplies mail to a town
-		TE_GOODS      = ::TE_GOODS,      ///< This cargo supplies goods to a town
-		TE_WATER      = ::TE_WATER,      ///< This cargo supplies water to a town
-		TE_FOOD       = ::TE_FOOD,       ///< This cargo supplies food to a town
+		TE_NONE       = ::TE_NONE,       // This cargo has no effect on a town
+		TE_PASSENGERS = ::TE_PASSENGERS, // This cargo supplies passengers to a town
+		TE_MAIL       = ::TE_MAIL,       // This cargo supplies mail to a town
+		TE_GOODS      = ::TE_GOODS,      // This cargo supplies goods to a town
+		TE_WATER      = ::TE_WATER,      // This cargo supplies water to a town
+		TE_FOOD       = ::TE_FOOD,       // This cargo supplies food to a town
 	};
 
 	/**
@@ -55,19 +55,19 @@ public:
 	 */
 	enum SpecialCargoID {
 		/* Note: these values represent part of the in-game CargoTypes enum */
-		CT_AUTO_REFIT = ::CT_AUTO_REFIT, ///< Automatically choose cargo type when doing auto-refitting.
-		CT_NO_REFIT   = ::CT_NO_REFIT,   ///< Do not refit cargo of a vehicle.
-		CT_INVALID    = ::CT_INVALID,    ///< An invalid cargo type.
+		CT_AUTO_REFIT = ::CT_AUTO_REFIT, // Automatically choose cargo type when doing auto-refitting.
+		CT_NO_REFIT   = ::CT_NO_REFIT,   // Do not refit cargo of a vehicle.
+		CT_INVALID    = ::CT_INVALID,    // An invalid cargo type.
 	};
 
 	/**
 	 * Type of cargo distribution.
 	 */
 	enum DistributionType {
-		DT_MANUAL = ::DT_MANUAL,         ///< Manual distribution.
-		DT_ASYMMETRIC = ::DT_ASYMMETRIC, ///< Asymmetric distribution. Usually cargo will only travel in one direction.
-		DT_SYMMETRIC = ::DT_SYMMETRIC,   ///< Symmetric distribution. The same amount of cargo travels in each direction between each pair of nodes.
-		INVALID_DISTRIBUTION_TYPE = 0xFFFF, ///< Invalid distribution type.
+		DT_MANUAL = ::DT_MANUAL,         // Manual distribution.
+		DT_ASYMMETRIC = ::DT_ASYMMETRIC, // Asymmetric distribution. Usually cargo will only travel in one direction.
+		DT_SYMMETRIC = ::DT_SYMMETRIC,   // Symmetric distribution. The same amount of cargo travels in each direction between each pair of nodes.
+		INVALID_DISTRIBUTION_TYPE = 0xFFFF, // Invalid distribution type.
 	};
 
 	/**

@@ -16,8 +16,8 @@
 
 /** Resolver for the railtype scope. */
 struct RoadTypeScopeResolver : public ScopeResolver {
-	TileIndex tile;      ///< Tracktile. For track on a bridge this is the southern bridgehead.
-	TileContext context; ///< Are we resolving sprites for the upper halftile, or on a bridge?
+	TileIndex tile;      // Tracktile. For track on a bridge this is the southern bridgehead.
+	TileContext context; // Are we resolving sprites for the upper halftile, or on a bridge?
 	const RoadTypeInfo *rti;
 
 	/**
@@ -38,7 +38,7 @@ struct RoadTypeScopeResolver : public ScopeResolver {
 
 /** Resolver object for road types. */
 struct RoadTypeResolverObject : public ResolverObject {
-	RoadTypeScopeResolver roadtype_scope; ///< Resolver for the roadtype scope.
+	RoadTypeScopeResolver roadtype_scope; // Resolver for the roadtype scope.
 
 	RoadTypeResolverObject(const RoadTypeInfo *rti, TileIndex tile, TileContext context, RoadTypeSpriteGroup rtsg, uint32 param1 = 0, uint32 param2 = 0);
 

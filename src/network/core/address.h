@@ -19,8 +19,8 @@
 #include <string>
 
 class NetworkAddress;
-typedef std::vector<NetworkAddress> NetworkAddressList; ///< Type for a list of addresses.
-typedef SmallMap<NetworkAddress, SOCKET> SocketList;    ///< Type for a mapping between address and socket.
+typedef std::vector<NetworkAddress> NetworkAddressList; // Type for a list of addresses.
+typedef SmallMap<NetworkAddress, SOCKET> SocketList;    // Type for a mapping between address and socket.
 
 /**
  * Wrapper for (un)resolved network addresses; there's no reason to transform
@@ -29,10 +29,10 @@ typedef SmallMap<NetworkAddress, SOCKET> SocketList;    ///< Type for a mapping 
  */
 class NetworkAddress {
 private:
-	std::string hostname;     ///< The hostname
-	int address_length;       ///< The length of the resolved address
-	sockaddr_storage address; ///< The resolved address
-	bool resolved;            ///< Whether the address has been (tried to be) resolved
+	std::string hostname;     // The hostname
+	int address_length;       // The length of the resolved address
+	sockaddr_storage address; // The resolved address
+	bool resolved;            // Whether the address has been (tried to be) resolved
 
 	/**
 	 * Helper function to resolve something to a socket.
@@ -186,8 +186,8 @@ public:
  * Sorting will prefer entries at the top of this list above ones at the bottom.
  */
 enum ServerAddressType {
-	SERVER_ADDRESS_DIRECT,      ///< Server-address is based on an hostname:port.
-	SERVER_ADDRESS_INVITE_CODE, ///< Server-address is based on an invite code.
+	SERVER_ADDRESS_DIRECT,      // Server-address is based on an hostname:port.
+	SERVER_ADDRESS_INVITE_CODE, // Server-address is based on an invite code.
 };
 
 /**
@@ -208,8 +208,8 @@ private:
 	ServerAddress(ServerAddressType type, const std::string &connection_string) : type(type), connection_string(connection_string) {}
 
 public:
-	ServerAddressType type;        ///< The type of this ServerAddress.
-	std::string connection_string; ///< The connection string for this ServerAddress.
+	ServerAddressType type;        // The type of this ServerAddress.
+	std::string connection_string; // The connection string for this ServerAddress.
 
 	static ServerAddress Parse(const std::string &connection_string, uint16 default_port, CompanyID *company_id = nullptr);
 };

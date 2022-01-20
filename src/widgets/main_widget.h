@@ -12,7 +12,7 @@
 
 /** Widgets of the #MainWindow class. */
 enum MainWidgets {
-	WID_M_VIEWPORT, ///< Main window viewport.
+	WID_M_VIEWPORT, // Main window viewport.
 };
 
 #endif /* WIDGETS_MAIN_WIDGET_H */

@@ -29,41 +29,41 @@
 
 #include "safeguards.h"
 
-byte _dirkeys;        ///< 1 = left, 2 = up, 4 = right, 8 = down
+byte _dirkeys;        // 1 = left, 2 = up, 4 = right, 8 = down
 bool _fullscreen;
 byte _support8bpp;
 CursorVars _cursor;
-bool _ctrl_pressed;   ///< Is Ctrl pressed?
-bool _shift_pressed;  ///< Is Shift pressed?
-uint16 _game_speed = 100; ///< Current game-speed; 100 is 1x, 0 is infinite.
-bool _left_button_down;     ///< Is left mouse button pressed?
-bool _left_button_clicked;  ///< Is left mouse button clicked?
-bool _right_button_down;    ///< Is right mouse button pressed?
-bool _right_button_clicked; ///< Is right mouse button clicked?
+bool _ctrl_pressed;   // Is Ctrl pressed?
+bool _shift_pressed;  // Is Shift pressed?
+uint16 _game_speed = 100; // Current game-speed; 100 is 1x, 0 is infinite.
+bool _left_button_down;     // Is left mouse button pressed?
+bool _left_button_clicked;  // Is left mouse button clicked?
+bool _right_button_down;    // Is right mouse button pressed?
+bool _right_button_clicked; // Is right mouse button clicked?
 DrawPixelInfo _screen;
-bool _screen_disable_anim = false;   ///< Disable palette animation (important for 32bpp-anim blitter during giant screenshot)
+bool _screen_disable_anim = false;   // Disable palette animation (important for 32bpp-anim blitter during giant screenshot)
 std::atomic<bool> _exit_game;
 GameMode _game_mode;
-SwitchMode _switch_mode;  ///< The next mainloop command.
+SwitchMode _switch_mode;  // The next mainloop command.
 PauseMode _pause_mode;
 Palette _cur_palette;
 
-static byte _stringwidth_table[FS_END][224]; ///< Cache containing width of often used characters. @see GetCharacterWidth()
+static byte _stringwidth_table[FS_END][224]; // Cache containing width of often used characters. @see GetCharacterWidth()
 DrawPixelInfo *_cur_dpi;
 byte _colour_gradient[COLOUR_END][8];
 
-static std::recursive_mutex _palette_mutex; ///< To coordinate access to _cur_palette.
+static std::recursive_mutex _palette_mutex; // To coordinate access to _cur_palette.
 
 static void GfxMainBlitterViewport(const Sprite *sprite, int x, int y, BlitterMode mode, const SubSprite *sub = nullptr, SpriteID sprite_id = SPR_CURSOR_MOUSE);
 static void GfxMainBlitter(const Sprite *sprite, int x, int y, BlitterMode mode, const SubSprite *sub = nullptr, SpriteID sprite_id = SPR_CURSOR_MOUSE, ZoomLevel zoom = ZOOM_LVL_NORMAL);
 
 static ReusableBuffer<uint8> _cursor_backup;
 
-ZoomLevel _gui_zoom; ///< GUI Zoom level
-ZoomLevel _font_zoom; ///< Font Zoom level
+ZoomLevel _gui_zoom; // GUI Zoom level
+ZoomLevel _font_zoom; // Font Zoom level
 
-int8 _gui_zoom_cfg;  ///< GUI zoom level in config.
-int8 _font_zoom_cfg; ///< Font zoom level in config.
+int8 _gui_zoom_cfg;  // GUI zoom level in config.
+int8 _font_zoom_cfg; // Font zoom level in config.
 
 
 /**
@@ -75,7 +75,7 @@ int8 _font_zoom_cfg; ///< Font zoom level in config.
  */
 static Rect _invalid_rect;
 static const byte *_colour_remap_ptr;
-static byte _string_colourremap[3]; ///< Recoloursprite for stringdrawing. The grf loader ensures that #ST_FONT sprites only use colours 0 to 2.
+static byte _string_colourremap[3]; // Recoloursprite for stringdrawing. The grf loader ensures that #ST_FONT sprites only use colours 0 to 2.
 
 static const uint DIRTY_BLOCK_HEIGHT   = 8;
 static const uint DIRTY_BLOCK_WIDTH    = 64;

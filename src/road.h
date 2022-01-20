@@ -36,18 +36,18 @@ static const RoadTramType _roadtramtypes[] = { RTT_ROAD, RTT_TRAM };
 
 /** Roadtype flags. Starts with RO instead of R because R is used for rails */
 enum RoadTypeFlags {
-	ROTF_CATENARY = 0,                                     ///< Bit number for adding catenary
-	ROTF_NO_LEVEL_CROSSING,                                ///< Bit number for disabling level crossing
-	ROTF_NO_HOUSES,                                        ///< Bit number for setting this roadtype as not house friendly
-	ROTF_HIDDEN,                                           ///< Bit number for hidden from construction.
-	ROTF_TOWN_BUILD,                                       ///< Bit number for allowing towns to build this roadtype.
+	ROTF_CATENARY = 0,                                     // Bit number for adding catenary
+	ROTF_NO_LEVEL_CROSSING,                                // Bit number for disabling level crossing
+	ROTF_NO_HOUSES,                                        // Bit number for setting this roadtype as not house friendly
+	ROTF_HIDDEN,                                           // Bit number for hidden from construction.
+	ROTF_TOWN_BUILD,                                       // Bit number for allowing towns to build this roadtype.
 
-	ROTFB_NONE = 0,                                        ///< All flags cleared.
-	ROTFB_CATENARY          = 1 << ROTF_CATENARY,          ///< Value for drawing a catenary.
-	ROTFB_NO_LEVEL_CROSSING = 1 << ROTF_NO_LEVEL_CROSSING, ///< Value for disabling a level crossing.
-	ROTFB_NO_HOUSES         = 1 << ROTF_NO_HOUSES,         ///< Value for for setting this roadtype as not house friendly.
-	ROTFB_HIDDEN            = 1 << ROTF_HIDDEN,            ///< Value for hidden from construction.
-	ROTFB_TOWN_BUILD        = 1 << ROTF_TOWN_BUILD,        ///< Value for allowing towns to build this roadtype.
+	ROTFB_NONE = 0,                                        // All flags cleared.
+	ROTFB_CATENARY          = 1 << ROTF_CATENARY,          // Value for drawing a catenary.
+	ROTFB_NO_LEVEL_CROSSING = 1 << ROTF_NO_LEVEL_CROSSING, // Value for disabling a level crossing.
+	ROTFB_NO_HOUSES         = 1 << ROTF_NO_HOUSES,         // Value for for setting this roadtype as not house friendly.
+	ROTFB_HIDDEN            = 1 << ROTF_HIDDEN,            // Value for hidden from construction.
+	ROTFB_TOWN_BUILD        = 1 << ROTF_TOWN_BUILD,        // Value for allowing towns to build this roadtype.
 };
 DECLARE_ENUM_AS_BIT_SET(RoadTypeFlags)
 
@@ -55,17 +55,17 @@ struct SpriteGroup;
 
 /** Sprite groups for a roadtype. */
 enum RoadTypeSpriteGroup {
-	ROTSG_CURSORS,        ///< Optional: Cursor and toolbar icon images
-	ROTSG_OVERLAY,        ///< Optional: Images for overlaying track
-	ROTSG_GROUND,         ///< Required: Main group of ground images
-	ROTSG_reserved1,      ///<           Placeholder, if we need specific tunnel sprites.
-	ROTSG_CATENARY_FRONT, ///< Optional: Catenary front
-	ROTSG_CATENARY_BACK,  ///< Optional: Catenary back
-	ROTSG_BRIDGE,         ///< Required: Bridge surface images
-	ROTSG_reserved2,      ///<           Placeholder, if we need specific level crossing sprites.
-	ROTSG_DEPOT,          ///< Optional: Depot images
-	ROTSG_reserved3,      ///<           Placeholder, if we add road fences (for highways).
-	ROTSG_ROADSTOP,       ///< Required: Drive-in stop surface
+	ROTSG_CURSORS,        // Optional: Cursor and toolbar icon images
+	ROTSG_OVERLAY,        // Optional: Images for overlaying track
+	ROTSG_GROUND,         // Required: Main group of ground images
+	ROTSG_reserved1,      //           Placeholder, if we need specific tunnel sprites.
+	ROTSG_CATENARY_FRONT, // Optional: Catenary front
+	ROTSG_CATENARY_BACK,  // Optional: Catenary back
+	ROTSG_BRIDGE,         // Required: Bridge surface images
+	ROTSG_reserved2,      //           Placeholder, if we need specific level crossing sprites.
+	ROTSG_DEPOT,          // Optional: Depot images
+	ROTSG_reserved3,      //           Placeholder, if we add road fences (for highways).
+	ROTSG_ROADSTOP,       // Required: Drive-in stop surface
 	ROTSG_END,
 };
 
@@ -79,41 +79,41 @@ public:
 	 * directly in the code are listed
 	 */
 	struct {
-		SpriteID build_x_road;        ///< button for building single rail in X direction
-		SpriteID build_y_road;        ///< button for building single rail in Y direction
-		SpriteID auto_road;           ///< button for the autoroad construction
-		SpriteID build_depot;         ///< button for building depots
-		SpriteID build_tunnel;        ///< button for building a tunnel
-		SpriteID convert_road;        ///< button for converting road types
+		SpriteID build_x_road;        // button for building single rail in X direction
+		SpriteID build_y_road;        // button for building single rail in Y direction
+		SpriteID auto_road;           // button for the autoroad construction
+		SpriteID build_depot;         // button for building depots
+		SpriteID build_tunnel;        // button for building a tunnel
+		SpriteID convert_road;        // button for converting road types
 	} gui_sprites;
 
 	struct {
-		CursorID road_swne;     ///< Cursor for building rail in X direction
-		CursorID road_nwse;     ///< Cursor for building rail in Y direction
-		CursorID autoroad;      ///< Cursor for autorail tool
-		CursorID depot;         ///< Cursor for building a depot
-		CursorID tunnel;        ///< Cursor for building a tunnel
-		SpriteID convert_road;  ///< Cursor for converting road types
-	} cursor;                       ///< Cursors associated with the road type.
+		CursorID road_swne;     // Cursor for building rail in X direction
+		CursorID road_nwse;     // Cursor for building rail in Y direction
+		CursorID autoroad;      // Cursor for autorail tool
+		CursorID depot;         // Cursor for building a depot
+		CursorID tunnel;        // Cursor for building a tunnel
+		SpriteID convert_road;  // Cursor for converting road types
+	} cursor;                       // Cursors associated with the road type.
 
 	struct {
-		StringID name;            ///< Name of this rail type.
-		StringID toolbar_caption; ///< Caption in the construction toolbar GUI for this rail type.
-		StringID menu_text;       ///< Name of this rail type in the main toolbar dropdown.
-		StringID build_caption;   ///< Caption of the build vehicle GUI for this rail type.
-		StringID replace_text;    ///< Text used in the autoreplace GUI.
-		StringID new_engine;      ///< Name of an engine for this type of road in the engine preview GUI.
+		StringID name;            // Name of this rail type.
+		StringID toolbar_caption; // Caption in the construction toolbar GUI for this rail type.
+		StringID menu_text;       // Name of this rail type in the main toolbar dropdown.
+		StringID build_caption;   // Caption of the build vehicle GUI for this rail type.
+		StringID replace_text;    // Text used in the autoreplace GUI.
+		StringID new_engine;      // Name of an engine for this type of road in the engine preview GUI.
 
-		StringID err_build_road;        ///< Building a normal piece of road
-		StringID err_remove_road;       ///< Removing a normal piece of road
-		StringID err_depot;             ///< Building a depot
-		StringID err_build_station[2];  ///< Building a bus or truck station
-		StringID err_remove_station[2]; ///< Removing of a bus or truck station
-		StringID err_convert_road;      ///< Converting a road type
+		StringID err_build_road;        // Building a normal piece of road
+		StringID err_remove_road;       // Removing a normal piece of road
+		StringID err_depot;             // Building a depot
+		StringID err_build_station[2];  // Building a bus or truck station
+		StringID err_remove_station[2]; // Removing of a bus or truck station
+		StringID err_convert_road;      // Converting a road type
 
-		StringID picker_title[2];       ///< Title for the station picker for bus or truck stations
-		StringID picker_tooltip[2];     ///< Tooltip for the station picker for bus or truck stations
-	} strings;                        ///< Strings associated with the rail type.
+		StringID picker_title[2];       // Title for the station picker for bus or truck stations
+		StringID picker_tooltip[2];     // Tooltip for the station picker for bus or truck stations
+	} strings;                        // Strings associated with the rail type.
 
 	/** bitmask to the OTHER roadtypes on which a vehicle of THIS roadtype generates power */
 	RoadTypes powered_roadtypes;

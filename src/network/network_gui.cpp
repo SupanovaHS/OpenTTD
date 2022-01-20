@@ -55,10 +55,10 @@
 
 static void ShowNetworkStartServerWindow();
 
-static const int NETWORK_LIST_REFRESH_DELAY = 30; ///< Time, in seconds, between updates of the network list.
+static const int NETWORK_LIST_REFRESH_DELAY = 30; // Time, in seconds, between updates of the network list.
 
-static ClientID _admin_client_id = INVALID_CLIENT_ID; ///< For what client a confirmation window is open.
-static CompanyID _admin_company_id = INVALID_COMPANY; ///< For what company a confirmation window is open.
+static ClientID _admin_client_id = INVALID_CLIENT_ID; // For what client a confirmation window is open.
+static CompanyID _admin_company_id = INVALID_COMPANY; // For what company a confirmation window is open.
 
 /**
  * Update the network new window because a new server is
@@ -86,8 +86,8 @@ static const ServerListPosition SLP_INVALID = -1;
 
 /** Full blown container to make it behave exactly as we want :) */
 class NWidgetServerListHeader : public NWidgetContainer {
-	static const uint MINIMUM_NAME_WIDTH_BEFORE_NEW_HEADER = 150; ///< Minimum width before adding a new header
-	bool visible[6]; ///< The visible headers
+	static const uint MINIMUM_NAME_WIDTH_BEFORE_NEW_HEADER = 150; // Minimum width before adding a new header
+	bool visible[6]; // The visible headers
 public:
 	NWidgetServerListHeader() : NWidgetContainer(NWID_HORIZONTAL)
 	{
@@ -223,19 +223,19 @@ protected:
 	static GUIGameServerList::SortFunction * const sorter_funcs[];
 	static GUIGameServerList::FilterFunction * const filter_funcs[];
 
-	NetworkGameList *server;        ///< Selected server.
-	NetworkGameList *last_joined;   ///< The last joined server.
-	GUIGameServerList servers;      ///< List with game servers.
-	ServerListPosition list_pos;    ///< Position of the selected server.
-	Scrollbar *vscroll;             ///< Vertical scrollbar of the list of servers.
-	QueryString name_editbox;       ///< Client name editbox.
-	QueryString filter_editbox;     ///< Editbox for filter on servers.
-	GUITimer requery_timer;         ///< Timer for network requery.
-	bool searched_internet = false; ///< Did we ever press "Search Internet" button?
+	NetworkGameList *server;        // Selected server.
+	NetworkGameList *last_joined;   // The last joined server.
+	GUIGameServerList servers;      // List with game servers.
+	ServerListPosition list_pos;    // Position of the selected server.
+	Scrollbar *vscroll;             // Vertical scrollbar of the list of servers.
+	QueryString name_editbox;       // Client name editbox.
+	QueryString filter_editbox;     // Editbox for filter on servers.
+	GUITimer requery_timer;         // Timer for network requery.
+	bool searched_internet = false; // Did we ever press "Search Internet" button?
 
-	int lock_offset; ///< Left offset for lock icon.
-	int blot_offset; ///< Left offset for green/yellow/red compatibility icon.
-	int flag_offset; ///< Left offset for language flag icon.
+	int lock_offset; // Left offset for lock icon.
+	int blot_offset; // Left offset for green/yellow/red compatibility icon.
+	int flag_offset; // Left offset for language flag icon.
 
 	/**
 	 * (Re)build the GUI network game list (a.k.a. this->servers) as some
@@ -1024,8 +1024,8 @@ void ShowNetworkGameWindow()
 }
 
 struct NetworkStartServerWindow : public Window {
-	byte widget_id;              ///< The widget that has the pop-up input menu
-	QueryString name_editbox;    ///< Server name editbox.
+	byte widget_id;              // The widget that has the pop-up input menu
+	QueryString name_editbox;    // Server name editbox.
 
 	NetworkStartServerWindow(WindowDesc *desc) : Window(desc), name_editbox(NETWORK_NAME_LENGTH)
 	{
@@ -1419,12 +1419,12 @@ static void AdminCompanyUnlockCallback(Window *w, bool confirmed)
  */
 class ButtonCommon {
 public:
-	SpriteID sprite;   ///< The sprite to use on the button.
-	StringID tooltip;  ///< The tooltip of the button.
-	Colours colour;    ///< The colour of the button.
-	bool disabled;     ///< Is the button disabled?
-	uint height;       ///< Calculated height of the button.
-	uint width;        ///< Calculated width of the button.
+	SpriteID sprite;   // The sprite to use on the button.
+	StringID tooltip;  // The tooltip of the button.
+	Colours colour;    // The colour of the button.
+	bool disabled;     // Is the button disabled?
+	uint height;       // Calculated height of the button.
+	uint width;        // Calculated width of the button.
 
 	ButtonCommon(SpriteID sprite, StringID tooltip, Colours colour, bool disabled = false) :
 		sprite(sprite),
@@ -1450,9 +1450,9 @@ public:
 template<typename T>
 class Button : public ButtonCommon {
 private:
-	typedef void (*ButtonCallback)(struct NetworkClientListWindow *w, Point pt, T id); ///< Callback function to call on click.
-	T id;                 ///< ID this button belongs to.
-	ButtonCallback proc;  ///< Callback proc to call when button is pressed.
+	typedef void (*ButtonCallback)(struct NetworkClientListWindow *w, Point pt, T id); // Callback function to call on click.
+	T id;                 // ID this button belongs to.
+	ButtonCallback proc;  // Callback proc to call when button is pressed.
 
 public:
 	Button(SpriteID sprite, StringID tooltip, Colours colour, T id, ButtonCallback proc, bool disabled = false) :
@@ -1479,22 +1479,22 @@ using ClientButton = Button<ClientID>;
  */
 struct NetworkClientListWindow : Window {
 private:
-	ClientListWidgets query_widget; ///< During a query this tracks what widget caused the query.
-	CompanyID join_company; ///< During query for company password, this stores what company we wanted to join.
+	ClientListWidgets query_widget; // During a query this tracks what widget caused the query.
+	CompanyID join_company; // During query for company password, this stores what company we wanted to join.
 
-	ClientID dd_client_id; ///< During admin dropdown, track which client this was for.
-	CompanyID dd_company_id; ///< During admin dropdown, track which company this was for.
+	ClientID dd_client_id; // During admin dropdown, track which client this was for.
+	CompanyID dd_company_id; // During admin dropdown, track which company this was for.
 
-	Scrollbar *vscroll; ///< Vertical scrollbar of this window.
-	uint line_height; ///< Current lineheight of each entry in the matrix.
-	uint line_count; ///< Amount of lines in the matrix.
-	int hover_index; ///< Index of the current line we are hovering over, or -1 if none.
-	int player_self_index; ///< The line the current player is on.
-	int player_host_index; ///< The line the host is on.
+	Scrollbar *vscroll; // Vertical scrollbar of this window.
+	uint line_height; // Current lineheight of each entry in the matrix.
+	uint line_count; // Amount of lines in the matrix.
+	int hover_index; // Index of the current line we are hovering over, or -1 if none.
+	int player_self_index; // The line the current player is on.
+	int player_host_index; // The line the host is on.
 
-	std::map<uint, std::vector<std::unique_ptr<ButtonCommon>>> buttons; ///< Per line which buttons are available.
+	std::map<uint, std::vector<std::unique_ptr<ButtonCommon>>> buttons; // Per line which buttons are available.
 
-	static const int CLIENT_OFFSET_LEFT = 12; ///< Offset of client entries compared to company entries.
+	static const int CLIENT_OFFSET_LEFT = 12; // Offset of client entries compared to company entries.
 
 	/**
 	 * Chat button on a Company is clicked.
@@ -2131,10 +2131,10 @@ void ShowClientList()
 	AllocateWindowDescFront<NetworkClientListWindow>(&_client_list_desc, 0);
 }
 
-NetworkJoinStatus _network_join_status; ///< The status of joining.
-uint8 _network_join_waiting;            ///< The number of clients waiting in front of us.
-uint32 _network_join_bytes;             ///< The number of bytes we already downloaded.
-uint32 _network_join_bytes_total;       ///< The total number of bytes to download.
+NetworkJoinStatus _network_join_status; // The status of joining.
+uint8 _network_join_waiting;            // The number of clients waiting in front of us.
+uint32 _network_join_bytes;             // The number of bytes we already downloaded.
+uint32 _network_join_bytes_total;       // The total number of bytes to download.
 
 struct NetworkJoinStatusWindow : Window {
 	NetworkPasswordType password_type;
@@ -2272,8 +2272,8 @@ void ShowNetworkNeedPassword(NetworkPasswordType npt)
 }
 
 struct NetworkCompanyPasswordWindow : public Window {
-	QueryString password_editbox; ///< Password editbox.
-	Dimension warning_size;       ///< How much space to use for the warning text
+	QueryString password_editbox; // Password editbox.
+	Dimension warning_size;       // How much space to use for the warning text
 
 	NetworkCompanyPasswordWindow(WindowDesc *desc, Window *parent) : Window(desc), password_editbox(lengthof(_settings_client.network.default_company_pass))
 	{
@@ -2384,9 +2384,9 @@ void ShowNetworkCompanyPasswordWindow(Window *parent)
  * Window used for asking the user if he is okay using a relay server.
  */
 struct NetworkAskRelayWindow : public Window {
-	std::string server_connection_string; ///< The game server we want to connect to.
-	std::string relay_connection_string;  ///< The relay server we want to connect to.
-	std::string token;                    ///< The token for this connection.
+	std::string server_connection_string; // The game server we want to connect to.
+	std::string relay_connection_string;  // The relay server we want to connect to.
+	std::string token;                    // The token for this connection.
 
 	NetworkAskRelayWindow(WindowDesc *desc, Window *parent, const std::string &server_connection_string, const std::string &relay_connection_string, const std::string &token) :
 		Window(desc),

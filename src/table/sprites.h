@@ -1495,11 +1495,11 @@ static const CursorID SPR_CURSOR_BUILDSIGNALS_LAST  = 1293;
 
 /** Flag for saying a cursor sprite is an animated cursor. */
 static const CursorID ANIMCURSOR_FLAG         = 1U << 31;
-static const CursorID ANIMCURSOR_DEMOLISH     = ANIMCURSOR_FLAG | 0; ///<  704 -  707 - demolish dynamite
-static const CursorID ANIMCURSOR_LOWERLAND    = ANIMCURSOR_FLAG | 1; ///<  699 -  701 - lower land tool
-static const CursorID ANIMCURSOR_RAISELAND    = ANIMCURSOR_FLAG | 2; ///<  696 -  698 - raise land tool
-static const CursorID ANIMCURSOR_PICKSTATION  = ANIMCURSOR_FLAG | 3; ///<  716 -  718 - goto-order icon
-static const CursorID ANIMCURSOR_BUILDSIGNALS = ANIMCURSOR_FLAG | 4; ///< 1292 - 1293 - build signal
+static const CursorID ANIMCURSOR_DEMOLISH     = ANIMCURSOR_FLAG | 0; //  704 -  707 - demolish dynamite
+static const CursorID ANIMCURSOR_LOWERLAND    = ANIMCURSOR_FLAG | 1; //  699 -  701 - lower land tool
+static const CursorID ANIMCURSOR_RAISELAND    = ANIMCURSOR_FLAG | 2; //  696 -  698 - raise land tool
+static const CursorID ANIMCURSOR_PICKSTATION  = ANIMCURSOR_FLAG | 3; //  716 -  718 - goto-order icon
+static const CursorID ANIMCURSOR_BUILDSIGNALS = ANIMCURSOR_FLAG | 4; // 1292 - 1293 - build signal
 
 /**
  * Bitmask setup. For the graphics system, 32 bits are used to define
@@ -1513,16 +1513,16 @@ static const CursorID ANIMCURSOR_BUILDSIGNALS = ANIMCURSOR_FLAG | 4; ///< 1292 -
  */
 enum SpriteSetup {
 	/* These bits are applied to sprite ID */
-	TRANSPARENT_BIT = 31,       ///< toggles transparency in the sprite
-	RECOLOUR_BIT = 30,          ///< toggles recolouring in the sprite
+	TRANSPARENT_BIT = 31,       // toggles transparency in the sprite
+	RECOLOUR_BIT = 30,          // toggles recolouring in the sprite
 	CUSTOM_BIT = 29,
 	OPAQUE_BIT = 28,
 
 	/* This bit is applied to palette ID */
-	PALETTE_TEXT_RECOLOUR = 31, ///< Set if palette is actually a magic text recolour
+	PALETTE_TEXT_RECOLOUR = 31, // Set if palette is actually a magic text recolour
 
-	PALETTE_WIDTH = 24,         ///< number of bits of the sprite containing the recolour palette
-	SPRITE_WIDTH = 24,          ///< number of bits for the sprite number
+	PALETTE_WIDTH = 24,         // number of bits of the sprite containing the recolour palette
+	SPRITE_WIDTH = 24,          // number of bits for the sprite number
 };
 
 /**
@@ -1534,10 +1534,10 @@ enum SpriteSetup {
  * @see SpriteSetup
  */
 enum Modifiers {
-	SPRITE_MODIFIER_CUSTOM_SPRITE = CUSTOM_BIT,      ///< Set when a sprite originates from an Action 1
-	SPRITE_MODIFIER_OPAQUE        = OPAQUE_BIT,      ///< Set when a sprite must not ever be displayed transparently
-	PALETTE_MODIFIER_TRANSPARENT  = TRANSPARENT_BIT, ///< when a sprite is to be displayed transparently, this bit needs to be set.
-	PALETTE_MODIFIER_COLOUR       = RECOLOUR_BIT,    ///< this bit is set when a recolouring process is in action
+	SPRITE_MODIFIER_CUSTOM_SPRITE = CUSTOM_BIT,      // Set when a sprite originates from an Action 1
+	SPRITE_MODIFIER_OPAQUE        = OPAQUE_BIT,      // Set when a sprite must not ever be displayed transparently
+	PALETTE_MODIFIER_TRANSPARENT  = TRANSPARENT_BIT, // when a sprite is to be displayed transparently, this bit needs to be set.
+	PALETTE_MODIFIER_COLOUR       = RECOLOUR_BIT,    // this bit is set when a recolouring process is in action
 };
 
 /**
@@ -1546,11 +1546,11 @@ enum Modifiers {
  * @see SpriteSetup
  */
 enum SpriteMasks {
-	MAX_SPRITES = 1 << SPRITE_WIDTH,       ///< Maximum number of sprites that can be loaded at a given time
-	SPRITE_MASK = MAX_SPRITES - 1,         ///< The mask to for the main sprite
+	MAX_SPRITES = 1 << SPRITE_WIDTH,       // Maximum number of sprites that can be loaded at a given time
+	SPRITE_MASK = MAX_SPRITES - 1,         // The mask to for the main sprite
 
 	MAX_PALETTES = 1 << PALETTE_WIDTH,
-	PALETTE_MASK = MAX_PALETTES - 1,       ///< The mask for the auxiliary sprite (the one that takes care of recolouring)
+	PALETTE_MASK = MAX_PALETTES - 1,       // The mask for the auxiliary sprite (the one that takes care of recolouring)
 };
 
 static_assert( (1 << TRANSPARENT_BIT & SPRITE_MASK) == 0 );
@@ -1561,12 +1561,12 @@ static_assert( (1 << RECOLOUR_BIT & PALETTE_MASK) == 0 );
 
 
 static const PaletteID PAL_NONE                    = 0;
-static const PaletteID PALETTE_TILE_RED_PULSATING  = 771;  ///< pulsating red tile drawn if you try to build a wrong tunnel or raise/lower land where it is not possible
-static const PaletteID PALETTE_SEL_TILE_RED        = 772;  ///< makes a square red. is used when removing rails or other stuff
-static const PaletteID PALETTE_SEL_TILE_BLUE       = 773;  ///< This draws a blueish square (catchment areas for example)
+static const PaletteID PALETTE_TILE_RED_PULSATING  = 771;  // pulsating red tile drawn if you try to build a wrong tunnel or raise/lower land where it is not possible
+static const PaletteID PALETTE_SEL_TILE_RED        = 772;  // makes a square red. is used when removing rails or other stuff
+static const PaletteID PALETTE_SEL_TILE_BLUE       = 773;  // This draws a blueish square (catchment areas for example)
 
 /* Company re-colour sprites */
-static const PaletteID PALETTE_RECOLOUR_START      = 775;  ///< First recolour sprite for company colours
+static const PaletteID PALETTE_RECOLOUR_START      = 775;  // First recolour sprite for company colours
 static const PaletteID PALETTE_TO_DARK_BLUE        = 775;
 static const PaletteID PALETTE_TO_PALE_GREEN       = 776;
 static const PaletteID PALETTE_TO_PINK             = 777;
@@ -1585,24 +1585,24 @@ static const PaletteID PALETTE_TO_BROWN            = 788;
 static const PaletteID PALETTE_TO_GREY             = 789;
 static const PaletteID PALETTE_TO_WHITE            = 790;
 
-static const PaletteID PALETTE_TO_BARE_LAND        = 791;  ///< sets colour to bare land stuff for rail, road and crossings
+static const PaletteID PALETTE_TO_BARE_LAND        = 791;  // sets colour to bare land stuff for rail, road and crossings
 /* recolour sprites 792-794 are not used */
-static const PaletteID PALETTE_TO_STRUCT_BLUE      = 795;  ///< sets bridge or structure to blue (e.g. some town houses)
-static const PaletteID PALETTE_TO_STRUCT_BROWN     = 796;  ///< sets bridge or structure to brown (e.g. cantilever bridge)
-static const PaletteID PALETTE_TO_STRUCT_WHITE     = 797;  ///< sets bridge or structure to white (e.g. some town houses)
-static const PaletteID PALETTE_TO_STRUCT_RED       = 798;  ///< sets bridge or structure to red (e.g. concrete and cantilever bridge)
-static const PaletteID PALETTE_TO_STRUCT_GREEN     = 799;  ///< sets bridge or structure to green (e.g. bridge)
-static const PaletteID PALETTE_TO_STRUCT_CONCRETE  = 800;  ///< Sets the suspension bridge to concrete, also other structures use it
-static const PaletteID PALETTE_TO_STRUCT_YELLOW    = 801;  ///< Sets the bridge colour to yellow (suspension and tubular)
-static const PaletteID PALETTE_TO_TRANSPARENT      = 802;  ///< This sets the sprite to transparent
+static const PaletteID PALETTE_TO_STRUCT_BLUE      = 795;  // sets bridge or structure to blue (e.g. some town houses)
+static const PaletteID PALETTE_TO_STRUCT_BROWN     = 796;  // sets bridge or structure to brown (e.g. cantilever bridge)
+static const PaletteID PALETTE_TO_STRUCT_WHITE     = 797;  // sets bridge or structure to white (e.g. some town houses)
+static const PaletteID PALETTE_TO_STRUCT_RED       = 798;  // sets bridge or structure to red (e.g. concrete and cantilever bridge)
+static const PaletteID PALETTE_TO_STRUCT_GREEN     = 799;  // sets bridge or structure to green (e.g. bridge)
+static const PaletteID PALETTE_TO_STRUCT_CONCRETE  = 800;  // Sets the suspension bridge to concrete, also other structures use it
+static const PaletteID PALETTE_TO_STRUCT_YELLOW    = 801;  // Sets the bridge colour to yellow (suspension and tubular)
+static const PaletteID PALETTE_TO_TRANSPARENT      = 802;  // This sets the sprite to transparent
 
-static const PaletteID PALETTE_NEWSPAPER           = 803;  ///< Recolour sprite for newspaper-greying.
-static const PaletteID PALETTE_CRASH               = 804;  ///< Recolour sprite greying of crashed vehicles.
+static const PaletteID PALETTE_NEWSPAPER           = 803;  // Recolour sprite for newspaper-greying.
+static const PaletteID PALETTE_CRASH               = 804;  // Recolour sprite greying of crashed vehicles.
 
 /* Two recolourings only used by the church */
-static const PaletteID PALETTE_CHURCH_RED          = 1438; ///< Recolour sprite for reddish churches
-static const PaletteID PALETTE_CHURCH_CREAM        = 1439; ///< Recolour sprite for white churches
+static const PaletteID PALETTE_CHURCH_RED          = 1438; // Recolour sprite for reddish churches
+static const PaletteID PALETTE_CHURCH_CREAM        = 1439; // Recolour sprite for white churches
 
-static const PaletteID PALETTE_ALL_BLACK           = SPR_PALETTE_BASE; ///< Exchange any color by black, needed for painting fictive tiles outside map
+static const PaletteID PALETTE_ALL_BLACK           = SPR_PALETTE_BASE; // Exchange any color by black, needed for painting fictive tiles outside map
 
 #endif /* SPRITES_H */

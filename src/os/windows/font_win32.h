@@ -16,12 +16,12 @@
 /** Font cache for fonts that are based on a Win32 font. */
 class Win32FontCache : public TrueTypeFontCache {
 private:
-	LOGFONT logfont;      ///< Logical font information for selecting the font face.
-	HFONT font = nullptr; ///< The font face associated with this font.
-	HDC dc = nullptr;     ///< Cached GDI device context.
-	HGDIOBJ old_font;     ///< Old font selected into the GDI context.
-	SIZE glyph_size;      ///< Maximum size of regular glyphs.
-	std::string fontname; ///< Cached copy of this->logfont.lfFaceName
+	LOGFONT logfont;      // Logical font information for selecting the font face.
+	HFONT font = nullptr; // The font face associated with this font.
+	HDC dc = nullptr;     // Cached GDI device context.
+	HGDIOBJ old_font;     // Old font selected into the GDI context.
+	SIZE glyph_size;      // Maximum size of regular glyphs.
+	std::string fontname; // Cached copy of this->logfont.lfFaceName
 
 	void SetFontSize(FontSize fs, int pixels);
 

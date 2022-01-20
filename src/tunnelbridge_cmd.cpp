@@ -49,8 +49,8 @@
 
 #include "safeguards.h"
 
-BridgeSpec _bridge[MAX_BRIDGES]; ///< The specification of all bridges.
-TileIndex _build_tunnel_endtile; ///< The end of a tunnel; as hidden return from the tunnel build command for GUI purposes.
+BridgeSpec _bridge[MAX_BRIDGES]; // The specification of all bridges.
+TileIndex _build_tunnel_endtile; // The end of a tunnel; as hidden return from the tunnel build command for GUI purposes.
 
 /** Z position of the bridge sprites relative to bridge height (downwards) */
 static const int BRIDGE_Z_START = 3;
@@ -1046,7 +1046,7 @@ static CommandCost ClearTile_TunnelBridge(TileIndex tile, DoCommandFlag flags)
  */
 static inline void DrawPillar(const PalSpriteID *psid, int x, int y, int z, int w, int h, const SubSprite *subsprite)
 {
-	static const int PILLAR_Z_OFFSET = TILE_HEIGHT - BRIDGE_Z_START; ///< Start offset of pillar wrt. bridge (downwards)
+	static const int PILLAR_Z_OFFSET = TILE_HEIGHT - BRIDGE_Z_START; // Start offset of pillar wrt. bridge (downwards)
 	AddSortableSpriteToDraw(psid->sprite, psid->pal, x, y, w, h, BB_HEIGHT_UNDER_BRIDGE - PILLAR_Z_OFFSET, z, IsTransparencySet(TO_BRIDGES), 0, 0, -PILLAR_Z_OFFSET, subsprite);
 }
 
@@ -1083,10 +1083,10 @@ static int DrawPillarColumn(int z_bottom, int z_top, const PalSpriteID *psid, in
  */
 static void DrawBridgePillars(const PalSpriteID *psid, const TileInfo *ti, Axis axis, bool drawfarpillar, int x, int y, int z_bridge)
 {
-	static const int bounding_box_size[2]  = {16, 2}; ///< bounding box size of pillars along bridge direction
-	static const int back_pillar_offset[2] = { 0, 9}; ///< sprite position offset of back facing pillar
+	static const int bounding_box_size[2]  = {16, 2}; // bounding box size of pillars along bridge direction
+	static const int back_pillar_offset[2] = { 0, 9}; // sprite position offset of back facing pillar
 
-	static const int INF = 1000; ///< big number compared to sprite size
+	static const int INF = 1000; // big number compared to sprite size
 	static const SubSprite half_pillar_sub_sprite[2][2] = {
 		{ {  -14, -INF, INF, INF }, { -INF, -INF, -15, INF } }, // X axis, north and south
 		{ { -INF, -INF,  15, INF }, {   16, -INF, INF, INF } }, // Y axis, north and south

@@ -24,15 +24,15 @@
 
 /** Return status of #AyStar methods. */
 enum AystarStatus {
-	AYSTAR_FOUND_END_NODE, ///< An end node was found.
-	AYSTAR_EMPTY_OPENLIST, ///< All items are tested, and no path has been found.
-	AYSTAR_STILL_BUSY,     ///< Some checking was done, but no path found yet, and there are still items left to try.
-	AYSTAR_NO_PATH,        ///< No path to the goal was found.
-	AYSTAR_LIMIT_REACHED,  ///< The #AyStar::max_search_nodes limit has been reached, aborting search.
-	AYSTAR_DONE,           ///< Not an end-tile, or wrong direction.
+	AYSTAR_FOUND_END_NODE, // An end node was found.
+	AYSTAR_EMPTY_OPENLIST, // All items are tested, and no path has been found.
+	AYSTAR_STILL_BUSY,     // Some checking was done, but no path found yet, and there are still items left to try.
+	AYSTAR_NO_PATH,        // No path to the goal was found.
+	AYSTAR_LIMIT_REACHED,  // The #AyStar::max_search_nodes limit has been reached, aborting search.
+	AYSTAR_DONE,           // Not an end-tile, or wrong direction.
 };
 
-static const int AYSTAR_INVALID_NODE = -1; ///< Item is not valid (for example, not walkable).
+static const int AYSTAR_INVALID_NODE = -1; // Item is not valid (for example, not walkable).
 
 /** Node in the search. */
 struct AyStarNode {
@@ -44,7 +44,7 @@ struct AyStarNode {
 /** A path of nodes. */
 struct PathNode {
 	AyStarNode node;
-	PathNode *parent; ///< The parent of this item.
+	PathNode *parent; // The parent of this item.
 };
 
 /**
@@ -135,9 +135,9 @@ struct AyStar {
 	void *user_target;
 	void *user_data;
 
-	byte loops_per_tick;   ///< How many loops are there called before Main() gives control back to the caller. 0 = until done.
-	uint max_path_cost;    ///< If the g-value goes over this number, it stops searching, 0 = infinite.
-	uint max_search_nodes; ///< The maximum number of nodes that will be expanded, 0 = infinite.
+	byte loops_per_tick;   // How many loops are there called before Main() gives control back to the caller. 0 = until done.
+	uint max_path_cost;    // If the g-value goes over this number, it stops searching, 0 = infinite.
+	uint max_search_nodes; // The maximum number of nodes that will be expanded, 0 = infinite.
 
 	/* These should be filled with the neighbours of a tile by
 	 * GetNeighbours */
@@ -156,9 +156,9 @@ struct AyStar {
 	void CheckTile(AyStarNode *current, OpenListNode *parent);
 
 protected:
-	Hash       closedlist_hash; ///< The actual closed list.
-	BinaryHeap openlist_queue;  ///< The open queue.
-	Hash       openlist_hash;   ///< An extra hash to speed up the process of looking up an element in the open list.
+	Hash       closedlist_hash; // The actual closed list.
+	BinaryHeap openlist_queue;  // The open queue.
+	Hash       openlist_hash;   // An extra hash to speed up the process of looking up an element in the open list.
 
 	void OpenListAdd(PathNode *parent, const AyStarNode *node, int f, int g);
 	OpenListNode *OpenListIsInList(const AyStarNode *node);

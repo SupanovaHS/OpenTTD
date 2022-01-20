@@ -35,9 +35,9 @@
 #include "safeguards.h"
 
 
-static AirportClassID _selected_airport_class; ///< the currently visible airport class
-static int _selected_airport_index;            ///< the index of the selected airport in the current class or -1
-static byte _selected_airport_layout;          ///< selected airport layout number.
+static AirportClassID _selected_airport_class; // the currently visible airport class
+static int _selected_airport_index;            // the index of the selected airport in the current class or -1
+static byte _selected_airport_layout;          // selected airport layout number.
 
 static void ShowBuildAirportPicker(Window *parent);
 
@@ -233,7 +233,7 @@ Window *ShowBuildAirToolbar()
 }
 
 class BuildAirportWindow : public PickerWindowBase {
-	SpriteID preview_sprite; ///< Cached airport preview sprite.
+	SpriteID preview_sprite; // Cached airport preview sprite.
 	int line_height;
 	Scrollbar *vscroll;
 

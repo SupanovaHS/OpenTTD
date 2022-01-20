@@ -37,8 +37,8 @@
 */
 
 struct ScriptAllocator {
-	size_t allocated_size;   ///< Sum of allocated data size
-	size_t allocation_limit; ///< Maximum this allocator may use before allocations fail
+	size_t allocated_size;   // Sum of allocated data size
+	size_t allocation_limit; // Maximum this allocator may use before allocations fail
 	/**
 	 * Whether the error has already been thrown, so to not throw secondary errors in
 	 * the handling of the allocation error. This as the handling of the error will
@@ -47,7 +47,7 @@ struct ScriptAllocator {
 	 */
 	bool error_thrown;
 
-	static const size_t SAFE_LIMIT = 0x8000000; ///< 128 MiB, a safe choice for almost any situation
+	static const size_t SAFE_LIMIT = 0x8000000; // 128 MiB, a safe choice for almost any situation
 
 #ifdef SCRIPT_DEBUG_ALLOCATIONS
 	std::map<void *, size_t> allocations;

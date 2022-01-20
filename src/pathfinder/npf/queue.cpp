@@ -19,7 +19,7 @@
  * For information, see: http://www.policyalmanac.org/games/binaryHeaps.htm
  */
 
-const int BinaryHeap::BINARY_HEAP_BLOCKSIZE_BITS = 10; ///< The number of elements that will be malloc'd at a time.
+const int BinaryHeap::BINARY_HEAP_BLOCKSIZE_BITS = 10; // The number of elements that will be malloc'd at a time.
 const int BinaryHeap::BINARY_HEAP_BLOCKSIZE      = 1 << BinaryHeap::BINARY_HEAP_BLOCKSIZE_BITS;
 const int BinaryHeap::BINARY_HEAP_BLOCKSIZE_MASK = BinaryHeap::BINARY_HEAP_BLOCKSIZE - 1;
 

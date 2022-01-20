@@ -20,8 +20,8 @@
 #include "../window_func.h"
 #include "video_driver.hpp"
 
-bool _video_hw_accel; ///< Whether to consider hardware accelerated video drivers.
-bool _video_vsync; ///< Whether we should use vsync (only if _video_hw_accel is enabled).
+bool _video_hw_accel; // Whether to consider hardware accelerated video drivers.
+bool _video_vsync; // Whether we should use vsync (only if _video_hw_accel is enabled).
 
 void VideoDriver::GameLoop()
 {

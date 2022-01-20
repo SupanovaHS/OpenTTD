@@ -65,9 +65,9 @@ class UniscribeParagraphLayout : public ParagraphLayouter {
 private:
 	const UniscribeParagraphLayoutFactory::CharType *text_buffer;
 
-	std::vector<UniscribeRun> ranges; ///< All runs of the text.
-	std::vector<UniscribeRun>::iterator cur_range; ///< The next run to be output.
-	int cur_range_offset = 0; ///< Offset from the start of the current run from where to output.
+	std::vector<UniscribeRun> ranges; // All runs of the text.
+	std::vector<UniscribeRun>::iterator cur_range; // The next run to be output.
+	int cur_range_offset = 0; // Offset from the start of the current run from where to output.
 
 public:
 	/** Visual run contains data about the bit of text with the same font. */
@@ -529,7 +529,7 @@ const int *UniscribeParagraphLayout::UniscribeVisualRun::GetGlyphToCharMap() con
 
 	/* Uniscribe operates on UTF-16, thus we have to convert the input string.
 	 * To be able to return proper offsets, we have to create a mapping at the same time. */
-	std::vector<wchar_t> utf16_str;     ///< UTF-16 copy of the string.
+	std::vector<wchar_t> utf16_str;     // UTF-16 copy of the string.
 	while (*s != '\0') {
 		size_t idx = s - string_base;
 

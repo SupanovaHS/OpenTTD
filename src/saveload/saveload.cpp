@@ -57,30 +57,30 @@
 
 #include "../safeguards.h"
 
-extern const SaveLoadVersion SAVEGAME_VERSION = (SaveLoadVersion)(SL_MAX_VERSION - 1); ///< Current savegame version of OpenTTD.
+extern const SaveLoadVersion SAVEGAME_VERSION = (SaveLoadVersion)(SL_MAX_VERSION - 1); // Current savegame version of OpenTTD.
 
-SavegameType _savegame_type; ///< type of savegame we are loading
-FileToSaveLoad _file_to_saveload; ///< File to save or load in the openttd loop.
+SavegameType _savegame_type; // type of savegame we are loading
+FileToSaveLoad _file_to_saveload; // File to save or load in the openttd loop.
 
-uint32 _ttdp_version;         ///< version of TTDP savegame (if applicable)
-SaveLoadVersion _sl_version;  ///< the major savegame version identifier
-byte   _sl_minor_version;     ///< the minor savegame version, DO NOT USE!
-std::string _savegame_format; ///< how to compress savegames
-bool _do_autosave;            ///< are we doing an autosave at the moment?
+uint32 _ttdp_version;         // version of TTDP savegame (if applicable)
+SaveLoadVersion _sl_version;  // the major savegame version identifier
+byte   _sl_minor_version;     // the minor savegame version, DO NOT USE!
+std::string _savegame_format; // how to compress savegames
+bool _do_autosave;            // are we doing an autosave at the moment?
 
 /** What are we currently doing? */
 enum SaveLoadAction {
-	SLA_LOAD,        ///< loading
-	SLA_SAVE,        ///< saving
-	SLA_PTRS,        ///< fixing pointers
-	SLA_NULL,        ///< null all pointers (on loading error)
-	SLA_LOAD_CHECK,  ///< partial loading into #_load_check_data
+	SLA_LOAD,        // loading
+	SLA_SAVE,        // saving
+	SLA_PTRS,        // fixing pointers
+	SLA_NULL,        // null all pointers (on loading error)
+	SLA_LOAD_CHECK,  // partial loading into #_load_check_data
 };
 
 enum NeedLength {
-	NL_NONE = 0,       ///< not working in NeedLength mode
-	NL_WANTLENGTH = 1, ///< writing length and data
-	NL_CALCLENGTH = 2, ///< need to calculate the length
+	NL_NONE = 0,       // not working in NeedLength mode
+	NL_WANTLENGTH = 1, // writing length and data
+	NL_CALCLENGTH = 2, // need to calculate the length
 };
 
 /** Save in chunks of 128 KiB. */
@@ -88,11 +88,11 @@ static const size_t MEMORY_CHUNK_SIZE = 128 * 1024;
 
 /** A buffer for reading (and buffering) savegame data. */
 struct ReadBuffer {
-	byte buf[MEMORY_CHUNK_SIZE]; ///< Buffer we're going to read from.
-	byte *bufp;                  ///< Location we're at reading the buffer.
-	byte *bufe;                  ///< End of the buffer we can read from.
-	LoadFilter *reader;          ///< The filter used to actually read.
-	size_t read;                 ///< The amount of read bytes so far from the filter.
+	byte buf[MEMORY_CHUNK_SIZE]; // Buffer we're going to read from.
+	byte *bufp;                  // Location we're at reading the buffer.
+	byte *bufe;                  // End of the buffer we can read from.
+	LoadFilter *reader;          // The filter used to actually read.
+	size_t read;                 // The amount of read bytes so far from the filter.
 
 	/**
 	 * Initialise our variables.
@@ -129,9 +129,9 @@ struct ReadBuffer {
 
 /** Container for dumping the savegame (quickly) to memory. */
 struct MemoryDumper {
-	std::vector<byte *> blocks; ///< Buffer with blocks of allocated memory.
-	byte *buf;                  ///< Buffer we're going to write to.
-	byte *bufe;                 ///< End of the buffer we write to.
+	std::vector<byte *> blocks; // Buffer with blocks of allocated memory.
+	byte *buf;                  // Buffer we're going to write to.
+	byte *bufe;                 // End of the buffer we write to.
 
 	/** Initialise our variables. */
 	MemoryDumper() : buf(nullptr), bufe(nullptr)
@@ -192,29 +192,29 @@ struct MemoryDumper {
 
 /** The saveload struct, containing reader-writer functions, buffer, version, etc. */
 struct SaveLoadParams {
-	SaveLoadAction action;               ///< are we doing a save or a load atm.
-	NeedLength need_length;              ///< working in NeedLength (Autolength) mode?
-	byte block_mode;                     ///< ???
-	bool error;                          ///< did an error occur or not
+	SaveLoadAction action;               // are we doing a save or a load atm.
+	NeedLength need_length;              // working in NeedLength (Autolength) mode?
+	byte block_mode;                     // ???
+	bool error;                          // did an error occur or not
 
-	size_t obj_len;                      ///< the length of the current object we are busy with
-	int array_index, last_array_index;   ///< in the case of an array, the current and last positions
-	bool expect_table_header;            ///< In the case of a table, if the header is saved/loaded.
+	size_t obj_len;                      // the length of the current object we are busy with
+	int array_index, last_array_index;   // in the case of an array, the current and last positions
+	bool expect_table_header;            // In the case of a table, if the header is saved/loaded.
 
-	MemoryDumper *dumper;                ///< Memory dumper to write the savegame to.
-	SaveFilter *sf;                      ///< Filter to write the savegame to.
+	MemoryDumper *dumper;                // Memory dumper to write the savegame to.
+	SaveFilter *sf;                      // Filter to write the savegame to.
 
-	ReadBuffer *reader;                  ///< Savegame reading buffer.
-	LoadFilter *lf;                      ///< Filter to read the savegame from.
+	ReadBuffer *reader;                  // Savegame reading buffer.
+	LoadFilter *lf;                      // Filter to read the savegame from.
 
-	StringID error_str;                  ///< the translatable error message to show
-	char *extra_msg;                     ///< the error message
+	StringID error_str;                  // the translatable error message to show
+	char *extra_msg;                     // the error message
 
-	uint16 game_speed;                   ///< The game speed when saving started.
-	bool saveinprogress;                 ///< Whether there is currently a save in progress.
+	uint16 game_speed;                   // The game speed when saving started.
+	bool saveinprogress;                 // Whether there is currently a save in progress.
 };
 
-static SaveLoadParams _sl; ///< Parameters used for/at saveload.
+static SaveLoadParams _sl; // Parameters used for/at saveload.
 
 static const std::vector<ChunkHandlerRef> &ChunkHandlers()
 {
@@ -386,9 +386,9 @@ void NORETURN SlErrorCorruptFmt(const char *format, ...)
 }
 
 
-typedef void (*AsyncSaveFinishProc)();                      ///< Callback for when the savegame loading is finished.
-static std::atomic<AsyncSaveFinishProc> _async_save_finish; ///< Callback to call when the savegame loading is finished.
-static std::thread _save_thread;                            ///< The thread we're using to compress and write a savegame
+typedef void (*AsyncSaveFinishProc)();                      // Callback for when the savegame loading is finished.
+static std::atomic<AsyncSaveFinishProc> _async_save_finish; // Callback to call when the savegame loading is finished.
+static std::thread _save_thread;                            // The thread we're using to compress and write a savegame
 
 /**
  * Called by save thread to tell we finished saving.
@@ -2338,8 +2338,8 @@ static void SlFixPointers()
 
 /** Yes, simply reading from a file. */
 struct FileReader : LoadFilter {
-	FILE *file; ///< The file to read from.
-	long begin; ///< The begin of the file.
+	FILE *file; // The file to read from.
+	long begin; // The begin of the file.
 
 	/**
 	 * Create the file reader, so it reads from a specific file.
@@ -2378,7 +2378,7 @@ struct FileReader : LoadFilter {
 
 /** Yes, simply writing to a file. */
 struct FileWriter : SaveFilter {
-	FILE *file; ///< The file to write to.
+	FILE *file; // The file to write to.
 
 	/**
 	 * Create the file writer, so it writes to a specific file.
@@ -2552,8 +2552,8 @@ struct NoCompSaveFilter : SaveFilter {
 
 /** Filter using Zlib compression. */
 struct ZlibLoadFilter : LoadFilter {
-	z_stream z;                        ///< Stream state we are reading from.
-	byte fread_buf[MEMORY_CHUNK_SIZE]; ///< Buffer for reading from the file.
+	z_stream z;                        // Stream state we are reading from.
+	byte fread_buf[MEMORY_CHUNK_SIZE]; // Buffer for reading from the file.
 
 	/**
 	 * Initialise this filter.
@@ -2596,7 +2596,7 @@ struct ZlibLoadFilter : LoadFilter {
 
 /** Filter using Zlib compression. */
 struct ZlibSaveFilter : SaveFilter {
-	z_stream z; ///< Stream state we are writing to.
+	z_stream z; // Stream state we are writing to.
 
 	/**
 	 * Initialise this filter.
@@ -2681,8 +2681,8 @@ static const lzma_stream _lzma_init = LZMA_STREAM_INIT;
 
 /** Filter without any compression. */
 struct LZMALoadFilter : LoadFilter {
-	lzma_stream lzma;                  ///< Stream state that we are reading from.
-	byte fread_buf[MEMORY_CHUNK_SIZE]; ///< Buffer for reading from the file.
+	lzma_stream lzma;                  // Stream state that we are reading from.
+	byte fread_buf[MEMORY_CHUNK_SIZE]; // Buffer for reading from the file.
 
 	/**
 	 * Initialise this filter.
@@ -2724,7 +2724,7 @@ struct LZMALoadFilter : LoadFilter {
 
 /** Filter using LZMA compression. */
 struct LZMASaveFilter : SaveFilter {
-	lzma_stream lzma; ///< Stream state that we are writing to.
+	lzma_stream lzma; // Stream state that we are writing to.
 
 	/**
 	 * Initialise this filter.
@@ -2789,15 +2789,15 @@ struct LZMASaveFilter : SaveFilter {
 
 /** The format for a reader/writer type of a savegame */
 struct SaveLoadFormat {
-	const char *name;                     ///< name of the compressor/decompressor (debug-only)
-	uint32 tag;                           ///< the 4-letter tag by which it is identified in the savegame
+	const char *name;                     // name of the compressor/decompressor (debug-only)
+	uint32 tag;                           // the 4-letter tag by which it is identified in the savegame
 
-	LoadFilter *(*init_load)(LoadFilter *chain);                    ///< Constructor for the load filter.
-	SaveFilter *(*init_write)(SaveFilter *chain, byte compression); ///< Constructor for the save filter.
+	LoadFilter *(*init_load)(LoadFilter *chain);                    // Constructor for the load filter.
+	SaveFilter *(*init_write)(SaveFilter *chain, byte compression); // Constructor for the save filter.
 
-	byte min_compression;                 ///< the minimum compression level of this format
-	byte default_compression;             ///< the default compression level of this format
-	byte max_compression;                 ///< the maximum compression level of this format
+	byte min_compression;                 // the minimum compression level of this format
+	byte default_compression;             // the default compression level of this format
+	byte max_compression;                 // the maximum compression level of this format
 };
 
 /** The different saveload formats known/understood by OpenTTD. */

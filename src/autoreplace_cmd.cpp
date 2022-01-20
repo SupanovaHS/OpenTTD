@@ -502,12 +502,12 @@ static CommandCost ReplaceChain(Vehicle **chain, DoCommandFlag flags, bool wagon
 		/* Store the length of the old vehicle chain, rounded up to whole tiles */
 		uint16 old_total_length = CeilDiv(Train::From(old_head)->gcache.cached_total_length, TILE_SIZE) * TILE_SIZE;
 
-		int num_units = 0; ///< Number of units in the chain
+		int num_units = 0; // Number of units in the chain
 		for (Train *w = Train::From(old_head); w != nullptr; w = w->GetNextUnit()) num_units++;
 
-		Train **old_vehs = CallocT<Train *>(num_units); ///< Will store vehicles of the old chain in their order
-		Train **new_vehs = CallocT<Train *>(num_units); ///< New vehicles corresponding to old_vehs or nullptr if no replacement
-		Money *new_costs = MallocT<Money>(num_units);   ///< Costs for buying and refitting the new vehicles
+		Train **old_vehs = CallocT<Train *>(num_units); // Will store vehicles of the old chain in their order
+		Train **new_vehs = CallocT<Train *>(num_units); // New vehicles corresponding to old_vehs or nullptr if no replacement
+		Money *new_costs = MallocT<Money>(num_units);   // Costs for buying and refitting the new vehicles
 
 		/* Collect vehicles and build replacements
 		 * Note: The replacement vehicles can only successfully build as long as the old vehicles are still in their chain */
@@ -538,7 +538,7 @@ static CommandCost ReplaceChain(Vehicle **chain, DoCommandFlag flags, bool wagon
 			 * We do this from back to front, so that the head of the temporary vehicle chain does not change all the time.
 			 * That way we also have less trouble when exceeding the unitnumber limit.
 			 * OTOH the vehicle attach callback is more expensive this way :s */
-			Train *last_engine = nullptr; ///< Shall store the last engine unit after this step
+			Train *last_engine = nullptr; // Shall store the last engine unit after this step
 			if (cost.Succeeded()) {
 				for (int i = num_units - 1; i > 0; i--) {
 					Train *append = (new_vehs[i] != nullptr ? new_vehs[i] : old_vehs[i]);

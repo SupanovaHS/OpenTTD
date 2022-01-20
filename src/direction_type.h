@@ -22,17 +22,17 @@
  * a "north" used in you games.
  */
 enum Direction : byte {
-	DIR_BEGIN = 0,          ///< Used to iterate
-	DIR_N   = 0,            ///< North
-	DIR_NE  = 1,            ///< Northeast
-	DIR_E   = 2,            ///< East
-	DIR_SE  = 3,            ///< Southeast
-	DIR_S   = 4,            ///< South
-	DIR_SW  = 5,            ///< Southwest
-	DIR_W   = 6,            ///< West
-	DIR_NW  = 7,            ///< Northwest
-	DIR_END,                ///< Used to iterate
-	INVALID_DIR = 0xFF,     ///< Flag for an invalid direction
+	DIR_BEGIN = 0,          // Used to iterate
+	DIR_N   = 0,            // North
+	DIR_NE  = 1,            // Northeast
+	DIR_E   = 2,            // East
+	DIR_SE  = 3,            // Southeast
+	DIR_S   = 4,            // South
+	DIR_SW  = 5,            // Southwest
+	DIR_W   = 6,            // West
+	DIR_NW  = 7,            // Northwest
+	DIR_END,                // Used to iterate
+	INVALID_DIR = 0xFF,     // Flag for an invalid direction
 };
 
 /** Allow incrementing of Direction variables */
@@ -60,12 +60,12 @@ template <> struct EnumPropsT<Direction> : MakeEnumPropsT<Direction, byte, DIR_B
  * @see ChangeDirDiff(DirDiff, DirDiff)
  */
 enum DirDiff {
-	DIRDIFF_SAME    = 0,    ///< Both directions faces to the same direction
-	DIRDIFF_45RIGHT = 1,    ///< Angle of 45 degrees right
-	DIRDIFF_90RIGHT = 2,    ///< Angle of 90 degrees right
-	DIRDIFF_REVERSE = 4,    ///< One direction is the opposite of the other one
-	DIRDIFF_90LEFT  = 6,    ///< Angle of 90 degrees left
-	DIRDIFF_45LEFT  = 7,    ///< Angle of 45 degrees left
+	DIRDIFF_SAME    = 0,    // Both directions faces to the same direction
+	DIRDIFF_45RIGHT = 1,    // Angle of 45 degrees right
+	DIRDIFF_90RIGHT = 2,    // Angle of 90 degrees right
+	DIRDIFF_REVERSE = 4,    // One direction is the opposite of the other one
+	DIRDIFF_90LEFT  = 6,    // Angle of 90 degrees left
+	DIRDIFF_45LEFT  = 7,    // Angle of 45 degrees left
 };
 
 
@@ -75,13 +75,13 @@ enum DirDiff {
  * This enumeration is used for the 4 direction of the tile-edges.
  */
 enum DiagDirection : byte {
-	DIAGDIR_BEGIN = 0,      ///< Used for iterations
-	DIAGDIR_NE  = 0,        ///< Northeast, upper right on your monitor
-	DIAGDIR_SE  = 1,        ///< Southeast
-	DIAGDIR_SW  = 2,        ///< Southwest
-	DIAGDIR_NW  = 3,        ///< Northwest
-	DIAGDIR_END,            ///< Used for iterations
-	INVALID_DIAGDIR = 0xFF, ///< Flag for an invalid DiagDirection
+	DIAGDIR_BEGIN = 0,      // Used for iterations
+	DIAGDIR_NE  = 0,        // Northeast, upper right on your monitor
+	DIAGDIR_SE  = 1,        // Southeast
+	DIAGDIR_SW  = 2,        // Southwest
+	DIAGDIR_NW  = 3,        // Northwest
+	DIAGDIR_END,            // Used for iterations
+	INVALID_DIAGDIR = 0xFF, // Flag for an invalid DiagDirection
 };
 
 /** Allow incrementing of DiagDirection variables */
@@ -102,10 +102,10 @@ template <> struct EnumPropsT<DiagDirection> : MakeEnumPropsT<DiagDirection, byt
  * @see DirDiff
  */
 enum DiagDirDiff {
-	DIAGDIRDIFF_SAME    = 0,        ///< Same directions
-	DIAGDIRDIFF_90RIGHT = 1,        ///< 90 degrees right
-	DIAGDIRDIFF_REVERSE = 2,        ///< Reverse directions
-	DIAGDIRDIFF_90LEFT  = 3,        ///< 90 degrees left
+	DIAGDIRDIFF_SAME    = 0,        // Same directions
+	DIAGDIRDIFF_90RIGHT = 1,        // 90 degrees right
+	DIAGDIRDIFF_REVERSE = 2,        // Reverse directions
+	DIAGDIRDIFF_90LEFT  = 3,        // 90 degrees left
 };
 
 /** Allow incrementing of DiagDirDiff variables */
@@ -121,10 +121,10 @@ DECLARE_POSTFIX_INCREMENT(DiagDirDiff)
  * align the north-east edge (and south-west) edge.
  */
 enum Axis {
-	AXIS_X = 0,          ///< The X axis
-	AXIS_Y = 1,          ///< The y axis
-	AXIS_END,            ///< Used for iterations
-	INVALID_AXIS = 0xFF, ///< Flag for an invalid Axis
+	AXIS_X = 0,          // The X axis
+	AXIS_Y = 1,          // The y axis
+	AXIS_END,            // Used for iterations
+	INVALID_AXIS = 0xFF, // Flag for an invalid Axis
 };
 /** Helper information for extract tool. */
 template <> struct EnumPropsT<Axis> : MakeEnumPropsT<Axis, byte, AXIS_X, AXIS_END, INVALID_AXIS, 1> {};

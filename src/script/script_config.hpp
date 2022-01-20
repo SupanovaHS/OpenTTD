@@ -19,33 +19,33 @@
 
 /** Bitmask of flags for Script settings. */
 enum ScriptConfigFlags {
-	SCRIPTCONFIG_NONE      = 0x0, ///< No flags set.
-	SCRIPTCONFIG_RANDOM    = 0x1, ///< When randomizing the Script, pick any value between min_value and max_value when on custom difficulty setting.
-	SCRIPTCONFIG_BOOLEAN   = 0x2, ///< This value is a boolean (either 0 (false) or 1 (true) ).
-	SCRIPTCONFIG_INGAME    = 0x4, ///< This setting can be changed while the Script is running.
-	SCRIPTCONFIG_DEVELOPER = 0x8, ///< This setting will only be visible when the Script development tools are active.
+	SCRIPTCONFIG_NONE      = 0x0, // No flags set.
+	SCRIPTCONFIG_RANDOM    = 0x1, // When randomizing the Script, pick any value between min_value and max_value when on custom difficulty setting.
+	SCRIPTCONFIG_BOOLEAN   = 0x2, // This value is a boolean (either 0 (false) or 1 (true) ).
+	SCRIPTCONFIG_INGAME    = 0x4, // This setting can be changed while the Script is running.
+	SCRIPTCONFIG_DEVELOPER = 0x8, // This setting will only be visible when the Script development tools are active.
 };
 
-typedef SmallMap<int, char *> LabelMapping; ///< Map-type used to map the setting numbers to labels.
+typedef SmallMap<int, char *> LabelMapping; // Map-type used to map the setting numbers to labels.
 
 /** Info about a single Script setting. */
 struct ScriptConfigItem {
-	const char *name;        ///< The name of the configuration setting.
-	const char *description; ///< The description of the configuration setting.
-	int min_value;           ///< The minimal value this configuration setting can have.
-	int max_value;           ///< The maximal value this configuration setting can have.
-	int custom_value;        ///< The default value on custom difficulty setting.
-	int easy_value;          ///< The default value on easy difficulty setting.
-	int medium_value;        ///< The default value on medium difficulty setting.
-	int hard_value;          ///< The default value on hard difficulty setting.
-	int random_deviation;    ///< The maximum random deviation from the default value.
-	int step_size;           ///< The step size in the gui.
-	ScriptConfigFlags flags; ///< Flags for the configuration setting.
-	LabelMapping *labels;    ///< Text labels for the integer values.
-	bool complete_labels;    ///< True if all values have a label.
+	const char *name;        // The name of the configuration setting.
+	const char *description; // The description of the configuration setting.
+	int min_value;           // The minimal value this configuration setting can have.
+	int max_value;           // The maximal value this configuration setting can have.
+	int custom_value;        // The default value on custom difficulty setting.
+	int easy_value;          // The default value on easy difficulty setting.
+	int medium_value;        // The default value on medium difficulty setting.
+	int hard_value;          // The default value on hard difficulty setting.
+	int random_deviation;    // The maximum random deviation from the default value.
+	int step_size;           // The step size in the gui.
+	ScriptConfigFlags flags; // Flags for the configuration setting.
+	LabelMapping *labels;    // Text labels for the integer values.
+	bool complete_labels;    // True if all values have a label.
 };
 
-typedef std::list<ScriptConfigItem> ScriptConfigItemList; ///< List of ScriptConfig items.
+typedef std::list<ScriptConfigItem> ScriptConfigItemList; // List of ScriptConfig items.
 
 extern ScriptConfigItem _start_date_config;
 
@@ -100,9 +100,9 @@ public:
 	 * mode) or force either newgame or normal
 	 */
 	enum ScriptSettingSource {
-		SSS_DEFAULT,       ///< Get the Script config from the current game mode
-		SSS_FORCE_NEWGAME, ///< Get the newgame Script config
-		SSS_FORCE_GAME,    ///< Get the Script config from the current game
+		SSS_DEFAULT,       // Get the Script config from the current game mode
+		SSS_FORCE_NEWGAME, // Get the newgame Script config
+		SSS_FORCE_GAME,    // Get the Script config from the current game
 	};
 
 	/**
@@ -186,12 +186,12 @@ public:
 	const char *GetTextfile(TextfileType type, CompanyID slot) const;
 
 protected:
-	const char *name;                  ///< Name of the Script
-	int version;                       ///< Version of the Script
-	class ScriptInfo *info;            ///< ScriptInfo object for related to this Script version
-	SettingValueList settings;         ///< List with all setting=>value pairs that are configure for this Script
-	ScriptConfigItemList *config_list; ///< List with all settings defined by this Script
-	bool is_random;                    ///< True if the AI in this slot was randomly chosen.
+	const char *name;                  // Name of the Script
+	int version;                       // Version of the Script
+	class ScriptInfo *info;            // ScriptInfo object for related to this Script version
+	SettingValueList settings;         // List with all setting=>value pairs that are configure for this Script
+	ScriptConfigItemList *config_list; // List with all settings defined by this Script
+	bool is_random;                    // True if the AI in this slot was randomly chosen.
 
 	/**
 	 * In case you have mandatory non-Script-definable config entries in your

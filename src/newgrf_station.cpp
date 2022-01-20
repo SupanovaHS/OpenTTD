@@ -48,7 +48,7 @@ bool NewGRFClass<Tspec, Tid, Tmax>::IsUIAvailable(uint index) const
 
 INSTANTIATE_NEWGRF_CLASS_METHODS(StationClass, StationSpec, StationClassID, STAT_CLASS_MAX)
 
-static const uint NUM_STATIONSSPECS_PER_STATION = 255; ///< Maximum number of parts per station.
+static const uint NUM_STATIONSSPECS_PER_STATION = 255; // Maximum number of parts per station.
 
 enum TriggerArea {
 	TA_TILE,
@@ -245,7 +245,7 @@ static struct {
 	uint32 v46;
 	uint32 v47;
 	uint32 v49;
-	uint8 valid; ///< Bits indicating what variable is valid (for each bit, \c 0 is invalid, \c 1 is valid).
+	uint8 valid; // Bits indicating what variable is valid (for each bit, \c 0 is invalid, \c 1 is valid).
 } _svc;
 
 /**

@@ -33,8 +33,8 @@ extern bool _video_vsync;
 
 /** The base of all video drivers. */
 class VideoDriver : public Driver {
-	const uint DEFAULT_WINDOW_WIDTH = 640u;  ///< Default window width.
-	const uint DEFAULT_WINDOW_HEIGHT = 480u; ///< Default window height.
+	const uint DEFAULT_WINDOW_WIDTH = 640u;  // Default window width.
+	const uint DEFAULT_WINDOW_HEIGHT = 480u; // Default window height.
 
 public:
 	VideoDriver() : fast_forward_key_pressed(false), fast_forward_via_key(false), is_game_threaded(true) {}
@@ -216,11 +216,11 @@ public:
 		}
 
 	private:
-		bool unlock; ///< Stores if the lock did anything that has to be undone.
+		bool unlock; // Stores if the lock did anything that has to be undone.
 	};
 
 protected:
-	const uint ALLOWED_DRIFT = 5; ///< How many times videodriver can miss deadlines without it being overly compensated.
+	const uint ALLOWED_DRIFT = 5; // How many times videodriver can miss deadlines without it being overly compensated.
 
 	/**
 	 * Get the resolution of the main screen.
@@ -342,8 +342,8 @@ protected:
 	std::chrono::steady_clock::time_point next_game_tick;
 	std::chrono::steady_clock::time_point next_draw_tick;
 
-	bool fast_forward_key_pressed; ///< The fast-forward key is being pressed.
-	bool fast_forward_via_key; ///< The fast-forward was enabled by key press.
+	bool fast_forward_key_pressed; // The fast-forward key is being pressed.
+	bool fast_forward_via_key; // The fast-forward was enabled by key press.
 
 	bool is_game_threaded;
 	std::thread game_thread;

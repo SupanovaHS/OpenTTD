@@ -24,10 +24,10 @@ public:
 	 */
 	enum LandscapeType {
 		/* Note: these values represent part of the in-game LandscapeType enum */
-		LT_TEMPERATE  = ::LT_TEMPERATE, ///< Temperate climate.
-		LT_ARCTIC     = ::LT_ARCTIC,    ///< Arctic climate.
-		LT_TROPIC     = ::LT_TROPIC,    ///< Tropic climate.
-		LT_TOYLAND    = ::LT_TOYLAND,   ///< Toyland climate.
+		LT_TEMPERATE  = ::LT_TEMPERATE, // Temperate climate.
+		LT_ARCTIC     = ::LT_ARCTIC,    // Arctic climate.
+		LT_TROPIC     = ::LT_TROPIC,    // Tropic climate.
+		LT_TOYLAND    = ::LT_TOYLAND,   // Toyland climate.
 	};
 
 	/**

@@ -14,14 +14,14 @@
  * Numeric value that represents a string, independent of the selected language.
  */
 typedef uint32 StringID;
-static const StringID INVALID_STRING_ID = 0xFFFF; ///< Constant representing an invalid string (16bit in case it is used in savegames)
-static const int MAX_CHAR_LENGTH        = 4;      ///< Max. length of UTF-8 encoded unicode character
-static const uint MAX_LANG              = 0x7F;   ///< Maximum number of languages supported by the game, and the NewGRF specs
+static const StringID INVALID_STRING_ID = 0xFFFF; // Constant representing an invalid string (16bit in case it is used in savegames)
+static const int MAX_CHAR_LENGTH        = 4;      // Max. length of UTF-8 encoded unicode character
+static const uint MAX_LANG              = 0x7F;   // Maximum number of languages supported by the game, and the NewGRF specs
 
 /** Directions a text can go to */
 enum TextDirection {
-	TD_LTR, ///< Text is written left-to-right by default
-	TD_RTL, ///< Text is written right-to-left by default
+	TD_LTR, // Text is written left-to-right by default
+	TD_RTL, // Text is written right-to-left by default
 };
 
 /** StringTabs to group StringIDs */
@@ -35,9 +35,9 @@ enum StringTab {
 	TEXT_TAB_VEHICLE          = 16,
 	/* Tab 17 for regular strings */
 	TEXT_TAB_OLD_NEWGRF       = 26,
-	TEXT_TAB_END              = 32, ///< End of language files.
-	TEXT_TAB_GAMESCRIPT_START = 32, ///< Start of GameScript supplied strings.
-	TEXT_TAB_NEWGRF_START     = 64, ///< Start of NewGRF supplied strings.
+	TEXT_TAB_END              = 32, // End of language files.
+	TEXT_TAB_GAMESCRIPT_START = 32, // Start of GameScript supplied strings.
+	TEXT_TAB_NEWGRF_START     = 64, // Start of NewGRF supplied strings.
 };
 
 /** Number of bits for the StringIndex within a StringTab */

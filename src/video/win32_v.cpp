@@ -42,7 +42,7 @@ bool _window_maximize;
 static Dimension _bck_resolution;
 DWORD _imm_props;
 
-static Palette _local_palette; ///< Current palette to use for drawing.
+static Palette _local_palette; // Current palette to use for drawing.
 
 bool VideoDriver_Win32Base::ClaimMousePointer()
 {
@@ -1191,7 +1191,7 @@ void VideoDriver_Win32GDI::Paint()
 
 static PFNWGLCREATECONTEXTATTRIBSARBPROC _wglCreateContextAttribsARB = nullptr;
 static PFNWGLSWAPINTERVALEXTPROC _wglSwapIntervalEXT = nullptr;
-static bool _hasWGLARBCreateContextProfile = false; ///< Is WGL_ARB_create_context_profile supported?
+static bool _hasWGLARBCreateContextProfile = false; // Is WGL_ARB_create_context_profile supported?
 
 /** Platform-specific callback to get an OpenGL function pointer. */
 static OGLProc GetOGLProcAddressCallback(const char *proc)

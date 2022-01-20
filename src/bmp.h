@@ -13,13 +13,13 @@
 #include "gfx_type.h"
 
 struct BmpInfo {
-	uint32 offset;       ///< offset of bitmap data from .bmp file beginning
-	uint32 width;        ///< bitmap width
-	uint32 height;       ///< bitmap height
-	bool os2_bmp;        ///< true if OS/2 1.x or windows 2.x bitmap
-	uint16 bpp;          ///< bits per pixel
-	uint32 compression;  ///< compression method (0 = none, 1 = 8-bit RLE, 2 = 4-bit RLE)
-	uint32 palette_size; ///< number of colours in palette
+	uint32 offset;       // offset of bitmap data from .bmp file beginning
+	uint32 width;        // bitmap width
+	uint32 height;       // bitmap height
+	bool os2_bmp;        // true if OS/2 1.x or windows 2.x bitmap
+	uint16 bpp;          // bits per pixel
+	uint32 compression;  // compression method (0 = none, 1 = 8-bit RLE, 2 = 4-bit RLE)
+	uint32 palette_size; // number of colours in palette
 };
 
 struct BmpData {

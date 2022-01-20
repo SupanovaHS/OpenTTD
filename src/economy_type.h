@@ -26,19 +26,19 @@ enum EconomyType : uint8 {
 
 /** Data of the economy. */
 struct Economy {
-	Money max_loan;                       ///< NOSAVE: Maximum possible loan
-	int16 fluct;                          ///< Economy fluctuation status
-	byte interest_rate;                   ///< Interest
-	byte infl_amount;                     ///< inflation amount
-	byte infl_amount_pr;                  ///< inflation rate for payment rates
-	uint32 industry_daily_change_counter; ///< Bits 31-16 are number of industry to be performed, 15-0 are fractional collected daily
-	uint32 industry_daily_increment;      ///< The value which will increment industry_daily_change_counter. Computed value. NOSAVE
-	uint64 inflation_prices;              ///< Cumulated inflation of prices since game start; 16 bit fractional part
-	uint64 inflation_payment;             ///< Cumulated inflation of cargo payment since game start; 16 bit fractional part
+	Money max_loan;                       // NOSAVE: Maximum possible loan
+	int16 fluct;                          // Economy fluctuation status
+	byte interest_rate;                   // Interest
+	byte infl_amount;                     // inflation amount
+	byte infl_amount_pr;                  // inflation rate for payment rates
+	uint32 industry_daily_change_counter; // Bits 31-16 are number of industry to be performed, 15-0 are fractional collected daily
+	uint32 industry_daily_increment;      // The value which will increment industry_daily_change_counter. Computed value. NOSAVE
+	uint64 inflation_prices;              // Cumulated inflation of prices since game start; 16 bit fractional part
+	uint64 inflation_payment;             // Cumulated inflation of cargo payment since game start; 16 bit fractional part
 
 	/* Old stuff for savegame conversion only */
-	Money old_max_loan_unround;           ///< Old: Unrounded max loan
-	uint16 old_max_loan_unround_fract;    ///< Old: Fraction of the unrounded max loan
+	Money old_max_loan_unround;           // Old: Unrounded max loan
+	uint16 old_max_loan_unround_fract;    // Old: Fraction of the unrounded max loan
 };
 
 /** Score categories in the detailed performance rating. */
@@ -53,18 +53,18 @@ enum ScoreID {
 	SCORE_CARGO      = 6,
 	SCORE_MONEY      = 7,
 	SCORE_LOAN       = 8,
-	SCORE_TOTAL      = 9,  ///< This must always be the last entry
-	SCORE_END        = 10, ///< How many scores are there..
+	SCORE_TOTAL      = 9,  // This must always be the last entry
+	SCORE_END        = 10, // How many scores are there..
 
-	SCORE_MAX = 1000,      ///< The max score that can be in the performance history
+	SCORE_MAX = 1000,      // The max score that can be in the performance history
 	/* the scores together of score_info is allowed to be more! */
 };
 DECLARE_POSTFIX_INCREMENT(ScoreID)
 
 /** Data structure for storing how the score is computed for a single score id. */
 struct ScoreInfo {
-	int needed; ///< How much you need to get the perfect score
-	int score;  ///< How much score it will give
+	int needed; // How much you need to get the perfect score
+	int score;  // How much score it will give
 };
 
 /**
@@ -150,26 +150,26 @@ enum Price {
 };
 DECLARE_POSTFIX_INCREMENT(Price)
 
-typedef Money Prices[PR_END]; ///< Prices of everything. @see Price
+typedef Money Prices[PR_END]; // Prices of everything. @see Price
 typedef int8 PriceMultipliers[PR_END];
 
 /** Types of expenses. */
 enum ExpensesType : byte {
-	EXPENSES_CONSTRUCTION =  0,   ///< Construction costs.
-	EXPENSES_NEW_VEHICLES,        ///< New vehicles.
-	EXPENSES_TRAIN_RUN,           ///< Running costs trains.
-	EXPENSES_ROADVEH_RUN,         ///< Running costs road vehicles.
-	EXPENSES_AIRCRAFT_RUN,        ///< Running costs aircraft.
-	EXPENSES_SHIP_RUN,            ///< Running costs ships.
-	EXPENSES_PROPERTY,            ///< Property costs.
-	EXPENSES_TRAIN_INC,           ///< Income from trains.
-	EXPENSES_ROADVEH_INC,         ///< Income from road vehicles.
-	EXPENSES_AIRCRAFT_INC,        ///< Income from aircraft.
-	EXPENSES_SHIP_INC,            ///< Income from ships.
-	EXPENSES_LOAN_INT,            ///< Interest payments over the loan.
-	EXPENSES_OTHER,               ///< Other expenses.
-	EXPENSES_END,                 ///< Number of expense types.
-	INVALID_EXPENSES      = 0xFF, ///< Invalid expense type.
+	EXPENSES_CONSTRUCTION =  0,   // Construction costs.
+	EXPENSES_NEW_VEHICLES,        // New vehicles.
+	EXPENSES_TRAIN_RUN,           // Running costs trains.
+	EXPENSES_ROADVEH_RUN,         // Running costs road vehicles.
+	EXPENSES_AIRCRAFT_RUN,        // Running costs aircraft.
+	EXPENSES_SHIP_RUN,            // Running costs ships.
+	EXPENSES_PROPERTY,            // Property costs.
+	EXPENSES_TRAIN_INC,           // Income from trains.
+	EXPENSES_ROADVEH_INC,         // Income from road vehicles.
+	EXPENSES_AIRCRAFT_INC,        // Income from aircraft.
+	EXPENSES_SHIP_INC,            // Income from ships.
+	EXPENSES_LOAN_INT,            // Interest payments over the loan.
+	EXPENSES_OTHER,               // Other expenses.
+	EXPENSES_END,                 // Number of expense types.
+	INVALID_EXPENSES      = 0xFF, // Invalid expense type.
 };
 
 /** Define basic enum properties for ExpensesType */
@@ -179,19 +179,19 @@ template <> struct EnumPropsT<ExpensesType> : MakeEnumPropsT<ExpensesType, byte,
  * Categories of a price bases.
  */
 enum PriceCategory {
-	PCAT_NONE,         ///< Not affected by difficulty settings
-	PCAT_RUNNING,      ///< Price is affected by "vehicle running cost" difficulty setting
-	PCAT_CONSTRUCTION, ///< Price is affected by "construction cost" difficulty setting
+	PCAT_NONE,         // Not affected by difficulty settings
+	PCAT_RUNNING,      // Price is affected by "vehicle running cost" difficulty setting
+	PCAT_CONSTRUCTION, // Price is affected by "construction cost" difficulty setting
 };
 
 /**
  * Describes properties of price bases.
  */
 struct PriceBaseSpec {
-	Money start_price;      ///< Default value at game start, before adding multipliers.
-	PriceCategory category; ///< Price is affected by certain difficulty settings.
-	uint grf_feature;       ///< GRF Feature that decides whether price multipliers apply locally or globally, #GSF_END if none.
-	Price fallback_price;   ///< Fallback price multiplier for new prices but old grfs.
+	Money start_price;      // Default value at game start, before adding multipliers.
+	PriceCategory category; // Price is affected by certain difficulty settings.
+	uint grf_feature;       // GRF Feature that decides whether price multipliers apply locally or globally, #GSF_END if none.
+	Price fallback_price;   // Fallback price multiplier for new prices but old grfs.
 };
 
 /** The "steps" in loan size, in British Pounds! */

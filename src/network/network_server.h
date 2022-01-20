@@ -49,28 +49,28 @@ protected:
 public:
 	/** Status of a client */
 	enum ClientStatus {
-		STATUS_INACTIVE,      ///< The client is not connected nor active.
-		STATUS_NEWGRFS_CHECK, ///< The client is checking NewGRFs.
-		STATUS_AUTH_GAME,     ///< The client is authorizing with game (server) password.
-		STATUS_AUTH_COMPANY,  ///< The client is authorizing with company password.
-		STATUS_AUTHORIZED,    ///< The client is authorized.
-		STATUS_MAP_WAIT,      ///< The client is waiting as someone else is downloading the map.
-		STATUS_MAP,           ///< The client is downloading the map.
-		STATUS_DONE_MAP,      ///< The client has downloaded the map.
-		STATUS_PRE_ACTIVE,    ///< The client is catching up the delayed frames.
-		STATUS_ACTIVE,        ///< The client is active within in the game.
-		STATUS_END,           ///< Must ALWAYS be on the end of this list!! (period).
+		STATUS_INACTIVE,      // The client is not connected nor active.
+		STATUS_NEWGRFS_CHECK, // The client is checking NewGRFs.
+		STATUS_AUTH_GAME,     // The client is authorizing with game (server) password.
+		STATUS_AUTH_COMPANY,  // The client is authorizing with company password.
+		STATUS_AUTHORIZED,    // The client is authorized.
+		STATUS_MAP_WAIT,      // The client is waiting as someone else is downloading the map.
+		STATUS_MAP,           // The client is downloading the map.
+		STATUS_DONE_MAP,      // The client has downloaded the map.
+		STATUS_PRE_ACTIVE,    // The client is catching up the delayed frames.
+		STATUS_ACTIVE,        // The client is active within in the game.
+		STATUS_END,           // Must ALWAYS be on the end of this list!! (period).
 	};
 
-	byte lag_test;               ///< Byte used for lag-testing the client
-	byte last_token;             ///< The last random token we did send to verify the client is listening
-	uint32 last_token_frame;     ///< The last frame we received the right token
-	ClientStatus status;         ///< Status of this client
-	CommandQueue outgoing_queue; ///< The command-queue awaiting delivery
-	size_t receive_limit;        ///< Amount of bytes that we can receive at this moment
+	byte lag_test;               // Byte used for lag-testing the client
+	byte last_token;             // The last random token we did send to verify the client is listening
+	uint32 last_token_frame;     // The last frame we received the right token
+	ClientStatus status;         // Status of this client
+	CommandQueue outgoing_queue; // The command-queue awaiting delivery
+	size_t receive_limit;        // Amount of bytes that we can receive at this moment
 
-	struct PacketWriter *savegame; ///< Writer used to write the savegame.
-	NetworkAddress client_address; ///< IP-address of the client (so they can be banned)
+	struct PacketWriter *savegame; // Writer used to write the savegame.
+	NetworkAddress client_address; // IP-address of the client (so they can be banned)
 
 	ServerNetworkGameSocketHandler(SOCKET s);
 	~ServerNetworkGameSocketHandler();

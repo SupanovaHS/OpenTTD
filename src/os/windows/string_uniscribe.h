@@ -67,14 +67,14 @@ public:
 class UniscribeStringIterator : public StringIterator {
 	/** */
 	struct CharInfo {
-		bool word_stop : 1; ///< Code point is suitable as a word break.
-		bool char_stop : 1; ///< Code point is the start of a grapheme cluster, i.e. a "character".
+		bool word_stop : 1; // Code point is suitable as a word break.
+		bool char_stop : 1; // Code point is the start of a grapheme cluster, i.e. a "character".
 	};
 
-	std::vector<CharInfo> str_info;      ///< Break information for each code point.
-	std::vector<size_t>   utf16_to_utf8; ///< Mapping from UTF-16 code point position to index in the UTF-8 source string.
+	std::vector<CharInfo> str_info;      // Break information for each code point.
+	std::vector<size_t>   utf16_to_utf8; // Mapping from UTF-16 code point position to index in the UTF-8 source string.
 
-	size_t cur_pos; ///< Current iteration position.
+	size_t cur_pos; // Current iteration position.
 
 public:
 	void SetString(const char *s) override;

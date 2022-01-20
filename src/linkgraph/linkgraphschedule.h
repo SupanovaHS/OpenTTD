@@ -42,13 +42,13 @@ private:
 	friend SaveLoadTable GetLinkGraphScheduleDesc();
 
 protected:
-	ComponentHandler *handlers[6]; ///< Handlers to be run for each job.
-	GraphList schedule;            ///< Queue for new jobs.
-	JobList running;               ///< Currently running jobs.
+	ComponentHandler *handlers[6]; // Handlers to be run for each job.
+	GraphList schedule;            // Queue for new jobs.
+	JobList running;               // Currently running jobs.
 
 public:
 	/* This is a tick where not much else is happening, so a small lag might go unnoticed. */
-	static const uint SPAWN_JOIN_TICK = 21; ///< Tick when jobs are spawned or joined every day.
+	static const uint SPAWN_JOIN_TICK = 21; // Tick when jobs are spawned or joined every day.
 	static LinkGraphSchedule instance;
 
 	static void Run(LinkGraphJob *job);

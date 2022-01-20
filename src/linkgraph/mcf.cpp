@@ -93,9 +93,9 @@ public:
  */
 class GraphEdgeIterator {
 private:
-	LinkGraphJob &job; ///< Job being executed
-	EdgeIterator i;    ///< Iterator pointing to current edge.
-	EdgeIterator end;  ///< Iterator pointing beyond last edge.
+	LinkGraphJob &job; // Job being executed
+	EdgeIterator i;    // Iterator pointing to current edge.
+	EdgeIterator end;  // Iterator pointing beyond last edge.
 
 public:
 
@@ -133,7 +133,7 @@ public:
  */
 class FlowEdgeIterator {
 private:
-	LinkGraphJob &job; ///< Link graph job we're working with.
+	LinkGraphJob &job; // Link graph job we're working with.
 
 	/** Lookup table for getting NodeIDs from StationIDs. */
 	std::vector<NodeID> station_to_node;

@@ -62,11 +62,11 @@ enum CargoType {
 	CT_FIZZY_DRINKS = 11,
 
 	NUM_ORIGINAL_CARGO = 12,
-	NUM_CARGO       = 64,   ///< Maximal number of cargo types in a game.
+	NUM_CARGO       = 64,   // Maximal number of cargo types in a game.
 
-	CT_AUTO_REFIT   = 0xFD, ///< Automatically choose cargo type when doing auto refitting.
-	CT_NO_REFIT     = 0xFE, ///< Do not refit cargo of a vehicle (used in vehicle orders and auto-replace/auto-new).
-	CT_INVALID      = 0xFF, ///< Invalid cargo type.
+	CT_AUTO_REFIT   = 0xFD, // Automatically choose cargo type when doing auto refitting.
+	CT_NO_REFIT     = 0xFE, // Do not refit cargo of a vehicle (used in vehicle orders and auto-replace/auto-new).
+	CT_INVALID      = 0xFF, // Invalid cargo type.
 };
 
 /** Test whether cargo type is not CT_INVALID */
@@ -81,7 +81,7 @@ static const CargoTypes ALL_CARGOTYPES = (CargoTypes)UINT64_MAX;
 /** Class for storing amounts of cargo */
 struct CargoArray {
 private:
-	uint amount[NUM_CARGO]; ///< Amount of each type of cargo.
+	uint amount[NUM_CARGO]; // Amount of each type of cargo.
 
 public:
 	/** Default constructor. */
@@ -145,12 +145,12 @@ public:
 
 /** Types of cargo source and destination */
 enum SourceType : byte {
-	ST_INDUSTRY,     ///< Source/destination is an industry
-	ST_TOWN,         ///< Source/destination is a town
-	ST_HEADQUARTERS, ///< Source/destination are company headquarters
+	ST_INDUSTRY,     // Source/destination is an industry
+	ST_TOWN,         // Source/destination is a town
+	ST_HEADQUARTERS, // Source/destination are company headquarters
 };
 
-typedef uint16 SourceID; ///< Contains either industry ID, town ID or company ID (or INVALID_SOURCE)
-static const SourceID INVALID_SOURCE = 0xFFFF; ///< Invalid/unknown index of source
+typedef uint16 SourceID; // Contains either industry ID, town ID or company ID (or INVALID_SOURCE)
+static const SourceID INVALID_SOURCE = 0xFFFF; // Invalid/unknown index of source
 
 #endif /* CARGO_TYPE_H */

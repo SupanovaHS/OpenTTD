@@ -17,24 +17,24 @@
 
 /** Flags of the sort list. */
 enum SortListFlags {
-	VL_NONE       = 0,      ///< no sort
-	VL_DESC       = 1 << 0, ///< sort descending or ascending
-	VL_RESORT     = 1 << 1, ///< instruct the code to resort the list in the next loop
-	VL_REBUILD    = 1 << 2, ///< rebuild the sort list
-	VL_FILTER     = 1 << 3, ///< filter disabled/enabled
+	VL_NONE       = 0,      // no sort
+	VL_DESC       = 1 << 0, // sort descending or ascending
+	VL_RESORT     = 1 << 1, // instruct the code to resort the list in the next loop
+	VL_REBUILD    = 1 << 2, // rebuild the sort list
+	VL_FILTER     = 1 << 3, // filter disabled/enabled
 	VL_END        = 1 << 4,
 };
 DECLARE_ENUM_AS_BIT_SET(SortListFlags)
 
 /** Data structure describing how to show the list (what sort direction and criteria). */
 struct Listing {
-	bool order;    ///< Ascending/descending
-	byte criteria; ///< Sorting criteria
+	bool order;    // Ascending/descending
+	byte criteria; // Sorting criteria
 };
 /** Data structure describing what to show in the list (filter criteria). */
 struct Filtering {
-	bool state;    ///< Filter on/off
-	byte criteria; ///< Filtering criteria
+	bool state;    // Filter on/off
+	byte criteria; // Filtering criteria
 };
 
 /**
@@ -45,16 +45,16 @@ struct Filtering {
 template <typename T, typename F = const char*>
 class GUIList : public std::vector<T> {
 public:
-	typedef bool SortFunction(const T&, const T&);  ///< Signature of sort function.
-	typedef bool CDECL FilterFunction(const T*, F); ///< Signature of filter function.
+	typedef bool SortFunction(const T&, const T&);  // Signature of sort function.
+	typedef bool CDECL FilterFunction(const T*, F); // Signature of filter function.
 
 protected:
-	SortFunction * const *sort_func_list;     ///< the sort criteria functions
-	FilterFunction * const *filter_func_list; ///< the filter criteria functions
-	SortListFlags flags;                      ///< used to control sorting/resorting/etc.
-	uint8 sort_type;                          ///< what criteria to sort on
-	uint8 filter_type;                        ///< what criteria to filter on
-	uint16 resort_timer;                      ///< resort list after a given amount of ticks if set
+	SortFunction * const *sort_func_list;     // the sort criteria functions
+	FilterFunction * const *filter_func_list; // the filter criteria functions
+	SortListFlags flags;                      // used to control sorting/resorting/etc.
+	uint8 sort_type;                          // what criteria to sort on
+	uint8 filter_type;                        // what criteria to filter on
+	uint16 resort_timer;                      // resort list after a given amount of ticks if set
 
 	/**
 	 * Check if the list is sortable

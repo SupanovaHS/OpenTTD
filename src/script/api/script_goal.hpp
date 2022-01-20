@@ -30,7 +30,7 @@ public:
 	 */
 	enum GoalID {
 		/* Note: these values represent part of the in-game GoalID enum */
-		GOAL_INVALID = ::INVALID_GOALTYPE, ///< An invalid goal id.
+		GOAL_INVALID = ::INVALID_GOALTYPE, // An invalid goal id.
 	};
 
 	/**
@@ -38,12 +38,12 @@ public:
 	 */
 	enum GoalType : byte {
 		/* Note: these values represent part of the in-game GoalType enum */
-		GT_NONE     = ::GT_NONE,     ///< Destination is not linked.
-		GT_TILE     = ::GT_TILE,     ///< Destination is a tile.
-		GT_INDUSTRY = ::GT_INDUSTRY, ///< Destination is an industry.
-		GT_TOWN     = ::GT_TOWN,     ///< Destination is a town.
-		GT_COMPANY  = ::GT_COMPANY,  ///< Destination is a company.
-		GT_STORY_PAGE = ::GT_STORY_PAGE ///< Destination is a story page.
+		GT_NONE     = ::GT_NONE,     // Destination is not linked.
+		GT_TILE     = ::GT_TILE,     // Destination is a tile.
+		GT_INDUSTRY = ::GT_INDUSTRY, // Destination is an industry.
+		GT_TOWN     = ::GT_TOWN,     // Destination is a town.
+		GT_COMPANY  = ::GT_COMPANY,  // Destination is a company.
+		GT_STORY_PAGE = ::GT_STORY_PAGE // Destination is a story page.
 	};
 
 	/**
@@ -51,10 +51,10 @@ public:
 	 * Basically the title of the question window.
 	 */
 	enum QuestionType {
-		QT_QUESTION,    ///< Asking a simple question; title: Question.
-		QT_INFORMATION, ///< Showing an informational message; title: Information.
-		QT_WARNING,     ///< Showing a warning; title: Warning.
-		QT_ERROR,       ///< Showing an error; title: Error.
+		QT_QUESTION,    // Asking a simple question; title: Question.
+		QT_INFORMATION, // Showing an informational message; title: Information.
+		QT_WARNING,     // Showing a warning; title: Warning.
+		QT_ERROR,       // Showing an error; title: Error.
 	};
 
 	/**
@@ -62,24 +62,24 @@ public:
 	 */
 	enum QuestionButton {
 		/* Note: these values represent part of the string list starting with STR_GOAL_QUESTION_BUTTON_CANCEL */
-		BUTTON_CANCEL    = (1 << 0),  ///< Cancel button.
-		BUTTON_OK        = (1 << 1),  ///< OK button.
-		BUTTON_NO        = (1 << 2),  ///< No button.
-		BUTTON_YES       = (1 << 3),  ///< Yes button.
-		BUTTON_DECLINE   = (1 << 4),  ///< Decline button.
-		BUTTON_ACCEPT    = (1 << 5),  ///< Accept button.
-		BUTTON_IGNORE    = (1 << 6),  ///< Ignore button.
-		BUTTON_RETRY     = (1 << 7),  ///< Retry button.
-		BUTTON_PREVIOUS  = (1 << 8),  ///< Previous button.
-		BUTTON_NEXT      = (1 << 9),  ///< Next button.
-		BUTTON_STOP      = (1 << 10), ///< Stop button.
-		BUTTON_START     = (1 << 11), ///< Start button.
-		BUTTON_GO        = (1 << 12), ///< Go button.
-		BUTTON_CONTINUE  = (1 << 13), ///< Continue button.
-		BUTTON_RESTART   = (1 << 14), ///< Restart button.
-		BUTTON_POSTPONE  = (1 << 15), ///< Postpone button.
-		BUTTON_SURRENDER = (1 << 16), ///< Surrender button.
-		BUTTON_CLOSE     = (1 << 17), ///< Close button.
+		BUTTON_CANCEL    = (1 << 0),  // Cancel button.
+		BUTTON_OK        = (1 << 1),  // OK button.
+		BUTTON_NO        = (1 << 2),  // No button.
+		BUTTON_YES       = (1 << 3),  // Yes button.
+		BUTTON_DECLINE   = (1 << 4),  // Decline button.
+		BUTTON_ACCEPT    = (1 << 5),  // Accept button.
+		BUTTON_IGNORE    = (1 << 6),  // Ignore button.
+		BUTTON_RETRY     = (1 << 7),  // Retry button.
+		BUTTON_PREVIOUS  = (1 << 8),  // Previous button.
+		BUTTON_NEXT      = (1 << 9),  // Next button.
+		BUTTON_STOP      = (1 << 10), // Stop button.
+		BUTTON_START     = (1 << 11), // Start button.
+		BUTTON_GO        = (1 << 12), // Go button.
+		BUTTON_CONTINUE  = (1 << 13), // Continue button.
+		BUTTON_RESTART   = (1 << 14), // Restart button.
+		BUTTON_POSTPONE  = (1 << 15), // Postpone button.
+		BUTTON_SURRENDER = (1 << 16), // Surrender button.
+		BUTTON_CLOSE     = (1 << 17), // Close button.
 	};
 
 	/**

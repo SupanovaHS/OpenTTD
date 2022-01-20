@@ -49,9 +49,9 @@ enum ViewportAutoscrolling {
 	VA_EVERY_VIEWPORT,            //!< Scroll all viewports at their edges.
 };
 
-static Point _drag_delta; ///< delta between mouse cursor and upper left corner of dragged window
-static Window *_mouseover_last_w = nullptr; ///< Window of the last OnMouseOver event.
-static Window *_last_scroll_window = nullptr; ///< Window of the last scroll event.
+static Point _drag_delta; // delta between mouse cursor and upper left corner of dragged window
+static Window *_mouseover_last_w = nullptr; // Window of the last OnMouseOver event.
+static Window *_last_scroll_window = nullptr; // Window of the last scroll event.
 
 /** List of windows opened at the screen sorted from the front to back. */
 WindowList _z_windows;
@@ -87,10 +87,10 @@ int _scrollbar_start_pos;
 int _scrollbar_size;
 byte _scroller_click_timeout = 0;
 
-bool _scrolling_viewport;  ///< A viewport is being scrolled with the mouse.
-bool _mouse_hovering;      ///< The mouse is hovering over the same point.
+bool _scrolling_viewport;  // A viewport is being scrolled with the mouse.
+bool _mouse_hovering;      // The mouse is hovering over the same point.
 
-SpecialMouseMode _special_mouse_mode; ///< Mode of the mouse.
+SpecialMouseMode _special_mouse_mode; // Mode of the mouse.
 
 /**
  * List of all WindowDescs.
@@ -679,7 +679,7 @@ static void DispatchLeftClickEvent(Window *w, int x, int y, int click_count)
 	/* don't allow any interaction if the button has been disabled */
 	if (nw->IsDisabled()) return;
 
-	int widget_index = nw->index; ///< Index of the widget
+	int widget_index = nw->index; // Index of the widget
 
 	/* Clicked on a widget that is not disabled.
 	 * So unless the clicked widget is the caption bar, change focus to this widget.
@@ -883,9 +883,9 @@ static bool MayBeShown(const Window *w)
 	if (!HasModalProgress()) return true;
 
 	switch (w->window_class) {
-		case WC_MAIN_WINDOW:    ///< The background, i.e. the game.
-		case WC_MODAL_PROGRESS: ///< The actual progress window.
-		case WC_CONFIRM_POPUP_QUERY: ///< The abort window.
+		case WC_MAIN_WINDOW:    // The background, i.e. the game.
+		case WC_MODAL_PROGRESS: // The actual progress window.
+		case WC_CONFIRM_POPUP_QUERY: // The abort window.
 			return true;
 
 		default:
@@ -1978,8 +1978,8 @@ static const int MIN_VISIBLE_TITLE_BAR = 13;
 
 /** Direction for moving the window. */
 enum PreventHideDirection {
-	PHD_UP,   ///< Above v is a safe position.
-	PHD_DOWN, ///< Below v is a safe position.
+	PHD_UP,   // Above v is a safe position.
+	PHD_DOWN, // Below v is a safe position.
 };
 
 /**
@@ -2119,7 +2119,7 @@ int GetMainViewBottom()
 	return (w == nullptr) ? _screen.height : w->top;
 }
 
-static bool _dragging_window; ///< A window is being dragged or resized.
+static bool _dragging_window; // A window is being dragged or resized.
 
 /**
  * Handle dragging/resizing of a window.
@@ -2751,12 +2751,12 @@ enum MouseClick {
 	MC_DOUBLE_LEFT,
 	MC_HOVER,
 
-	MAX_OFFSET_DOUBLE_CLICK = 5,     ///< How much the mouse is allowed to move to call it a double click
-	MAX_OFFSET_HOVER = 5,            ///< Maximum mouse movement before stopping a hover event.
+	MAX_OFFSET_DOUBLE_CLICK = 5,     // How much the mouse is allowed to move to call it a double click
+	MAX_OFFSET_HOVER = 5,            // Maximum mouse movement before stopping a hover event.
 };
 extern EventState VpHandlePlaceSizingDrag();
 
-const std::chrono::milliseconds TIME_BETWEEN_DOUBLE_CLICK(500); ///< Time between 2 left clicks before it becoming a double click.
+const std::chrono::milliseconds TIME_BETWEEN_DOUBLE_CLICK(500); // Time between 2 left clicks before it becoming a double click.
 
 static void ScrollMainViewport(int x, int y)
 {
@@ -2779,22 +2779,22 @@ static void ScrollMainViewport(int x, int y)
  * 8 = down
  */
 static const int8 scrollamt[16][2] = {
-	{ 0,  0}, ///<  no key specified
-	{-2,  0}, ///<  1 : left
-	{ 0, -2}, ///<  2 : up
-	{-2, -1}, ///<  3 : left  + up
-	{ 2,  0}, ///<  4 : right
-	{ 0,  0}, ///<  5 : left  + right = nothing
-	{ 2, -1}, ///<  6 : right + up
-	{ 0, -2}, ///<  7 : right + left  + up = up
-	{ 0,  2}, ///<  8 : down
-	{-2,  1}, ///<  9 : down  + left
-	{ 0,  0}, ///< 10 : down  + up    = nothing
-	{-2,  0}, ///< 11 : left  + up    +  down = left
-	{ 2,  1}, ///< 12 : down  + right
-	{ 0,  2}, ///< 13 : left  + right +  down = down
-	{ 2,  0}, ///< 14 : right + up    +  down = right
-	{ 0,  0}, ///< 15 : left  + up    +  right + down  = nothing
+	{ 0,  0}, //  no key specified
+	{-2,  0}, //  1 : left
+	{ 0, -2}, //  2 : up
+	{-2, -1}, //  3 : left  + up
+	{ 2,  0}, //  4 : right
+	{ 0,  0}, //  5 : left  + right = nothing
+	{ 2, -1}, //  6 : right + up
+	{ 0, -2}, //  7 : right + left  + up = up
+	{ 0,  2}, //  8 : down
+	{-2,  1}, //  9 : down  + left
+	{ 0,  0}, // 10 : down  + up    = nothing
+	{-2,  0}, // 11 : left  + up    +  down = left
+	{ 2,  1}, // 12 : down  + right
+	{ 0,  2}, // 13 : left  + right +  down = down
+	{ 2,  0}, // 14 : right + up    +  down = right
+	{ 0,  0}, // 15 : left  + up    +  right + down  = nothing
 };
 
 static void HandleKeyScrolling()

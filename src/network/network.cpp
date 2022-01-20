@@ -55,30 +55,30 @@ static_assert(NetworkClientInfoPool::MAX_SIZE == NetworkClientSocketPool::MAX_SI
 NetworkClientInfoPool _networkclientinfo_pool("NetworkClientInfo");
 INSTANTIATE_POOL_METHODS(NetworkClientInfo)
 
-bool _networking;         ///< are we in networking mode?
-bool _network_server;     ///< network-server is active
-bool _network_available;  ///< is network mode available?
-bool _network_dedicated;  ///< are we a dedicated server?
-bool _is_network_server;  ///< Does this client wants to be a network-server?
-NetworkCompanyState *_network_company_states = nullptr; ///< Statistics about some companies.
-ClientID _network_own_client_id;      ///< Our client identifier.
-ClientID _redirect_console_to_client; ///< If not invalid, redirect the console output to a client.
-uint8 _network_reconnect;             ///< Reconnect timeout
-StringList _network_bind_list;        ///< The addresses to bind on.
-StringList _network_host_list;        ///< The servers we know.
-StringList _network_ban_list;         ///< The banned clients.
-uint32 _frame_counter_server;         ///< The frame_counter of the server, if in network-mode
-uint32 _frame_counter_max;            ///< To where we may go with our clients
-uint32 _frame_counter;                ///< The current frame.
-uint32 _last_sync_frame;              ///< Used in the server to store the last time a sync packet was sent to clients.
-NetworkAddressList _broadcast_list;   ///< List of broadcast addresses.
-uint32 _sync_seed_1;                  ///< Seed to compare during sync checks.
+bool _networking;         // are we in networking mode?
+bool _network_server;     // network-server is active
+bool _network_available;  // is network mode available?
+bool _network_dedicated;  // are we a dedicated server?
+bool _is_network_server;  // Does this client wants to be a network-server?
+NetworkCompanyState *_network_company_states = nullptr; // Statistics about some companies.
+ClientID _network_own_client_id;      // Our client identifier.
+ClientID _redirect_console_to_client; // If not invalid, redirect the console output to a client.
+uint8 _network_reconnect;             // Reconnect timeout
+StringList _network_bind_list;        // The addresses to bind on.
+StringList _network_host_list;        // The servers we know.
+StringList _network_ban_list;         // The banned clients.
+uint32 _frame_counter_server;         // The frame_counter of the server, if in network-mode
+uint32 _frame_counter_max;            // To where we may go with our clients
+uint32 _frame_counter;                // The current frame.
+uint32 _last_sync_frame;              // Used in the server to store the last time a sync packet was sent to clients.
+NetworkAddressList _broadcast_list;   // List of broadcast addresses.
+uint32 _sync_seed_1;                  // Seed to compare during sync checks.
 #ifdef NETWORK_SEND_DOUBLE_SEED
-uint32 _sync_seed_2;                  ///< Second part of the seed.
+uint32 _sync_seed_2;                  // Second part of the seed.
 #endif
-uint32 _sync_frame;                   ///< The frame to perform the sync check.
-bool _network_first_time;             ///< Whether we have finished joining or not.
-CompanyMask _network_company_passworded; ///< Bitmask of the password status of all companies.
+uint32 _sync_frame;                   // The frame to perform the sync check.
+bool _network_first_time;             // Whether we have finished joining or not.
+CompanyMask _network_company_passworded; // Bitmask of the password status of all companies.
 
 static_assert((int)NETWORK_COMPANY_NAME_LENGTH == MAX_LENGTH_COMPANY_NAME_CHARS * MAX_CHAR_LENGTH);
 

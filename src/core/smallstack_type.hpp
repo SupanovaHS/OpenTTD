@@ -93,8 +93,8 @@ private:
  */
 template <typename Titem, typename Tindex>
 struct SmallStackItem {
-	Tindex next; ///< Pool index of next item.
-	Titem value; ///< Value of current item.
+	Tindex next; // Pool index of next item.
+	Titem value; // Value of current item.
 
 	/**
 	 * Create a new item.
@@ -142,7 +142,7 @@ public:
 	 * SmallStack item that can be kept in a pool.
 	 */
 	struct PooledSmallStack : public Item {
-		Tindex branch_count; ///< Number of branches in the tree structure this item is parent of
+		Tindex branch_count; // Number of branches in the tree structure this item is parent of
 	};
 
 	typedef SimplePool<PooledSmallStack, Tindex, Tgrowth_step, Tmax_size> SmallStackPool;

@@ -42,50 +42,50 @@ enum StationType {
 
 /** Types of RoadStops */
 enum RoadStopType : byte {
-	ROADSTOP_BUS,    ///< A standard stop for buses
-	ROADSTOP_TRUCK,  ///< A standard stop for trucks
-	ROADSTOP_END,    ///< End of valid types
+	ROADSTOP_BUS,    // A standard stop for buses
+	ROADSTOP_TRUCK,  // A standard stop for trucks
+	ROADSTOP_END,    // End of valid types
 };
 
 /** The facilities a station might be having */
 enum StationFacility : byte {
-	FACIL_NONE       = 0,      ///< The station has no facilities at all
-	FACIL_TRAIN      = 1 << 0, ///< Station with train station
-	FACIL_TRUCK_STOP = 1 << 1, ///< Station with truck stops
-	FACIL_BUS_STOP   = 1 << 2, ///< Station with bus stops
-	FACIL_AIRPORT    = 1 << 3, ///< Station with an airport
-	FACIL_DOCK       = 1 << 4, ///< Station with a dock
-	FACIL_WAYPOINT   = 1 << 7, ///< Station is a waypoint
+	FACIL_NONE       = 0,      // The station has no facilities at all
+	FACIL_TRAIN      = 1 << 0, // Station with train station
+	FACIL_TRUCK_STOP = 1 << 1, // Station with truck stops
+	FACIL_BUS_STOP   = 1 << 2, // Station with bus stops
+	FACIL_AIRPORT    = 1 << 3, // Station with an airport
+	FACIL_DOCK       = 1 << 4, // Station with a dock
+	FACIL_WAYPOINT   = 1 << 7, // Station is a waypoint
 };
 DECLARE_ENUM_AS_BIT_SET(StationFacility)
 
 /** The vehicles that may have visited a station */
 enum StationHadVehicleOfType : byte {
-	HVOT_NONE     = 0,      ///< Station has seen no vehicles
-	HVOT_TRAIN    = 1 << 1, ///< Station has seen a train
-	HVOT_BUS      = 1 << 2, ///< Station has seen a bus
-	HVOT_TRUCK    = 1 << 3, ///< Station has seen a truck
-	HVOT_AIRCRAFT = 1 << 4, ///< Station has seen an aircraft
-	HVOT_SHIP     = 1 << 5, ///< Station has seen a ship
+	HVOT_NONE     = 0,      // Station has seen no vehicles
+	HVOT_TRAIN    = 1 << 1, // Station has seen a train
+	HVOT_BUS      = 1 << 2, // Station has seen a bus
+	HVOT_TRUCK    = 1 << 3, // Station has seen a truck
+	HVOT_AIRCRAFT = 1 << 4, // Station has seen an aircraft
+	HVOT_SHIP     = 1 << 5, // Station has seen a ship
 
-	HVOT_WAYPOINT = 1 << 6, ///< Station is a waypoint (NewGRF only!)
+	HVOT_WAYPOINT = 1 << 6, // Station is a waypoint (NewGRF only!)
 };
 DECLARE_ENUM_AS_BIT_SET(StationHadVehicleOfType)
 
 /** The different catchment areas used */
 enum CatchmentArea {
-	CA_NONE            =  0, ///< Catchment when the station has no facilities
-	CA_BUS             =  3, ///< Catchment for bus stops with "modified catchment" enabled
-	CA_TRUCK           =  3, ///< Catchment for truck stops with "modified catchment" enabled
-	CA_TRAIN           =  4, ///< Catchment for train stations with "modified catchment" enabled
-	CA_DOCK            =  5, ///< Catchment for docks with "modified catchment" enabled
+	CA_NONE            =  0, // Catchment when the station has no facilities
+	CA_BUS             =  3, // Catchment for bus stops with "modified catchment" enabled
+	CA_TRUCK           =  3, // Catchment for truck stops with "modified catchment" enabled
+	CA_TRAIN           =  4, // Catchment for train stations with "modified catchment" enabled
+	CA_DOCK            =  5, // Catchment for docks with "modified catchment" enabled
 
-	CA_UNMODIFIED      =  4, ///< Catchment for all stations with "modified catchment" disabled
+	CA_UNMODIFIED      =  4, // Catchment for all stations with "modified catchment" disabled
 
-	MAX_CATCHMENT      = 10, ///< Maximum catchment for airports with "modified catchment" enabled
+	MAX_CATCHMENT      = 10, // Maximum catchment for airports with "modified catchment" enabled
 };
 
-static const uint MAX_LENGTH_STATION_NAME_CHARS = 32; ///< The maximum length of a station name in characters including '\0'
+static const uint MAX_LENGTH_STATION_NAME_CHARS = 32; // The maximum length of a station name in characters including '\0'
 
 struct StationCompare {
 	bool operator() (const Station *lhs, const Station *rhs) const;
@@ -99,7 +99,7 @@ typedef std::set<Station *, StationCompare> StationList;
  * is created upon first call to GetStations()
  */
 class StationFinder : TileArea {
-	StationList stations; ///< List of stations nearby
+	StationList stations; // List of stations nearby
 public:
 	/**
 	 * Constructs StationFinder

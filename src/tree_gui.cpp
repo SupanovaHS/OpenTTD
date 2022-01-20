@@ -88,8 +88,8 @@ class BuildTreesWindow : public Window
 		PM_FOREST_LG,
 	};
 
-	int tree_to_plant;  ///< Tree number to plant, \c TREE_INVALID for a random tree.
-	PlantingMode mode;  ///< Current mode for planting
+	int tree_to_plant;  // Tree number to plant, \c TREE_INVALID for a random tree.
+	PlantingMode mode;  // Current mode for planting
 
 	/**
 	 * Update the GUI and enable/disable planting to reflect selected options.

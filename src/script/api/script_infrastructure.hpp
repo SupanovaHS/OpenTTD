@@ -21,12 +21,12 @@ class ScriptInfrastructure : public ScriptObject {
 public:
 	/** Infrastructure categories. */
 	enum Infrastructure {
-		INFRASTRUCTURE_RAIL,    ///< Rail infrastructure.
-		INFRASTRUCTURE_SIGNALS, ///< Signal infrastructure.
-		INFRASTRUCTURE_ROAD,    ///< Road infrastructure.
-		INFRASTRUCTURE_CANAL,   ///< Canal infrastructure.
-		INFRASTRUCTURE_STATION, ///< Station infrastructure.
-		INFRASTRUCTURE_AIRPORT, ///< Airport infrastructure.
+		INFRASTRUCTURE_RAIL,    // Rail infrastructure.
+		INFRASTRUCTURE_SIGNALS, // Signal infrastructure.
+		INFRASTRUCTURE_ROAD,    // Road infrastructure.
+		INFRASTRUCTURE_CANAL,   // Canal infrastructure.
+		INFRASTRUCTURE_STATION, // Station infrastructure.
+		INFRASTRUCTURE_AIRPORT, // Airport infrastructure.
 	};
 
 	/**

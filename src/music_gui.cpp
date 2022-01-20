@@ -38,8 +38,8 @@
 
 struct MusicSystem {
 	struct PlaylistEntry : MusicSongInfo {
-		const MusicSet *set;  ///< music set the song comes from
-		uint set_index;        ///< index of song in set
+		const MusicSet *set;  // music set the song comes from
+		uint set_index;        // index of song in set
 
 		PlaylistEntry(const MusicSet *set, uint set_index) : MusicSongInfo(set->songinfo[set_index]), set(set), set_index(set_index) { }
 		bool IsValid() const { return !StrEmpty(this->songname); }
@@ -57,9 +57,9 @@ struct MusicSystem {
 		PLCH_MAX,
 	};
 
-	Playlist active_playlist;    ///< current play order of songs, including any shuffle
-	Playlist displayed_playlist; ///< current playlist as displayed in GUI, never in shuffled order
-	Playlist music_set;          ///< all songs in current music set, in set order
+	Playlist active_playlist;    // current play order of songs, including any shuffle
+	Playlist displayed_playlist; // current playlist as displayed in GUI, never in shuffled order
+	Playlist music_set;          // all songs in current music set, in set order
 
 	PlaylistChoices selected_playlist;
 

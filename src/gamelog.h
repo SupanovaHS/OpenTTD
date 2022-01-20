@@ -14,15 +14,15 @@
 
 /** The actions we log. */
 enum GamelogActionType : uint8 {
-	GLAT_START,        ///< Game created
-	GLAT_LOAD,         ///< Game loaded
-	GLAT_GRF,          ///< GRF changed
-	GLAT_CHEAT,        ///< Cheat was used
-	GLAT_SETTING,      ///< Setting changed
-	GLAT_GRFBUG,       ///< GRF bug was triggered
-	GLAT_EMERGENCY,    ///< Emergency savegame
-	GLAT_END,          ///< So we know how many GLATs are there
-	GLAT_NONE  = 0xFF, ///< No logging active; in savegames, end of list
+	GLAT_START,        // Game created
+	GLAT_LOAD,         // Game loaded
+	GLAT_GRF,          // GRF changed
+	GLAT_CHEAT,        // Cheat was used
+	GLAT_SETTING,      // Setting changed
+	GLAT_GRFBUG,       // GRF bug was triggered
+	GLAT_EMERGENCY,    // Emergency savegame
+	GLAT_END,          // So we know how many GLATs are there
+	GLAT_NONE  = 0xFF, // No logging active; in savegames, end of list
 };
 
 void GamelogStartAction(GamelogActionType at);

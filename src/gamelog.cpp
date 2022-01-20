@@ -21,20 +21,20 @@
 
 #include "safeguards.h"
 
-extern const SaveLoadVersion SAVEGAME_VERSION;  ///< current savegame version
+extern const SaveLoadVersion SAVEGAME_VERSION;  // current savegame version
 
-extern SavegameType _savegame_type; ///< type of savegame we are loading
+extern SavegameType _savegame_type; // type of savegame we are loading
 
-extern uint32 _ttdp_version;        ///< version of TTDP savegame (if applicable)
-extern SaveLoadVersion _sl_version; ///< the major savegame version identifier
-extern byte   _sl_minor_version;    ///< the minor savegame version, DO NOT USE!
+extern uint32 _ttdp_version;        // version of TTDP savegame (if applicable)
+extern SaveLoadVersion _sl_version; // the major savegame version identifier
+extern byte   _sl_minor_version;    // the minor savegame version, DO NOT USE!
 
 
-static GamelogActionType _gamelog_action_type = GLAT_NONE; ///< action to record if anything changes
+static GamelogActionType _gamelog_action_type = GLAT_NONE; // action to record if anything changes
 
-LoggedAction *_gamelog_action = nullptr;        ///< first logged action
-uint _gamelog_actions         = 0;           ///< number of actions
-static LoggedAction *_current_action = nullptr; ///< current action we are logging, nullptr when there is no action active
+LoggedAction *_gamelog_action = nullptr;        // first logged action
+uint _gamelog_actions         = 0;           // number of actions
+static LoggedAction *_current_action = nullptr; // current action we are logging, nullptr when there is no action active
 
 
 /**
@@ -177,8 +177,8 @@ static_assert(lengthof(la_text) == GLAT_END);
  * at some later point.
  */
 struct GRFPresence{
-	const GRFConfig *gc;  ///< GRFConfig, if known
-	bool was_missing;     ///< Grf was missing during some gameload in the past
+	const GRFConfig *gc;  // GRFConfig, if known
+	bool was_missing;     // Grf was missing during some gameload in the past
 
 	GRFPresence(const GRFConfig *gc) : gc(gc), was_missing(false) {}
 	GRFPresence() = default;
@@ -352,7 +352,7 @@ void GamelogPrintConsole()
 	GamelogPrint(&GamelogPrintConsoleProc);
 }
 
-static int _gamelog_print_level = 0; ///< gamelog debug level we need to print stuff
+static int _gamelog_print_level = 0; // gamelog debug level we need to print stuff
 
 static void GamelogPrintDebugProc(const char *s)
 {

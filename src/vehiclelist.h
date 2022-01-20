@@ -27,10 +27,10 @@ enum VehicleListType : byte {
 
 /** The information about a vehicle list. */
 struct VehicleListIdentifier {
-	VehicleListType type; ///< The type of vehicle list.
-	VehicleType vtype;    ///< The vehicle type associated with this list.
-	CompanyID company;    ///< The company associated with this list.
-	uint32 index;         ///< A vehicle list type specific index.
+	VehicleListType type; // The type of vehicle list.
+	VehicleType vtype;    // The vehicle type associated with this list.
+	CompanyID company;    // The company associated with this list.
+	uint32 index;         // A vehicle list type specific index.
 
 	uint32 Pack() const;
 	bool UnpackIfValid(uint32 data);

@@ -649,11 +649,11 @@ static CommandCost CmdBuildRailWagon(DoCommandFlag flags, TileIndex tile, const 
 
 		/* Try to connect the vehicle to one of free chains of wagons. */
 		for (Train *w : Train::Iterate()) {
-			if (w->tile == tile &&              ///< Same depot
-					w->IsFreeWagon() &&             ///< A free wagon chain
-					w->engine_type == e->index &&   ///< Same type
-					w->First() != v &&              ///< Don't connect to ourself
-					!(w->vehstatus & VS_CRASHED)) { ///< Not crashed/flooded
+			if (w->tile == tile &&              // Same depot
+					w->IsFreeWagon() &&             // A free wagon chain
+					w->engine_type == e->index &&   // Same type
+					w->First() != v &&              // Don't connect to ourself
+					!(w->vehstatus & VS_CRASHED)) { // Not crashed/flooded
 				if (Command<CMD_MOVE_RAIL_VEHICLE>::Do(DC_EXEC, v->index, w->Last()->index, true).Succeeded()) {
 					break;
 				}
@@ -2859,18 +2859,18 @@ static inline bool CheckCompatibleRail(const Train *v, TileIndex tile)
 
 /** Data structure for storing engine speed changes of an acceleration type. */
 struct AccelerationSlowdownParams {
-	byte small_turn; ///< Speed change due to a small turn.
-	byte large_turn; ///< Speed change due to a large turn.
-	byte z_up;       ///< Fraction to remove when moving up.
-	byte z_down;     ///< Fraction to add when moving down.
+	byte small_turn; // Speed change due to a small turn.
+	byte large_turn; // Speed change due to a large turn.
+	byte z_up;       // Fraction to remove when moving up.
+	byte z_down;     // Fraction to add when moving down.
 };
 
 /** Speed update fractions for each acceleration type. */
 static const AccelerationSlowdownParams _accel_slowdown[] = {
 	/* normal accel */
-	{256 / 4, 256 / 2, 256 / 4, 2}, ///< normal
-	{256 / 4, 256 / 2, 256 / 4, 2}, ///< monorail
-	{0,       256 / 2, 256 / 4, 2}, ///< maglev
+	{256 / 4, 256 / 2, 256 / 4, 2}, // normal
+	{256 / 4, 256 / 2, 256 / 4, 2}, // monorail
+	{0,       256 / 2, 256 / 4, 2}, // maglev
 };
 
 /**
@@ -2988,8 +2988,8 @@ static uint TrainCrashed(Train *v)
 
 /** Temporary data storage for testing collisions. */
 struct TrainCollideChecker {
-	Train *v; ///< %Vehicle we are testing for collision.
-	uint num; ///< Total number of victims if train collided.
+	Train *v; // %Vehicle we are testing for collision.
+	uint num; // Total number of victims if train collided.
 };
 
 /**

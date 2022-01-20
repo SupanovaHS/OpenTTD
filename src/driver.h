@@ -38,11 +38,11 @@ public:
 
 	/** The type of driver */
 	enum Type {
-		DT_BEGIN = 0, ///< Helper for iteration
-		DT_MUSIC = 0, ///< A music driver, needs to be before sound to properly shut down extmidi forked music players
-		DT_SOUND,     ///< A sound driver
-		DT_VIDEO,     ///< A video driver
-		DT_END,       ///< Helper for iteration
+		DT_BEGIN = 0, // Helper for iteration
+		DT_MUSIC = 0, // A music driver, needs to be before sound to properly shut down extmidi forked music players
+		DT_SOUND,     // A sound driver
+		DT_VIDEO,     // A video driver
+		DT_END,       // Helper for iteration
 	};
 
 	/**
@@ -62,12 +62,12 @@ private:
 	friend class SoundDriver;
 	friend class VideoDriver;
 
-	Driver::Type type;       ///< The type of driver.
-	int priority;            ///< The priority of this factory.
-	const char *name;        ///< The name of the drivers of this factory.
-	const char *description; ///< The description of this driver.
+	Driver::Type type;       // The type of driver.
+	int priority;            // The priority of this factory.
+	const char *name;        // The name of the drivers of this factory.
+	const char *description; // The description of this driver.
 
-	typedef std::map<std::string, DriverFactoryBase *> Drivers; ///< Type for a map of drivers.
+	typedef std::map<std::string, DriverFactoryBase *> Drivers; // Type for a map of drivers.
 
 	/**
 	 * Get the map with drivers.

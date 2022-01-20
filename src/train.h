@@ -24,33 +24,33 @@ struct Train;
 /** Rail vehicle flags. */
 enum VehicleRailFlags {
 	VRF_REVERSING                     = 0,
-	VRF_POWEREDWAGON                  = 3, ///< Wagon is powered.
-	VRF_REVERSE_DIRECTION             = 4, ///< Reverse the visible direction of the vehicle.
+	VRF_POWEREDWAGON                  = 3, // Wagon is powered.
+	VRF_REVERSE_DIRECTION             = 4, // Reverse the visible direction of the vehicle.
 
-	VRF_EL_ENGINE_ALLOWED_NORMAL_RAIL = 6, ///< Electric train engine is allowed to run on normal rail. */
-	VRF_TOGGLE_REVERSE                = 7, ///< Used for vehicle var 0xFE bit 8 (toggled each time the train is reversed, accurate for first vehicle only).
-	VRF_TRAIN_STUCK                   = 8, ///< Train can't get a path reservation.
-	VRF_LEAVING_STATION               = 9, ///< Train is just leaving a station.
+	VRF_EL_ENGINE_ALLOWED_NORMAL_RAIL = 6, // Electric train engine is allowed to run on normal rail. */
+	VRF_TOGGLE_REVERSE                = 7, // Used for vehicle var 0xFE bit 8 (toggled each time the train is reversed, accurate for first vehicle only).
+	VRF_TRAIN_STUCK                   = 8, // Train can't get a path reservation.
+	VRF_LEAVING_STATION               = 9, // Train is just leaving a station.
 };
 
 /** Modes for ignoring signals. */
 enum TrainForceProceeding : byte {
-	TFP_NONE   = 0,    ///< Normal operation.
-	TFP_STUCK  = 1,    ///< Proceed till next signal, but ignore being stuck till then. This includes force leaving depots.
-	TFP_SIGNAL = 2,    ///< Ignore next signal, after the signal ignore being stuck.
+	TFP_NONE   = 0,    // Normal operation.
+	TFP_STUCK  = 1,    // Proceed till next signal, but ignore being stuck till then. This includes force leaving depots.
+	TFP_SIGNAL = 2,    // Ignore next signal, after the signal ignore being stuck.
 };
 
 /** Flags for Train::ConsistChanged */
 enum ConsistChangeFlags {
-	CCF_LENGTH     = 0x01,     ///< Allow vehicles to change length.
-	CCF_CAPACITY   = 0x02,     ///< Allow vehicles to change capacity.
+	CCF_LENGTH     = 0x01,     // Allow vehicles to change length.
+	CCF_CAPACITY   = 0x02,     // Allow vehicles to change capacity.
 
-	CCF_TRACK      = 0,                          ///< Valid changes while vehicle is driving, and possibly changing tracks.
-	CCF_LOADUNLOAD = 0,                          ///< Valid changes while vehicle is loading/unloading.
-	CCF_AUTOREFIT  = CCF_CAPACITY,               ///< Valid changes for autorefitting in stations.
-	CCF_REFIT      = CCF_LENGTH | CCF_CAPACITY,  ///< Valid changes for refitting in a depot.
-	CCF_ARRANGE    = CCF_LENGTH | CCF_CAPACITY,  ///< Valid changes for arranging the consist in a depot.
-	CCF_SAVELOAD   = CCF_LENGTH,                 ///< Valid changes when loading a savegame. (Everything that is not stored in the save.)
+	CCF_TRACK      = 0,                          // Valid changes while vehicle is driving, and possibly changing tracks.
+	CCF_LOADUNLOAD = 0,                          // Valid changes while vehicle is loading/unloading.
+	CCF_AUTOREFIT  = CCF_CAPACITY,               // Valid changes for autorefitting in stations.
+	CCF_REFIT      = CCF_LENGTH | CCF_CAPACITY,  // Valid changes for refitting in a depot.
+	CCF_ARRANGE    = CCF_LENGTH | CCF_CAPACITY,  // Valid changes for arranging the consist in a depot.
+	CCF_SAVELOAD   = CCF_LENGTH,                 // Valid changes when loading a savegame. (Everything that is not stored in the save.)
 };
 DECLARE_ENUM_AS_BIT_SET(ConsistChangeFlags)
 
@@ -71,13 +71,13 @@ struct TrainCache {
 	const struct SpriteGroup *cached_override;
 
 	/* cached values, recalculated on load and each time a vehicle is added to/removed from the consist. */
-	bool cached_tilt;           ///< train can tilt; feature provides a bonus in curves
-	int cached_curve_speed_mod; ///< curve speed modifier of the entire train
+	bool cached_tilt;           // train can tilt; feature provides a bonus in curves
+	int cached_curve_speed_mod; // curve speed modifier of the entire train
 
-	byte user_def_data;         ///< Cached property 0x25. Can be set by Callback 0x36.
+	byte user_def_data;         // Cached property 0x25. Can be set by Callback 0x36.
 
 	/* cached max. speed / acceleration data */
-	int cached_max_curve_speed; ///< max consist speed limited by curves
+	int cached_max_curve_speed; // max consist speed limited by curves
 };
 
 /**
@@ -89,7 +89,7 @@ struct Train FINAL : public GroundVehicle<Train, VEH_TRAIN> {
 	/* Link between the two ends of a multiheaded engine */
 	Train *other_multiheaded_part;
 
-	uint16 crash_anim_pos; ///< Crash animation counter.
+	uint16 crash_anim_pos; // Crash animation counter.
 
 	uint16 flags;
 	TrackBits track;

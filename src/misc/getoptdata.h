@@ -12,27 +12,27 @@
 
 /** Flags of an option. */
 enum OptionDataFlags {
-	ODF_NO_VALUE,       ///< A plain option (no value attached to it).
-	ODF_HAS_VALUE,      ///< An option with a value.
-	ODF_OPTIONAL_VALUE, ///< An option with an optional value.
-	ODF_END,            ///< Terminator (data is not parsed further).
+	ODF_NO_VALUE,       // A plain option (no value attached to it).
+	ODF_HAS_VALUE,      // An option with a value.
+	ODF_OPTIONAL_VALUE, // An option with an optional value.
+	ODF_END,            // Terminator (data is not parsed further).
 };
 
 /** Data of an option. */
 struct OptionData {
-	byte id;              ///< Unique identification of this option data, often the same as #shortname.
-	char shortname;       ///< Short option letter if available, else use \c '\0'.
-	uint16 flags;         ///< Option data flags. @see OptionDataFlags
-	const char *longname; ///< Long option name including '-'/'--' prefix, use \c nullptr if not available.
+	byte id;              // Unique identification of this option data, often the same as #shortname.
+	char shortname;       // Short option letter if available, else use \c '\0'.
+	uint16 flags;         // Option data flags. @see OptionDataFlags
+	const char *longname; // Long option name including '-'/'--' prefix, use \c nullptr if not available.
 };
 
 /** Data storage for parsing command line options. */
 struct GetOptData {
-	char *opt;                 ///< Option value, if available (else \c nullptr).
-	int numleft;               ///< Number of arguments left in #argv.
-	char **argv;               ///< Remaining command line arguments.
-	const OptionData *options; ///< Command line option descriptions.
-	char *cont;                ///< Next call to #GetOpt should start here (in the middle of an argument).
+	char *opt;                 // Option value, if available (else \c nullptr).
+	int numleft;               // Number of arguments left in #argv.
+	char **argv;               // Remaining command line arguments.
+	const OptionData *options; // Command line option descriptions.
+	char *cont;                // Next call to #GetOpt should start here (in the middle of an argument).
 
 	/**
 	 * Constructor of the data store.

@@ -19,9 +19,9 @@
 
 /** Types of cargo to display for station coverage. */
 enum StationCoverageType {
-	SCT_PASSENGERS_ONLY,     ///< Draw only passenger class cargoes.
-	SCT_NON_PASSENGERS_ONLY, ///< Draw all non-passenger class cargoes.
-	SCT_ALL,                 ///< Draw all cargoes.
+	SCT_PASSENGERS_ONLY,     // Draw only passenger class cargoes.
+	SCT_NON_PASSENGERS_ONLY, // Draw all non-passenger class cargoes.
+	SCT_ALL,                 // Draw all cargoes.
 };
 
 int DrawStationCoverageAreaText(int left, int right, int top, StationCoverageType sct, int rad, bool supplies);

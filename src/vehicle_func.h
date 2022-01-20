@@ -24,8 +24,8 @@
 #define IS_CUSTOM_FIRSTHEAD_SPRITE(x) (x == 0xFD)
 #define IS_CUSTOM_SECONDHEAD_SPRITE(x) (x == 0xFE)
 
-static const int VEHICLE_PROFIT_MIN_AGE = DAYS_IN_YEAR * 2; ///< Only vehicles older than this have a meaningful profit.
-static const Money VEHICLE_PROFIT_THRESHOLD = 10000;        ///< Threshold for a vehicle to be considered making good profit.
+static const int VEHICLE_PROFIT_MIN_AGE = DAYS_IN_YEAR * 2; // Only vehicles older than this have a meaningful profit.
+static const Money VEHICLE_PROFIT_THRESHOLD = 10000;        // Threshold for a vehicle to be considered making good profit.
 
 /**
  * Helper to check whether an image index is valid for a particular vehicle.
@@ -73,9 +73,9 @@ bool CanBuildVehicleInfrastructure(VehicleType type, byte subtype = 0);
 
 /** Position information of a vehicle after it moved */
 struct GetNewVehiclePosResult {
-	int x, y;  ///< x and y position of the vehicle after moving
-	TileIndex old_tile; ///< Current tile of the vehicle
-	TileIndex new_tile; ///< Tile of the vehicle after moving
+	int x, y;  // x and y position of the vehicle after moving
+	TileIndex old_tile; // Current tile of the vehicle
+	TileIndex new_tile; // Tile of the vehicle after moving
 };
 
 GetNewVehiclePosResult GetNewVehiclePos(const Vehicle *v);

@@ -161,11 +161,11 @@ void DrawTrainImage(const Train *v, int left, int right, int y, VehicleID select
 
 /** Helper struct for the cargo details information */
 struct CargoSummaryItem {
-	CargoID cargo;    ///< The cargo that is carried
-	StringID subtype; ///< STR_EMPTY if none
-	uint capacity;    ///< Amount that can be carried
-	uint amount;      ///< Amount that is carried
-	StationID source; ///< One of the source stations
+	CargoID cargo;    // The cargo that is carried
+	StringID subtype; // STR_EMPTY if none
+	uint capacity;    // Amount that can be carried
+	uint amount;      // Amount that is carried
+	StationID source; // One of the source stations
 
 	/** Used by CargoSummary::Find() and similar functions */
 	inline bool operator != (const CargoSummaryItem &other) const
@@ -180,8 +180,8 @@ struct CargoSummaryItem {
 	}
 };
 
-static const uint TRAIN_DETAILS_MIN_INDENT = 32; ///< Minimum indent level in the train details window
-static const uint TRAIN_DETAILS_MAX_INDENT = 72; ///< Maximum indent level in the train details window; wider than this and we start on a new line
+static const uint TRAIN_DETAILS_MIN_INDENT = 32; // Minimum indent level in the train details window
+static const uint TRAIN_DETAILS_MAX_INDENT = 72; // Maximum indent level in the train details window; wider than this and we start on a new line
 
 /** Container for the cargo summary information. */
 typedef std::vector<CargoSummaryItem> CargoSummary;

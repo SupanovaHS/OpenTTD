@@ -65,7 +65,7 @@ uint16 Industry::counts[NUM_INDUSTRYTYPES];
 
 IndustrySpec _industry_specs[NUM_INDUSTRYTYPES];
 IndustryTileSpec _industry_tile_specs[NUM_INDUSTRYTILES];
-IndustryBuildData _industry_builder; ///< In-game manager of industries.
+IndustryBuildData _industry_builder; // In-game manager of industries.
 
 /**
  * This function initialize the spec arrays of both
@@ -1094,7 +1094,7 @@ void PlantRandomFarmField(const Industry *i)
  */
 static bool SearchLumberMillTrees(TileIndex tile, void *user_data)
 {
-	if (IsTileType(tile, MP_TREES) && GetTreeGrowth(tile) > 2) { ///< 3 and up means all fully grown trees
+	if (IsTileType(tile, MP_TREES) && GetTreeGrowth(tile) > 2) { // 3 and up means all fully grown trees
 		/* found a tree */
 
 		Backup<CompanyID> cur_company(_current_company, OWNER_NONE, FILE_LINE);
@@ -1372,15 +1372,15 @@ typedef CommandCost CheckNewIndustryProc(TileIndex tile);
 
 /** Check functions for different types of industry. */
 static CheckNewIndustryProc * const _check_new_industry_procs[CHECK_END] = {
-	CheckNewIndustry_NULL,        ///< CHECK_NOTHING
-	CheckNewIndustry_Forest,      ///< CHECK_FOREST
-	CheckNewIndustry_OilRefinery, ///< CHECK_REFINERY
-	CheckNewIndustry_Farm,        ///< CHECK_FARM
-	CheckNewIndustry_Plantation,  ///< CHECK_PLANTATION
-	CheckNewIndustry_Water,       ///< CHECK_WATER
-	CheckNewIndustry_Lumbermill,  ///< CHECK_LUMBERMILL
-	CheckNewIndustry_BubbleGen,   ///< CHECK_BUBBLEGEN
-	CheckNewIndustry_OilRig,      ///< CHECK_OIL_RIG
+	CheckNewIndustry_NULL,        // CHECK_NOTHING
+	CheckNewIndustry_Forest,      // CHECK_FOREST
+	CheckNewIndustry_OilRefinery, // CHECK_REFINERY
+	CheckNewIndustry_Farm,        // CHECK_FARM
+	CheckNewIndustry_Plantation,  // CHECK_PLANTATION
+	CheckNewIndustry_Water,       // CHECK_WATER
+	CheckNewIndustry_Lumbermill,  // CHECK_LUMBERMILL
+	CheckNewIndustry_BubbleGen,   // CHECK_BUBBLEGEN
+	CheckNewIndustry_OilRig,      // CHECK_OIL_RIG
 };
 
 /**
@@ -2667,7 +2667,7 @@ static void ChangeIndustryProduction(Industry *i, bool monthly)
 	const IndustrySpec *indspec = GetIndustrySpec(i->type);
 	bool standard = false;
 	bool suppress_message = false;
-	bool recalculate_multipliers = false; ///< reinitialize production_rate to match prod_level
+	bool recalculate_multipliers = false; // reinitialize production_rate to match prod_level
 	/* use original economy for industries using production related callbacks */
 	bool original_economy = indspec->UsesOriginalEconomy();
 	byte div = 0;

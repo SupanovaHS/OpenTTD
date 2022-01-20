@@ -26,16 +26,16 @@
 
 #include "../safeguards.h"
 
-static const auto NETWORK_COORDINATOR_DELAY_BETWEEN_UPDATES = std::chrono::seconds(30); ///< How many time between updates the server sends to the Game Coordinator.
-ClientNetworkCoordinatorSocketHandler _network_coordinator_client; ///< The connection to the Game Coordinator.
-ConnectionType _network_server_connection_type = CONNECTION_TYPE_UNKNOWN; ///< What type of connection the Game Coordinator detected we are on.
-std::string _network_server_invite_code = ""; ///< Our invite code as indicated by the Game Coordinator.
+static const auto NETWORK_COORDINATOR_DELAY_BETWEEN_UPDATES = std::chrono::seconds(30); // How many time between updates the server sends to the Game Coordinator.
+ClientNetworkCoordinatorSocketHandler _network_coordinator_client; // The connection to the Game Coordinator.
+ConnectionType _network_server_connection_type = CONNECTION_TYPE_UNKNOWN; // What type of connection the Game Coordinator detected we are on.
+std::string _network_server_invite_code = ""; // Our invite code as indicated by the Game Coordinator.
 
 /** Connect to a game server by IP:port. */
 class NetworkDirectConnecter : public TCPConnecter {
 private:
-	std::string token;     ///< Token of this connection.
-	uint8 tracking_number; ///< Tracking number of this connection.
+	std::string token;     // Token of this connection.
+	uint8 tracking_number; // Tracking number of this connection.
 
 public:
 	/**
@@ -62,9 +62,9 @@ public:
 /** Connecter used after STUN exchange to connect from both sides to each other. */
 class NetworkReuseStunConnecter : public TCPConnecter {
 private:
-	std::string token;     ///< Token of this connection.
-	uint8 tracking_number; ///< Tracking number of this connection.
-	uint8 family;          ///< Family of this connection.
+	std::string token;     // Token of this connection.
+	uint8 tracking_number; // Tracking number of this connection.
+	uint8 family;          // Family of this connection.
 
 public:
 	/**

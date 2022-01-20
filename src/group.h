@@ -19,18 +19,18 @@
 #include <string>
 
 typedef Pool<Group, GroupID, 16, 64000> GroupPool;
-extern GroupPool _group_pool; ///< Pool of groups.
+extern GroupPool _group_pool; // Pool of groups.
 
 /** Statistics and caches on the vehicles in a group. */
 struct GroupStatistics {
-	uint16 num_vehicle;                     ///< Number of vehicles.
-	uint16 *num_engines;                    ///< Caches the number of engines of each type the company owns.
+	uint16 num_vehicle;                     // Number of vehicles.
+	uint16 *num_engines;                    // Caches the number of engines of each type the company owns.
 
-	bool autoreplace_defined;               ///< Are any autoreplace rules set?
-	bool autoreplace_finished;              ///< Have all autoreplacement finished?
+	bool autoreplace_defined;               // Are any autoreplace rules set?
+	bool autoreplace_finished;              // Have all autoreplacement finished?
 
-	uint16 num_profit_vehicle;              ///< Number of vehicles considered for profit statistics;
-	Money profit_last_year;                 ///< Sum of profits for all vehicles.
+	uint16 num_profit_vehicle;              // Number of vehicles considered for profit statistics;
+	Money profit_last_year;                 // Sum of profits for all vehicles.
 
 	GroupStatistics();
 	~GroupStatistics();
@@ -63,24 +63,24 @@ struct GroupStatistics {
 };
 
 enum GroupFlags : uint8 {
-	GF_REPLACE_PROTECTION,    ///< If set to true, the global autoreplace has no effect on the group
-	GF_REPLACE_WAGON_REMOVAL, ///< If set, autoreplace will perform wagon removal on vehicles in this group.
+	GF_REPLACE_PROTECTION,    // If set to true, the global autoreplace has no effect on the group
+	GF_REPLACE_WAGON_REMOVAL, // If set, autoreplace will perform wagon removal on vehicles in this group.
 	GF_END,
 };
 
 /** Group data. */
 struct Group : GroupPool::PoolItem<&_group_pool> {
-	std::string name;           ///< Group Name
-	Owner owner;                ///< Group Owner
-	VehicleType vehicle_type;   ///< Vehicle type of the group
+	std::string name;           // Group Name
+	Owner owner;                // Group Owner
+	VehicleType vehicle_type;   // Vehicle type of the group
 
-	uint8 flags;                ///< Group flags
-	Livery livery;              ///< Custom colour scheme for vehicles in this group
-	GroupStatistics statistics; ///< NOSAVE: Statistics and caches on the vehicles in the group.
+	uint8 flags;                // Group flags
+	Livery livery;              // Custom colour scheme for vehicles in this group
+	GroupStatistics statistics; // NOSAVE: Statistics and caches on the vehicles in the group.
 
-	bool folded;                ///< NOSAVE: Is this group folded in the group view?
+	bool folded;                // NOSAVE: Is this group folded in the group view?
 
-	GroupID parent;             ///< Parent group
+	GroupID parent;             // Parent group
 
 	Group(CompanyID owner = INVALID_COMPANY);
 };

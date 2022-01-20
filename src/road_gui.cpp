@@ -251,9 +251,9 @@ static bool RoadToolbar_CtrlChanged(Window *w)
 
 /** Road toolbar window handler. */
 struct BuildRoadToolbarWindow : Window {
-	RoadType roadtype;          ///< Road type to build.
-	const RoadTypeInfo *rti;    ///< Information about current road type
-	int last_started_action;    ///< Last started user action.
+	RoadType roadtype;          // Road type to build.
+	const RoadTypeInfo *rti;    // Information about current road type
+	int last_started_action;    // Last started user action.
 
 	BuildRoadToolbarWindow(WindowDesc *desc, WindowNumber window_number) : Window(desc)
 	{

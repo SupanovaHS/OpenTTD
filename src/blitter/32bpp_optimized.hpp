@@ -17,8 +17,8 @@ class Blitter_32bppOptimized : public Blitter_32bppSimple {
 public:
 	/** Data stored about a (single) sprite. */
 	struct SpriteData {
-		uint32 offset[ZOOM_LVL_COUNT][2]; ///< Offsets (from .data) to streams for different zoom levels, and the normal and remap image information.
-		byte data[];                      ///< Data, all zoomlevels.
+		uint32 offset[ZOOM_LVL_COUNT][2]; // Offsets (from .data) to streams for different zoom levels, and the normal and remap image information.
+		byte data[];                      // Data, all zoomlevels.
 	};
 
 	void Draw(Blitter::BlitterParams *bp, BlitterMode mode, ZoomLevel zoom) override;

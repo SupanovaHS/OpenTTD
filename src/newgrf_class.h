@@ -18,9 +18,9 @@
 template <typename Tspec, typename Tid, Tid Tmax>
 struct NewGRFClass {
 private:
-	uint count;       ///< Number of specs in this class.
-	uint ui_count;    ///< Number of specs in this class potentially available to the user.
-	Tspec **spec;     ///< Array of specifications.
+	uint count;       // Number of specs in this class.
+	uint ui_count;    // Number of specs in this class potentially available to the user.
+	Tspec **spec;     // Array of specifications.
 
 	/**
 	 * The actual classes.
@@ -35,8 +35,8 @@ private:
 	static void InsertDefaults();
 
 public:
-	uint32 global_id; ///< Global ID for class, e.g. 'DFLT', 'WAYP', etc.
-	StringID name;    ///< Name of this class.
+	uint32 global_id; // Global ID for class, e.g. 'DFLT', 'WAYP', etc.
+	StringID name;    // Name of this class.
 
 	void Insert(Tspec *spec);
 

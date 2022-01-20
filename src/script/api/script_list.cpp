@@ -20,9 +20,9 @@
  */
 class ScriptListSorter {
 protected:
-	ScriptList *list;       ///< The list that's being sorted.
-	bool has_no_more_items; ///< Whether we have more items to iterate over.
-	int64 item_next;        ///< The next item we will show.
+	ScriptList *list;       // The list that's being sorted.
+	bool has_no_more_items; // Whether we have more items to iterate over.
+	int64 item_next;        // The next item we will show.
 
 public:
 	/**
@@ -75,9 +75,9 @@ public:
  */
 class ScriptListSorterValueAscending : public ScriptListSorter {
 private:
-	ScriptList::ScriptListBucket::iterator bucket_iter;    ///< The iterator over the list to find the buckets.
-	ScriptList::ScriptItemList *bucket_list;               ///< The current bucket list we're iterator over.
-	ScriptList::ScriptItemList::iterator bucket_list_iter; ///< The iterator over the bucket list.
+	ScriptList::ScriptListBucket::iterator bucket_iter;    // The iterator over the list to find the buckets.
+	ScriptList::ScriptItemList *bucket_list;               // The current bucket list we're iterator over.
+	ScriptList::ScriptItemList::iterator bucket_list_iter; // The iterator over the bucket list.
 
 public:
 	/**
@@ -164,9 +164,9 @@ private:
 	/* Note: We cannot use reverse_iterator.
 	 *       The iterators must only be invalidated when the element they are pointing to is removed.
 	 *       This only holds for forward iterators. */
-	ScriptList::ScriptListBucket::iterator bucket_iter;    ///< The iterator over the list to find the buckets.
-	ScriptList::ScriptItemList *bucket_list;               ///< The current bucket list we're iterator over.
-	ScriptList::ScriptItemList::iterator bucket_list_iter; ///< The iterator over the bucket list.
+	ScriptList::ScriptListBucket::iterator bucket_iter;    // The iterator over the list to find the buckets.
+	ScriptList::ScriptItemList *bucket_list;               // The current bucket list we're iterator over.
+	ScriptList::ScriptItemList::iterator bucket_list_iter; // The iterator over the bucket list.
 
 public:
 	/**
@@ -258,7 +258,7 @@ public:
  */
 class ScriptListSorterItemAscending : public ScriptListSorter {
 private:
-	ScriptList::ScriptListMap::iterator item_iter; ///< The iterator over the items in the map.
+	ScriptList::ScriptListMap::iterator item_iter; // The iterator over the items in the map.
 
 public:
 	/**
@@ -331,7 +331,7 @@ private:
 	/* Note: We cannot use reverse_iterator.
 	 *       The iterators must only be invalidated when the element they are pointing to is removed.
 	 *       This only holds for forward iterators. */
-	ScriptList::ScriptListMap::iterator item_iter; ///< The iterator over the items in the map.
+	ScriptList::ScriptListMap::iterator item_iter; // The iterator over the items in the map.
 
 public:
 	/**

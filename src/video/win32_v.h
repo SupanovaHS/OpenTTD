@@ -36,16 +36,16 @@ public:
 	std::vector<int> GetListOfMonitorRefreshRates() override;
 
 protected:
-	HWND main_wnd;          ///< Handle to system window.
-	bool fullscreen;        ///< Whether to use (true) fullscreen mode.
-	bool has_focus = false; ///< Does our window have system focus?
-	Rect dirty_rect;        ///< Region of the screen that needs redrawing.
-	int width = 0;          ///< Width in pixels of our display surface.
-	int height = 0;         ///< Height in pixels of our display surface.
-	int width_org = 0;      ///< Original monitor resolution width, before we changed it.
-	int height_org = 0;     ///< Original monitor resolution height, before we changed it.
+	HWND main_wnd;          // Handle to system window.
+	bool fullscreen;        // Whether to use (true) fullscreen mode.
+	bool has_focus = false; // Does our window have system focus?
+	Rect dirty_rect;        // Region of the screen that needs redrawing.
+	int width = 0;          // Width in pixels of our display surface.
+	int height = 0;         // Height in pixels of our display surface.
+	int width_org = 0;      // Original monitor resolution width, before we changed it.
+	int height_org = 0;     // Original monitor resolution height, before we changed it.
 
-	bool buffer_locked;     ///< Video buffer was locked by the main thread.
+	bool buffer_locked;     // Video buffer was locked by the main thread.
 
 	Dimension GetScreenSize() const override;
 	float GetDPIScale() override;
@@ -87,9 +87,9 @@ public:
 	const char *GetName() const override { return "win32"; }
 
 protected:
-	HBITMAP  dib_sect;      ///< System bitmap object referencing our rendering buffer.
-	HPALETTE gdi_palette;   ///< Palette object for 8bpp blitter.
-	void     *buffer_bits;  ///< Internal rendering buffer.
+	HBITMAP  dib_sect;      // System bitmap object referencing our rendering buffer.
+	HPALETTE gdi_palette;   // Palette object for 8bpp blitter.
+	void     *buffer_bits;  // Internal rendering buffer.
 
 	void Paint() override;
 	void *GetVideoPointer() override { return this->buffer_bits; }
@@ -143,9 +143,9 @@ public:
 	const char *GetName() const override { return "win32-opengl"; }
 
 protected:
-	HDC    dc;          ///< Window device context.
-	HGLRC  gl_rc;       ///< OpenGL context.
-	uint8 *anim_buffer; ///< Animation buffer from OpenGL back-end.
+	HDC    dc;          // Window device context.
+	HGLRC  gl_rc;       // OpenGL context.
+	uint8 *anim_buffer; // Animation buffer from OpenGL back-end.
 
 	uint8 GetFullscreenBpp() override { return 32; } // OpenGL is always 32 bpp.
 

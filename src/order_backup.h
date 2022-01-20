@@ -35,14 +35,14 @@ static const uint32 MAKE_ORDER_BACKUP_FLAG = 1U << 31;
  */
 struct OrderBackup : OrderBackupPool::PoolItem<&_order_backup_pool>, BaseConsist {
 private:
-	friend SaveLoadTable GetOrderBackupDescription(); ///< Saving and loading of order backups.
-	friend struct BKORChunkHandler; ///< Creating empty orders upon savegame loading.
-	uint32 user;               ///< The user that requested the backup.
-	TileIndex tile;            ///< Tile of the depot where the order was changed.
-	GroupID group;             ///< The group the vehicle was part of.
+	friend SaveLoadTable GetOrderBackupDescription(); // Saving and loading of order backups.
+	friend struct BKORChunkHandler; // Creating empty orders upon savegame loading.
+	uint32 user;               // The user that requested the backup.
+	TileIndex tile;            // Tile of the depot where the order was changed.
+	GroupID group;             // The group the vehicle was part of.
 
-	const Vehicle *clone;      ///< Vehicle this vehicle was a clone of.
-	Order *orders;             ///< The actual orders if the vehicle was not a clone.
+	const Vehicle *clone;      // Vehicle this vehicle was a clone of.
+	Order *orders;             // The actual orders if the vehicle was not a clone.
 
 	/** Creation for savegame restoration. */
 	OrderBackup() {}

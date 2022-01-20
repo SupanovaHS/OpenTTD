@@ -112,7 +112,7 @@ static uint32 GetClosestIndustry(TileIndex tile, IndustryType type, const Indust
  */
 static uint32 GetCountAndDistanceOfClosestInstance(byte param_setID, byte layout_filter, bool town_filter, const Industry *current)
 {
-	uint32 GrfID = GetRegister(0x100);  ///< Get the GRFID of the definition to look for in register 100h
+	uint32 GrfID = GetRegister(0x100);  // Get the GRFID of the definition to look for in register 100h
 	IndustryType ind_index;
 	uint32 closest_dist = UINT32_MAX;
 	byte count = 0;

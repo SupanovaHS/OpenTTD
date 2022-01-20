@@ -106,10 +106,10 @@ ViewportSignKdtree _viewport_sign_kdtree(&Kdtree_ViewportSignXYFunc);
 static int _viewport_sign_maxwidth = 0;
 
 
-static const int MAX_TILE_EXTENT_LEFT   = ZOOM_LVL_BASE * TILE_PIXELS;                     ///< Maximum left   extent of tile relative to north corner.
-static const int MAX_TILE_EXTENT_RIGHT  = ZOOM_LVL_BASE * TILE_PIXELS;                     ///< Maximum right  extent of tile relative to north corner.
-static const int MAX_TILE_EXTENT_TOP    = ZOOM_LVL_BASE * MAX_BUILDING_PIXELS;             ///< Maximum top    extent of tile relative to north corner (not considering bridges).
-static const int MAX_TILE_EXTENT_BOTTOM = ZOOM_LVL_BASE * (TILE_PIXELS + 2 * TILE_HEIGHT); ///< Maximum bottom extent of tile relative to north corner (worst case: #SLOPE_STEEP_N).
+static const int MAX_TILE_EXTENT_LEFT   = ZOOM_LVL_BASE * TILE_PIXELS;                     // Maximum left   extent of tile relative to north corner.
+static const int MAX_TILE_EXTENT_RIGHT  = ZOOM_LVL_BASE * TILE_PIXELS;                     // Maximum right  extent of tile relative to north corner.
+static const int MAX_TILE_EXTENT_TOP    = ZOOM_LVL_BASE * MAX_BUILDING_PIXELS;             // Maximum top    extent of tile relative to north corner (not considering bridges).
+static const int MAX_TILE_EXTENT_BOTTOM = ZOOM_LVL_BASE * (TILE_PIXELS + 2 * TILE_HEIGHT); // Maximum bottom extent of tile relative to north corner (worst case: #SLOPE_STEEP_N).
 
 struct StringSpriteToDraw {
 	StringID string;
@@ -123,25 +123,25 @@ struct StringSpriteToDraw {
 struct TileSpriteToDraw {
 	SpriteID image;
 	PaletteID pal;
-	const SubSprite *sub;           ///< only draw a rectangular part of the sprite
-	int32 x;                        ///< screen X coordinate of sprite
-	int32 y;                        ///< screen Y coordinate of sprite
+	const SubSprite *sub;           // only draw a rectangular part of the sprite
+	int32 x;                        // screen X coordinate of sprite
+	int32 y;                        // screen Y coordinate of sprite
 };
 
 struct ChildScreenSpriteToDraw {
 	SpriteID image;
 	PaletteID pal;
-	const SubSprite *sub;           ///< only draw a rectangular part of the sprite
+	const SubSprite *sub;           // only draw a rectangular part of the sprite
 	int32 x;
 	int32 y;
-	int next;                       ///< next child to draw (-1 at the end)
+	int next;                       // next child to draw (-1 at the end)
 };
 
 /** Enumeration of multi-part foundations */
 enum FoundationPart {
-	FOUNDATION_PART_NONE     = 0xFF,  ///< Neither foundation nor groundsprite drawn yet.
-	FOUNDATION_PART_NORMAL   = 0,     ///< First part (normal foundation or no foundation)
-	FOUNDATION_PART_HALFTILE = 1,     ///< Second part (halftile foundation)
+	FOUNDATION_PART_NONE     = 0xFF,  // Neither foundation nor groundsprite drawn yet.
+	FOUNDATION_PART_NORMAL   = 0,     // First part (normal foundation or no foundation)
+	FOUNDATION_PART_HALFTILE = 1,     // Second part (halftile foundation)
 	FOUNDATION_PART_END
 };
 
@@ -150,9 +150,9 @@ enum FoundationPart {
  * @see StartSpriteCombine
  */
 enum SpriteCombineMode {
-	SPRITE_COMBINE_NONE,     ///< Every #AddSortableSpriteToDraw start its own bounding box
-	SPRITE_COMBINE_PENDING,  ///< %Sprite combining will start with the next unclipped sprite.
-	SPRITE_COMBINE_ACTIVE,   ///< %Sprite combining is active. #AddSortableSpriteToDraw outputs child sprites.
+	SPRITE_COMBINE_NONE,     // Every #AddSortableSpriteToDraw start its own bounding box
+	SPRITE_COMBINE_PENDING,  // %Sprite combining will start with the next unclipped sprite.
+	SPRITE_COMBINE_ACTIVE,   // %Sprite combining is active. #AddSortableSpriteToDraw outputs child sprites.
 };
 
 typedef std::vector<TileSpriteToDraw> TileSpriteToDrawVector;
@@ -167,17 +167,17 @@ struct ViewportDrawer {
 	StringSpriteToDrawVector string_sprites_to_draw;
 	TileSpriteToDrawVector tile_sprites_to_draw;
 	ParentSpriteToDrawVector parent_sprites_to_draw;
-	ParentSpriteToSortVector parent_sprites_to_sort; ///< Parent sprite pointer array used for sorting
+	ParentSpriteToSortVector parent_sprites_to_sort; // Parent sprite pointer array used for sorting
 	ChildScreenSpriteToDrawVector child_screen_sprites_to_draw;
 
 	int *last_child;
 
-	SpriteCombineMode combine_sprites;               ///< Current mode of "sprite combining". @see StartSpriteCombine
+	SpriteCombineMode combine_sprites;               // Current mode of "sprite combining". @see StartSpriteCombine
 
-	int foundation[FOUNDATION_PART_END];             ///< Foundation sprites (index into parent_sprites_to_draw).
-	FoundationPart foundation_part;                  ///< Currently active foundation for ground sprite drawing.
-	int *last_foundation_child[FOUNDATION_PART_END]; ///< Tail of ChildSprite list of the foundations. (index into child_screen_sprites_to_draw)
-	Point foundation_offset[FOUNDATION_PART_END];    ///< Pixel offset for ground sprites on the foundations.
+	int foundation[FOUNDATION_PART_END];             // Foundation sprites (index into parent_sprites_to_draw).
+	FoundationPart foundation_part;                  // Currently active foundation for ground sprite drawing.
+	int *last_foundation_child[FOUNDATION_PART_END]; // Tail of ChildSprite list of the foundations. (index into child_screen_sprites_to_draw)
+	Point foundation_offset[FOUNDATION_PART_END];    // Pixel offset for ground sprites on the foundations.
 };
 
 static bool MarkViewportDirty(const Viewport *vp, int left, int top, int right, int bottom);
@@ -988,8 +988,8 @@ enum TileHighlightType {
 	THT_RED,
 };
 
-const Station *_viewport_highlight_station; ///< Currently selected station for coverage area highlight
-const Town *_viewport_highlight_town;       ///< Currently selected town for coverage area highlight
+const Station *_viewport_highlight_station; // Currently selected station for coverage area highlight
+const Town *_viewport_highlight_town;       // Currently selected town for coverage area highlight
 
 /**
  * Get tile highlight type of coverage area for a given tile.
@@ -3440,8 +3440,8 @@ Point GetViewportStationMiddle(const Viewport *vp, const Station *st)
 
 /** Helper class for getting the best sprite sorter. */
 struct ViewportSSCSS {
-	VpSorterChecker fct_checker; ///< The check function.
-	VpSpriteSorter fct_sorter;   ///< The sorting function.
+	VpSorterChecker fct_checker; // The check function.
+	VpSpriteSorter fct_sorter;   // The sorting function.
 };
 
 /** List of sorters ordered from best to worst. */

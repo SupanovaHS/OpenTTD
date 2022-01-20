@@ -34,8 +34,8 @@
 
 /** Container for the arrival/departure dates of a vehicle */
 struct TimetableArrivalDeparture {
-	Ticks arrival;   ///< The arrival time
-	Ticks departure; ///< The departure time
+	Ticks arrival;   // The arrival time
+	Ticks departure; // The departure time
 };
 
 /**
@@ -150,12 +150,12 @@ static void ChangeTimetableStartCallback(const Window *w, Date date, void *data)
 
 struct TimetableWindow : Window {
 	int sel_index;
-	const Vehicle *vehicle; ///< Vehicle monitored by the window.
-	bool show_expected;     ///< Whether we show expected arrival or scheduled
-	uint deparr_time_width; ///< The width of the departure/arrival time
-	uint deparr_abbr_width; ///< The width of the departure/arrival abbreviation
+	const Vehicle *vehicle; // Vehicle monitored by the window.
+	bool show_expected;     // Whether we show expected arrival or scheduled
+	uint deparr_time_width; // The width of the departure/arrival time
+	uint deparr_abbr_width; // The width of the departure/arrival abbreviation
 	Scrollbar *vscroll;
-	bool query_is_speed_query; ///< The currently open query window is a speed query and not a time query.
+	bool query_is_speed_query; // The currently open query window is a speed query and not a time query.
 
 	TimetableWindow(WindowDesc *desc, WindowNumber window_number) :
 			Window(desc),

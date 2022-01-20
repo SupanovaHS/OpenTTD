@@ -68,7 +68,7 @@ void ResetViewportAfterLoadGame()
 	MarkWholeScreenDirty();
 }
 
-byte _age_cargo_skip_counter; ///< Skip aging of cargo? Used before savegame version 162.
+byte _age_cargo_skip_counter; // Skip aging of cargo? Used before savegame version 162.
 
 static const SaveLoad _date_desc[] = {
 	SLEG_CONDVAR("date",                   _date,                   SLE_FILE_U16 | SLE_VAR_I32,  SL_MIN_VERSION,  SLV_31),

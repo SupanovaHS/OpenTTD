@@ -73,7 +73,7 @@ private:
  */
 class ScriptText : public Text , public ZeroedMemoryAllocator {
 public:
-	static const int SCRIPT_TEXT_MAX_PARAMETERS = 20; ///< The maximum amount of parameters you can give to one object.
+	static const int SCRIPT_TEXT_MAX_PARAMETERS = 20; // The maximum amount of parameters you can give to one object.
 
 #ifndef DOXYGEN_API
 	/**

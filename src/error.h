@@ -19,25 +19,25 @@ struct GRFFile;
 
 /** Message severity/type */
 enum WarningLevel {
-	WL_INFO,     ///< Used for DoCommand-like (and some non-fatal AI GUI) errors/information
-	WL_WARNING,  ///< Other information
-	WL_ERROR,    ///< Errors (eg. saving/loading failed)
-	WL_CRITICAL, ///< Critical errors, the MessageBox is shown in all cases
+	WL_INFO,     // Used for DoCommand-like (and some non-fatal AI GUI) errors/information
+	WL_WARNING,  // Other information
+	WL_ERROR,    // Errors (eg. saving/loading failed)
+	WL_CRITICAL, // Critical errors, the MessageBox is shown in all cases
 };
 
 /** The data of the error message. */
 class ErrorMessageData {
 protected:
-	GUITimer display_timer;         ///< Timer before closing the message.
-	uint64 decode_params[20];       ///< Parameters of the message strings.
-	const char *strings[20];        ///< Copies of raw strings that were used.
-	const GRFFile *textref_stack_grffile; ///< NewGRF that filled the #TextRefStack for the error message.
-	uint textref_stack_size;        ///< Number of uint32 values to put on the #TextRefStack for the error message.
-	uint32 textref_stack[16];       ///< Values to put on the #TextRefStack for the error message.
-	StringID summary_msg;           ///< General error message showed in first line. Must be valid.
-	StringID detailed_msg;          ///< Detailed error message showed in second line. Can be #INVALID_STRING_ID.
-	Point position;                 ///< Position of the error message window.
-	CompanyID face;                 ///< Company belonging to the face being shown. #INVALID_COMPANY if no face present.
+	GUITimer display_timer;         // Timer before closing the message.
+	uint64 decode_params[20];       // Parameters of the message strings.
+	const char *strings[20];        // Copies of raw strings that were used.
+	const GRFFile *textref_stack_grffile; // NewGRF that filled the #TextRefStack for the error message.
+	uint textref_stack_size;        // Number of uint32 values to put on the #TextRefStack for the error message.
+	uint32 textref_stack[16];       // Values to put on the #TextRefStack for the error message.
+	StringID summary_msg;           // General error message showed in first line. Must be valid.
+	StringID detailed_msg;          // Detailed error message showed in second line. Can be #INVALID_STRING_ID.
+	Point position;                 // Position of the error message window.
+	CompanyID face;                 // Company belonging to the face being shown. #INVALID_COMPANY if no face present.
 
 public:
 	ErrorMessageData(const ErrorMessageData &data);

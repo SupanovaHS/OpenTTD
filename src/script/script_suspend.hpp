@@ -43,8 +43,8 @@ public:
 	Script_SuspendCallbackProc *GetSuspendCallback() { return callback; }
 
 private:
-	int time;                             ///< Amount of ticks to suspend the script.
-	Script_SuspendCallbackProc *callback; ///< Callback function to call when the script can run again.
+	int time;                             // Amount of ticks to suspend the script.
+	Script_SuspendCallbackProc *callback; // Callback function to call when the script can run again.
 };
 
 #endif /* SCRIPT_SUSPEND_HPP */

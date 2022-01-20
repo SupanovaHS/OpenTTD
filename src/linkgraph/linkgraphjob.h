@@ -33,9 +33,9 @@ private:
 	 * Annotation for a link graph edge.
 	 */
 	struct EdgeAnnotation {
-		uint demand;             ///< Transport demand between the nodes.
-		uint unsatisfied_demand; ///< Demand over this edge that hasn't been satisfied yet.
-		uint flow;               ///< Planned flow over this edge.
+		uint demand;             // Transport demand between the nodes.
+		uint unsatisfied_demand; // Demand over this edge that hasn't been satisfied yet.
+		uint flow;               // Planned flow over this edge.
 		void Init();
 	};
 
@@ -43,9 +43,9 @@ private:
 	 * Annotation for a link graph node.
 	 */
 	struct NodeAnnotation {
-		uint undelivered_supply; ///< Amount of supply that hasn't been distributed yet.
-		PathList paths;          ///< Paths through this node, sorted so that those with flow == 0 are in the back.
-		FlowStatMap flows;       ///< Planned flows to other nodes.
+		uint undelivered_supply; // Amount of supply that hasn't been distributed yet.
+		PathList paths;          // Paths through this node, sorted so that those with flow == 0 are in the back.
+		FlowStatMap flows;       // Planned flows to other nodes.
 		void Init(uint supply);
 	};
 
@@ -56,14 +56,14 @@ private:
 	friend class LinkGraphSchedule;
 
 protected:
-	const LinkGraph link_graph;       ///< Link graph to by analyzed. Is copied when job is started and mustn't be modified later.
-	const LinkGraphSettings settings; ///< Copy of _settings_game.linkgraph at spawn time.
-	std::thread thread;               ///< Thread the job is running in or a default-constructed thread if it's running in the main thread.
-	Date join_date;                   ///< Date when the job is to be joined.
-	NodeAnnotationVector nodes;       ///< Extra node data necessary for link graph calculation.
-	EdgeAnnotationMatrix edges;       ///< Extra edge data necessary for link graph calculation.
-	std::atomic<bool> job_completed;  ///< Is the job still running. This is accessed by multiple threads and reads may be stale.
-	std::atomic<bool> job_aborted;    ///< Has the job been aborted. This is accessed by multiple threads and reads may be stale.
+	const LinkGraph link_graph;       // Link graph to by analyzed. Is copied when job is started and mustn't be modified later.
+	const LinkGraphSettings settings; // Copy of _settings_game.linkgraph at spawn time.
+	std::thread thread;               // Thread the job is running in or a default-constructed thread if it's running in the main thread.
+	Date join_date;                   // Date when the job is to be joined.
+	NodeAnnotationVector nodes;       // Extra node data necessary for link graph calculation.
+	EdgeAnnotationMatrix edges;       // Extra edge data necessary for link graph calculation.
+	std::atomic<bool> job_completed;  // Is the job still running. This is accessed by multiple threads and reads may be stale.
+	std::atomic<bool> job_aborted;    // Has the job been aborted. This is accessed by multiple threads and reads may be stale.
 
 	void EraseFlows(NodeID from);
 	void JoinThread();
@@ -77,7 +77,7 @@ public:
 	 */
 	class Edge : public LinkGraph::ConstEdge {
 	private:
-		EdgeAnnotation &anno; ///< Annotation being wrapped.
+		EdgeAnnotation &anno; // Annotation being wrapped.
 	public:
 		/**
 		 * Constructor.
@@ -146,7 +146,7 @@ public:
 	 * Iterator for job edges.
 	 */
 	class EdgeIterator : public LinkGraph::BaseEdgeIterator<const LinkGraph::BaseEdge, Edge, EdgeIterator> {
-		EdgeAnnotation *base_anno; ///< Array of annotations to be (indirectly) iterated.
+		EdgeAnnotation *base_anno; // Array of annotations to be (indirectly) iterated.
 	public:
 		/**
 		 * Constructor.
@@ -184,8 +184,8 @@ public:
 	 */
 	class Node : public LinkGraph::ConstNode {
 	private:
-		NodeAnnotation &node_anno;  ///< Annotation being wrapped.
-		EdgeAnnotation *edge_annos; ///< Edge annotations belonging to this node.
+		NodeAnnotation &node_anno;  // Annotation being wrapped.
+		EdgeAnnotation *edge_annos; // Edge annotations belonging to this node.
 	public:
 
 		/**
@@ -445,14 +445,14 @@ protected:
 		PATH_CAP_MAX_FREE = (INT_MAX - 1) / PATH_CAP_MULTIPLIER
 	};
 
-	uint distance;     ///< Sum(distance of all legs up to this one).
-	uint capacity;     ///< This capacity is min(capacity) fom all edges.
-	int free_capacity; ///< This capacity is min(edge.capacity - edge.flow) for the current run of Dijkstra.
-	uint flow;         ///< Flow the current run of the mcf solver assigns.
-	NodeID node;       ///< Link graph node this leg passes.
-	NodeID origin;     ///< Link graph node this path originates from.
-	uint num_children; ///< Number of child legs that have been forked from this path.
-	Path *parent;      ///< Parent leg of this one.
+	uint distance;     // Sum(distance of all legs up to this one).
+	uint capacity;     // This capacity is min(capacity) fom all edges.
+	int free_capacity; // This capacity is min(edge.capacity - edge.flow) for the current run of Dijkstra.
+	uint flow;         // Flow the current run of the mcf solver assigns.
+	NodeID node;       // Link graph node this leg passes.
+	NodeID origin;     // Link graph node this path originates from.
+	uint num_children; // Number of child legs that have been forked from this path.
+	Path *parent;      // Parent leg of this one.
 };
 
 #endif /* LINKGRAPHJOB_H */

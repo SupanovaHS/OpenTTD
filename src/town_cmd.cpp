@@ -2073,9 +2073,9 @@ static bool IsTileAlignedToGrid(TileIndex tile, TownLayout layout)
  * Used as the user_data for FindFurthestFromWater
  */
 struct SpotData {
-	TileIndex tile; ///< holds the tile that was found
-	uint max_dist;  ///< holds the distance that tile is from the water
-	TownLayout layout; ///< tells us what kind of town we're building
+	TileIndex tile; // holds the tile that was found
+	uint max_dist;  // holds the distance that tile is from the water
+	TownLayout layout; // tells us what kind of town we're building
 };
 
 /**
@@ -3092,8 +3092,8 @@ static bool TryClearTile(TileIndex tile)
 
 /** Structure for storing data while searching the best place to build a statue. */
 struct StatueBuildSearchData {
-	TileIndex best_position; ///< Best position found so far.
-	int tile_count;          ///< Number of tiles tried.
+	TileIndex best_position; // Best position found so far.
+	int tile_count;          // Number of tiles tried.
 
 	StatueBuildSearchData(TileIndex best_pos, int count) : best_position(best_pos), tile_count(count) { }
 };
@@ -3598,8 +3598,8 @@ Town *ClosestTownFromTile(TileIndex tile, uint threshold)
 	}
 }
 
-static bool _town_rating_test = false; ///< If \c true, town rating is in test-mode.
-static SmallMap<const Town *, int> _town_test_ratings; ///< Map of towns to modified ratings, while in town rating test-mode.
+static bool _town_rating_test = false; // If \c true, town rating is in test-mode.
+static SmallMap<const Town *, int> _town_test_ratings; // Map of towns to modified ratings, while in town rating test-mode.
 
 /**
  * Switch the town rating to test-mode, to allow commands to be tested without affecting current ratings.

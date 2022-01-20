@@ -514,33 +514,33 @@ cleanup:
 struct MpsMachine {
 	/** Starting parameter and playback status for one channel/track */
 	struct Channel {
-		byte cur_program;    ///< program selected, used for velocity scaling (lookup into programvelocities array)
-		byte running_status; ///< last midi status code seen
-		uint16 delay;        ///< frames until next command
-		uint32 playpos;      ///< next byte to play this channel from
-		uint32 startpos;     ///< start position of master track
-		uint32 returnpos;    ///< next return position after playing a segment
+		byte cur_program;    // program selected, used for velocity scaling (lookup into programvelocities array)
+		byte running_status; // last midi status code seen
+		uint16 delay;        // frames until next command
+		uint32 playpos;      // next byte to play this channel from
+		uint32 startpos;     // start position of master track
+		uint32 returnpos;    // next return position after playing a segment
 		Channel() : cur_program(0xFF), running_status(0), delay(0), playpos(0), startpos(0), returnpos(0) { }
 	};
-	Channel channels[16];         ///< playback status for each MIDI channel
-	std::vector<uint32> segments; ///< pointers into songdata to repeatable data segments
-	int16 tempo_ticks;            ///< ticker that increments when playing a frame, decrements before playing a frame
-	int16 current_tempo;         ///< threshold for actually playing a frame
-	int16 initial_tempo;         ///< starting tempo of song
-	bool shouldplayflag;          ///< not-end-of-song flag
+	Channel channels[16];         // playback status for each MIDI channel
+	std::vector<uint32> segments; // pointers into songdata to repeatable data segments
+	int16 tempo_ticks;            // ticker that increments when playing a frame, decrements before playing a frame
+	int16 current_tempo;         // threshold for actually playing a frame
+	int16 initial_tempo;         // starting tempo of song
+	bool shouldplayflag;          // not-end-of-song flag
 
 	static const int TEMPO_RATE;
 	static const byte programvelocities[128];
 
-	const byte *songdata; ///< raw data array
-	size_t songdatalen;   ///< length of song data
-	MidiFile &target;     ///< recipient of data
+	const byte *songdata; // raw data array
+	size_t songdatalen;   // length of song data
+	MidiFile &target;     // recipient of data
 
 	/** Overridden MIDI status codes used in the data format */
 	enum MpsMidiStatus {
-		MPSMIDIST_SEGMENT_RETURN = 0xFD, ///< resume playing master track from stored position
-		MPSMIDIST_SEGMENT_CALL   = 0xFE, ///< store current position of master track playback, and begin playback of a segment
-		MPSMIDIST_ENDSONG        = 0xFF, ///< immediately end the song
+		MPSMIDIST_SEGMENT_RETURN = 0xFD, // resume playing master track from stored position
+		MPSMIDIST_SEGMENT_CALL   = 0xFE, // store current position of master track playback, and begin playback of a segment
+		MPSMIDIST_ENDSONG        = 0xFF, // immediately end the song
 	};
 
 	static void AddMidiData(MidiFile::DataBlock &block, byte b1, byte b2)

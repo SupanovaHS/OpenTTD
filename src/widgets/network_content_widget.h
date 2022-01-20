@@ -14,36 +14,36 @@
 
 /** Widgets of the #NetworkContentDownloadStatusWindow class. */
 enum NetworkContentDownloadStatusWidgets {
-	WID_NCDS_BACKGROUND, ///< Background of the window.
-	WID_NCDS_CANCELOK,   ///< (Optional) Cancel/OK button.
+	WID_NCDS_BACKGROUND, // Background of the window.
+	WID_NCDS_CANCELOK,   // (Optional) Cancel/OK button.
 };
 
 /** Widgets of the #NetworkContentListWindow class. */
 enum NetworkContentListWidgets {
-	WID_NCL_BACKGROUND,     ///< Resize button.
+	WID_NCL_BACKGROUND,     // Resize button.
 
-	WID_NCL_FILTER_CAPT,    ///< Caption for the filter editbox.
-	WID_NCL_FILTER,         ///< Filter editbox.
+	WID_NCL_FILTER_CAPT,    // Caption for the filter editbox.
+	WID_NCL_FILTER,         // Filter editbox.
 
-	WID_NCL_CHECKBOX,       ///< Button above checkboxes.
-	WID_NCL_TYPE,           ///< 'Type' button.
-	WID_NCL_NAME,           ///< 'Name' button.
+	WID_NCL_CHECKBOX,       // Button above checkboxes.
+	WID_NCL_TYPE,           // 'Type' button.
+	WID_NCL_NAME,           // 'Name' button.
 
-	WID_NCL_MATRIX,         ///< Panel with list of content.
-	WID_NCL_SCROLLBAR,      ///< Scrollbar of matrix.
+	WID_NCL_MATRIX,         // Panel with list of content.
+	WID_NCL_SCROLLBAR,      // Scrollbar of matrix.
 
-	WID_NCL_DETAILS,        ///< Panel with content details.
-	WID_NCL_TEXTFILE,       ///< Open readme, changelog (+1) or license (+2) of a file in the content window.
+	WID_NCL_DETAILS,        // Panel with content details.
+	WID_NCL_TEXTFILE,       // Open readme, changelog (+1) or license (+2) of a file in the content window.
 
-	WID_NCL_SELECT_ALL = WID_NCL_TEXTFILE + TFT_END, ///< 'Select all' button.
-	WID_NCL_SELECT_UPDATE,  ///< 'Select updates' button.
-	WID_NCL_UNSELECT,       ///< 'Unselect all' button.
-	WID_NCL_OPEN_URL,       ///< 'Open url' button.
-	WID_NCL_CANCEL,         ///< 'Cancel' button.
-	WID_NCL_DOWNLOAD,       ///< 'Download' button.
+	WID_NCL_SELECT_ALL = WID_NCL_TEXTFILE + TFT_END, // 'Select all' button.
+	WID_NCL_SELECT_UPDATE,  // 'Select updates' button.
+	WID_NCL_UNSELECT,       // 'Unselect all' button.
+	WID_NCL_OPEN_URL,       // 'Open url' button.
+	WID_NCL_CANCEL,         // 'Cancel' button.
+	WID_NCL_DOWNLOAD,       // 'Download' button.
 
-	WID_NCL_SEL_ALL_UPDATE, ///< #NWID_SELECTION widget for select all/update buttons..
-	WID_NCL_SEARCH_EXTERNAL, ///< Search external sites for missing NewGRF.
+	WID_NCL_SEL_ALL_UPDATE, // #NWID_SELECTION widget for select all/update buttons..
+	WID_NCL_SEARCH_EXTERNAL, // Search external sites for missing NewGRF.
 };
 
 #endif /* WIDGETS_NETWORK_CONTENT_WIDGET_H */

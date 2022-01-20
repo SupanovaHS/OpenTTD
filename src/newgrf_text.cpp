@@ -77,7 +77,7 @@ struct GRFTextEntry {
 
 static uint _num_grf_texts = 0;
 static GRFTextEntry _grf_text[TAB_SIZE_NEWGRF];
-static byte _currentLangID = GRFLX_ENGLISH;  ///< by default, english is used.
+static byte _currentLangID = GRFLX_ENGLISH;  // by default, english is used.
 
 /**
  * Get the mapping from the NewGRF supplied ID to OpenTTD's internal ID.
@@ -121,8 +121,8 @@ struct UnmappedChoiceList {
 	{
 	}
 
-	StringControlCode type; ///< The type of choice list.
-	int offset;             ///< The offset for the plural/gender form.
+	StringControlCode type; // The type of choice list.
+	int offset;             // The offset for the plural/gender form.
 
 	/** Mapping of NewGRF supplied ID to the different strings in the choice list. */
 	std::map<byte, std::stringstream> strings;

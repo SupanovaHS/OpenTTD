@@ -19,8 +19,8 @@
 #include <functional>
 #include <limits>
 
-typedef uint16 PacketSize; ///< Size of the whole packet.
-typedef uint8  PacketType; ///< Identifier for the packet
+typedef uint16 PacketSize; // Size of the whole packet.
+typedef uint8  PacketType; // Identifier for the packet
 
 /**
  * Internal entity of a packet. As everything is sent as a packet,
@@ -106,10 +106,10 @@ public:
 	 * @return The return value of the transfer_function.
 	 */
 	template <
-		typename A = size_t, ///< The type for the amount to be passed, so it can be cast to the right type.
-		typename F,          ///< The type of the function.
-		typename D,          ///< The type of the destination.
-		typename ... Args>   ///< The types of the remaining arguments to the function.
+		typename A = size_t, // The type for the amount to be passed, so it can be cast to the right type.
+		typename F,          // The type of the function.
+		typename D,          // The type of the destination.
+		typename ... Args>   // The types of the remaining arguments to the function.
 	ssize_t TransferOutWithLimit(F transfer_function, size_t limit, D destination, Args&& ... args)
 	{
 		size_t amount = std::min(this->RemainingBytesToTransfer(), limit);

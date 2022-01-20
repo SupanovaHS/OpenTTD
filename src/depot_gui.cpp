@@ -145,9 +145,9 @@ static void TrainDepotMoveVehicle(const Vehicle *wagon, VehicleID sel, const Veh
 	Command<CMD_MOVE_RAIL_VEHICLE>::Post(STR_ERROR_CAN_T_MOVE_VEHICLE, v->tile, v->index, wagon == nullptr ? INVALID_VEHICLE : wagon->index, _ctrl_pressed);
 }
 
-static VehicleCellSize _base_block_sizes_depot[VEH_COMPANY_END];    ///< Cell size for vehicle images in the depot view.
-static VehicleCellSize _base_block_sizes_purchase[VEH_COMPANY_END]; ///< Cell size for vehicle images in the purchase list.
-static uint _consistent_train_width;                                ///< Whether trains of all lengths are consistently scaled. Either TRAININFO_DEFAULT_VEHICLE_WIDTH, VEHICLEINFO_FULL_VEHICLE_WIDTH, or 0.
+static VehicleCellSize _base_block_sizes_depot[VEH_COMPANY_END];    // Cell size for vehicle images in the depot view.
+static VehicleCellSize _base_block_sizes_purchase[VEH_COMPANY_END]; // Cell size for vehicle images in the purchase list.
+static uint _consistent_train_width;                                // Whether trains of all lengths are consistently scaled. Either TRAININFO_DEFAULT_VEHICLE_WIDTH, VEHICLEINFO_FULL_VEHICLE_WIDTH, or 0.
 
 /**
  * Get the GUI cell size for a vehicle image.
@@ -253,15 +253,15 @@ const Sprite *GetAircraftSprite(EngineID engine);
 
 struct DepotWindow : Window {
 	VehicleID sel;
-	VehicleID vehicle_over; ///< Rail vehicle over which another one is dragged, \c INVALID_VEHICLE if none.
+	VehicleID vehicle_over; // Rail vehicle over which another one is dragged, \c INVALID_VEHICLE if none.
 	VehicleType type;
 	bool generate_list;
-	int hovered_widget; ///< Index of the widget being hovered during drag/drop. -1 if no drag is in progress.
+	int hovered_widget; // Index of the widget being hovered during drag/drop. -1 if no drag is in progress.
 	VehicleList vehicle_list;
 	VehicleList wagon_list;
 	uint unitnumber_digits;
-	uint num_columns;       ///< Number of columns.
-	Scrollbar *hscroll;     ///< Only for trains.
+	uint num_columns;       // Number of columns.
+	Scrollbar *hscroll;     // Only for trains.
 	Scrollbar *vscroll;
 
 	DepotWindow(WindowDesc *desc, TileIndex tile, VehicleType type) : Window(desc)

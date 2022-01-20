@@ -19,13 +19,13 @@
  */
 struct QueryString {
 	/* Special actions when hitting ENTER or ESC. (only keyboard, not OSK) */
-	static const int ACTION_NOTHING  = -1; ///< Nothing.
-	static const int ACTION_DESELECT = -2; ///< Deselect editbox.
-	static const int ACTION_CLEAR    = -3; ///< Clear editbox.
+	static const int ACTION_NOTHING  = -1; // Nothing.
+	static const int ACTION_DESELECT = -2; // Deselect editbox.
+	static const int ACTION_CLEAR    = -3; // Clear editbox.
 
 	StringID caption;
-	int ok_button;      ///< Widget button of parent window to simulate when pressing OK in OSK.
-	int cancel_button;  ///< Widget button of parent window to simulate when pressing CANCEL in OSK.
+	int ok_button;      // Widget button of parent window to simulate when pressing OK in OSK.
+	int cancel_button;  // Widget button of parent window to simulate when pressing CANCEL in OSK.
 	Textbuf text;
 	const char *orig;
 	bool handled;

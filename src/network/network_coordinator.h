@@ -53,15 +53,15 @@
 /** Class for handling the client side of the Game Coordinator connection. */
 class ClientNetworkCoordinatorSocketHandler : public NetworkCoordinatorSocketHandler {
 private:
-	std::chrono::steady_clock::time_point next_update; ///< When to send the next update (if server and public).
-	std::map<std::string, std::pair<std::string, TCPServerConnecter *>> connecter; ///< Based on tokens, the current (invite-code, connecter) that are pending.
-	std::map<std::string, TCPServerConnecter *> connecter_pre; ///< Based on invite codes, the current connecters that are pending.
-	std::map<std::string, std::map<int, std::unique_ptr<ClientNetworkStunSocketHandler>>> stun_handlers; ///< All pending STUN handlers, stored by token:family.
-	std::map<std::string, std::unique_ptr<ClientNetworkTurnSocketHandler>> turn_handlers; ///< Pending TURN handler (if any), stored by token.
-	TCPConnecter *game_connecter = nullptr; ///< Pending connecter to the game server.
+	std::chrono::steady_clock::time_point next_update; // When to send the next update (if server and public).
+	std::map<std::string, std::pair<std::string, TCPServerConnecter *>> connecter; // Based on tokens, the current (invite-code, connecter) that are pending.
+	std::map<std::string, TCPServerConnecter *> connecter_pre; // Based on invite codes, the current connecters that are pending.
+	std::map<std::string, std::map<int, std::unique_ptr<ClientNetworkStunSocketHandler>>> stun_handlers; // All pending STUN handlers, stored by token:family.
+	std::map<std::string, std::unique_ptr<ClientNetworkTurnSocketHandler>> turn_handlers; // Pending TURN handler (if any), stored by token.
+	TCPConnecter *game_connecter = nullptr; // Pending connecter to the game server.
 
-	uint32 newgrf_lookup_table_cursor = 0; ///< Last received cursor for the #GameInfoNewGRFLookupTable updates.
-	GameInfoNewGRFLookupTable newgrf_lookup_table; ///< Table to look up NewGRFs in the GC_LISTING packets.
+	uint32 newgrf_lookup_table_cursor = 0; // Last received cursor for the #GameInfoNewGRFLookupTable updates.
+	GameInfoNewGRFLookupTable newgrf_lookup_table; // Table to look up NewGRFs in the GC_LISTING packets.
 
 protected:
 	bool Receive_GC_ERROR(Packet *p) override;
@@ -79,8 +79,8 @@ public:
 	/** The idle timeout; when to close the connection because it's idle. */
 	static constexpr std::chrono::seconds IDLE_TIMEOUT = std::chrono::seconds(60);
 
-	std::chrono::steady_clock::time_point last_activity;  ///< The last time there was network activity.
-	bool connecting; ///< Are we connecting to the Game Coordinator?
+	std::chrono::steady_clock::time_point last_activity;  // The last time there was network activity.
+	bool connecting; // Are we connecting to the Game Coordinator?
 
 	ClientNetworkCoordinatorSocketHandler() : connecting(false) {}
 

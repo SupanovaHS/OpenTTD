@@ -45,9 +45,9 @@ enum ServerGameType : uint8 {
 
 /** 'Unique' identifier to be given to clients */
 enum ClientID : uint32 {
-	INVALID_CLIENT_ID = 0, ///< Client is not part of anything
-	CLIENT_ID_SERVER  = 1, ///< Servers always have this ID
-	CLIENT_ID_FIRST   = 2, ///< The first client ID
+	INVALID_CLIENT_ID = 0, // Client is not part of anything
+	CLIENT_ID_SERVER  = 1, // Servers always have this ID
+	CLIENT_ID_FIRST   = 2, // The first client ID
 };
 
 /** Indices into the client tables */
@@ -63,23 +63,23 @@ static const AdminIndex INVALID_ADMIN_ID = UINT8_MAX;
 
 /** Simple calculated statistics of a company */
 struct NetworkCompanyStats {
-	uint16 num_vehicle[NETWORK_VEH_END];            ///< How many vehicles are there of this type?
-	uint16 num_station[NETWORK_VEH_END];            ///< How many stations are there of this type?
-	bool ai;                                        ///< Is this company an AI
+	uint16 num_vehicle[NETWORK_VEH_END];            // How many vehicles are there of this type?
+	uint16 num_station[NETWORK_VEH_END];            // How many stations are there of this type?
+	bool ai;                                        // Is this company an AI
 };
 
 /** Some state information of a company, especially for servers */
 struct NetworkCompanyState {
-	std::string password; ///< The password for the company
-	uint16 months_empty;  ///< How many months the company is empty
+	std::string password; // The password for the company
+	uint16 months_empty;  // How many months the company is empty
 };
 
 struct NetworkClientInfo;
 
 /** The type of password we're asking for. */
 enum NetworkPasswordType {
-	NETWORK_GAME_PASSWORD,    ///< The password of the game.
-	NETWORK_COMPANY_PASSWORD, ///< The password of the company.
+	NETWORK_GAME_PASSWORD,    // The password of the game.
+	NETWORK_COMPANY_PASSWORD, // The password of the company.
 };
 
 /**
@@ -87,9 +87,9 @@ enum NetworkPasswordType {
  * @warning The values of the enum items are part of the admin network API. Only append at the end.
  */
 enum DestType {
-	DESTTYPE_BROADCAST, ///< Send message/notice to all clients (All)
-	DESTTYPE_TEAM,      ///< Send message/notice to everyone playing the same company (Team)
-	DESTTYPE_CLIENT,    ///< Send message/notice to only a certain client (Private)
+	DESTTYPE_BROADCAST, // Send message/notice to all clients (All)
+	DESTTYPE_TEAM,      // Send message/notice to everyone playing the same company (Team)
+	DESTTYPE_CLIENT,    // Send message/notice to only a certain client (Private)
 };
 
 /**

@@ -32,13 +32,13 @@ std::unique_ptr<char[]> ReadFileToMem(const std::string &filename, size_t &lenp,
 bool FileExists(const std::string &filename);
 bool ExtractTar(const std::string &tar_filename, Subdirectory subdir);
 
-extern std::string _personal_dir; ///< custom directory for personal settings, saves, newgrf, etc.
+extern std::string _personal_dir; // custom directory for personal settings, saves, newgrf, etc.
 extern std::vector<Searchpath> _valid_searchpaths;
 
 /** Helper for scanning for files with a given name */
 class FileScanner {
 protected:
-	Subdirectory subdir; ///< The current sub directory we are searching through
+	Subdirectory subdir; // The current sub directory we are searching through
 public:
 	/** Destruct the proper one... */
 	virtual ~FileScanner() {}
@@ -63,13 +63,13 @@ class TarScanner : FileScanner {
 public:
 	/** The mode of tar scanning. */
 	enum Mode {
-		NONE     = 0,      ///< Scan nothing.
-		BASESET  = 1 << 0, ///< Scan for base sets.
-		NEWGRF   = 1 << 1, ///< Scan for non-base sets.
-		AI       = 1 << 2, ///< Scan for AIs and its libraries.
-		SCENARIO = 1 << 3, ///< Scan for scenarios and heightmaps.
-		GAME     = 1 << 4, ///< Scan for game scripts.
-		ALL      = BASESET | NEWGRF | AI | SCENARIO | GAME, ///< Scan for everything.
+		NONE     = 0,      // Scan nothing.
+		BASESET  = 1 << 0, // Scan for base sets.
+		NEWGRF   = 1 << 1, // Scan for non-base sets.
+		AI       = 1 << 2, // Scan for AIs and its libraries.
+		SCENARIO = 1 << 3, // Scan for scenarios and heightmaps.
+		GAME     = 1 << 4, // Scan for game scripts.
+		ALL      = BASESET | NEWGRF | AI | SCENARIO | GAME, // Scan for everything.
 	};
 
 	bool AddFile(const std::string &filename, size_t basepath_length, const std::string &tar_filename = {}) override;

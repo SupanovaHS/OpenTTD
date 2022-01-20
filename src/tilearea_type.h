@@ -16,9 +16,9 @@ class OrthogonalTileIterator;
 
 /** Represents the covered area of e.g. a rail station */
 struct OrthogonalTileArea {
-	TileIndex tile; ///< The base tile of the area
-	uint16 w;       ///< The width of the area
-	uint16 h;       ///< The height of the area
+	TileIndex tile; // The base tile of the area
+	uint16 w;       // The width of the area
+	uint16 h;       // The height of the area
 
 	/**
 	 * Construct this tile area with some set values
@@ -69,9 +69,9 @@ struct OrthogonalTileArea {
 /** Represents a diagonal tile area. */
 struct DiagonalTileArea {
 
-	TileIndex tile; ///< Base tile of the area
-	int16 a;        ///< Extent in diagonal "x" direction (may be negative to signify the area stretches to the left)
-	int16 b;        ///< Extent in diagonal "y" direction (may be negative to signify the area stretches upwards)
+	TileIndex tile; // Base tile of the area
+	int16 a;        // Extent in diagonal "x" direction (may be negative to signify the area stretches to the left)
+	int16 b;        // Extent in diagonal "y" direction (may be negative to signify the area stretches upwards)
 
 	/**
 	 * Construct this tile area with some set values.
@@ -104,7 +104,7 @@ typedef OrthogonalTileArea TileArea;
 /** Base class for tile iterators. */
 class TileIterator {
 protected:
-	TileIndex tile; ///< The current tile we are at.
+	TileIndex tile; // The current tile we are at.
 
 	/**
 	 * Initialise the iterator starting at this tile.
@@ -182,9 +182,9 @@ public:
 /** Iterator to iterate over a tile area (rectangle) of the map. */
 class OrthogonalTileIterator : public TileIterator {
 private:
-	int w;          ///< The width of the iterated area.
-	int x;          ///< The current 'x' position in the rectangle.
-	int y;          ///< The current 'y' position in the rectangle.
+	int w;          // The width of the iterated area.
+	int x;          // The current 'x' position in the rectangle.
+	int y;          // The current 'y' position in the rectangle.
 
 public:
 	/**
@@ -232,12 +232,12 @@ public:
 /** Iterator to iterate over a diagonal area of the map. */
 class DiagonalTileIterator : public TileIterator {
 private:
-	uint base_x; ///< The base tile x coordinate from where the iterating happens.
-	uint base_y; ///< The base tile y coordinate from where the iterating happens.
-	int a_cur;   ///< The current (rotated) x coordinate of the iteration.
-	int b_cur;   ///< The current (rotated) y coordinate of the iteration.
-	int a_max;   ///< The (rotated) x coordinate of the end of the iteration.
-	int b_max;   ///< The (rotated) y coordinate of the end of the iteration.
+	uint base_x; // The base tile x coordinate from where the iterating happens.
+	uint base_y; // The base tile y coordinate from where the iterating happens.
+	int a_cur;   // The current (rotated) x coordinate of the iteration.
+	int b_cur;   // The current (rotated) y coordinate of the iteration.
+	int a_max;   // The (rotated) x coordinate of the end of the iteration.
+	int b_max;   // The (rotated) y coordinate of the end of the iteration.
 
 public:
 

@@ -311,12 +311,12 @@ void RoadStop::Entry::Enter(const RoadVehicle *rv)
 			IsDriveThroughStopTile(next);
 }
 
-typedef std::list<const RoadVehicle *> RVList; ///< A list of road vehicles
+typedef std::list<const RoadVehicle *> RVList; // A list of road vehicles
 
 /** Helper for finding RVs in a road stop. */
 struct RoadStopEntryRebuilderHelper {
-	RVList vehicles;   ///< The list of vehicles to possibly add to.
-	DiagDirection dir; ///< The direction the vehicle has to face to be added.
+	RVList vehicles;   // The list of vehicles to possibly add to.
+	DiagDirection dir; // The direction the vehicle has to face to be added.
 };
 
 /**

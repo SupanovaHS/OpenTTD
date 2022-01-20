@@ -12,47 +12,47 @@
 
 /** Widgets of the #LandInfoWindow class. */
 enum LandInfoWidgets {
-	WID_LI_LOCATION, ///< Scroll to location.
-	WID_LI_BACKGROUND, ///< Background of the window.
+	WID_LI_LOCATION, // Scroll to location.
+	WID_LI_BACKGROUND, // Background of the window.
 };
 
 /** Widgets of the #TooltipsWindow class. */
 enum ToolTipsWidgets {
-	WID_TT_BACKGROUND, ///< Background of the window.
+	WID_TT_BACKGROUND, // Background of the window.
 };
 
 /** Widgets of the #AboutWindow class. */
 enum AboutWidgets {
-	WID_A_SCROLLING_TEXT, ///< The actually scrolling text.
-	WID_A_WEBSITE,        ///< URL of OpenTTD website.
-	WID_A_COPYRIGHT,      ///< Copyright string
+	WID_A_SCROLLING_TEXT, // The actually scrolling text.
+	WID_A_WEBSITE,        // URL of OpenTTD website.
+	WID_A_COPYRIGHT,      // Copyright string
 };
 
 /** Widgets of the #QueryStringWindow class. */
 enum QueryStringWidgets {
-	WID_QS_CAPTION, ///< Caption of the window.
-	WID_QS_TEXT,    ///< Text of the query.
-	WID_QS_WARNING, ///< Warning label about password security
-	WID_QS_DEFAULT, ///< Default button.
-	WID_QS_CANCEL,  ///< Cancel button.
-	WID_QS_OK,      ///< OK button.
+	WID_QS_CAPTION, // Caption of the window.
+	WID_QS_TEXT,    // Text of the query.
+	WID_QS_WARNING, // Warning label about password security
+	WID_QS_DEFAULT, // Default button.
+	WID_QS_CANCEL,  // Cancel button.
+	WID_QS_OK,      // OK button.
 };
 
 /** Widgets of the #QueryWindow class. */
 enum QueryWidgets {
-	WID_Q_CAPTION, ///< Caption of the window.
-	WID_Q_TEXT,    ///< Text of the query.
-	WID_Q_NO,      ///< Yes button.
-	WID_Q_YES,     ///< No button.
+	WID_Q_CAPTION, // Caption of the window.
+	WID_Q_TEXT,    // Text of the query.
+	WID_Q_NO,      // Yes button.
+	WID_Q_YES,     // No button.
 };
 
 /** Widgets of the #TextfileWindow class. */
 enum TextfileWidgets {
-	WID_TF_CAPTION,    ///< The caption of the window.
-	WID_TF_WRAPTEXT,   ///< Whether or not to wrap the text.
-	WID_TF_BACKGROUND, ///< Panel to draw the textfile on.
-	WID_TF_VSCROLLBAR, ///< Vertical scrollbar to scroll through the textfile up-and-down.
-	WID_TF_HSCROLLBAR, ///< Horizontal scrollbar to scroll through the textfile left-to-right.
+	WID_TF_CAPTION,    // The caption of the window.
+	WID_TF_WRAPTEXT,   // Whether or not to wrap the text.
+	WID_TF_BACKGROUND, // Panel to draw the textfile on.
+	WID_TF_VSCROLLBAR, // Vertical scrollbar to scroll through the textfile up-and-down.
+	WID_TF_HSCROLLBAR, // Horizontal scrollbar to scroll through the textfile left-to-right.
 };
 
 #endif /* WIDGETS_MISC_WIDGET_H */

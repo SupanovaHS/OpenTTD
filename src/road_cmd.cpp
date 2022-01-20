@@ -1400,7 +1400,7 @@ void DrawRoadTypeCatenary(const TileInfo *ti, RoadType rt, RoadBits rb)
 		/* The "back" sprite contains the west, north and east pillars.
 		 * We cut the sprite at 3/8 of the west/east edges to create 3 sprites.
 		 * 3/8 is chosen so that sprites can somewhat graphically extend into the tile. */
-		static const int INF = 1000; ///< big number compared to sprite size
+		static const int INF = 1000; // big number compared to sprite size
 		static const SubSprite west  = { -INF, -INF, -12, INF };
 		static const SubSprite north = {  -12, -INF,  12, INF };
 		static const SubSprite east  = {   12, -INF, INF, INF };

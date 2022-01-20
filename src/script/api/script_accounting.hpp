@@ -58,7 +58,7 @@ public:
 	void ResetCosts();
 
 private:
-	Money last_costs; ///< The last cost we did return.
+	Money last_costs; // The last cost we did return.
 };
 
 #endif /* SCRIPT_ACCOUNTING_HPP */

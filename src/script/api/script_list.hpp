@@ -25,8 +25,8 @@ class ScriptList : public ScriptObject {
 public:
 	/** Type of sorter */
 	enum SorterType {
-		SORT_BY_VALUE, ///< Sort the list based on the value of the item.
-		SORT_BY_ITEM,  ///< Sort the list based on the item itself.
+		SORT_BY_VALUE, // Sort the list based on the value of the item.
+		SORT_BY_ITEM,  // Sort the list based on the item itself.
 	};
 
 	/** Sort ascending */
@@ -35,19 +35,19 @@ public:
 	static const bool SORT_DESCENDING = false;
 
 private:
-	ScriptListSorter *sorter;     ///< Sorting algorithm
-	SorterType sorter_type;       ///< Sorting type
-	bool sort_ascending;          ///< Whether to sort ascending or descending
-	bool initialized;             ///< Whether an iteration has been started
-	int modifications;            ///< Number of modification that has been done. To prevent changing data while valuating.
+	ScriptListSorter *sorter;     // Sorting algorithm
+	SorterType sorter_type;       // Sorting type
+	bool sort_ascending;          // Whether to sort ascending or descending
+	bool initialized;             // Whether an iteration has been started
+	int modifications;            // Number of modification that has been done. To prevent changing data while valuating.
 
 public:
-	typedef std::set<int64> ScriptItemList;                   ///< The list of items inside the bucket
-	typedef std::map<int64, ScriptItemList> ScriptListBucket; ///< The bucket list per value
-	typedef std::map<int64, int64> ScriptListMap;             ///< List per item
+	typedef std::set<int64> ScriptItemList;                   // The list of items inside the bucket
+	typedef std::map<int64, ScriptItemList> ScriptListBucket; // The bucket list per value
+	typedef std::map<int64, int64> ScriptListMap;             // List per item
 
-	ScriptListMap items;           ///< The items in the list
-	ScriptListBucket buckets;      ///< The items in the list, sorted by value
+	ScriptListMap items;           // The items in the list
+	ScriptListBucket buckets;      // The items in the list, sorted by value
 
 	ScriptList();
 	~ScriptList();

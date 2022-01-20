@@ -22,10 +22,10 @@ static const NodeID INVALID_NODE = UINT16_MAX;
 enum DistributionType : byte {
 	DT_BEGIN = 0,
 	DT_MIN = 0,
-	DT_MANUAL = 0,           ///< Manual distribution. No link graph calculations are run.
-	DT_ASYMMETRIC = 1,       ///< Asymmetric distribution. Usually cargo will only travel in one direction.
-	DT_MAX_NONSYMMETRIC = 1, ///< Maximum non-symmetric distribution.
-	DT_SYMMETRIC = 2,        ///< Symmetric distribution. The same amount of cargo travels in each direction between each pair of nodes.
+	DT_MANUAL = 0,           // Manual distribution. No link graph calculations are run.
+	DT_ASYMMETRIC = 1,       // Asymmetric distribution. Usually cargo will only travel in one direction.
+	DT_MAX_NONSYMMETRIC = 1, // Maximum non-symmetric distribution.
+	DT_SYMMETRIC = 2,        // Symmetric distribution. The same amount of cargo travels in each direction between each pair of nodes.
 	DT_MAX = 2,
 	DT_NUM = 3,
 	DT_END = 3
@@ -50,10 +50,10 @@ template <> struct EnumPropsT<DistributionType> : MakeEnumPropsT<DistributionTyp
  * actually adds the given capacity.
  */
 enum EdgeUpdateMode {
-	EUM_INCREASE     = 1,      ///< Increase capacity.
-	EUM_REFRESH      = 1 << 1, ///< Refresh capacity.
-	EUM_RESTRICTED   = 1 << 2, ///< Use restricted link.
-	EUM_UNRESTRICTED = 1 << 3, ///< Use unrestricted link.
+	EUM_INCREASE     = 1,      // Increase capacity.
+	EUM_REFRESH      = 1 << 1, // Refresh capacity.
+	EUM_RESTRICTED   = 1 << 2, // Use restricted link.
+	EUM_UNRESTRICTED = 1 << 3, // Use unrestricted link.
 };
 
 DECLARE_ENUM_AS_BIT_SET(EdgeUpdateMode)

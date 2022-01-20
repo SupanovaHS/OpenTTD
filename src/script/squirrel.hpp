@@ -14,8 +14,8 @@
 
 /** The type of script we're working with, i.e. for who is it? */
 enum ScriptType {
-	ST_AI, ///< The script is for AI scripts.
-	ST_GS, ///< The script is for Game scripts.
+	ST_AI, // The script is for AI scripts.
+	ST_GS, // The script is for Game scripts.
 };
 
 struct ScriptAllocator;
@@ -26,13 +26,13 @@ class Squirrel {
 private:
 	typedef void (SQPrintFunc)(bool error_msg, const SQChar *message);
 
-	HSQUIRRELVM vm;          ///< The VirtualMachine instance for squirrel
-	void *global_pointer;    ///< Can be set by who ever initializes Squirrel
-	SQPrintFunc *print_func; ///< Points to either nullptr, or a custom print handler
-	bool crashed;            ///< True if the squirrel script made an error.
-	int overdrawn_ops;       ///< The amount of operations we have overdrawn.
-	const char *APIName;     ///< Name of the API used for this squirrel.
-	std::unique_ptr<ScriptAllocator> allocator; ///< Allocator object used by this script.
+	HSQUIRRELVM vm;          // The VirtualMachine instance for squirrel
+	void *global_pointer;    // Can be set by who ever initializes Squirrel
+	SQPrintFunc *print_func; // Points to either nullptr, or a custom print handler
+	bool crashed;            // True if the squirrel script made an error.
+	int overdrawn_ops;       // The amount of operations we have overdrawn.
+	const char *APIName;     // Name of the API used for this squirrel.
+	std::unique_ptr<ScriptAllocator> allocator; // Allocator object used by this script.
 
 	/**
 	 * The internal RunError handler. It looks up the real error and calls RunError with it.

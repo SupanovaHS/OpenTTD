@@ -38,18 +38,18 @@ public:
 	 * Criteria of selecting and grouping cargo at a station.
 	 */
 	enum CargoSelector {
-		CS_BY_FROM,     ///< Group by origin station.
-		CS_VIA_BY_FROM, ///< Select by next hop and group by origin station.
-		CS_BY_VIA,      ///< Group by next hop.
-		CS_FROM_BY_VIA  ///< Select by origin station and group by next hop.
+		CS_BY_FROM,     // Group by origin station.
+		CS_VIA_BY_FROM, // Select by next hop and group by origin station.
+		CS_BY_VIA,      // Group by next hop.
+		CS_FROM_BY_VIA  // Select by origin station and group by next hop.
 	};
 
 	/**
 	 * Ways of associating cargo to stations.
 	 */
 	enum CargoMode {
-		CM_WAITING,     ///< Waiting cargo.
-		CM_PLANNED      ///< Planned cargo.
+		CM_WAITING,     // Waiting cargo.
+		CM_PLANNED      // Planned cargo.
 	};
 
 	/**

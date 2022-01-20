@@ -37,20 +37,20 @@ template <typename T, typename TxyFunc, typename CoordT, typename DistT>
 class Kdtree {
 	/** Type of a node in the tree */
 	struct node {
-		T      element;  ///< Element stored at node
-		size_t left;     ///< Index of node to the left, INVALID_NODE if none
-		size_t right;    ///< Index of node to the right, INVALID_NODE if none
+		T      element;  // Element stored at node
+		size_t left;     // Index of node to the left, INVALID_NODE if none
+		size_t right;    // Index of node to the right, INVALID_NODE if none
 
 		node(T element) : element(element), left(INVALID_NODE), right(INVALID_NODE) { }
 	};
 
-	static const size_t INVALID_NODE = SIZE_MAX; ///< Index value indicating no-such-node
+	static const size_t INVALID_NODE = SIZE_MAX; // Index value indicating no-such-node
 
-	std::vector<node> nodes;       ///< Pool of all nodes in the tree
-	std::vector<size_t> free_list; ///< List of dead indices in the nodes vector
-	size_t root;                   ///< Index of root node
-	TxyFunc xyfunc;                ///< Functor to extract a coordinate from an element
-	size_t unbalanced;             ///< Number approximating how unbalanced the tree might be
+	std::vector<node> nodes;       // Pool of all nodes in the tree
+	std::vector<size_t> free_list; // List of dead indices in the nodes vector
+	size_t root;                   // Index of root node
+	TxyFunc xyfunc;                // Functor to extract a coordinate from an element
+	size_t unbalanced;             // Number approximating how unbalanced the tree might be
 
 	/** Create one new node in the tree, return its index in the pool */
 	size_t AddNode(const T &element)

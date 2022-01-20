@@ -21,15 +21,15 @@
 
 typedef std::set<std::string> TownNames;
 
-static constexpr uint BUILTIN_TOWNNAME_GENERATOR_COUNT = SPECSTR_TOWNNAME_LAST - SPECSTR_TOWNNAME_START + 1; ///< Number of built-in town name generators.
+static constexpr uint BUILTIN_TOWNNAME_GENERATOR_COUNT = SPECSTR_TOWNNAME_LAST - SPECSTR_TOWNNAME_START + 1; // Number of built-in town name generators.
 
 /**
  * Struct holding parameters used to generate town name.
  * Speeds things up a bit because these values are computed only once per name generation.
  */
 struct TownNameParams {
-	uint32 grfid; ///< newgrf ID (0 if not used)
-	uint16 type;  ///< town name style
+	uint32 grfid; // newgrf ID (0 if not used)
+	uint16 type;  // town name style
 
 	/**
 	 * Initializes this struct from language ID

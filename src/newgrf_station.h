@@ -22,11 +22,11 @@
 
 /** Scope resolver for stations. */
 struct StationScopeResolver : public ScopeResolver {
-	TileIndex tile;                     ///< %Tile of the station.
-	struct BaseStation *st;             ///< Instance of the station.
-	const struct StationSpec *statspec; ///< Station (type) specification.
-	CargoID cargo_type;                 ///< Type of cargo of the station.
-	Axis axis;                          ///< Station axis, used only for the slope check callback.
+	TileIndex tile;                     // %Tile of the station.
+	struct BaseStation *st;             // Instance of the station.
+	const struct StationSpec *statspec; // Station (type) specification.
+	CargoID cargo_type;                 // Type of cargo of the station.
+	Axis axis;                          // Station axis, used only for the slope check callback.
 
 	/**
 	 * Constructor for station scopes.
@@ -48,8 +48,8 @@ struct StationScopeResolver : public ScopeResolver {
 
 /** Station resolver. */
 struct StationResolverObject : public ResolverObject {
-	StationScopeResolver station_scope; ///< The station scope resolver.
-	TownScopeResolver *town_scope;      ///< The town scope resolver (created on the first call).
+	StationScopeResolver station_scope; // The station scope resolver.
+	TownScopeResolver *town_scope;      // The town scope resolver (created on the first call).
 
 	StationResolverObject(const StationSpec *statspec, BaseStation *st, TileIndex tile,
 			CallbackID callback = CBID_NO_CALLBACK, uint32 callback_param1 = 0, uint32 callback_param2 = 0);
@@ -81,10 +81,10 @@ struct StationResolverObject : public ResolverObject {
 };
 
 enum StationClassID : byte {
-	STAT_CLASS_BEGIN = 0,    ///< the lowest valid value
-	STAT_CLASS_DFLT = 0,     ///< Default station class.
-	STAT_CLASS_WAYP,         ///< Waypoint class.
-	STAT_CLASS_MAX = 255,    ///< Maximum number of classes.
+	STAT_CLASS_BEGIN = 0,    // the lowest valid value
+	STAT_CLASS_DFLT = 0,     // Default station class.
+	STAT_CLASS_WAYP,         // Waypoint class.
+	STAT_CLASS_MAX = 255,    // Maximum number of classes.
 };
 template <> struct EnumPropsT<StationClassID> : MakeEnumPropsT<StationClassID, byte, STAT_CLASS_BEGIN, STAT_CLASS_MAX, STAT_CLASS_MAX, 8> {};
 
@@ -92,21 +92,21 @@ template <> struct EnumPropsT<StationClassID> : MakeEnumPropsT<StationClassID, b
 DECLARE_POSTFIX_INCREMENT(StationClassID)
 
 enum StationSpecFlags {
-	SSF_SEPARATE_GROUND,      ///< Use different sprite set for ground sprites.
-	SSF_DIV_BY_STATION_SIZE,  ///< Divide cargo amount by station size.
-	SSF_CB141_RANDOM_BITS,    ///< Callback 141 needs random bits.
-	SSF_CUSTOM_FOUNDATIONS,   ///< Draw custom foundations.
-	SSF_EXTENDED_FOUNDATIONS, ///< Extended foundation block instead of simple.
+	SSF_SEPARATE_GROUND,      // Use different sprite set for ground sprites.
+	SSF_DIV_BY_STATION_SIZE,  // Divide cargo amount by station size.
+	SSF_CB141_RANDOM_BITS,    // Callback 141 needs random bits.
+	SSF_CUSTOM_FOUNDATIONS,   // Draw custom foundations.
+	SSF_EXTENDED_FOUNDATIONS, // Extended foundation block instead of simple.
 };
 
 /** Randomisation triggers for stations */
 enum StationRandomTrigger {
-	SRT_NEW_CARGO,        ///< Trigger station on new cargo arrival.
-	SRT_CARGO_TAKEN,      ///< Trigger station when cargo is completely taken.
-	SRT_TRAIN_ARRIVES,    ///< Trigger platform when train arrives.
-	SRT_TRAIN_DEPARTS,    ///< Trigger platform when train leaves.
-	SRT_TRAIN_LOADS,      ///< Trigger platform when train loads/unloads.
-	SRT_PATH_RESERVATION, ///< Trigger platform when train reserves path.
+	SRT_NEW_CARGO,        // Trigger station on new cargo arrival.
+	SRT_CARGO_TAKEN,      // Trigger station when cargo is completely taken.
+	SRT_TRAIN_ARRIVES,    // Trigger platform when train arrives.
+	SRT_TRAIN_DEPARTS,    // Trigger platform when train leaves.
+	SRT_TRAIN_LOADS,      // Trigger platform when train loads/unloads.
+	SRT_PATH_RESERVATION, // Trigger platform when train reserves path.
 };
 
 /** Station specification. */
@@ -123,8 +123,8 @@ struct StationSpec {
 	 * evaluating callbacks.
 	 */
 	GRFFilePropsBase<NUM_CARGO + 3> grf_prop;
-	StationClassID cls_id;     ///< The class to which this spec belongs.
-	StringID name;             ///< Name of this station.
+	StationClassID cls_id;     // The class to which this spec belongs.
+	StringID name;             // Name of this station.
 
 	/**
 	 * Bitmask of number of platforms available for the station.
@@ -145,7 +145,7 @@ struct StationSpec {
 	 * 4-5 = platform with roof, left side
 	 * 6-7 = platform with roof, right side
 	 */
-	std::vector<NewGRFSpriteLayout> renderdata; ///< Array of tile layouts.
+	std::vector<NewGRFSpriteLayout> renderdata; // Array of tile layouts.
 
 	/**
 	 * Cargo threshold for choosing between little and lots of cargo
@@ -153,15 +153,15 @@ struct StationSpec {
 	 */
 	uint16 cargo_threshold;
 
-	CargoTypes cargo_triggers; ///< Bitmask of cargo types which cause trigger re-randomizing
+	CargoTypes cargo_triggers; // Bitmask of cargo types which cause trigger re-randomizing
 
-	byte callback_mask; ///< Bitmask of station callbacks that have to be called
+	byte callback_mask; // Bitmask of station callbacks that have to be called
 
-	byte flags; ///< Bitmask of flags, bit 0: use different sprite set; bit 1: divide cargo about by station size
+	byte flags; // Bitmask of flags, bit 0: use different sprite set; bit 1: divide cargo about by station size
 
-	byte pylons;  ///< Bitmask of base tiles (0 - 7) which should contain elrail pylons
-	byte wires;   ///< Bitmask of base tiles (0 - 7) which should contain elrail wires
-	byte blocked; ///< Bitmask of base tiles (0 - 7) which are blocked to trains
+	byte pylons;  // Bitmask of base tiles (0 - 7) which should contain elrail pylons
+	byte wires;   // Bitmask of base tiles (0 - 7) which should contain elrail wires
+	byte blocked; // Bitmask of base tiles (0 - 7) which are blocked to trains
 
 	AnimationInfo animation;
 

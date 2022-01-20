@@ -18,12 +18,12 @@
 
 /** Scope resolver for houses. */
 struct HouseScopeResolver : public ScopeResolver {
-	HouseID house_id;              ///< Type of house being queried.
-	TileIndex tile;                ///< Tile of this house.
-	Town *town;                    ///< Town of this house.
-	bool not_yet_constructed;      ///< True for construction check.
-	uint16 initial_random_bits;    ///< Random bits during construction checks.
-	CargoTypes watched_cargo_triggers; ///< Cargo types that triggered the watched cargo callback.
+	HouseID house_id;              // Type of house being queried.
+	TileIndex tile;                // Tile of this house.
+	Town *town;                    // Town of this house.
+	bool not_yet_constructed;      // True for construction check.
+	uint16 initial_random_bits;    // Random bits during construction checks.
+	CargoTypes watched_cargo_triggers; // Cargo types that triggered the watched cargo callback.
 
 	/**
 	 * Constructor of a house scope resolver.
@@ -83,8 +83,8 @@ struct HouseResolverObject : public ResolverObject {
  * need to be persistent; it just needs to keep class ids unique.
  */
 struct HouseClassMapping {
-	uint32 grfid;     ///< The GRF ID of the file this class belongs to
-	uint8  class_id;  ///< The class id within the grf file
+	uint32 grfid;     // The GRF ID of the file this class belongs to
+	uint8  class_id;  // The class id within the grf file
 };
 
 HouseClassID AllocateHouseClassID(byte grf_class_id, uint32 grfid);

@@ -333,16 +333,16 @@ void *ScriptInstance::GetLogPointer()
 
 /** The type of the data that follows in the savegame. */
 enum SQSaveLoadType {
-	SQSL_INT             = 0x00, ///< The following data is an integer.
-	SQSL_STRING          = 0x01, ///< The following data is an string.
-	SQSL_ARRAY           = 0x02, ///< The following data is an array.
-	SQSL_TABLE           = 0x03, ///< The following data is an table.
-	SQSL_BOOL            = 0x04, ///< The following data is a boolean.
-	SQSL_NULL            = 0x05, ///< A null variable.
-	SQSL_ARRAY_TABLE_END = 0xFF, ///< Marks the end of an array or table, no data follows.
+	SQSL_INT             = 0x00, // The following data is an integer.
+	SQSL_STRING          = 0x01, // The following data is an string.
+	SQSL_ARRAY           = 0x02, // The following data is an array.
+	SQSL_TABLE           = 0x03, // The following data is an table.
+	SQSL_BOOL            = 0x04, // The following data is a boolean.
+	SQSL_NULL            = 0x05, // A null variable.
+	SQSL_ARRAY_TABLE_END = 0xFF, // Marks the end of an array or table, no data follows.
 };
 
-static byte _script_sl_byte; ///< Used as source/target by the script saveload code to store/load a single byte.
+static byte _script_sl_byte; // Used as source/target by the script saveload code to store/load a single byte.
 
 /** SaveLoad array that saves/loads exactly one byte. */
 static const SaveLoad _script_byte[] = {

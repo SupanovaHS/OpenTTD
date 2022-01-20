@@ -14,19 +14,19 @@
 
 /** Variant of the signal, i.e. how does the signal look? */
 enum SignalVariant : byte {
-	SIG_ELECTRIC  = 0, ///< Light signal
-	SIG_SEMAPHORE = 1, ///< Old-fashioned semaphore signal
+	SIG_ELECTRIC  = 0, // Light signal
+	SIG_SEMAPHORE = 1, // Old-fashioned semaphore signal
 };
 
 
 /** Type of signal, i.e. how does the signal behave? */
 enum SignalType : byte {
-	SIGTYPE_NORMAL     = 0, ///< normal signal
-	SIGTYPE_ENTRY      = 1, ///< presignal block entry
-	SIGTYPE_EXIT       = 2, ///< presignal block exit
-	SIGTYPE_COMBO      = 3, ///< presignal inter-block
-	SIGTYPE_PBS        = 4, ///< normal pbs signal
-	SIGTYPE_PBS_ONEWAY = 5, ///< no-entry signal
+	SIGTYPE_NORMAL     = 0, // normal signal
+	SIGTYPE_ENTRY      = 1, // presignal block entry
+	SIGTYPE_EXIT       = 2, // presignal block exit
+	SIGTYPE_COMBO      = 3, // presignal inter-block
+	SIGTYPE_PBS        = 4, // normal pbs signal
+	SIGTYPE_PBS_ONEWAY = 5, // no-entry signal
 
 	SIGTYPE_END,
 	SIGTYPE_LAST       = SIGTYPE_PBS_ONEWAY,
@@ -42,8 +42,8 @@ template <> struct EnumPropsT<SignalType> : MakeEnumPropsT<SignalType, byte, SIG
  * normal boolean evaluation, since that will make future additions easier.
  */
 enum SignalState {
-	SIGNAL_STATE_RED   = 0, ///< The signal is red
-	SIGNAL_STATE_GREEN = 1, ///< The signal is green
+	SIGNAL_STATE_RED   = 0, // The signal is red
+	SIGNAL_STATE_GREEN = 1, // The signal is green
 };
 
 #endif /* SIGNAL_TYPE_H */

@@ -38,25 +38,25 @@
  * This enumeration defines all possible tree placer algorithm in the game.
  */
 enum TreePlacer {
-	TP_NONE,     ///< No tree placer algorithm
-	TP_ORIGINAL, ///< The original algorithm
-	TP_IMPROVED, ///< A 'improved' algorithm
+	TP_NONE,     // No tree placer algorithm
+	TP_ORIGINAL, // The original algorithm
+	TP_IMPROVED, // A 'improved' algorithm
 };
 
 /** Where to place trees while in-game? */
 enum ExtraTreePlacement {
-	ETP_NO_SPREAD,           ///< Grow trees on tiles that have them but don't spread to new ones
-	ETP_SPREAD_RAINFOREST,   ///< Grow trees on tiles that have them, only spread to new ones in rainforests
-	ETP_SPREAD_ALL,          ///< Grow trees and spread them without restrictions
-	ETP_NO_GROWTH_NO_SPREAD, ///< Don't grow trees and don't spread them at all
+	ETP_NO_SPREAD,           // Grow trees on tiles that have them but don't spread to new ones
+	ETP_SPREAD_RAINFOREST,   // Grow trees on tiles that have them, only spread to new ones in rainforests
+	ETP_SPREAD_ALL,          // Grow trees and spread them without restrictions
+	ETP_NO_GROWTH_NO_SPREAD, // Don't grow trees and don't spread them at all
 };
 
 /** Determines when to consider building more trees. */
 byte _trees_tick_ctr;
 
-static const uint16 DEFAULT_TREE_STEPS = 1000;             ///< Default number of attempts for placing trees.
-static const uint16 DEFAULT_RAINFOREST_TREE_STEPS = 15000; ///< Default number of attempts for placing extra trees at rainforest in tropic.
-static const uint16 EDITOR_TREE_DIV = 5;                   ///< Game editor tree generation divisor factor.
+static const uint16 DEFAULT_TREE_STEPS = 1000;             // Default number of attempts for placing trees.
+static const uint16 DEFAULT_RAINFOREST_TREE_STEPS = 15000; // Default number of attempts for placing extra trees at rainforest in tropic.
+static const uint16 EDITOR_TREE_DIV = 5;                   // Game editor tree generation divisor factor.
 
 /**
  * Tests if a tile can be converted to MP_TREES

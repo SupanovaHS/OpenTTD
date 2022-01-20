@@ -11,8 +11,8 @@
 #include "fileio_func.h"
 #include <string>
 
-std::string _log_file; ///< File to reroute output of a forked OpenTTD to
-std::unique_ptr<FILE, FileDeleter> _log_fd; ///< File to reroute output of a forked OpenTTD to
+std::string _log_file; // File to reroute output of a forked OpenTTD to
+std::unique_ptr<FILE, FileDeleter> _log_fd; // File to reroute output of a forked OpenTTD to
 
 #if defined(UNIX)
 

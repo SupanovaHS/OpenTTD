@@ -33,10 +33,10 @@
  * of the same text, e.g. on line breaks.
  */
 struct FontState {
-	FontSize fontsize;       ///< Current font size.
-	TextColour cur_colour;   ///< Current text colour.
+	FontSize fontsize;       // Current font size.
+	TextColour cur_colour;   // Current text colour.
 
-	std::stack<TextColour, std::vector<TextColour>> colour_stack; ///< Stack of colours to assist with colour switching.
+	std::stack<TextColour, std::vector<TextColour>> colour_stack; // Stack of colours to assist with colour switching.
 
 	FontState() : fontsize(FS_END), cur_colour(TC_INVALID) {}
 	FontState(TextColour colour, FontSize fontsize) : fontsize(fontsize), cur_colour(colour) {}
@@ -84,8 +84,8 @@ struct FontState {
  */
 class Font ICU_FONTINSTANCE {
 public:
-	FontCache *fc;     ///< The font we are using.
-	TextColour colour; ///< The colour this font has to be.
+	FontCache *fc;     // The font we are using.
+	TextColour colour; // The colour this font has to be.
 
 	Font(FontSize size, TextColour colour);
 
@@ -151,22 +151,22 @@ public:
  * It also accounts for the memory allocations and frees.
  */
 class Layouter : public std::vector<std::unique_ptr<const ParagraphLayouter::Line>> {
-	const char *string; ///< Pointer to the original string.
+	const char *string; // Pointer to the original string.
 
 	/** Key into the linecache */
 	struct LineCacheKey {
-		FontState state_before;  ///< Font state at the beginning of the line.
-		std::string str;         ///< Source string of the line (including colour and font size codes).
+		FontState state_before;  // Font state at the beginning of the line.
+		std::string str;         // Source string of the line (including colour and font size codes).
 	};
 
 	struct LineCacheQuery {
-		FontState state_before;  ///< Font state at the beginning of the line.
-		std::string_view str;    ///< Source string of the line (including colour and font size codes).
+		FontState state_before;  // Font state at the beginning of the line.
+		std::string_view str;    // Source string of the line (including colour and font size codes).
 	};
 
 	/** Comparator for std::map */
 	struct LineCacheCompare {
-		using is_transparent = void; ///< Enable map queries with various key types
+		using is_transparent = void; // Enable map queries with various key types
 
 		/** Comparison operator for LineCacheKey and LineCacheQuery */
 		template<typename Key1, typename Key2>
@@ -182,11 +182,11 @@ public:
 	/** Item in the linecache */
 	struct LineCacheItem {
 		/* Stuff that cannot be freed until the ParagraphLayout is freed */
-		void *buffer;              ///< Accessed by both ICU's and our ParagraphLayout::nextLine.
-		FontMap runs;              ///< Accessed by our ParagraphLayout::nextLine.
+		void *buffer;              // Accessed by both ICU's and our ParagraphLayout::nextLine.
+		FontMap runs;              // Accessed by our ParagraphLayout::nextLine.
 
-		FontState state_after;     ///< Font state after the line.
-		ParagraphLayouter *layout; ///< Layout of the line.
+		FontState state_after;     // Font state after the line.
+		ParagraphLayouter *layout; // Layout of the line.
 
 		LineCacheItem() : buffer(nullptr), layout(nullptr) {}
 		~LineCacheItem() { delete layout; free(buffer); }

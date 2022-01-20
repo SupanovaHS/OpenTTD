@@ -35,16 +35,16 @@ public:
 
 	/** Helper for creating specialised functions for specific optimisations. */
 	enum ReadMode {
-		RM_WITH_SKIP,   ///< Use normal code for skipping empty pixels.
-		RM_WITH_MARGIN, ///< Use cached number of empty pixels at begin and end of line to reduce work.
-		RM_NONE,        ///< No specialisation.
+		RM_WITH_SKIP,   // Use normal code for skipping empty pixels.
+		RM_WITH_MARGIN, // Use cached number of empty pixels at begin and end of line to reduce work.
+		RM_NONE,        // No specialisation.
 	};
 
 	/** Helper for creating specialised functions for the case where the sprite width is odd or even. */
 	enum BlockType {
-		BT_EVEN, ///< An even number of pixels in the width; no need for a special case for the last pixel.
-		BT_ODD,  ///< An odd number of pixels in the width; special case for the last pixel.
-		BT_NONE, ///< No specialisation for either case.
+		BT_EVEN, // An even number of pixels in the width; no need for a special case for the last pixel.
+		BT_ODD,  // An odd number of pixels in the width; special case for the last pixel.
+		BT_NONE, // No specialisation for either case.
 	};
 
 	/** Helper for using specialised functions designed to prevent whenever it's possible things like:
@@ -54,22 +54,22 @@ public:
 	 */
 	enum SpriteFlags {
 		SF_NONE        = 0,
-		SF_TRANSLUCENT = 1 << 1, ///< The sprite has at least 1 translucent pixel.
-		SF_NO_REMAP    = 1 << 2, ///< The sprite has no remappable colour pixel.
-		SF_NO_ANIM     = 1 << 3, ///< The sprite has no palette animated pixel.
+		SF_TRANSLUCENT = 1 << 1, // The sprite has at least 1 translucent pixel.
+		SF_NO_REMAP    = 1 << 2, // The sprite has no remappable colour pixel.
+		SF_NO_ANIM     = 1 << 3, // The sprite has no palette animated pixel.
 	};
 
 	/** Data stored about a (single) sprite. */
 	struct SpriteInfo {
-		uint32 sprite_offset;    ///< The offset to the sprite data.
-		uint32 mv_offset;        ///< The offset to the map value data.
-		uint16 sprite_line_size; ///< The size of a single line (pitch).
-		uint16 sprite_width;     ///< The width of the sprite.
+		uint32 sprite_offset;    // The offset to the sprite data.
+		uint32 mv_offset;        // The offset to the map value data.
+		uint16 sprite_line_size; // The size of a single line (pitch).
+		uint16 sprite_width;     // The width of the sprite.
 	};
 	struct SpriteData {
 		SpriteFlags flags;
 		SpriteInfo infos[ZOOM_LVL_COUNT];
-		byte data[]; ///< Data, all zoomlevels.
+		byte data[]; // Data, all zoomlevels.
 	};
 
 	Sprite *Encode(const SpriteLoader::Sprite *sprite, AllocatorProc *allocator);

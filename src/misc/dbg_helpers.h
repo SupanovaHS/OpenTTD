@@ -117,10 +117,10 @@ struct DumpTarget {
 
 	typedef std::map<KnownStructKey, std::string> KNOWN_NAMES;
 
-	std::string m_out;                    ///< the output string
-	int m_indent;                         ///< current indent/nesting level
-	std::stack<std::string> m_cur_struct; ///< here we will track the current structure name
-	KNOWN_NAMES m_known_names;            ///< map of known object instances and their structured names
+	std::string m_out;                    // the output string
+	int m_indent;                         // current indent/nesting level
+	std::stack<std::string> m_cur_struct; // here we will track the current structure name
+	KNOWN_NAMES m_known_names;            // map of known object instances and their structured names
 
 	DumpTarget()
 		: m_indent(0)

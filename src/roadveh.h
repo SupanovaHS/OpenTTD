@@ -36,31 +36,31 @@ enum RoadVehicleStates {
 	 */
 
 	/* Numeric values */
-	RVSB_IN_DEPOT                = 0xFE,                      ///< The vehicle is in a depot
-	RVSB_WORMHOLE                = 0xFF,                      ///< The vehicle is in a tunnel and/or bridge
+	RVSB_IN_DEPOT                = 0xFE,                      // The vehicle is in a depot
+	RVSB_WORMHOLE                = 0xFF,                      // The vehicle is in a tunnel and/or bridge
 
 	/* Bit numbers */
-	RVS_USING_SECOND_BAY         =    1,                      ///< Only used while in a road stop
-	RVS_ENTERED_STOP             =    2,                      ///< Only set when a vehicle has entered the stop
-	RVS_DRIVE_SIDE               =    4,                      ///< Only used when retrieving move data
-	RVS_IN_ROAD_STOP             =    5,                      ///< The vehicle is in a road stop
-	RVS_IN_DT_ROAD_STOP          =    6,                      ///< The vehicle is in a drive-through road stop
+	RVS_USING_SECOND_BAY         =    1,                      // Only used while in a road stop
+	RVS_ENTERED_STOP             =    2,                      // Only set when a vehicle has entered the stop
+	RVS_DRIVE_SIDE               =    4,                      // Only used when retrieving move data
+	RVS_IN_ROAD_STOP             =    5,                      // The vehicle is in a road stop
+	RVS_IN_DT_ROAD_STOP          =    6,                      // The vehicle is in a drive-through road stop
 
 	/* Bit sets of the above specified bits */
-	RVSB_IN_ROAD_STOP            = 1 << RVS_IN_ROAD_STOP,     ///< The vehicle is in a road stop
+	RVSB_IN_ROAD_STOP            = 1 << RVS_IN_ROAD_STOP,     // The vehicle is in a road stop
 	RVSB_IN_ROAD_STOP_END        = RVSB_IN_ROAD_STOP + TRACKDIR_END,
-	RVSB_IN_DT_ROAD_STOP         = 1 << RVS_IN_DT_ROAD_STOP,  ///< The vehicle is in a drive-through road stop
+	RVSB_IN_DT_ROAD_STOP         = 1 << RVS_IN_DT_ROAD_STOP,  // The vehicle is in a drive-through road stop
 	RVSB_IN_DT_ROAD_STOP_END     = RVSB_IN_DT_ROAD_STOP + TRACKDIR_END,
 
-	RVSB_DRIVE_SIDE              = 1 << RVS_DRIVE_SIDE,       ///< The vehicle is at the opposite side of the road
+	RVSB_DRIVE_SIDE              = 1 << RVS_DRIVE_SIDE,       // The vehicle is at the opposite side of the road
 
-	RVSB_TRACKDIR_MASK           = 0x0F,                      ///< The mask used to extract track dirs
-	RVSB_ROAD_STOP_TRACKDIR_MASK = 0x09,                      ///< Only bits 0 and 3 are used to encode the trackdir for road stops
+	RVSB_TRACKDIR_MASK           = 0x0F,                      // The mask used to extract track dirs
+	RVSB_ROAD_STOP_TRACKDIR_MASK = 0x09,                      // Only bits 0 and 3 are used to encode the trackdir for road stops
 };
 
 /** State information about the Road Vehicle controller */
-static const uint RDE_NEXT_TILE = 0x80; ///< We should enter the next tile
-static const uint RDE_TURNED    = 0x40; ///< We just finished turning
+static const uint RDE_NEXT_TILE = 0x80; // We should enter the next tile
+static const uint RDE_TURNED    = 0x40; // We just finished turning
 
 /* Start frames for when a vehicle enters a tile/changes its state.
  * The start frame is different for vehicles that turned around or
@@ -105,13 +105,13 @@ struct RoadVehPathCache {
  * Buses, trucks and trams belong to this class.
  */
 struct RoadVehicle FINAL : public GroundVehicle<RoadVehicle, VEH_ROAD> {
-	RoadVehPathCache path;  ///< Cached path.
-	byte state;             ///< @see RoadVehicleStates
+	RoadVehPathCache path;  // Cached path.
+	byte state;             // @see RoadVehicleStates
 	byte frame;
 	uint16 blocked_ctr;
-	byte overtaking;        ///< Set to #RVSB_DRIVE_SIDE when overtaking, otherwise 0.
-	byte overtaking_ctr;    ///< The length of the current overtake attempt.
-	uint16 crashed_ctr;     ///< Animation counter when the vehicle has crashed. @see RoadVehIsCrashed
+	byte overtaking;        // Set to #RVSB_DRIVE_SIDE when overtaking, otherwise 0.
+	byte overtaking_ctr;    // The length of the current overtake attempt.
+	uint16 crashed_ctr;     // Animation counter when the vehicle has crashed. @see RoadVehIsCrashed
 	byte reverse_ctr;
 
 	RoadType roadtype;              //!< Roadtype of this vehicle.

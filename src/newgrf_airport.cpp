@@ -19,10 +19,10 @@
 
 /** Resolver for the airport scope. */
 struct AirportScopeResolver : public ScopeResolver {
-	struct Station *st; ///< Station of the airport for which the callback is run, or \c nullptr for build gui.
-	byte airport_id;    ///< Type of airport for which the callback is run.
-	byte layout;        ///< Layout of the airport to build.
-	TileIndex tile;     ///< Tile for the callback, only valid for airporttile callbacks.
+	struct Station *st; // Station of the airport for which the callback is run, or \c nullptr for build gui.
+	byte airport_id;    // Type of airport for which the callback is run.
+	byte layout;        // Layout of the airport to build.
+	TileIndex tile;     // Tile for the callback, only valid for airporttile callbacks.
 
 	/**
 	 * Constructor of the scope resolver for an airport.
@@ -86,7 +86,7 @@ INSTANTIATE_NEWGRF_CLASS_METHODS(AirportClass, AirportSpec, AirportClassID, APC_
 
 AirportOverrideManager _airport_mngr(NEW_AIRPORT_OFFSET, NUM_AIRPORTS, AT_INVALID);
 
-AirportSpec AirportSpec::specs[NUM_AIRPORTS]; ///< Airport specifications.
+AirportSpec AirportSpec::specs[NUM_AIRPORTS]; // Airport specifications.
 
 /**
  * Retrieve airport spec for the given airport. If an override is available

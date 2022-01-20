@@ -35,9 +35,9 @@ public:
 template <class Types>
 class CYapfDestinationAnyDepotRailT : public CYapfDestinationRailBase {
 public:
-	typedef typename Types::Tpf Tpf;              ///< the pathfinder class (derived from THIS class)
-	typedef typename Types::NodeList::Titem Node; ///< this will be our node type
-	typedef typename Node::Key Key;               ///< key to hash tables
+	typedef typename Types::Tpf Tpf;              // the pathfinder class (derived from THIS class)
+	typedef typename Types::NodeList::Titem Node; // this will be our node type
+	typedef typename Node::Key Key;               // key to hash tables
 
 	/** to access inherited path finder */
 	Tpf& Yapf()
@@ -72,10 +72,10 @@ public:
 template <class Types>
 class CYapfDestinationAnySafeTileRailT : public CYapfDestinationRailBase {
 public:
-	typedef typename Types::Tpf Tpf;              ///< the pathfinder class (derived from THIS class)
-	typedef typename Types::NodeList::Titem Node; ///< this will be our node type
-	typedef typename Node::Key Key;               ///< key to hash tables
-	typedef typename Types::TrackFollower TrackFollower; ///< TrackFollower. Need to typedef for gcc 2.95
+	typedef typename Types::Tpf Tpf;              // the pathfinder class (derived from THIS class)
+	typedef typename Types::NodeList::Titem Node; // this will be our node type
+	typedef typename Node::Key Key;               // key to hash tables
+	typedef typename Types::TrackFollower TrackFollower; // TrackFollower. Need to typedef for gcc 2.95
 
 	/** to access inherited path finder */
 	Tpf& Yapf()
@@ -110,9 +110,9 @@ public:
 template <class Types>
 class CYapfDestinationTileOrStationRailT : public CYapfDestinationRailBase {
 public:
-	typedef typename Types::Tpf Tpf;              ///< the pathfinder class (derived from THIS class)
-	typedef typename Types::NodeList::Titem Node; ///< this will be our node type
-	typedef typename Node::Key Key;               ///< key to hash tables
+	typedef typename Types::Tpf Tpf;              // the pathfinder class (derived from THIS class)
+	typedef typename Types::NodeList::Titem Node; // this will be our node type
+	typedef typename Node::Key Key;               // key to hash tables
 
 protected:
 	TileIndex    m_destTile;

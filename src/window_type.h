@@ -12,29 +12,29 @@
 
 /** %Window numbers. */
 enum WindowNumberEnum {
-	WN_GAME_OPTIONS_AI = 0,          ///< AI settings.
-	WN_GAME_OPTIONS_ABOUT,           ///< About window.
-	WN_GAME_OPTIONS_NEWGRF_STATE,    ///< NewGRF settings.
-	WN_GAME_OPTIONS_GAME_OPTIONS,    ///< Game options.
-	WN_GAME_OPTIONS_GAME_SETTINGS,   ///< Game settings.
+	WN_GAME_OPTIONS_AI = 0,          // AI settings.
+	WN_GAME_OPTIONS_ABOUT,           // About window.
+	WN_GAME_OPTIONS_NEWGRF_STATE,    // NewGRF settings.
+	WN_GAME_OPTIONS_GAME_OPTIONS,    // Game options.
+	WN_GAME_OPTIONS_GAME_SETTINGS,   // Game settings.
 
-	WN_QUERY_STRING = 0,  ///< Query string.
-	WN_QUERY_STRING_SIGN, ///< Query string for signs.
+	WN_QUERY_STRING = 0,  // Query string.
+	WN_QUERY_STRING_SIGN, // Query string for signs.
 
-	WN_CONFIRM_POPUP_QUERY = 0,       ///< Query popup confirm.
-	WN_CONFIRM_POPUP_QUERY_BOOTSTRAP, ///< Query popup confirm for bootstrap.
+	WN_CONFIRM_POPUP_QUERY = 0,       // Query popup confirm.
+	WN_CONFIRM_POPUP_QUERY_BOOTSTRAP, // Query popup confirm for bootstrap.
 
-	WN_NETWORK_WINDOW_GAME = 0,     ///< Network game window.
-	WN_NETWORK_WINDOW_CONTENT_LIST, ///< Network content list.
-	WN_NETWORK_WINDOW_START,        ///< Network start server.
+	WN_NETWORK_WINDOW_GAME = 0,     // Network game window.
+	WN_NETWORK_WINDOW_CONTENT_LIST, // Network content list.
+	WN_NETWORK_WINDOW_START,        // Network start server.
 
-	WN_NETWORK_STATUS_WINDOW_JOIN = 0,         ///< Network join status.
-	WN_NETWORK_STATUS_WINDOW_CONTENT_DOWNLOAD, ///< Network content download status.
+	WN_NETWORK_STATUS_WINDOW_JOIN = 0,         // Network join status.
+	WN_NETWORK_STATUS_WINDOW_CONTENT_DOWNLOAD, // Network content download status.
 };
 
 /** %Window classes. */
 enum WindowClass {
-	WC_NONE, ///< No window, redirects to WC_MAIN_WINDOW.
+	WC_NONE, // No window, redirects to WC_MAIN_WINDOW.
 
 	/**
 	 * Main window; %Window numbers:
@@ -695,17 +695,17 @@ enum WindowClass {
 	 */
 	WC_SCREENSHOT,
 
-	WC_INVALID = 0xFFFF, ///< Invalid window.
+	WC_INVALID = 0xFFFF, // Invalid window.
 };
 
 /** Data value for #Window::OnInvalidateData() of windows with class #WC_GAME_OPTIONS. */
 enum GameOptionsInvalidationData {
 	GOID_DEFAULT = 0,
-	GOID_NEWGRF_RESCANNED,       ///< NewGRFs were just rescanned.
-	GOID_NEWGRF_CURRENT_LOADED,  ///< The current list of active NewGRF has been loaded.
-	GOID_NEWGRF_LIST_EDITED,     ///< List of active NewGRFs is being edited.
-	GOID_NEWGRF_CHANGES_MADE,    ///< Changes have been made to a given NewGRF either through the palette or its parameters.
-	GOID_NEWGRF_CHANGES_APPLIED, ///< The active NewGRF list changes have been applied.
+	GOID_NEWGRF_RESCANNED,       // NewGRFs were just rescanned.
+	GOID_NEWGRF_CURRENT_LOADED,  // The current list of active NewGRF has been loaded.
+	GOID_NEWGRF_LIST_EDITED,     // List of active NewGRFs is being edited.
+	GOID_NEWGRF_CHANGES_MADE,    // Changes have been made to a given NewGRF either through the palette or its parameters.
+	GOID_NEWGRF_CHANGES_APPLIED, // The active NewGRF list changes have been applied.
 };
 
 struct Window;
@@ -715,8 +715,8 @@ typedef int32 WindowNumber;
 
 /** State of handling an event. */
 enum EventState {
-	ES_HANDLED,     ///< The passed event is handled.
-	ES_NOT_HANDLED, ///< The passed event is not handled.
+	ES_HANDLED,     // The passed event is handled.
+	ES_NOT_HANDLED, // The passed event is not handled.
 };
 
 #endif /* WINDOW_TYPE_H */

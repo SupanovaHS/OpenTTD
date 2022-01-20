@@ -37,13 +37,13 @@ static const uint ICON_BOTTOM_BORDERWIDTH = 12;
  * Container for a single line of console output
  */
 struct IConsoleLine {
-	static IConsoleLine *front; ///< The front of the console backlog buffer
-	static int size;            ///< The amount of items in the backlog
+	static IConsoleLine *front; // The front of the console backlog buffer
+	static int size;            // The amount of items in the backlog
 
-	IConsoleLine *previous; ///< The previous console message.
-	char *buffer;           ///< The data to store.
-	TextColour colour;      ///< The colour of the line.
-	uint16 time;            ///< The amount of time the line is in the backlog.
+	IConsoleLine *previous; // The previous console message.
+	char *buffer;           // The data to store.
+	TextColour colour;      // The colour of the line.
+	uint16 time;            // The amount of time the line is in the backlog.
 
 	/**
 	 * Initialize the console line.
@@ -170,7 +170,7 @@ static WindowDesc _console_window_desc(
 struct IConsoleWindow : Window
 {
 	static int scroll;
-	int line_height;   ///< Height of one line of text in the console.
+	int line_height;   // Height of one line of text in the console.
 	int line_offset;
 	GUITimer truncate_timer;
 

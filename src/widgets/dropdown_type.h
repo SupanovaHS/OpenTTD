@@ -21,8 +21,8 @@
  */
 class DropDownListItem {
 public:
-	int result;  ///< Result code to return to window on selection
-	bool masked; ///< Masked and unselectable item
+	int result;  // Result code to return to window on selection
+	bool masked; // Masked and unselectable item
 
 	DropDownListItem(int result, bool masked) : result(result), masked(masked) {}
 	virtual ~DropDownListItem() {}
@@ -38,7 +38,7 @@ public:
  */
 class DropDownListStringItem : public DropDownListItem {
 public:
-	StringID string; ///< String ID of item
+	StringID string; // String ID of item
 
 	DropDownListStringItem(StringID string, int result, bool masked) : DropDownListItem(result, masked), string(string) {}
 
@@ -55,7 +55,7 @@ public:
  */
 class DropDownListParamStringItem : public DropDownListStringItem {
 public:
-	uint64 decode_params[10]; ///< Parameters of the string
+	uint64 decode_params[10]; // Parameters of the string
 
 	DropDownListParamStringItem(StringID string, int result, bool masked) : DropDownListStringItem(string, result, masked) {}
 

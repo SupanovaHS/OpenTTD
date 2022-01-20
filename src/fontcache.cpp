@@ -26,7 +26,7 @@
 
 #include "safeguards.h"
 
-static const int ASCII_LETTERSTART = 32; ///< First printable ASCII letter.
+static const int ASCII_LETTERSTART = 32; // First printable ASCII letter.
 
 /** Default heights for the different sizes of fonts. */
 static const int _default_font_height[FS_END]   = {10, 6, 18, 10};
@@ -75,7 +75,7 @@ int GetCharacterHeight(FontSize size)
 /** Font cache for fonts that are based on a freetype font. */
 class SpriteFontCache : public FontCache {
 private:
-	SpriteID **glyph_to_spriteid_map; ///< Mapping of glyphs to sprite IDs.
+	SpriteID **glyph_to_spriteid_map; // Mapping of glyphs to sprite IDs.
 
 	void ClearGlyphToSpriteMap();
 public:
@@ -390,7 +390,7 @@ const void *TrueTypeFontCache::GetFontTable(uint32 tag, size_t &length)
 /** Font cache for fonts that are based on a freetype font. */
 class FreeTypeFontCache : public TrueTypeFontCache {
 private:
-	FT_Face face;  ///< The font face associated with this font.
+	FT_Face face;  // The font face associated with this font.
 
 	void SetFontSize(FontSize fs, FT_Face face, int pixels);
 	virtual const void *InternalGetFontTable(uint32 tag, size_t &length);

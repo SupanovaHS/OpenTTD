@@ -288,7 +288,7 @@ static bool SwitchNewGRFBlitter()
 	/* Search the best blitter. */
 	static const struct {
 		const char *name;
-		uint animation; ///< 0: no support, 1: do support, 2: both
+		uint animation; // 0: no support, 1: do support, 2: both
 		uint min_base_depth, max_base_depth, min_grf_depth, max_grf_depth;
 	} replacement_blitters[] = {
 		{ "8bpp-optimized",  2,  8,  8,  8,  8 },

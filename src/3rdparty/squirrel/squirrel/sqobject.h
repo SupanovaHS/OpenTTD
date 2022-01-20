@@ -383,7 +383,7 @@ struct SQCollectable : public SQRefCounted {
  * The iterative approach provides effectively a depth first search approach.
  */
 class SQGCMarkerQueue {
-	std::vector<SQCollectable*> stack; ///< The elements to still process, with the most recent elements at the back.
+	std::vector<SQCollectable*> stack; // The elements to still process, with the most recent elements at the back.
 public:
 	/** Whether there are any elements left to process. */
 	bool IsEmpty() { return this->stack.empty(); }

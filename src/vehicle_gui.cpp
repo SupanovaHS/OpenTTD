@@ -384,9 +384,9 @@ byte GetBestFittingSubType(Vehicle *v_from, Vehicle *v_for, CargoID dest_cargo_t
 
 /** Option to refit a vehicle chain */
 struct RefitOption {
-	CargoID cargo;    ///< Cargo to refit to
-	byte subtype;     ///< Subcargo to use
-	StringID string;  ///< GRF-local String to display for the cargo
+	CargoID cargo;    // Cargo to refit to
+	byte subtype;     // Subcargo to use
+	StringID string;  // GRF-local String to display for the cargo
 
 	/**
 	 * Inequality operator for #RefitOption.
@@ -409,7 +409,7 @@ struct RefitOption {
 	}
 };
 
-typedef std::vector<RefitOption> SubtypeList; ///< List of refit subtypes associated to a cargo.
+typedef std::vector<RefitOption> SubtypeList; // List of refit subtypes associated to a cargo.
 
 /**
  * Draw the list of available refit options for a consist and highlight the selected refit option (if any).
@@ -477,21 +477,21 @@ static void DrawVehicleRefitWindow(const SubtypeList list[NUM_CARGO], const int 
 
 /** Refit cargo window. */
 struct RefitWindow : public Window {
-	int sel[2];                  ///< Index in refit options, sel[0] == -1 if nothing is selected.
-	RefitOption *cargo;          ///< Refit option selected by #sel.
-	SubtypeList list[NUM_CARGO]; ///< List of refit subtypes available for each sorted cargo.
-	VehicleOrderID order;        ///< If not #INVALID_VEH_ORDER_ID, selection is part of a refit order (rather than execute directly).
-	uint information_width;      ///< Width required for correctly displaying all cargoes in the information panel.
-	Scrollbar *vscroll;          ///< The main scrollbar.
-	Scrollbar *hscroll;          ///< Only used for long vehicles.
-	int vehicle_width;           ///< Width of the vehicle being drawn.
-	int sprite_left;             ///< Left position of the vehicle sprite.
-	int sprite_right;            ///< Right position of the vehicle sprite.
-	uint vehicle_margin;         ///< Margin to use while selecting vehicles when the vehicle image is centered.
-	int click_x;                 ///< Position of the first click while dragging.
-	VehicleID selected_vehicle;  ///< First vehicle in the current selection.
-	uint8 num_vehicles;          ///< Number of selected vehicles.
-	bool auto_refit;             ///< Select cargo for auto-refitting.
+	int sel[2];                  // Index in refit options, sel[0] == -1 if nothing is selected.
+	RefitOption *cargo;          // Refit option selected by #sel.
+	SubtypeList list[NUM_CARGO]; // List of refit subtypes available for each sorted cargo.
+	VehicleOrderID order;        // If not #INVALID_VEH_ORDER_ID, selection is part of a refit order (rather than execute directly).
+	uint information_width;      // Width required for correctly displaying all cargoes in the information panel.
+	Scrollbar *vscroll;          // The main scrollbar.
+	Scrollbar *hscroll;          // Only used for long vehicles.
+	int vehicle_width;           // Width of the vehicle being drawn.
+	int sprite_left;             // Left position of the vehicle sprite.
+	int sprite_right;            // Right position of the vehicle sprite.
+	uint vehicle_margin;         // Margin to use while selecting vehicles when the vehicle image is centered.
+	int click_x;                 // Position of the first click while dragging.
+	VehicleID selected_vehicle;  // First vehicle in the current selection.
+	uint8 num_vehicles;          // Number of selected vehicles.
+	bool auto_refit;             // Select cargo for auto-refitting.
 
 	/**
 	 * Collects all (cargo, subcargo) refit options of a vehicle chain.
@@ -1647,14 +1647,14 @@ struct VehicleListWindow : public BaseVehicleListWindow {
 private:
 	/** Enumeration of planes of the button row at the bottom. */
 	enum ButtonPlanes {
-		BP_SHOW_BUTTONS, ///< Show the buttons.
-		BP_HIDE_BUTTONS, ///< Show the empty panel.
+		BP_SHOW_BUTTONS, // Show the buttons.
+		BP_HIDE_BUTTONS, // Show the empty panel.
 	};
 
 	/** Enumeration of planes of the title row at the top. */
 	enum CaptionPlanes {
-		BP_NORMAL,        ///< Show shared orders caption and buttons.
-		BP_SHARED_ORDERS, ///< Show the normal caption.
+		BP_NORMAL,        // Show shared orders caption and buttons.
+		BP_SHARED_ORDERS, // Show the normal caption.
 	};
 
 public:
@@ -2119,7 +2119,7 @@ static StringID _service_interval_dropdown[] = {
 
 /** Class for managing the vehicle details window. */
 struct VehicleDetailsWindow : Window {
-	TrainDetailsWindowTabs tab; ///< For train vehicles: which tab is displayed.
+	TrainDetailsWindowTabs tab; // For train vehicles: which tab is displayed.
 	Scrollbar *vscroll;
 
 	/** Initialize a newly created vehicle details window */
@@ -2661,14 +2661,14 @@ struct VehicleViewWindow : Window {
 private:
 	/** Display planes available in the vehicle view window. */
 	enum PlaneSelections {
-		SEL_DC_GOTO_DEPOT,  ///< Display 'goto depot' button in #WID_VV_SELECT_DEPOT_CLONE stacked widget.
-		SEL_DC_CLONE,       ///< Display 'clone vehicle' button in #WID_VV_SELECT_DEPOT_CLONE stacked widget.
+		SEL_DC_GOTO_DEPOT,  // Display 'goto depot' button in #WID_VV_SELECT_DEPOT_CLONE stacked widget.
+		SEL_DC_CLONE,       // Display 'clone vehicle' button in #WID_VV_SELECT_DEPOT_CLONE stacked widget.
 
-		SEL_RT_REFIT,       ///< Display 'refit' button in #WID_VV_SELECT_REFIT_TURN stacked widget.
-		SEL_RT_TURN_AROUND, ///< Display 'turn around' button in #WID_VV_SELECT_REFIT_TURN stacked widget.
+		SEL_RT_REFIT,       // Display 'refit' button in #WID_VV_SELECT_REFIT_TURN stacked widget.
+		SEL_RT_TURN_AROUND, // Display 'turn around' button in #WID_VV_SELECT_REFIT_TURN stacked widget.
 
-		SEL_DC_BASEPLANE = SEL_DC_GOTO_DEPOT, ///< First plane of the #WID_VV_SELECT_DEPOT_CLONE stacked widget.
-		SEL_RT_BASEPLANE = SEL_RT_REFIT,      ///< First plane of the #WID_VV_SELECT_REFIT_TURN stacked widget.
+		SEL_DC_BASEPLANE = SEL_DC_GOTO_DEPOT, // First plane of the #WID_VV_SELECT_DEPOT_CLONE stacked widget.
+		SEL_RT_BASEPLANE = SEL_RT_REFIT,      // First plane of the #WID_VV_SELECT_REFIT_TURN stacked widget.
 	};
 	bool mouse_over_start_stop = false;
 

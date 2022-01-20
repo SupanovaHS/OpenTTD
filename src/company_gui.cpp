@@ -49,8 +49,8 @@
 
 
 /** Company GUI constants. */
-static const uint EXP_LINESPACE  = 2;      ///< Amount of vertical space for a horizontal (sub-)total line.
-static const uint EXP_BLOCKSPACE = 10;     ///< Amount of vertical space between two blocks of numbers.
+static const uint EXP_LINESPACE  = 2;      // Amount of vertical space for a horizontal (sub-)total line.
+static const uint EXP_BLOCKSPACE = 10;     // Amount of vertical space between two blocks of numbers.
 
 static void DoSelectCompanyManagerFace(Window *parent);
 static void ShowCompanyInfrastructure(CompanyID company);
@@ -94,9 +94,9 @@ static ExpensesType _expenses_list_2[] = {
 
 /** Expense list container. */
 struct ExpensesList {
-	const ExpensesType *et;   ///< Expenses items.
-	const uint length;        ///< Number of items in list.
-	const uint num_subtotals; ///< Number of sub-totals in the list.
+	const ExpensesType *et;   // Expenses items.
+	const uint length;        // Number of items in list.
+	const uint num_subtotals; // Number of sub-totals in the list.
 
 	ExpensesList(ExpensesType *et, int length, int num_subtotals) : et(et), length(length), num_subtotals(num_subtotals)
 	{
@@ -276,8 +276,8 @@ static const NWidgetPart _nested_company_finances_widgets[] = {
 
 /** Window class displaying the company finances. */
 struct CompanyFinancesWindow : Window {
-	static Money max_money; ///< The maximum amount of money a company has had this 'run'
-	bool small;             ///< Window is toggled to 'small'.
+	static Money max_money; // The maximum amount of money a company has had this 'run'
+	bool small;             // Window is toggled to 'small'.
 
 	CompanyFinancesWindow(WindowDesc *desc, CompanyID company) : Window(desc)
 	{
@@ -551,7 +551,7 @@ public:
 	}
 };
 
-static const int LEVEL_WIDTH = 10; ///< Indenting width of a sub-group in pixels
+static const int LEVEL_WIDTH = 10; // Indenting width of a sub-group in pixels
 
 typedef GUIList<const Group*> GUIGroupList;
 
@@ -1298,15 +1298,15 @@ static const NWidgetPart _nested_select_company_manager_face_widgets[] = {
 /** Management class for customizing the face of the company manager. */
 class SelectCompanyManagerFaceWindow : public Window
 {
-	CompanyManagerFace face; ///< company manager face bits
-	bool advanced; ///< advanced company manager face selection window
+	CompanyManagerFace face; // company manager face bits
+	bool advanced; // advanced company manager face selection window
 
-	GenderEthnicity ge; ///< Gender and ethnicity.
-	bool is_female;     ///< Female face.
-	bool is_moust_male; ///< Male face with a moustache.
+	GenderEthnicity ge; // Gender and ethnicity.
+	bool is_female;     // Female face.
+	bool is_moust_male; // Male face with a moustache.
 
-	Dimension yesno_dim;  ///< Dimension of a yes/no button of a part in the advanced face window.
-	Dimension number_dim; ///< Dimension of a number widget of a part in the advanced face window.
+	Dimension yesno_dim;  // Dimension of a yes/no button of a part in the advanced face window.
+	Dimension number_dim; // Dimension of a number widget of a part in the advanced face window.
 
 	/**
 	 * Draw dynamic a label to the left of the button and a value in the button
@@ -1761,10 +1761,10 @@ static const NWidgetPart _nested_company_infrastructure_widgets[] = {
  */
 struct CompanyInfrastructureWindow : Window
 {
-	RailTypes railtypes; ///< Valid railtypes.
-	RoadTypes roadtypes; ///< Valid roadtypes.
+	RailTypes railtypes; // Valid railtypes.
+	RoadTypes roadtypes; // Valid roadtypes.
 
-	uint total_width; ///< String width of the total cost line.
+	uint total_width; // String width of the total cost line.
 
 	CompanyInfrastructureWindow(WindowDesc *desc, WindowNumber window_number) : Window(desc)
 	{
@@ -2216,20 +2216,20 @@ struct CompanyWindow : Window
 	/** Display planes in the company window. */
 	enum CompanyWindowPlanes {
 		/* Display planes of the #WID_C_SELECT_MULTIPLAYER selection widget. */
-		CWP_MP_C_PWD = 0, ///< Display the company password button.
-		CWP_MP_C_JOIN,    ///< Display the join company button.
+		CWP_MP_C_PWD = 0, // Display the company password button.
+		CWP_MP_C_JOIN,    // Display the join company button.
 
 		/* Display planes of the #WID_C_SELECT_VIEW_BUILD_HQ selection widget. */
-		CWP_VB_VIEW = 0,  ///< Display the view button
-		CWP_VB_BUILD,     ///< Display the build button
+		CWP_VB_VIEW = 0,  // Display the view button
+		CWP_VB_BUILD,     // Display the build button
 
 		/* Display planes of the #WID_C_SELECT_RELOCATE selection widget. */
-		CWP_RELOCATE_SHOW = 0, ///< Show the relocate HQ button.
-		CWP_RELOCATE_HIDE,     ///< Hide the relocate HQ button.
+		CWP_RELOCATE_SHOW = 0, // Show the relocate HQ button.
+		CWP_RELOCATE_HIDE,     // Hide the relocate HQ button.
 
 		/* Display planes of the #WID_C_SELECT_BUTTONS selection widget. */
-		CWP_BUTTONS_LOCAL = 0, ///< Buttons of the local company.
-		CWP_BUTTONS_OTHER,     ///< Buttons of the other companies.
+		CWP_BUTTONS_LOCAL = 0, // Buttons of the local company.
+		CWP_BUTTONS_OTHER,     // Buttons of the other companies.
 	};
 
 	CompanyWindow(WindowDesc *desc, WindowNumber window_number) : Window(desc)

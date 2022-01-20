@@ -33,11 +33,11 @@ public:
 	 * Types of water-related objects in the game.
 	 */
 	enum BuildType {
-		BT_DOCK,  ///< Build a dock
-		BT_DEPOT, ///< Build a ship depot
-		BT_BUOY,  ///< Build a buoy
-		BT_LOCK,  ///< Build a lock
-		BT_CANAL, ///< Build a canal
+		BT_DOCK,  // Build a dock
+		BT_DEPOT, // Build a ship depot
+		BT_BUOY,  // Build a buoy
+		BT_LOCK,  // Build a lock
+		BT_CANAL, // Build a canal
 	};
 
 	/**

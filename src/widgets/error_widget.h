@@ -12,9 +12,9 @@
 
 /** Widgets of the #ErrmsgWindow class. */
 enum ErrorMessageWidgets {
-	WID_EM_CAPTION, ///< Caption of the window.
-	WID_EM_FACE,    ///< Error title.
-	WID_EM_MESSAGE, ///< Error message.
+	WID_EM_CAPTION, // Caption of the window.
+	WID_EM_FACE,    // Error title.
+	WID_EM_MESSAGE, // Error message.
 };
 
 #endif /* WIDGETS_ERROR_WIDGET_H */

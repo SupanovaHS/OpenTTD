@@ -98,13 +98,13 @@ static const SpriteID _disaster_images_8[] = {SPR_AH_64A, SPR_AH_64A, SPR_AH_64A
 static const SpriteID _disaster_images_9[] = {SPR_ROTOR_MOVING_1, SPR_ROTOR_MOVING_1, SPR_ROTOR_MOVING_1, SPR_ROTOR_MOVING_1, SPR_ROTOR_MOVING_1, SPR_ROTOR_MOVING_1, SPR_ROTOR_MOVING_1, SPR_ROTOR_MOVING_1};
 
 static const SpriteID * const _disaster_images[] = {
-	_disaster_images_1, _disaster_images_1,                     ///< zeppeliner and zeppeliner shadow
-	_disaster_images_2, _disaster_images_2,                     ///< small ufo and small ufo shadow
-	_disaster_images_3, _disaster_images_3,                     ///< combat aircraft and shadow
-	_disaster_images_8, _disaster_images_8, _disaster_images_9, ///< combat helicopter, shadow and rotor
-	_disaster_images_6, _disaster_images_6,                     ///< big ufo and shadow
-	_disaster_images_7, _disaster_images_7,                     ///< skyranger and shadow
-	_disaster_images_4, _disaster_images_5,                     ///< small and big submarine sprites
+	_disaster_images_1, _disaster_images_1,                     // zeppeliner and zeppeliner shadow
+	_disaster_images_2, _disaster_images_2,                     // small ufo and small ufo shadow
+	_disaster_images_3, _disaster_images_3,                     // combat aircraft and shadow
+	_disaster_images_8, _disaster_images_8, _disaster_images_9, // combat helicopter, shadow and rotor
+	_disaster_images_6, _disaster_images_6,                     // big ufo and shadow
+	_disaster_images_7, _disaster_images_7,                     // skyranger and shadow
+	_disaster_images_4, _disaster_images_5,                     // small and big submarine sprites
 };
 
 void DisasterVehicle::UpdateImage()
@@ -881,9 +881,9 @@ static void Disaster_CoalMine_Init()
 }
 
 struct Disaster {
-	DisasterInitProc *init_proc; ///< The init function for this disaster.
-	Year min_year;               ///< The first year this disaster will occur.
-	Year max_year;               ///< The last year this disaster will occur.
+	DisasterInitProc *init_proc; // The init function for this disaster.
+	Year min_year;               // The first year this disaster will occur.
+	Year max_year;               // The last year this disaster will occur.
 };
 
 static const Disaster _disasters[] = {

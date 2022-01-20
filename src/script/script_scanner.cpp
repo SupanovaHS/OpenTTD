@@ -160,8 +160,8 @@ char *ScriptScanner::GetConsoleList(char *p, const char *last, bool newest_only)
 
 /** Helper for creating a MD5sum of all files within of a script. */
 struct ScriptFileChecksumCreator : FileScanner {
-	byte md5sum[16];  ///< The final md5sum.
-	Subdirectory dir; ///< The directory to look in.
+	byte md5sum[16];  // The final md5sum.
+	Subdirectory dir; // The directory to look in.
 
 	/**
 	 * Initialise the md5sum to be all zeroes,

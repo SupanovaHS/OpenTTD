@@ -20,14 +20,14 @@ static const GlyphID SPRITE_GLYPH = 1U << 30;
 /** Font cache for basic fonts. */
 class FontCache {
 private:
-	static FontCache *caches[FS_END]; ///< All the font caches.
+	static FontCache *caches[FS_END]; // All the font caches.
 protected:
-	FontCache *parent;                ///< The parent of this font cache.
-	const FontSize fs;                ///< The size of the font.
-	int height;                       ///< The height of the font.
-	int ascender;                     ///< The ascender value of the font.
-	int descender;                    ///< The descender value of the font.
-	int units_per_em;                 ///< The units per EM value of the font.
+	FontCache *parent;                // The parent of this font cache.
+	const FontSize fs;                // The size of the font.
+	int height;                       // The height of the font.
+	int ascender;                     // The ascender value of the font.
+	int descender;                    // The descender value of the font.
+	int units_per_em;                 // The units per EM value of the font.
 
 	static int GetDefaultFontHeight(FontSize fs);
 
@@ -214,19 +214,19 @@ static inline bool GetDrawGlyphShadow(FontSize size)
 
 /** Settings for a single freetype font. */
 struct FreeTypeSubSetting {
-	std::string font; ///< The name of the font, or path to the font.
-	uint size;        ///< The (requested) size of the font.
-	bool aa;          ///< Whether to do anti aliasing or not.
+	std::string font; // The name of the font, or path to the font.
+	uint size;        // The (requested) size of the font.
+	bool aa;          // Whether to do anti aliasing or not.
 
-	const void *os_handle = nullptr; ///< Optional native OS font info. Only valid during font search.
+	const void *os_handle = nullptr; // Optional native OS font info. Only valid during font search.
 };
 
 /** Settings for the freetype fonts. */
 struct FreeTypeSettings {
-	FreeTypeSubSetting small;  ///< The smallest font; mostly used for zoomed out view.
-	FreeTypeSubSetting medium; ///< The normal font size.
-	FreeTypeSubSetting large;  ///< The largest font; mostly used for newspapers.
-	FreeTypeSubSetting mono;   ///< The mono space font used for license/readme viewers.
+	FreeTypeSubSetting small;  // The smallest font; mostly used for zoomed out view.
+	FreeTypeSubSetting medium; // The normal font size.
+	FreeTypeSubSetting large;  // The largest font; mostly used for newspapers.
+	FreeTypeSubSetting mono;   // The mono space font used for license/readme viewers.
 };
 
 extern FreeTypeSettings _freetype;

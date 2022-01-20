@@ -30,7 +30,7 @@ public:
 	const std::string &GetErrorMessage() const { return msg; }
 
 private:
-	const std::string msg; ///< The error message.
+	const std::string msg; // The error message.
 };
 
 #endif /* SCRIPT_FATALERROR_HPP */

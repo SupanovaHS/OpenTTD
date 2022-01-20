@@ -29,47 +29,47 @@ class OpenGLSprite;
 /** Platform-independent back-end class for OpenGL video drivers. */
 class OpenGLBackend : public ZeroedMemoryAllocator, SpriteEncoder {
 private:
-	static OpenGLBackend *instance; ///< Singleton instance pointer.
+	static OpenGLBackend *instance; // Singleton instance pointer.
 
-	bool persistent_mapping_supported; ///< Persistent pixel buffer mapping supported.
-	GLsync sync_vid_mapping;           ///< Sync object for the persistently mapped video buffer.
-	GLsync sync_anim_mapping;          ///< Sync object for the persistently mapped animation buffer.
+	bool persistent_mapping_supported; // Persistent pixel buffer mapping supported.
+	GLsync sync_vid_mapping;           // Sync object for the persistently mapped video buffer.
+	GLsync sync_anim_mapping;          // Sync object for the persistently mapped animation buffer.
 
-	void *vid_buffer;   ///< Pointer to the mapped video buffer.
-	GLuint vid_pbo;     ///< Pixel buffer object storing the memory used for the video driver to draw to.
-	GLuint vid_texture; ///< Texture handle for the video buffer texture.
-	GLuint vid_program; ///< Shader program for rendering a RGBA video buffer.
-	GLuint pal_program; ///< Shader program for rendering a paletted video buffer.
-	GLuint vao_quad;    ///< Vertex array object storing the rendering state for the fullscreen quad.
-	GLuint vbo_quad;    ///< Vertex buffer with a fullscreen quad.
-	GLuint pal_texture; ///< Palette lookup texture.
+	void *vid_buffer;   // Pointer to the mapped video buffer.
+	GLuint vid_pbo;     // Pixel buffer object storing the memory used for the video driver to draw to.
+	GLuint vid_texture; // Texture handle for the video buffer texture.
+	GLuint vid_program; // Shader program for rendering a RGBA video buffer.
+	GLuint pal_program; // Shader program for rendering a paletted video buffer.
+	GLuint vao_quad;    // Vertex array object storing the rendering state for the fullscreen quad.
+	GLuint vbo_quad;    // Vertex buffer with a fullscreen quad.
+	GLuint pal_texture; // Palette lookup texture.
 
-	void *anim_buffer;   ///< Pointer to the mapped animation buffer.
-	GLuint anim_pbo;     ///< Pixel buffer object storing the memory used for the animation buffer.
-	GLuint anim_texture; ///< Texture handle for the animation buffer texture.
+	void *anim_buffer;   // Pointer to the mapped animation buffer.
+	GLuint anim_pbo;     // Pixel buffer object storing the memory used for the animation buffer.
+	GLuint anim_texture; // Texture handle for the animation buffer texture.
 
-	GLuint remap_program;    ///< Shader program for blending and rendering a RGBA + remap texture.
-	GLint  remap_sprite_loc; ///< Uniform location for sprite parameters.
-	GLint  remap_screen_loc; ///< Uniform location for screen size;
-	GLint  remap_zoom_loc;   ///< Uniform location for sprite zoom;
-	GLint  remap_rgb_loc;    ///< Uniform location for RGB mode flag;
+	GLuint remap_program;    // Shader program for blending and rendering a RGBA + remap texture.
+	GLint  remap_sprite_loc; // Uniform location for sprite parameters.
+	GLint  remap_screen_loc; // Uniform location for screen size;
+	GLint  remap_zoom_loc;   // Uniform location for sprite zoom;
+	GLint  remap_rgb_loc;    // Uniform location for RGB mode flag;
 
-	GLuint sprite_program;    ///< Shader program for blending and rendering a sprite to the video buffer.
-	GLint  sprite_sprite_loc; ///< Uniform location for sprite parameters.
-	GLint  sprite_screen_loc; ///< Uniform location for screen size;
-	GLint  sprite_zoom_loc;   ///< Uniform location for sprite zoom;
-	GLint  sprite_rgb_loc;    ///< Uniform location for RGB mode flag;
-	GLint  sprite_crash_loc;  ///< Uniform location for crash remap mode flag;
+	GLuint sprite_program;    // Shader program for blending and rendering a sprite to the video buffer.
+	GLint  sprite_sprite_loc; // Uniform location for sprite parameters.
+	GLint  sprite_screen_loc; // Uniform location for screen size;
+	GLint  sprite_zoom_loc;   // Uniform location for sprite zoom;
+	GLint  sprite_rgb_loc;    // Uniform location for RGB mode flag;
+	GLint  sprite_crash_loc;  // Uniform location for crash remap mode flag;
 
-	LRUCache<SpriteID, Sprite> cursor_cache;   ///< Cache of encoded cursor sprites.
-	PaletteID last_sprite_pal = (PaletteID)-1; ///< Last uploaded remap palette.
-	bool clear_cursor_cache = false;           ///< A clear of the cursor cache is pending.
+	LRUCache<SpriteID, Sprite> cursor_cache;   // Cache of encoded cursor sprites.
+	PaletteID last_sprite_pal = (PaletteID)-1; // Last uploaded remap palette.
+	bool clear_cursor_cache = false;           // A clear of the cursor cache is pending.
 
-	Point cursor_pos;                    ///< Cursor position
-	bool cursor_in_window;               ///< Cursor inside this window
-	PalSpriteID cursor_sprite_seq[16];   ///< Current image of cursor
-	Point cursor_sprite_pos[16];         ///< Relative position of individual cursor sprites
-	uint cursor_sprite_count;            ///< Number of cursor sprites to draw
+	Point cursor_pos;                    // Cursor position
+	bool cursor_in_window;               // Cursor inside this window
+	PalSpriteID cursor_sprite_seq[16];   // Current image of cursor
+	Point cursor_sprite_pos[16];         // Relative position of individual cursor sprites
+	uint cursor_sprite_count;            // Number of cursor sprites to draw
 
 	OpenGLBackend();
 	~OpenGLBackend();
@@ -118,19 +118,19 @@ class OpenGLSprite {
 private:
 	/** Enum of all used OpenGL texture objects. */
 	enum Texture {
-		TEX_RGBA,    ///< RGBA texture part.
-		TEX_REMAP,   ///< Remap texture part.
+		TEX_RGBA,    // RGBA texture part.
+		TEX_REMAP,   // Remap texture part.
 		NUM_TEX
 	};
 
 	Dimension dim;
-	GLuint tex[NUM_TEX]; ///< The texture objects.
+	GLuint tex[NUM_TEX]; // The texture objects.
 
-	static GLuint dummy_tex[NUM_TEX]; ///< 1x1 dummy textures to substitute for unused sprite components.
+	static GLuint dummy_tex[NUM_TEX]; // 1x1 dummy textures to substitute for unused sprite components.
 
-	static GLuint pal_identity; ///< Identity texture mapping.
-	static GLuint pal_tex;      ///< Texture for palette remap.
-	static GLuint pal_pbo;      ///< Pixel buffer object for remap upload.
+	static GLuint pal_identity; // Identity texture mapping.
+	static GLuint pal_tex;      // Texture for palette remap.
+	static GLuint pal_pbo;      // Pixel buffer object for remap upload.
 
 	static bool Create();
 	static void Destroy();

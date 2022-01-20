@@ -16,24 +16,24 @@
 
 /** The status a server can be in. */
 enum NetworkGameListStatus {
-	NGLS_OFFLINE, ///< Server is offline (or cannot be queried).
-	NGLS_ONLINE,  ///< Server is online.
-	NGLS_FULL,    ///< Server is full and cannot be queried.
-	NGLS_BANNED,  ///< You are banned from this server.
-	NGLS_TOO_OLD, ///< Server is too old to query.
+	NGLS_OFFLINE, // Server is offline (or cannot be queried).
+	NGLS_ONLINE,  // Server is online.
+	NGLS_FULL,    // Server is full and cannot be queried.
+	NGLS_BANNED,  // You are banned from this server.
+	NGLS_TOO_OLD, // Server is too old to query.
 };
 
 /** Structure with information shown in the game list (GUI) */
 struct NetworkGameList {
 	NetworkGameList(const std::string &connection_string) : connection_string(connection_string) {}
 
-	NetworkGameInfo info = {};                   ///< The game information of this server.
-	std::string connection_string;               ///< Address of the server.
-	NetworkGameListStatus status = NGLS_OFFLINE; ///< Stats of the server.
-	bool manually = false;                       ///< True if the server was added manually.
-	bool refreshing = false;                     ///< Whether this server is being queried.
-	int version = 0;                             ///< Used to see which servers are no longer available on the Game Coordinator and can be removed.
-	NetworkGameList *next = nullptr;             ///< Next pointer to make a linked game list.
+	NetworkGameInfo info = {};                   // The game information of this server.
+	std::string connection_string;               // Address of the server.
+	NetworkGameListStatus status = NGLS_OFFLINE; // Stats of the server.
+	bool manually = false;                       // True if the server was added manually.
+	bool refreshing = false;                     // Whether this server is being queried.
+	int version = 0;                             // Used to see which servers are no longer available on the Game Coordinator and can be removed.
+	NetworkGameList *next = nullptr;             // Next pointer to make a linked game list.
 };
 
 extern NetworkGameList *_network_game_list;

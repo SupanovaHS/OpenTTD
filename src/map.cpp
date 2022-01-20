@@ -20,15 +20,15 @@
 extern "C" _CRTIMP void __cdecl _assert(void *, void *, unsigned);
 #endif
 
-uint _map_log_x;     ///< 2^_map_log_x == _map_size_x
-uint _map_log_y;     ///< 2^_map_log_y == _map_size_y
-uint _map_size_x;    ///< Size of the map along the X
-uint _map_size_y;    ///< Size of the map along the Y
-uint _map_size;      ///< The number of tiles on the map
-uint _map_tile_mask; ///< _map_size - 1 (to mask the mapsize)
+uint _map_log_x;     // 2^_map_log_x == _map_size_x
+uint _map_log_y;     // 2^_map_log_y == _map_size_y
+uint _map_size_x;    // Size of the map along the X
+uint _map_size_y;    // Size of the map along the Y
+uint _map_size;      // The number of tiles on the map
+uint _map_tile_mask; // _map_size - 1 (to mask the mapsize)
 
-Tile *_m = nullptr;          ///< Tiles of the map
-TileExtended *_me = nullptr; ///< Extended Tiles of the map
+Tile *_m = nullptr;          // Tiles of the map
+TileExtended *_me = nullptr; // Extended Tiles of the map
 
 
 /**
@@ -127,22 +127,22 @@ TileIndex TileAddWrap(TileIndex tile, int addx, int addy)
 
 /** 'Lookup table' for tile offsets given a DiagDirection */
 extern const TileIndexDiffC _tileoffs_by_diagdir[] = {
-	{-1,  0}, ///< DIAGDIR_NE
-	{ 0,  1}, ///< DIAGDIR_SE
-	{ 1,  0}, ///< DIAGDIR_SW
-	{ 0, -1}  ///< DIAGDIR_NW
+	{-1,  0}, // DIAGDIR_NE
+	{ 0,  1}, // DIAGDIR_SE
+	{ 1,  0}, // DIAGDIR_SW
+	{ 0, -1}  // DIAGDIR_NW
 };
 
 /** 'Lookup table' for tile offsets given a Direction */
 extern const TileIndexDiffC _tileoffs_by_dir[] = {
-	{-1, -1}, ///< DIR_N
-	{-1,  0}, ///< DIR_NE
-	{-1,  1}, ///< DIR_E
-	{ 0,  1}, ///< DIR_SE
-	{ 1,  1}, ///< DIR_S
-	{ 1,  0}, ///< DIR_SW
-	{ 1, -1}, ///< DIR_W
-	{ 0, -1}  ///< DIR_NW
+	{-1, -1}, // DIR_N
+	{-1,  0}, // DIR_NE
+	{-1,  1}, // DIR_E
+	{ 0,  1}, // DIR_SE
+	{ 1,  1}, // DIR_S
+	{ 1,  0}, // DIR_SW
+	{ 1, -1}, // DIR_W
+	{ 0, -1}  // DIR_NW
 };
 
 /**

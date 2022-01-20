@@ -75,9 +75,9 @@ int RecursiveCommandCounter::_counter = 0;
  * the #CMD_AUTO, #CMD_OFFLINE and #CMD_SERVER values.
  */
 struct CommandInfo {
-	const char *name;   ///< A human readable name for the procedure
-	CommandFlags flags; ///< The (command) flags to that apply to this command
-	CommandType type;   ///< The type of command.
+	const char *name;   // A human readable name for the procedure
+	CommandFlags flags; // The (command) flags to that apply to this command
+	CommandType type;   // The type of command.
 };
 /* Helpers to generate the master command table from the command traits. */
 template <typename T>
@@ -146,15 +146,15 @@ bool IsCommandAllowedWhilePaused(Commands cmd)
 {
 	/* Lookup table for the command types that are allowed for a given pause level setting. */
 	static const int command_type_lookup[] = {
-		CMDPL_ALL_ACTIONS,     ///< CMDT_LANDSCAPE_CONSTRUCTION
-		CMDPL_NO_LANDSCAPING,  ///< CMDT_VEHICLE_CONSTRUCTION
-		CMDPL_NO_LANDSCAPING,  ///< CMDT_MONEY_MANAGEMENT
-		CMDPL_NO_CONSTRUCTION, ///< CMDT_VEHICLE_MANAGEMENT
-		CMDPL_NO_CONSTRUCTION, ///< CMDT_ROUTE_MANAGEMENT
-		CMDPL_NO_CONSTRUCTION, ///< CMDT_OTHER_MANAGEMENT
-		CMDPL_NO_CONSTRUCTION, ///< CMDT_COMPANY_SETTING
-		CMDPL_NO_ACTIONS,      ///< CMDT_SERVER_SETTING
-		CMDPL_NO_ACTIONS,      ///< CMDT_CHEAT
+		CMDPL_ALL_ACTIONS,     // CMDT_LANDSCAPE_CONSTRUCTION
+		CMDPL_NO_LANDSCAPING,  // CMDT_VEHICLE_CONSTRUCTION
+		CMDPL_NO_LANDSCAPING,  // CMDT_MONEY_MANAGEMENT
+		CMDPL_NO_CONSTRUCTION, // CMDT_VEHICLE_MANAGEMENT
+		CMDPL_NO_CONSTRUCTION, // CMDT_ROUTE_MANAGEMENT
+		CMDPL_NO_CONSTRUCTION, // CMDT_OTHER_MANAGEMENT
+		CMDPL_NO_CONSTRUCTION, // CMDT_COMPANY_SETTING
+		CMDPL_NO_ACTIONS,      // CMDT_SERVER_SETTING
+		CMDPL_NO_ACTIONS,      // CMDT_CHEAT
 	};
 	static_assert(lengthof(command_type_lookup) == CMDT_END);
 

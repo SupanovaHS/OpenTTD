@@ -15,13 +15,13 @@
 /** Class for handling the client side of the STUN connection. */
 class ClientNetworkStunSocketHandler : public NetworkStunSocketHandler {
 private:
-	std::string token;        ///< Token of this STUN handler.
-	uint8 family = AF_UNSPEC; ///< Family of this STUN handler.
-	bool sent_result = false; ///< Did we sent the result of the STUN connection?
+	std::string token;        // Token of this STUN handler.
+	uint8 family = AF_UNSPEC; // Family of this STUN handler.
+	bool sent_result = false; // Did we sent the result of the STUN connection?
 
 public:
-	TCPConnecter *connecter = nullptr; ///< Connecter instance.
-	NetworkAddress local_addr;         ///< Local addresses of the socket.
+	TCPConnecter *connecter = nullptr; // Connecter instance.
+	NetworkAddress local_addr;         // Local addresses of the socket.
 
 	NetworkRecvStatus CloseConnection(bool error = true) override;
 	~ClientNetworkStunSocketHandler() override;

@@ -20,8 +20,8 @@
 
 #include "../safeguards.h"
 
-NetworkGameList *_network_game_list = nullptr; ///< Game list of this client.
-int _network_game_list_version = 0; ///< Current version of all items in the list.
+NetworkGameList *_network_game_list = nullptr; // Game list of this client.
+int _network_game_list_version = 0; // Current version of all items in the list.
 
 /**
  * Add a new item to the linked gamelist. If the IP and Port match

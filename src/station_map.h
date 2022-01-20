@@ -17,7 +17,7 @@
 #include "rail.h"
 #include "road.h"
 
-typedef byte StationGfx; ///< Index of station graphics. @see _station_display_datas
+typedef byte StationGfx; // Index of station graphics. @see _station_display_datas
 
 /**
  * Get StationID from a tile
@@ -32,8 +32,8 @@ static inline StationID GetStationIndex(TileIndex t)
 }
 
 
-static const int GFX_DOCK_BASE_WATER_PART          =  4; ///< The offset for the water parts.
-static const int GFX_TRUCK_BUS_DRIVETHROUGH_OFFSET =  4; ///< The offset for the drive through parts.
+static const int GFX_DOCK_BASE_WATER_PART          =  4; // The offset for the water parts.
+static const int GFX_TRUCK_BUS_DRIVETHROUGH_OFFSET =  4; // The offset for the drive through parts.
 
 /**
  * Get the station type of this tile

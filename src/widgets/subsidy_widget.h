@@ -13,8 +13,8 @@
 /** Widgets of the #SubsidyListWindow class. */
 enum SubsidyListWidgets {
 	/* Name starts with SU instead of S, because of collision with SaveLoadWidgets. */
-	WID_SUL_PANEL,     ///< Main panel of window.
-	WID_SUL_SCROLLBAR, ///< Scrollbar of panel.
+	WID_SUL_PANEL,     // Main panel of window.
+	WID_SUL_SCROLLBAR, // Scrollbar of panel.
 };
 
 #endif /* WIDGETS_SUBSIDY_WIDGET_H */

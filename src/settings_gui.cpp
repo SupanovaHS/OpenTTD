@@ -72,7 +72,7 @@ static const StringID _font_zoom_dropdown[] = {
 	INVALID_STRING_ID,
 };
 
-static Dimension _circle_size; ///< Dimension of the circle +/- icon. This is here as not all users are within the class of the settings window.
+static Dimension _circle_size; // Dimension of the circle +/- icon. This is here as not all users are within the class of the settings window.
 
 static const void *ResolveObject(const GameSettings *settings_ptr, const IntSettingDesc *sd);
 
@@ -110,8 +110,8 @@ DropDownList BuildMusicSetDropDownList(int *selected_index)
 /** Window for displaying the textfile of a BaseSet. */
 template <class TBaseSet>
 struct BaseSetTextfileWindow : public TextfileWindow {
-	const TBaseSet* baseset; ///< View the textfile of this BaseSet.
-	StringID content_type;   ///< STR_CONTENT_TYPE_xxx for title.
+	const TBaseSet* baseset; // View the textfile of this BaseSet.
+	StringID content_type;   // STR_CONTENT_TYPE_xxx for title.
 
 	BaseSetTextfileWindow(TextfileType file_type, const TBaseSet* baseset, StringID content_type) : TextfileWindow(file_type), baseset(baseset), content_type(content_type)
 	{
@@ -751,46 +751,46 @@ void ShowGameOptions()
 	new GameOptionsWindow(&_game_options_desc);
 }
 
-static int SETTING_HEIGHT = 11;    ///< Height of a single setting in the tree view in pixels
-static const int LEVEL_WIDTH = 15; ///< Indenting width of a sub-page in pixels
+static int SETTING_HEIGHT = 11;    // Height of a single setting in the tree view in pixels
+static const int LEVEL_WIDTH = 15; // Indenting width of a sub-page in pixels
 
 /**
  * Flags for #SettingEntry
  * @note The #SEF_BUTTONS_MASK matches expectations of the formal parameter 'state' of #DrawArrowButtons
  */
 enum SettingEntryFlags {
-	SEF_LEFT_DEPRESSED  = 0x01, ///< Of a numeric setting entry, the left button is depressed
-	SEF_RIGHT_DEPRESSED = 0x02, ///< Of a numeric setting entry, the right button is depressed
-	SEF_BUTTONS_MASK = (SEF_LEFT_DEPRESSED | SEF_RIGHT_DEPRESSED), ///< Bit-mask for button flags
+	SEF_LEFT_DEPRESSED  = 0x01, // Of a numeric setting entry, the left button is depressed
+	SEF_RIGHT_DEPRESSED = 0x02, // Of a numeric setting entry, the right button is depressed
+	SEF_BUTTONS_MASK = (SEF_LEFT_DEPRESSED | SEF_RIGHT_DEPRESSED), // Bit-mask for button flags
 
-	SEF_LAST_FIELD = 0x04, ///< This entry is the last one in a (sub-)page
-	SEF_FILTERED   = 0x08, ///< Entry is hidden by the string filter
+	SEF_LAST_FIELD = 0x04, // This entry is the last one in a (sub-)page
+	SEF_FILTERED   = 0x08, // Entry is hidden by the string filter
 };
 
 /** How the list of advanced settings is filtered. */
 enum RestrictionMode {
-	RM_BASIC,                            ///< Display settings associated to the "basic" list.
-	RM_ADVANCED,                         ///< Display settings associated to the "advanced" list.
-	RM_ALL,                              ///< List all settings regardless of the default/newgame/... values.
-	RM_CHANGED_AGAINST_DEFAULT,          ///< Show only settings which are different compared to default values.
-	RM_CHANGED_AGAINST_NEW,              ///< Show only settings which are different compared to the user's new game setting values.
-	RM_END,                              ///< End for iteration.
+	RM_BASIC,                            // Display settings associated to the "basic" list.
+	RM_ADVANCED,                         // Display settings associated to the "advanced" list.
+	RM_ALL,                              // List all settings regardless of the default/newgame/... values.
+	RM_CHANGED_AGAINST_DEFAULT,          // Show only settings which are different compared to default values.
+	RM_CHANGED_AGAINST_NEW,              // Show only settings which are different compared to the user's new game setting values.
+	RM_END,                              // End for iteration.
 };
 DECLARE_POSTFIX_INCREMENT(RestrictionMode)
 
 /** Filter for settings list. */
 struct SettingFilter {
-	StringFilter string;     ///< Filter string.
-	RestrictionMode min_cat; ///< Minimum category needed to display all filtered strings (#RM_BASIC, #RM_ADVANCED, or #RM_ALL).
-	bool type_hides;         ///< Whether the type hides filtered strings.
-	RestrictionMode mode;    ///< Filter based on category.
-	SettingType type;        ///< Filter based on type.
+	StringFilter string;     // Filter string.
+	RestrictionMode min_cat; // Minimum category needed to display all filtered strings (#RM_BASIC, #RM_ADVANCED, or #RM_ALL).
+	bool type_hides;         // Whether the type hides filtered strings.
+	RestrictionMode mode;    // Filter based on category.
+	SettingType type;        // Filter based on type.
 };
 
 /** Data structure describing a single setting in a tab */
 struct BaseSettingEntry {
-	byte flags; ///< Flags of the setting entry. @see SettingEntryFlags
-	byte level; ///< Nesting level of this setting entry
+	byte flags; // Flags of the setting entry. @see SettingEntryFlags
+	byte level; // Nesting level of this setting entry
 
 	BaseSettingEntry() : flags(0), level(0) {}
 	virtual ~BaseSettingEntry() {}
@@ -828,8 +828,8 @@ protected:
 
 /** Standard setting */
 struct SettingEntry : BaseSettingEntry {
-	const char *name;              ///< Name of the setting
-	const IntSettingDesc *setting; ///< Setting description of the setting
+	const char *name;              // Name of the setting
+	const IntSettingDesc *setting; // Setting description of the setting
 
 	SettingEntry(const char *name);
 
@@ -862,7 +862,7 @@ private:
 /** Containers for BaseSettingEntry */
 struct SettingsContainer {
 	typedef std::vector<BaseSettingEntry*> EntryVector;
-	EntryVector entries; ///< Settings on this page
+	EntryVector entries; // Settings on this page
 
 	template<typename T>
 	T *Add(T *item)
@@ -889,8 +889,8 @@ struct SettingsContainer {
 
 /** Data structure describing one page of settings in the settings window. */
 struct SettingsPage : BaseSettingEntry, SettingsContainer {
-	StringID title;     ///< Title of the sub-page
-	bool folded;        ///< Sub-page is folded (not visible except for its title)
+	StringID title;     // Title of the sub-page
+	bool folded;        // Sub-page is folded (not visible except for its title)
 
 	SettingsPage(StringID title);
 
@@ -1870,10 +1870,10 @@ static_assert(lengthof(_game_settings_restrict_dropdown) == RM_END);
 
 /** Warnings about hidden search results. */
 enum WarnHiddenResult {
-	WHR_NONE,          ///< Nothing was filtering matches away.
-	WHR_CATEGORY,      ///< Category setting filtered matches away.
-	WHR_TYPE,          ///< Type setting filtered matches away.
-	WHR_CATEGORY_TYPE, ///< Both category and type settings filtered matches away.
+	WHR_NONE,          // Nothing was filtering matches away.
+	WHR_CATEGORY,      // Category setting filtered matches away.
+	WHR_TYPE,          // Type setting filtered matches away.
+	WHR_CATEGORY_TYPE, // Both category and type settings filtered matches away.
 };
 
 /**
@@ -1892,24 +1892,24 @@ static void ResetAllSettingsConfirmationCallback(Window *w, bool confirmed)
 
 /** Window to edit settings of the game. */
 struct GameSettingsWindow : Window {
-	static const int SETTINGTREE_LEFT_OFFSET   = 5; ///< Position of left edge of setting values
-	static const int SETTINGTREE_RIGHT_OFFSET  = 5; ///< Position of right edge of setting values
-	static const int SETTINGTREE_TOP_OFFSET    = 5; ///< Position of top edge of setting values
-	static const int SETTINGTREE_BOTTOM_OFFSET = 5; ///< Position of bottom edge of setting values
+	static const int SETTINGTREE_LEFT_OFFSET   = 5; // Position of left edge of setting values
+	static const int SETTINGTREE_RIGHT_OFFSET  = 5; // Position of right edge of setting values
+	static const int SETTINGTREE_TOP_OFFSET    = 5; // Position of top edge of setting values
+	static const int SETTINGTREE_BOTTOM_OFFSET = 5; // Position of bottom edge of setting values
 
-	static GameSettings *settings_ptr; ///< Pointer to the game settings being displayed and modified.
+	static GameSettings *settings_ptr; // Pointer to the game settings being displayed and modified.
 
-	SettingEntry *valuewindow_entry;   ///< If non-nullptr, pointer to setting for which a value-entering window has been opened.
-	SettingEntry *clicked_entry;       ///< If non-nullptr, pointer to a clicked numeric setting (with a depressed left or right button).
-	SettingEntry *last_clicked;        ///< If non-nullptr, pointer to the last clicked setting.
-	SettingEntry *valuedropdown_entry; ///< If non-nullptr, pointer to the value for which a dropdown window is currently opened.
-	bool closing_dropdown;             ///< True, if the dropdown list is currently closing.
+	SettingEntry *valuewindow_entry;   // If non-nullptr, pointer to setting for which a value-entering window has been opened.
+	SettingEntry *clicked_entry;       // If non-nullptr, pointer to a clicked numeric setting (with a depressed left or right button).
+	SettingEntry *last_clicked;        // If non-nullptr, pointer to the last clicked setting.
+	SettingEntry *valuedropdown_entry; // If non-nullptr, pointer to the value for which a dropdown window is currently opened.
+	bool closing_dropdown;             // True, if the dropdown list is currently closing.
 
-	SettingFilter filter;              ///< Filter for the list.
-	QueryString filter_editbox;        ///< Filter editbox;
-	bool manually_changed_folding;     ///< Whether the user expanded/collapsed something manually.
-	WarnHiddenResult warn_missing;     ///< Whether and how to warn about missing search results.
-	int warn_lines;                    ///< Number of lines used for warning about missing search results.
+	SettingFilter filter;              // Filter for the list.
+	QueryString filter_editbox;        // Filter editbox;
+	bool manually_changed_folding;     // Whether the user expanded/collapsed something manually.
+	WarnHiddenResult warn_missing;     // Whether and how to warn about missing search results.
+	int warn_lines;                    // Number of lines used for warning about missing search results.
 
 	Scrollbar *vscroll;
 

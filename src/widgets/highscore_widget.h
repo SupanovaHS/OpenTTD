@@ -12,7 +12,7 @@
 
 /** Widgets of the #EndGameHighScoreBaseWindow class and #HighScoreWindow class. */
 enum HighscoreWidgets {
-	WID_H_BACKGROUND, ///< Background of the window.
+	WID_H_BACKGROUND, // Background of the window.
 };
 
 #endif /* WIDGETS_HIGHSCORE_WIDGET_H */

@@ -24,9 +24,9 @@ public:
 	 */
 	enum GroupID {
 		/* Note: these values represent part of the in-game static values */
-		GROUP_ALL     = ::ALL_GROUP,     ///< All vehicles are in this group.
-		GROUP_DEFAULT = ::DEFAULT_GROUP, ///< Vehicles not put in any other group are in this one.
-		GROUP_INVALID = ::INVALID_GROUP, ///< An invalid group id.
+		GROUP_ALL     = ::ALL_GROUP,     // All vehicles are in this group.
+		GROUP_DEFAULT = ::DEFAULT_GROUP, // Vehicles not put in any other group are in this one.
+		GROUP_INVALID = ::INVALID_GROUP, // An invalid group id.
 	};
 
 	/**

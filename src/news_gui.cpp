@@ -45,11 +45,11 @@
 
 const NewsItem *_statusbar_news_item = nullptr;
 
-static uint MIN_NEWS_AMOUNT = 30;        ///< preferred minimum amount of news messages
-static uint MAX_NEWS_AMOUNT = 1 << 10;   ///< Do not exceed this number of news messages
-static uint _total_news = 0;             ///< current number of news items
-static NewsItem *_oldest_news = nullptr; ///< head of news items queue
-NewsItem *_latest_news = nullptr;        ///< tail of news items queue
+static uint MIN_NEWS_AMOUNT = 30;        // preferred minimum amount of news messages
+static uint MAX_NEWS_AMOUNT = 1 << 10;   // Do not exceed this number of news messages
+static uint _total_news = 0;             // current number of news items
+static NewsItem *_oldest_news = nullptr; // head of news items queue
+NewsItem *_latest_news = nullptr;        // tail of news items queue
 
 /**
  * Forced news item.
@@ -210,11 +210,11 @@ static WindowDesc _small_news_desc(
  * Window layouts for news items.
  */
 static WindowDesc* _news_window_layout[] = {
-	&_thin_news_desc,    ///< NF_THIN
-	&_small_news_desc,   ///< NF_SMALL
-	&_normal_news_desc,  ///< NF_NORMAL
-	&_vehicle_news_desc, ///< NF_VEHICLE
-	&_company_news_desc, ///< NF_COMPANY
+	&_thin_news_desc,    // NF_THIN
+	&_small_news_desc,   // NF_SMALL
+	&_normal_news_desc,  // NF_NORMAL
+	&_vehicle_news_desc, // NF_VEHICLE
+	&_company_news_desc, // NF_COMPANY
 };
 
 WindowDesc* GetNewsWindowLayout(NewsFlag flags)
@@ -229,22 +229,22 @@ WindowDesc* GetNewsWindowLayout(NewsFlag flags)
  */
 static NewsTypeData _news_type_data[] = {
 	/*            name,                           age, sound,          */
-	NewsTypeData("news_display.arrival_player",    60, SND_1D_APPLAUSE ),  ///< NT_ARRIVAL_COMPANY
-	NewsTypeData("news_display.arrival_other",     60, SND_1D_APPLAUSE ),  ///< NT_ARRIVAL_OTHER
-	NewsTypeData("news_display.accident",          90, SND_BEGIN       ),  ///< NT_ACCIDENT
-	NewsTypeData("news_display.accident_other",    90, SND_BEGIN       ),  ///< NT_ACCIDENT_OTHER
-	NewsTypeData("news_display.company_info",      60, SND_BEGIN       ),  ///< NT_COMPANY_INFO
-	NewsTypeData("news_display.open",              90, SND_BEGIN       ),  ///< NT_INDUSTRY_OPEN
-	NewsTypeData("news_display.close",             90, SND_BEGIN       ),  ///< NT_INDUSTRY_CLOSE
-	NewsTypeData("news_display.economy",           30, SND_BEGIN       ),  ///< NT_ECONOMY
-	NewsTypeData("news_display.production_player", 30, SND_BEGIN       ),  ///< NT_INDUSTRY_COMPANY
-	NewsTypeData("news_display.production_other",  30, SND_BEGIN       ),  ///< NT_INDUSTRY_OTHER
-	NewsTypeData("news_display.production_nobody", 30, SND_BEGIN       ),  ///< NT_INDUSTRY_NOBODY
-	NewsTypeData("news_display.advice",           150, SND_BEGIN       ),  ///< NT_ADVICE
-	NewsTypeData("news_display.new_vehicles",      30, SND_1E_NEW_ENGINE), ///< NT_NEW_VEHICLES
-	NewsTypeData("news_display.acceptance",        90, SND_BEGIN       ),  ///< NT_ACCEPTANCE
-	NewsTypeData("news_display.subsidies",        180, SND_BEGIN       ),  ///< NT_SUBSIDIES
-	NewsTypeData("news_display.general",           60, SND_BEGIN       ),  ///< NT_GENERAL
+	NewsTypeData("news_display.arrival_player",    60, SND_1D_APPLAUSE ),  // NT_ARRIVAL_COMPANY
+	NewsTypeData("news_display.arrival_other",     60, SND_1D_APPLAUSE ),  // NT_ARRIVAL_OTHER
+	NewsTypeData("news_display.accident",          90, SND_BEGIN       ),  // NT_ACCIDENT
+	NewsTypeData("news_display.accident_other",    90, SND_BEGIN       ),  // NT_ACCIDENT_OTHER
+	NewsTypeData("news_display.company_info",      60, SND_BEGIN       ),  // NT_COMPANY_INFO
+	NewsTypeData("news_display.open",              90, SND_BEGIN       ),  // NT_INDUSTRY_OPEN
+	NewsTypeData("news_display.close",             90, SND_BEGIN       ),  // NT_INDUSTRY_CLOSE
+	NewsTypeData("news_display.economy",           30, SND_BEGIN       ),  // NT_ECONOMY
+	NewsTypeData("news_display.production_player", 30, SND_BEGIN       ),  // NT_INDUSTRY_COMPANY
+	NewsTypeData("news_display.production_other",  30, SND_BEGIN       ),  // NT_INDUSTRY_OTHER
+	NewsTypeData("news_display.production_nobody", 30, SND_BEGIN       ),  // NT_INDUSTRY_NOBODY
+	NewsTypeData("news_display.advice",           150, SND_BEGIN       ),  // NT_ADVICE
+	NewsTypeData("news_display.new_vehicles",      30, SND_1E_NEW_ENGINE), // NT_NEW_VEHICLES
+	NewsTypeData("news_display.acceptance",        90, SND_BEGIN       ),  // NT_ACCEPTANCE
+	NewsTypeData("news_display.subsidies",        180, SND_BEGIN       ),  // NT_SUBSIDIES
+	NewsTypeData("news_display.general",           60, SND_BEGIN       ),  // NT_GENERAL
 };
 
 static_assert(lengthof(_news_type_data) == NT_END);
@@ -262,10 +262,10 @@ NewsDisplay NewsTypeData::GetDisplay() const
 
 /** Window class displaying a news item. */
 struct NewsWindow : Window {
-	uint16 chat_height;   ///< Height of the chat window.
-	uint16 status_height; ///< Height of the status bar window
-	const NewsItem *ni;   ///< News item to display.
-	static int duration;  ///< Remaining time for showing the current news message (may only be access while a news item is displayed).
+	uint16 chat_height;   // Height of the chat window.
+	uint16 status_height; // Height of the status bar window
+	const NewsItem *ni;   // News item to display.
+	static int duration;  // Remaining time for showing the current news message (may only be access while a news item is displayed).
 
 	GUITimer timer;
 
@@ -1119,8 +1119,8 @@ static void DrawNewsString(uint left, uint right, int y, TextColour colour, cons
 }
 
 struct MessageHistoryWindow : Window {
-	static const int top_spacing;    ///< Additional spacing at the top of the #WID_MH_BACKGROUND widget.
-	static const int bottom_spacing; ///< Additional spacing at the bottom of the #WID_MH_BACKGROUND widget.
+	static const int top_spacing;    // Additional spacing at the top of the #WID_MH_BACKGROUND widget.
+	static const int bottom_spacing; // Additional spacing at the bottom of the #WID_MH_BACKGROUND widget.
 
 	int line_height; /// < Height of a single line in the news history window including spacing.
 	int date_width;  /// < Width needed for the date part.

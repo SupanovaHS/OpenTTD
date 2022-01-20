@@ -157,8 +157,8 @@ static void ShowGraphLegend()
 
 /** Contains the interval of a graph's data. */
 struct ValuesInterval {
-	OverflowSafeInt64 highest; ///< Highest value of this interval. Must be zero or greater.
-	OverflowSafeInt64 lowest;  ///< Lowest value of this interval. Must be zero or less.
+	OverflowSafeInt64 highest; // Highest value of this interval. Must be zero or greater.
+	OverflowSafeInt64 lowest;  // Lowest value of this interval. Must be zero or less.
 };
 
 /******************/
@@ -173,14 +173,14 @@ protected:
 	static const int GRAPH_AXIS_LINE_COLOUR =  GREY_SCALE(1);
 	static const int GRAPH_ZERO_LINE_COLOUR =  GREY_SCALE(8);
 	static const int GRAPH_YEAR_LINE_COLOUR =  GREY_SCALE(5);
-	static const int GRAPH_NUM_MONTHS       =  24; ///< Number of months displayed in the graph.
+	static const int GRAPH_NUM_MONTHS       =  24; // Number of months displayed in the graph.
 
-	static const TextColour GRAPH_AXIS_LABEL_COLOUR = TC_BLACK; ///< colour of the graph axis label.
+	static const TextColour GRAPH_AXIS_LABEL_COLOUR = TC_BLACK; // colour of the graph axis label.
 
-	static const int MIN_GRAPH_NUM_LINES_Y  =   9; ///< Minimal number of horizontal lines to draw.
-	static const int MIN_GRID_PIXEL_SIZE    =  20; ///< Minimum distance between graph lines.
+	static const int MIN_GRAPH_NUM_LINES_Y  =   9; // Minimal number of horizontal lines to draw.
+	static const int MIN_GRID_PIXEL_SIZE    =  20; // Minimum distance between graph lines.
 
-	uint64 excluded_data; ///< bitmask of the datasets that shouldn't be displayed.
+	uint64 excluded_data; // bitmask of the datasets that shouldn't be displayed.
 	byte num_dataset;
 	byte num_on_x_axis;
 	byte num_vert_lines;
@@ -198,7 +198,7 @@ protected:
 	int graph_widget;
 	StringID format_str_y_axis;
 	byte colours[GRAPH_MAX_DATASETS];
-	OverflowSafeInt64 cost[GRAPH_MAX_DATASETS][GRAPH_NUM_MONTHS]; ///< Stored costs for the last #GRAPH_NUM_MONTHS months
+	OverflowSafeInt64 cost[GRAPH_MAX_DATASETS][GRAPH_NUM_MONTHS]; // Stored costs for the last #GRAPH_NUM_MONTHS months
 
 	/**
 	 * Get the interval that contains the graph's data. Excluded data is ignored to show smaller values in
@@ -291,9 +291,9 @@ protected:
 	 */
 	void DrawGraph(Rect r) const
 	{
-		uint x, y;               ///< Reused whenever x and y coordinates are needed.
-		ValuesInterval interval; ///< Interval that contains all of the graph data.
-		int x_axis_offset;       ///< Distance from the top of the graph to the x axis.
+		uint x, y;               // Reused whenever x and y coordinates are needed.
+		ValuesInterval interval; // Interval that contains all of the graph data.
+		int x_axis_offset;       // Distance from the top of the graph to the x axis.
 
 		/* the colours and cost array of GraphDrawer must accommodate
 		 * both values for cargo and companies. So if any are higher, quit */
@@ -877,9 +877,9 @@ void ShowCompanyValueGraph()
 /*****************/
 
 struct PaymentRatesGraphWindow : BaseGraphWindow {
-	uint line_height;   ///< Pixel height of each cargo type row.
-	Scrollbar *vscroll; ///< Cargo list scrollbar.
-	uint legend_width;  ///< Width of legend 'blob'.
+	uint line_height;   // Pixel height of each cargo type row.
+	Scrollbar *vscroll; // Cargo list scrollbar.
+	uint legend_width;  // Width of legend 'blob'.
 
 	PaymentRatesGraphWindow(WindowDesc *desc, WindowNumber window_number) :
 			BaseGraphWindow(desc, WID_CPR_GRAPH, STR_JUST_CURRENCY_SHORT)
@@ -1135,10 +1135,10 @@ static inline StringID GetPerformanceTitleFromValue(uint value)
 class CompanyLeagueWindow : public Window {
 private:
 	GUIList<const Company*> companies;
-	uint ordinal_width; ///< The width of the ordinal number
-	uint text_width;    ///< The width of the actual text
-	uint icon_width;    ///< The width of the company icon
-	int line_height;    ///< Height of the text lines
+	uint ordinal_width; // The width of the ordinal number
+	uint text_width;    // The width of the actual text
+	uint icon_width;    // The width of the company icon
+	int line_height;    // Height of the text lines
 
 	/**
 	 * (Re)Build the company league list

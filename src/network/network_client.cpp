@@ -39,14 +39,14 @@
 
 /** Read some packets, and when do use that data as initial load filter. */
 struct PacketReader : LoadFilter {
-	static const size_t CHUNK = 32 * 1024;  ///< 32 KiB chunks of memory.
+	static const size_t CHUNK = 32 * 1024;  // 32 KiB chunks of memory.
 
-	std::vector<byte *> blocks;             ///< Buffer with blocks of allocated memory.
-	byte *buf;                              ///< Buffer we're going to write to/read from.
-	byte *bufe;                             ///< End of the buffer we write to/read from.
-	byte **block;                           ///< The block we're reading from/writing to.
-	size_t written_bytes;                   ///< The total number of bytes we've written.
-	size_t read_bytes;                      ///< The total number of read bytes.
+	std::vector<byte *> blocks;             // Buffer with blocks of allocated memory.
+	byte *buf;                              // Buffer we're going to write to/read from.
+	byte *bufe;                             // End of the buffer we write to/read from.
+	byte **block;                           // The block we're reading from/writing to.
+	size_t written_bytes;                   // The total number of bytes we've written.
+	size_t read_bytes;                      // The total number of read bytes.
 
 	/** Initialise everything. */
 	PacketReader() : LoadFilter(nullptr), buf(nullptr), bufe(nullptr), block(nullptr), written_bytes(0), read_bytes(0)

@@ -1370,8 +1370,8 @@ struct IsEmptyAction
  */
 struct PrepareRefitAction
 {
-	CargoArray &consist_capleft; ///< Capacities left in the consist.
-	CargoTypes &refit_mask;          ///< Bitmask of possible refit cargoes.
+	CargoArray &consist_capleft; // Capacities left in the consist.
+	CargoTypes &refit_mask;          // Bitmask of possible refit cargoes.
 
 	/**
 	 * Create a refit preparation action.
@@ -1400,8 +1400,8 @@ struct PrepareRefitAction
  */
 struct ReturnCargoAction
 {
-	Station *st;        ///< Station to give the returned cargo to.
-	StationID next_hop; ///< Next hop the cargo should be assigned to.
+	Station *st;        // Station to give the returned cargo to.
+	StationID next_hop; // Next hop the cargo should be assigned to.
 
 	/**
 	 * Construct a cargo return action.
@@ -1427,10 +1427,10 @@ struct ReturnCargoAction
  */
 struct FinalizeRefitAction
 {
-	CargoArray &consist_capleft;  ///< Capacities left in the consist.
-	Station *st;                  ///< Station to reserve cargo from.
-	StationIDStack &next_station; ///< Next hops to reserve cargo for.
-	bool do_reserve;              ///< If the vehicle should reserve.
+	CargoArray &consist_capleft;  // Capacities left in the consist.
+	Station *st;                  // Station to reserve cargo from.
+	StationIDStack &next_station; // Next hops to reserve cargo for.
+	bool do_reserve;              // If the vehicle should reserve.
 
 	/**
 	 * Create a finalizing action.

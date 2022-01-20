@@ -18,8 +18,8 @@ void ReconsiderGameScriptLanguage();
 
 /** Container for the raw (unencoded) language strings of a language. */
 struct LanguageStrings {
-	std::string language; ///< Name of the language (base filename). Empty string if invalid.
-	StringList  lines;    ///< The lines of the file to pass into the parser/encoder.
+	std::string language; // Name of the language (base filename). Empty string if invalid.
+	StringList  lines;    // The lines of the file to pass into the parser/encoder.
 
 	LanguageStrings() {}
 	LanguageStrings(const std::string &lang) : language(lang) {}
@@ -31,12 +31,12 @@ struct LanguageStrings {
 
 /** Container for all the game strings. */
 struct GameStrings {
-	uint version;                  ///< The version of the language strings.
-	LanguageStrings *cur_language; ///< The current (compiled) language.
+	uint version;                  // The version of the language strings.
+	LanguageStrings *cur_language; // The current (compiled) language.
 
-	std::vector<LanguageStrings> raw_strings;      ///< The raw strings per language, first must be English/the master language!.
-	std::vector<LanguageStrings> compiled_strings; ///< The compiled strings per language, first must be English/the master language!.
-	StringList string_names;                       ///< The names of the compiled strings.
+	std::vector<LanguageStrings> raw_strings;      // The raw strings per language, first must be English/the master language!.
+	std::vector<LanguageStrings> compiled_strings; // The compiled strings per language, first must be English/the master language!.
+	StringList string_names;                       // The names of the compiled strings.
 
 	void Compile();
 

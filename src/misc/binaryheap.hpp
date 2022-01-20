@@ -50,9 +50,9 @@
 template <class T>
 class CBinaryHeapT {
 private:
-	uint items;    ///< Number of items in the heap
-	uint capacity; ///< Maximum number of items the heap can hold
-	T **data;      ///< The pointer to the heap item pointers
+	uint items;    // Number of items in the heap
+	uint capacity; // Maximum number of items the heap can hold
+	T **data;      // The pointer to the heap item pointers
 
 public:
 	/**

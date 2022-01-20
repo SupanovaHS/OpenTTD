@@ -30,8 +30,8 @@ protected:
 	friend class MultiMap<Tkey, Tvalue, Tcompare>;
 	typedef MultiMapIterator<Tmap_iter, Tlist_iter, Tkey, Tvalue, Tcompare> Self;
 
-	Tlist_iter list_iter; ///< Iterator pointing to current position in the current list of items with equal keys.
-	Tmap_iter map_iter;   ///< Iterator pointing to the position of the current list of items with equal keys in the map.
+	Tlist_iter list_iter; // Iterator pointing to current position in the current list of items with equal keys.
+	Tmap_iter map_iter;   // Iterator pointing to the position of the current list of items with equal keys in the map.
 
 	/**
 	 * Flag to show that the iterator has just "walked" a step in the map.

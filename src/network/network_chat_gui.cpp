@@ -39,17 +39,17 @@ static const uint NETWORK_CHAT_LINE_SPACING = 3;
 
 /** Container for a message. */
 struct ChatMessage {
-	std::string message; ///< The action message.
-	TextColour colour;  ///< The colour of the message.
-	std::chrono::steady_clock::time_point remove_time; ///< The time to remove the message.
+	std::string message; // The action message.
+	TextColour colour;  // The colour of the message.
+	std::chrono::steady_clock::time_point remove_time; // The time to remove the message.
 };
 
 /* used for chat window */
-static std::deque<ChatMessage> _chatmsg_list; ///< The actual chat message list.
-static bool _chatmessage_dirty = false;   ///< Does the chat message need repainting?
-static bool _chatmessage_visible = false; ///< Is a chat message visible.
-static bool _chat_tab_completion_active;  ///< Whether tab completion is active.
-static uint MAX_CHAT_MESSAGES = 0;        ///< The limit of chat messages to show.
+static std::deque<ChatMessage> _chatmsg_list; // The actual chat message list.
+static bool _chatmessage_dirty = false;   // Does the chat message need repainting?
+static bool _chatmessage_visible = false; // Is a chat message visible.
+static bool _chat_tab_completion_active;  // Whether tab completion is active.
+static uint MAX_CHAT_MESSAGES = 0;        // The limit of chat messages to show.
 
 /**
  * Time the chat history was marked dirty. This is used to determine if expired
@@ -62,7 +62,7 @@ static std::chrono::steady_clock::time_point _chatmessage_dirty_time;
  * the left and pixels from the bottom. The height is the maximum height.
  */
 static PointDimension _chatmsg_box;
-static uint8 *_chatmessage_backup = nullptr; ///< Backup in case text is moved.
+static uint8 *_chatmessage_backup = nullptr; // Backup in case text is moved.
 
 /**
  * Test if there are any chat messages to display.
@@ -271,9 +271,9 @@ static void SendChat(const std::string &buf, DestType type, int dest)
 
 /** Window to enter the chat message in. */
 struct NetworkChatWindow : public Window {
-	DestType dtype;       ///< The type of destination.
-	int dest;             ///< The identifier of the destination.
-	QueryString message_editbox; ///< Message editbox.
+	DestType dtype;       // The type of destination.
+	int dest;             // The identifier of the destination.
+	QueryString message_editbox; // Message editbox.
 
 	/**
 	 * Create a chat input window.

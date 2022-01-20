@@ -86,26 +86,26 @@
 #include <squirrel.h>
 
 /* Define all types here, so we don't have to include the whole _type.h maze */
-typedef uint BridgeType;     ///< Internal name, not of any use for you.
-typedef byte CargoID;        ///< The ID of a cargo.
-class CommandCost;           ///< The cost of a command.
-typedef uint16 EngineID;     ///< The ID of an engine.
-typedef uint16 GoalID;       ///< The ID of a goal.
-typedef uint16 GroupID;      ///< The ID of a group.
-typedef uint16 IndustryID;   ///< The ID of an industry.
-typedef uint8 IndustryType;  ///< The ID of an industry-type.
-typedef OverflowSafeInt64 Money; ///< Money, stored in a 32bit/64bit safe way. For scripts money is always in pounds.
-typedef uint16 SignID;       ///< The ID of a sign.
-typedef uint16 StationID;    ///< The ID of a station.
-typedef uint32 StringID;     ///< The ID of a string.
-typedef uint16 SubsidyID;    ///< The ID of a subsidy.
-typedef uint16 StoryPageID;  ///< The ID of a story page.
-typedef uint16 StoryPageElementID; ///< The ID of a story page element.
-typedef uint16 TownID;       ///< The ID of a town.
-typedef uint32 VehicleID;    ///< The ID of a vehicle.
+typedef uint BridgeType;     // Internal name, not of any use for you.
+typedef byte CargoID;        // The ID of a cargo.
+class CommandCost;           // The cost of a command.
+typedef uint16 EngineID;     // The ID of an engine.
+typedef uint16 GoalID;       // The ID of a goal.
+typedef uint16 GroupID;      // The ID of a group.
+typedef uint16 IndustryID;   // The ID of an industry.
+typedef uint8 IndustryType;  // The ID of an industry-type.
+typedef OverflowSafeInt64 Money; // Money, stored in a 32bit/64bit safe way. For scripts money is always in pounds.
+typedef uint16 SignID;       // The ID of a sign.
+typedef uint16 StationID;    // The ID of a station.
+typedef uint32 StringID;     // The ID of a string.
+typedef uint16 SubsidyID;    // The ID of a subsidy.
+typedef uint16 StoryPageID;  // The ID of a story page.
+typedef uint16 StoryPageElementID; // The ID of a story page element.
+typedef uint16 TownID;       // The ID of a town.
+typedef uint32 VehicleID;    // The ID of a vehicle.
 
 /* Types we defined ourself, as the OpenTTD core doesn't have them (yet) */
-typedef uint ScriptErrorType;///< The types of errors inside the script framework.
-typedef BridgeType BridgeID; ///< The ID of a bridge.
+typedef uint ScriptErrorType;// The types of errors inside the script framework.
+typedef BridgeType BridgeID; // The ID of a bridge.
 
 #endif /* SCRIPT_TYPES_HPP */

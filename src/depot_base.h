@@ -21,8 +21,8 @@ struct Depot : DepotPool::PoolItem<&_depot_pool> {
 	std::string name;
 
 	TileIndex xy;
-	uint16 town_cn;    ///< The N-1th depot for this town (consecutive number)
-	Date build_date;   ///< Date of construction
+	uint16 town_cn;    // The N-1th depot for this town (consecutive number)
+	Date build_date;   // Date of construction
 
 	Depot(TileIndex xy = INVALID_TILE) : xy(xy) {}
 	~Depot();

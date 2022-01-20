@@ -16,8 +16,8 @@
 
 /** Resolver for the industry tiles scope. */
 struct IndustryTileScopeResolver : public ScopeResolver {
-	Industry *industry; ///< Industry owning the tiles.
-	TileIndex tile;     ///< %Tile being resolved.
+	Industry *industry; // Industry owning the tiles.
+	TileIndex tile;     // %Tile being resolved.
 
 	/**
 	 * Constructor of the scope resolver for the industry tile.
@@ -37,8 +37,8 @@ struct IndustryTileScopeResolver : public ScopeResolver {
 
 /** Resolver for industry tiles. */
 struct IndustryTileResolverObject : public ResolverObject {
-	IndustryTileScopeResolver indtile_scope; ///< Scope resolver for the industry tile.
-	IndustriesScopeResolver ind_scope;       ///< Scope resolver for the industry owning the tile.
+	IndustryTileScopeResolver indtile_scope; // Scope resolver for the industry tile.
+	IndustriesScopeResolver ind_scope;       // Scope resolver for the industry owning the tile.
 	IndustryGfx gfx;
 
 	IndustryTileResolverObject(IndustryGfx gfx, TileIndex tile, Industry *indus,
@@ -68,9 +68,9 @@ bool StartStopIndustryTileAnimation(const Industry *ind, IndustryAnimationTrigge
 
 /** Available industry tile triggers. */
 enum IndustryTileTrigger {
-	INDTILE_TRIGGER_TILE_LOOP       = 0x01, ///< The tile of the industry has been triggered during the tileloop.
-	INDUSTRY_TRIGGER_INDUSTRY_TICK  = 0x02, ///< The industry has been triggered via its tick.
-	INDUSTRY_TRIGGER_RECEIVED_CARGO = 0x04, ///< Cargo has been delivered.
+	INDTILE_TRIGGER_TILE_LOOP       = 0x01, // The tile of the industry has been triggered during the tileloop.
+	INDUSTRY_TRIGGER_INDUSTRY_TICK  = 0x02, // The industry has been triggered via its tick.
+	INDUSTRY_TRIGGER_RECEIVED_CARGO = 0x04, // Cargo has been delivered.
 };
 void TriggerIndustryTile(TileIndex t, IndustryTileTrigger trigger);
 void TriggerIndustry(Industry *ind, IndustryTileTrigger trigger);

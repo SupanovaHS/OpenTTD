@@ -31,31 +31,31 @@ typedef bool (ScriptModeProc)();
 class ScriptStorage {
 friend class ScriptObject;
 private:
-	ScriptModeProc *mode;             ///< The current build mode we are int.
-	class ScriptObject *mode_instance; ///< The instance belonging to the current build mode.
-	CompanyID root_company;          ///< The root company, the company that the script really belongs to.
-	CompanyID company;               ///< The current company.
+	ScriptModeProc *mode;             // The current build mode we are int.
+	class ScriptObject *mode_instance; // The instance belonging to the current build mode.
+	CompanyID root_company;          // The root company, the company that the script really belongs to.
+	CompanyID company;               // The current company.
 
-	uint delay;                      ///< The ticks of delay each DoCommand has.
-	bool allow_do_command;           ///< Is the usage of DoCommands restricted?
+	uint delay;                      // The ticks of delay each DoCommand has.
+	bool allow_do_command;           // Is the usage of DoCommands restricted?
 
-	CommandCost costs;               ///< The costs the script is tracking.
-	Money last_cost;                 ///< The last cost of the command.
-	uint last_error;                 ///< The last error of the command.
-	bool last_command_res;           ///< The last result of the command.
+	CommandCost costs;               // The costs the script is tracking.
+	Money last_cost;                 // The last cost of the command.
+	uint last_error;                 // The last error of the command.
+	bool last_command_res;           // The last result of the command.
 
-	TileIndex last_tile;             ///< The last tile passed to a command.
-	CommandDataBuffer last_data;     ///< The last data passed to a command.
-	Commands last_cmd;               ///< The last cmd passed to a command.
-	CommandDataBuffer last_cmd_ret;  ///< The extra data returned by the last command.
+	TileIndex last_tile;             // The last tile passed to a command.
+	CommandDataBuffer last_data;     // The last data passed to a command.
+	Commands last_cmd;               // The last cmd passed to a command.
+	CommandDataBuffer last_cmd_ret;  // The extra data returned by the last command.
 
-	std::vector<int> callback_value; ///< The values which need to survive a callback.
+	std::vector<int> callback_value; // The values which need to survive a callback.
 
-	RoadType road_type;              ///< The current roadtype we build.
-	RailType rail_type;              ///< The current railtype we build.
+	RoadType road_type;              // The current roadtype we build.
+	RailType rail_type;              // The current railtype we build.
 
-	void *event_data;                ///< Pointer to the event data storage.
-	void *log_data;                  ///< Pointer to the log data storage.
+	void *event_data;                // Pointer to the event data storage.
+	void *log_data;                  // Pointer to the log data storage.
 
 public:
 	ScriptStorage() :

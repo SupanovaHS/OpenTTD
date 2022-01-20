@@ -19,8 +19,8 @@
 
 #include "safeguards.h"
 
-HighScore _highscore_table[SP_HIGHSCORE_END][5]; ///< various difficulty-settings; top 5
-std::string _highscore_file; ///< The file to store the highscore data in.
+HighScore _highscore_table[SP_HIGHSCORE_END][5]; // various difficulty-settings; top 5
+std::string _highscore_file; // The file to store the highscore data in.
 
 static const StringID _endgame_perf_titles[] = {
 	STR_HIGHSCORE_PERFORMANCE_TITLE_BUSINESSMAN,

@@ -23,8 +23,8 @@ static const WChar NFO_UTF8_IDENTIFIER = 0x00DE;
 
 /** A GRF text with associated language ID. */
 struct GRFText {
-	byte langid;      ///< The language associated with this GRFText.
-	std::string text; ///< The actual (translated) text.
+	byte langid;      // The language associated with this GRFText.
+	std::string text; // The actual (translated) text.
 };
 
 /** A GRF text with a list of translations. */
@@ -58,8 +58,8 @@ uint RemapNewGRFStringControlCode(uint scc, char *buf_start, char **buff, const 
 struct LanguageMap {
 	/** Mapping between NewGRF and OpenTTD IDs. */
 	struct Mapping {
-		byte newgrf_id;  ///< NewGRF's internal ID for a case/gender.
-		byte openttd_id; ///< OpenTTD's internal ID for a case/gender.
+		byte newgrf_id;  // NewGRF's internal ID for a case/gender.
+		byte openttd_id; // OpenTTD's internal ID for a case/gender.
 	};
 
 	/* We need a vector and can't use SmallMap due to the fact that for "setting" a
@@ -68,9 +68,9 @@ struct LanguageMap {
 	 * the genders/cases/plural OpenTTD IDs to the NewGRF's internal IDs. In this
 	 * case a NewGRF developer/translator might want a different translation for
 	 * both cases. Thus we are basically implementing a multi-map. */
-	std::vector<Mapping> gender_map; ///< Mapping of NewGRF and OpenTTD IDs for genders.
-	std::vector<Mapping> case_map;   ///< Mapping of NewGRF and OpenTTD IDs for cases.
-	int plural_form;                 ///< The plural form used for this language.
+	std::vector<Mapping> gender_map; // Mapping of NewGRF and OpenTTD IDs for genders.
+	std::vector<Mapping> case_map;   // Mapping of NewGRF and OpenTTD IDs for cases.
+	int plural_form;                 // The plural form used for this language.
 
 	int GetMapping(int newgrf_id, bool gender) const;
 	int GetReverseMapping(int openttd_id, bool gender) const;

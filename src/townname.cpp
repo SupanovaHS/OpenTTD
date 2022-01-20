@@ -1011,8 +1011,8 @@ typedef char *TownNameGenerator(char *buf, const char *last, uint32 seed);
 
 /** Contains pointer to generator and minimum buffer size (not incl. terminating '\0') */
 struct TownNameGeneratorParams {
-	byte min; ///< minimum number of characters that need to be printed for generator to work correctly
-	TownNameGenerator *proc; ///< generator itself
+	byte min; // minimum number of characters that need to be printed for generator to work correctly
+	TownNameGenerator *proc; // generator itself
 };
 
 /** Town name generators */

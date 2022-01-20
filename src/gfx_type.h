@@ -14,14 +14,14 @@
 #include "core/geometry_type.hpp"
 #include "zoom_type.h"
 
-typedef uint32 SpriteID;  ///< The number of a sprite, without mapping bits and colourtables
-typedef uint32 PaletteID; ///< The number of the palette
-typedef uint32 CursorID;  ///< The number of the cursor (sprite)
+typedef uint32 SpriteID;  // The number of a sprite, without mapping bits and colourtables
+typedef uint32 PaletteID; // The number of the palette
+typedef uint32 CursorID;  // The number of the cursor (sprite)
 
 /** Combination of a palette sprite and a 'real' sprite */
 struct PalSpriteID {
-	SpriteID sprite;  ///< The 'real' sprite
-	PaletteID pal;    ///< The palette (use \c PAL_NONE) if not needed)
+	SpriteID sprite;  // The 'real' sprite
+	PaletteID pal;    // The palette (use \c PAL_NONE) if not needed)
 };
 
 enum WindowKeyCodes {
@@ -30,7 +30,7 @@ enum WindowKeyCodes {
 	WKC_ALT   = 0x2000,
 	WKC_META  = 0x1000,
 
-	WKC_GLOBAL_HOTKEY = 0x0800, ///< Fake keycode bit to indicate global hotkeys
+	WKC_GLOBAL_HOTKEY = 0x0800, // Fake keycode bit to indicate global hotkeys
 
 	WKC_SPECIAL_KEYS = WKC_SHIFT | WKC_CTRL | WKC_ALT | WKC_META | WKC_GLOBAL_HOTKEY,
 
@@ -92,32 +92,32 @@ enum WindowKeyCodes {
 	WKC_NUM_DECIMAL = 143,
 
 	/* Other keys */
-	WKC_SLASH       = 144, ///< / Forward slash
-	WKC_SEMICOLON   = 145, ///< ; Semicolon
-	WKC_EQUALS      = 146, ///< = Equals
-	WKC_L_BRACKET   = 147, ///< [ Left square bracket
-	WKC_BACKSLASH   = 148, ///< \ Backslash
-	WKC_R_BRACKET   = 149, ///< ] Right square bracket
-	WKC_SINGLEQUOTE = 150, ///< ' Single quote
-	WKC_COMMA       = 151, ///< , Comma
-	WKC_PERIOD      = 152, ///< . Period
-	WKC_MINUS       = 153, ///< - Minus
+	WKC_SLASH       = 144, // / Forward slash
+	WKC_SEMICOLON   = 145, // ; Semicolon
+	WKC_EQUALS      = 146, // = Equals
+	WKC_L_BRACKET   = 147, // [ Left square bracket
+	WKC_BACKSLASH   = 148, // \ Backslash
+	WKC_R_BRACKET   = 149, // ] Right square bracket
+	WKC_SINGLEQUOTE = 150, // ' Single quote
+	WKC_COMMA       = 151, // , Comma
+	WKC_PERIOD      = 152, // . Period
+	WKC_MINUS       = 153, // - Minus
 };
 
 /** A single sprite of a list of animated cursors */
 struct AnimCursor {
 	static const CursorID LAST = MAX_UVALUE(CursorID);
-	CursorID sprite;   ///< Must be set to LAST_ANIM when it is the last sprite of the loop
-	byte display_time; ///< Amount of ticks this sprite will be shown
+	CursorID sprite;   // Must be set to LAST_ANIM when it is the last sprite of the loop
+	byte display_time; // Amount of ticks this sprite will be shown
 };
 
 /** Collection of variables for cursor-display and -animation */
 struct CursorVars {
 	/* Logical mouse position */
-	Point pos;                    ///< logical mouse position
-	Point delta;                  ///< relative mouse movement in this tick
-	int wheel;                    ///< mouse wheel movement
-	bool fix_at;                  ///< mouse is moving, but cursor is not (used for scrolling)
+	Point pos;                    // logical mouse position
+	Point delta;                  // relative mouse movement in this tick
+	int wheel;                    // mouse wheel movement
+	bool fix_at;                  // mouse is moving, but cursor is not (used for scrolling)
 
 	/* We need two different vars to keep track of how far the scrollwheel moved.
 	 * OSX uses this for scrolling around the map. */
@@ -125,23 +125,23 @@ struct CursorVars {
 	int h_wheel;
 
 	/* Mouse appearance */
-	PalSpriteID sprite_seq[16];   ///< current image of cursor
-	Point sprite_pos[16];         ///< relative position of individual sprites
-	uint sprite_count;            ///< number of sprites to draw
-	Point total_offs, total_size; ///< union of sprite properties
+	PalSpriteID sprite_seq[16];   // current image of cursor
+	Point sprite_pos[16];         // relative position of individual sprites
+	uint sprite_count;            // number of sprites to draw
+	Point total_offs, total_size; // union of sprite properties
 
-	Point draw_pos, draw_size;    ///< position and size bounding-box for drawing
+	Point draw_pos, draw_size;    // position and size bounding-box for drawing
 
-	const AnimCursor *animate_list; ///< in case of animated cursor, list of frames
-	const AnimCursor *animate_cur;  ///< in case of animated cursor, current frame
-	uint animate_timeout;           ///< in case of animated cursor, number of ticks to show the current cursor
+	const AnimCursor *animate_list; // in case of animated cursor, list of frames
+	const AnimCursor *animate_cur;  // in case of animated cursor, current frame
+	uint animate_timeout;           // in case of animated cursor, number of ticks to show the current cursor
 
-	bool visible;                 ///< cursor is visible
-	bool dirty;                   ///< the rect occupied by the mouse is dirty (redraw)
-	bool in_window;               ///< mouse inside this window, determines drawing logic
+	bool visible;                 // cursor is visible
+	bool dirty;                   // the rect occupied by the mouse is dirty (redraw)
+	bool in_window;               // mouse inside this window, determines drawing logic
 
 	/* Drag data */
-	bool vehchain;                ///< vehicle chain is dragged
+	bool vehchain;                // vehicle chain is dragged
 
 	void UpdateCursorPositionRelative(int delta_x, int delta_y);
 	bool UpdateCursorPosition(int x, int y, bool queued_warp);
@@ -161,14 +161,14 @@ struct DrawPixelInfo {
 
 /** Structure to access the alpha, red, green, and blue channels from a 32 bit number. */
 union Colour {
-	uint32 data; ///< Conversion of the channel information to a 32 bit number.
+	uint32 data; // Conversion of the channel information to a 32 bit number.
 	struct {
 #if defined(__EMSCRIPTEN__)
-		uint8 r, g, b, a;  ///< colour channels as used in browsers
+		uint8 r, g, b, a;  // colour channels as used in browsers
 #elif TTD_ENDIAN == TTD_BIG_ENDIAN
-		uint8 a, r, g, b; ///< colour channels in BE order
+		uint8 a, r, g, b; // colour channels in BE order
 #else
-		uint8 b, g, r, a; ///< colour channels in LE order
+		uint8 b, g, r, a; // colour channels in LE order
 #endif /* TTD_ENDIAN == TTD_BIG_ENDIAN */
 	};
 
@@ -204,13 +204,13 @@ static_assert(sizeof(Colour) == sizeof(uint32));
 
 /** Available font sizes */
 enum FontSize {
-	FS_NORMAL, ///< Index of the normal font in the font tables.
-	FS_SMALL,  ///< Index of the small font in the font tables.
-	FS_LARGE,  ///< Index of the large font in the font tables.
-	FS_MONO,   ///< Index of the monospaced font in the font tables.
+	FS_NORMAL, // Index of the normal font in the font tables.
+	FS_SMALL,  // Index of the small font in the font tables.
+	FS_LARGE,  // Index of the large font in the font tables.
+	FS_MONO,   // Index of the monospaced font in the font tables.
 	FS_END,
 
-	FS_BEGIN = FS_NORMAL, ///< First font.
+	FS_BEGIN = FS_NORMAL, // First font.
 };
 DECLARE_POSTFIX_INCREMENT(FontSize)
 
@@ -270,40 +270,40 @@ enum TextColour {
 	TC_END,
 	TC_INVALID     = 0xFF,
 
-	TC_IS_PALETTE_COLOUR = 0x100, ///< Colour value is already a real palette colour index, not an index of a StringColour.
-	TC_NO_SHADE          = 0x200, ///< Do not add shading to this text colour.
-	TC_FORCED            = 0x400, ///< Ignore colour changes from strings.
+	TC_IS_PALETTE_COLOUR = 0x100, // Colour value is already a real palette colour index, not an index of a StringColour.
+	TC_NO_SHADE          = 0x200, // Do not add shading to this text colour.
+	TC_FORCED            = 0x400, // Ignore colour changes from strings.
 };
 DECLARE_ENUM_AS_BIT_SET(TextColour)
 
 /** Defines a few values that are related to animations using palette changes */
 enum PaletteAnimationSizes {
-	PALETTE_ANIM_SIZE  = 28,   ///< number of animated colours
-	PALETTE_ANIM_START = 227,  ///< Index in  the _palettes array from which all animations are taking places (table/palettes.h)
+	PALETTE_ANIM_SIZE  = 28,   // number of animated colours
+	PALETTE_ANIM_START = 227,  // Index in  the _palettes array from which all animations are taking places (table/palettes.h)
 };
 
 /** Define the operation GfxFillRect performs */
 enum FillRectMode {
-	FILLRECT_OPAQUE,  ///< Fill rectangle with a single colour
-	FILLRECT_CHECKER, ///< Draw only every second pixel, used for greying-out
-	FILLRECT_RECOLOUR, ///< Apply a recolour sprite to the screen content
+	FILLRECT_OPAQUE,  // Fill rectangle with a single colour
+	FILLRECT_CHECKER, // Draw only every second pixel, used for greying-out
+	FILLRECT_RECOLOUR, // Apply a recolour sprite to the screen content
 };
 
 /** Palettes OpenTTD supports. */
 enum PaletteType {
-	PAL_DOS,        ///< Use the DOS palette.
-	PAL_WINDOWS,    ///< Use the Windows palette.
-	PAL_AUTODETECT, ///< Automatically detect the palette based on the graphics pack.
-	MAX_PAL = 2,    ///< The number of palettes.
+	PAL_DOS,        // Use the DOS palette.
+	PAL_WINDOWS,    // Use the Windows palette.
+	PAL_AUTODETECT, // Automatically detect the palette based on the graphics pack.
+	MAX_PAL = 2,    // The number of palettes.
 };
 
 /** Types of sprites that might be loaded */
 enum SpriteType : byte {
-	ST_NORMAL   = 0,      ///< The most basic (normal) sprite
-	ST_MAPGEN   = 1,      ///< Special sprite for the map generator
-	ST_FONT     = 2,      ///< A sprite used for fonts
-	ST_RECOLOUR = 3,      ///< Recolour sprite
-	ST_INVALID  = 4,      ///< Pseudosprite or other unusable sprite, used only internally
+	ST_NORMAL   = 0,      // The most basic (normal) sprite
+	ST_MAPGEN   = 1,      // Special sprite for the map generator
+	ST_FONT     = 2,      // A sprite used for fonts
+	ST_RECOLOUR = 3,      // Recolour sprite
+	ST_INVALID  = 4,      // Pseudosprite or other unusable sprite, used only internally
 };
 
 /** The number of milliseconds per game tick. */
@@ -311,33 +311,33 @@ static const uint MILLISECONDS_PER_TICK = 30;
 
 /** Information about the currently used palette. */
 struct Palette {
-	Colour palette[256]; ///< Current palette. Entry 0 has to be always fully transparent!
-	int first_dirty;     ///< The first dirty element.
-	int count_dirty;     ///< The number of dirty elements.
+	Colour palette[256]; // Current palette. Entry 0 has to be always fully transparent!
+	int first_dirty;     // The first dirty element.
+	int count_dirty;     // The number of dirty elements.
 };
 
 /** Modes for 8bpp support */
 enum Support8bpp {
-	S8BPP_NONE = 0, ///< No support for 8bpp by OS or hardware, force 32bpp blitters.
-	S8BPP_SYSTEM,   ///< No 8bpp support by hardware, do not try to use 8bpp video modes or hardware palettes.
-	S8BPP_HARDWARE, ///< Full 8bpp support by OS and hardware.
+	S8BPP_NONE = 0, // No support for 8bpp by OS or hardware, force 32bpp blitters.
+	S8BPP_SYSTEM,   // No 8bpp support by hardware, do not try to use 8bpp video modes or hardware palettes.
+	S8BPP_HARDWARE, // Full 8bpp support by OS and hardware.
 };
 
 	/** How to align the to-be drawn text. */
 enum StringAlignment {
-	SA_LEFT        = 0 << 0, ///< Left align the text.
-	SA_HOR_CENTER  = 1 << 0, ///< Horizontally center the text.
-	SA_RIGHT       = 2 << 0, ///< Right align the text (must be a single bit).
-	SA_HOR_MASK    = 3 << 0, ///< Mask for horizontal alignment.
+	SA_LEFT        = 0 << 0, // Left align the text.
+	SA_HOR_CENTER  = 1 << 0, // Horizontally center the text.
+	SA_RIGHT       = 2 << 0, // Right align the text (must be a single bit).
+	SA_HOR_MASK    = 3 << 0, // Mask for horizontal alignment.
 
-	SA_TOP         = 0 << 2, ///< Top align the text.
-	SA_VERT_CENTER = 1 << 2, ///< Vertically center the text.
-	SA_BOTTOM      = 2 << 2, ///< Bottom align the text.
-	SA_VERT_MASK   = 3 << 2, ///< Mask for vertical alignment.
+	SA_TOP         = 0 << 2, // Top align the text.
+	SA_VERT_CENTER = 1 << 2, // Vertically center the text.
+	SA_BOTTOM      = 2 << 2, // Bottom align the text.
+	SA_VERT_MASK   = 3 << 2, // Mask for vertical alignment.
 
-	SA_CENTER      = SA_HOR_CENTER | SA_VERT_CENTER, ///< Center both horizontally and vertically.
+	SA_CENTER      = SA_HOR_CENTER | SA_VERT_CENTER, // Center both horizontally and vertically.
 
-	SA_FORCE       = 1 << 4, ///< Force the alignment, i.e. don't swap for RTL languages.
+	SA_FORCE       = 1 << 4, // Force the alignment, i.e. don't swap for RTL languages.
 };
 DECLARE_ENUM_AS_BIT_SET(StringAlignment)
 

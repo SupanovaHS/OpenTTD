@@ -1282,7 +1282,7 @@ void TriggerVehicle(Vehicle *v, VehicleTrigger trigger)
 
 struct ListOrderChange {
 	EngineID engine;
-	uint target;      ///< local ID
+	uint target;      // local ID
 };
 
 static std::vector<ListOrderChange> _list_order_changes;

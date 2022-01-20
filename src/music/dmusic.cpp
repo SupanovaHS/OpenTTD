@@ -33,8 +33,8 @@
 #	pragma comment(lib, "ole32.lib")
 #endif /* defined(_MSC_VER) */
 
-static const int MS_TO_REFTIME = 1000 * 10; ///< DirectMusic time base is 100 ns.
-static const int MIDITIME_TO_REFTIME = 10;  ///< Time base of the midi file reader is 1 us.
+static const int MS_TO_REFTIME = 1000 * 10; // DirectMusic time base is 100 ns.
+static const int MIDITIME_TO_REFTIME = 10;  // Time base of the midi file reader is 1 us.
 
 
 #define FOURCC_INFO  mmioFOURCC('I','N','F','O')
@@ -102,8 +102,8 @@ private:
 
 /** A RIFF chunk header. */
 PACK_N(struct ChunkHeader {
-	FOURCC type;  ///< Chunk type.
-	DWORD length; ///< Length of the chunk, not including the chunk header itself.
+	FOURCC type;  // Chunk type.
+	DWORD length; // Length of the chunk, not including the chunk header itself.
 }, 2);
 
 /** Buffer format for a DLS wave download. */
@@ -121,16 +121,16 @@ struct PlaybackSegment {
 };
 
 static struct {
-	bool shutdown;    ///< flag to indicate playback thread shutdown
-	bool playing;     ///< flag indicating that playback is active
-	bool do_start;    ///< flag for starting playback of next_file at next opportunity
-	bool do_stop;     ///< flag for stopping playback at next opportunity
+	bool shutdown;    // flag to indicate playback thread shutdown
+	bool playing;     // flag indicating that playback is active
+	bool do_start;    // flag for starting playback of next_file at next opportunity
+	bool do_stop;     // flag for stopping playback at next opportunity
 
-	int preload_time; ///< preload time for music blocks.
-	byte new_volume;  ///< volume setting to change to
+	int preload_time; // preload time for music blocks.
+	byte new_volume;  // volume setting to change to
 
-	MidiFile next_file;           ///< upcoming file to play
-	PlaybackSegment next_segment; ///< segment info for upcoming file
+	MidiFile next_file;           // upcoming file to play
+	PlaybackSegment next_segment; // segment info for upcoming file
 } _playback;
 
 /** Handle to our worker thread. */

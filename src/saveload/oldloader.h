@@ -39,8 +39,8 @@ enum OldChunkType {
 	OC_ASSERT    = 3,
 	/* 4 bits allocated (16 max) */
 
-	OC_TTD       = 1 << 4, ///< chunk is valid ONLY for TTD savegames
-	OC_TTO       = 1 << 5, ///< -//- TTO (default is neither of these)
+	OC_TTD       = 1 << 4, // chunk is valid ONLY for TTD savegames
+	OC_TTO       = 1 << 5, // -//- TTO (default is neither of these)
 	/* 4 bits allocated */
 
 	OC_VAR_I8    = 1 << 8,
@@ -76,7 +76,7 @@ enum OldChunkType {
 	 */
 	OC_DEREFERENCE_POINTER = 1 << 31,
 
-	OC_END       = 0, ///< End of the whole chunk, all 32 bits set to zero
+	OC_END       = 0, // End of the whole chunk, all 32 bits set to zero
 };
 
 DECLARE_ENUM_AS_BIT_SET(OldChunkType)
@@ -85,12 +85,12 @@ typedef bool OldChunkProc(LoadgameState *ls, int num);
 typedef void *OffsetProc(void *base);
 
 struct OldChunks {
-	OldChunkType type;   ///< Type of field
-	uint32 amount;       ///< Amount of fields
+	OldChunkType type;   // Type of field
+	uint32 amount;       // Amount of fields
 
-	void *ptr;           ///< Pointer where to save the data (takes precedence over #offset)
-	OffsetProc *offset;  ///< Pointer to function that returns the actual memory address of a member (ignored if #ptr is not nullptr)
-	OldChunkProc *proc;  ///< Pointer to function that is called with OC_CHUNK
+	void *ptr;           // Pointer where to save the data (takes precedence over #offset)
+	OffsetProc *offset;  // Pointer to function that returns the actual memory address of a member (ignored if #ptr is not nullptr)
+	OldChunkProc *proc;  // Pointer to function that is called with OC_CHUNK
 };
 
 /* If it fails, check lines above.. */

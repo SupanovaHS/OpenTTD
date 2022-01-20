@@ -20,12 +20,12 @@
 template <class T, uint B = 1024, uint N = B>
 class SmallArray {
 protected:
-	typedef FixedSizeArray<T, B> SubArray; ///< inner array
-	typedef FixedSizeArray<SubArray, N> SuperArray; ///< outer array
+	typedef FixedSizeArray<T, B> SubArray; // inner array
+	typedef FixedSizeArray<SubArray, N> SuperArray; // outer array
 
-	static const uint Tcapacity = B * N; ///< total max number of items
+	static const uint Tcapacity = B * N; // total max number of items
 
-	SuperArray data; ///< array of arrays of items
+	SuperArray data; // array of arrays of items
 
 	/** return first sub-array with free space for new item */
 	inline SubArray& FirstFreeSubArray()

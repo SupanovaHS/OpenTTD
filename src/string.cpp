@@ -777,11 +777,11 @@ int strnatcmp(const char *s1, const char *s2, bool ignore_garbage_at_front)
 /** String iterator using ICU as a backend. */
 class IcuStringIterator : public StringIterator
 {
-	icu::BreakIterator *char_itr; ///< ICU iterator for characters.
-	icu::BreakIterator *word_itr; ///< ICU iterator for words.
+	icu::BreakIterator *char_itr; // ICU iterator for characters.
+	icu::BreakIterator *word_itr; // ICU iterator for words.
 
-	std::vector<UChar> utf16_str;      ///< UTF-16 copy of the string.
-	std::vector<size_t> utf16_to_utf8; ///< Mapping from UTF-16 code point position to index in the UTF-8 source string.
+	std::vector<UChar> utf16_str;      // UTF-16 copy of the string.
+	std::vector<size_t> utf16_to_utf8; // Mapping from UTF-16 code point position to index in the UTF-8 source string.
 
 public:
 	IcuStringIterator() : char_itr(nullptr), word_itr(nullptr)
@@ -930,9 +930,9 @@ public:
 /** Fallback simple string iterator. */
 class DefaultStringIterator : public StringIterator
 {
-	const char *string; ///< Current string.
-	size_t len;         ///< String length.
-	size_t cur_pos;     ///< Current iteration position.
+	const char *string; // Current string.
+	size_t len;         // String length.
+	size_t cur_pos;     // Current iteration position.
 
 public:
 	DefaultStringIterator() : string(nullptr), len(0), cur_pos(0)

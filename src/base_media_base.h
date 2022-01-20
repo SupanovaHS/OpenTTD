@@ -25,16 +25,16 @@ struct ContentInfo;
 struct MD5File {
 	/** The result of a checksum check */
 	enum ChecksumResult {
-		CR_UNKNOWN,  ///< The file has not been checked yet
-		CR_MATCH,    ///< The file did exist and the md5 checksum did match
-		CR_MISMATCH, ///< The file did exist, just the md5 checksum did not match
-		CR_NO_FILE,  ///< The file did not exist
+		CR_UNKNOWN,  // The file has not been checked yet
+		CR_MATCH,    // The file did exist and the md5 checksum did match
+		CR_MISMATCH, // The file did exist, just the md5 checksum did not match
+		CR_NO_FILE,  // The file did not exist
 	};
 
-	const char *filename;        ///< filename
-	uint8 hash[16];              ///< md5 sum of the file
-	const char *missing_warning; ///< warning when this file is missing
-	ChecksumResult check_result; ///< cached result of md5 check
+	const char *filename;        // filename
+	uint8 hash[16];              // md5 sum of the file
+	const char *missing_warning; // warning when this file is missing
+	ChecksumResult check_result; // cached result of md5 check
 
 	ChecksumResult CheckMD5(Subdirectory subdir, size_t max_size) const;
 };
@@ -58,17 +58,17 @@ struct BaseSet {
 	/** Internal names of the files in this set. */
 	static const char * const *file_names;
 
-	std::string name;              ///< The name of the base set
-	TranslatedStrings description; ///< Description of the base set
-	uint32 shortname;              ///< Four letter short variant of the name
-	uint32 version;                ///< The version of this base set
-	bool fallback;                 ///< This set is a fallback set, i.e. it should be used only as last resort
+	std::string name;              // The name of the base set
+	TranslatedStrings description; // Description of the base set
+	uint32 shortname;              // Four letter short variant of the name
+	uint32 version;                // The version of this base set
+	bool fallback;                 // This set is a fallback set, i.e. it should be used only as last resort
 
-	MD5File files[NUM_FILES];      ///< All files part of this set
-	uint found_files;              ///< Number of the files that could be found
-	uint valid_files;              ///< Number of the files that could be found and are valid
+	MD5File files[NUM_FILES];      // All files part of this set
+	uint found_files;              // Number of the files that could be found
+	uint valid_files;              // Number of the files that could be found and are valid
 
-	T *next;                       ///< The next base set in this list
+	T *next;                       // The next base set in this list
 
 	/** Free everything we allocated */
 	~BaseSet()
@@ -163,9 +163,9 @@ struct BaseSet {
 template <class Tbase_set>
 class BaseMedia : FileScanner {
 protected:
-	static Tbase_set *available_sets; ///< All available sets
-	static Tbase_set *duplicate_sets; ///< All sets that aren't available, but needed for not downloading base sets when a newer version than the one on BaNaNaS is loaded.
-	static const Tbase_set *used_set; ///< The currently used set
+	static Tbase_set *available_sets; // All available sets
+	static Tbase_set *duplicate_sets; // All sets that aren't available, but needed for not downloading base sets when a newer version than the one on BaNaNaS is loaded.
+	static const Tbase_set *used_set; // The currently used set
 
 	bool AddFile(const std::string &filename, size_t basepath_length, const std::string &tar_filename) override;
 
@@ -229,25 +229,25 @@ const char *TryGetBaseSetFile(const ContentInfo *ci, bool md5sum, const Tbase_se
 
 /** Types of graphics in the base graphics set */
 enum GraphicsFileType {
-	GFT_BASE,     ///< Base sprites for all climates
-	GFT_LOGOS,    ///< Logos, landscape icons and original terrain generator sprites
-	GFT_ARCTIC,   ///< Landscape replacement sprites for arctic
-	GFT_TROPICAL, ///< Landscape replacement sprites for tropical
-	GFT_TOYLAND,  ///< Landscape replacement sprites for toyland
-	GFT_EXTRA,    ///< Extra sprites that were not part of the original sprites
-	MAX_GFT,      ///< We are looking for this amount of GRFs
+	GFT_BASE,     // Base sprites for all climates
+	GFT_LOGOS,    // Logos, landscape icons and original terrain generator sprites
+	GFT_ARCTIC,   // Landscape replacement sprites for arctic
+	GFT_TROPICAL, // Landscape replacement sprites for tropical
+	GFT_TOYLAND,  // Landscape replacement sprites for toyland
+	GFT_EXTRA,    // Extra sprites that were not part of the original sprites
+	MAX_GFT,      // We are looking for this amount of GRFs
 };
 
 /** Blitter type for base graphics sets. */
 enum BlitterType {
-	BLT_8BPP,       ///< Base set has 8 bpp sprites only.
-	BLT_32BPP,      ///< Base set has both 8 bpp and 32 bpp sprites.
+	BLT_8BPP,       // Base set has 8 bpp sprites only.
+	BLT_32BPP,      // Base set has both 8 bpp and 32 bpp sprites.
 };
 
 /** All data of a graphics set. */
 struct GraphicsSet : BaseSet<GraphicsSet, MAX_GFT, true> {
-	PaletteType palette;       ///< Palette of this graphics set
-	BlitterType blitter;       ///< Blitter of this graphics set
+	PaletteType palette;       // Palette of this graphics set
+	BlitterType blitter;       // Blitter of this graphics set
 
 	bool FillSetDetails(struct IniFile *ini, const char *path, const char *full_filename);
 
@@ -283,20 +283,20 @@ char *GetMusicCatEntryName(const char *filename, size_t entrynum);
 byte *GetMusicCatEntryData(const char *filename, size_t entrynum, size_t &entrylen);
 
 enum MusicTrackType {
-	MTT_STANDARDMIDI, ///< Standard MIDI file
-	MTT_MPSMIDI,      ///< MPS GM driver MIDI format (contained in a CAT file)
+	MTT_STANDARDMIDI, // Standard MIDI file
+	MTT_MPSMIDI,      // MPS GM driver MIDI format (contained in a CAT file)
 };
 
 /** Metadata about a music track. */
 struct MusicSongInfo {
-	char songname[32];       ///< name of song displayed in UI
-	byte tracknr;            ///< track number of song displayed in UI
-	const char *filename;    ///< file on disk containing song (when used in MusicSet class, this pointer is owned by MD5File object for the file)
-	MusicTrackType filetype; ///< decoder required for song file
-	int cat_index;           ///< entry index in CAT file, for filetype==MTT_MPSMIDI
-	bool loop;               ///< song should play in a tight loop if possible, never ending
-	int override_start;      ///< MIDI ticks to skip over in beginning
-	int override_end;        ///< MIDI tick to end the song at (0 if no override)
+	char songname[32];       // name of song displayed in UI
+	byte tracknr;            // track number of song displayed in UI
+	const char *filename;    // file on disk containing song (when used in MusicSet class, this pointer is owned by MD5File object for the file)
+	MusicTrackType filetype; // decoder required for song file
+	int cat_index;           // entry index in CAT file, for filetype==MTT_MPSMIDI
+	bool loop;               // song should play in a tight loop if possible, never ending
+	int override_start;      // MIDI ticks to skip over in beginning
+	int override_end;        // MIDI tick to end the song at (0 if no override)
 };
 
 /** All data of a music set. */

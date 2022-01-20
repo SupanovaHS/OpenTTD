@@ -22,8 +22,8 @@
 struct GenericScopeResolver : public ScopeResolver {
 	CargoID cargo_type;
 	uint8 default_selection;
-	uint8 src_industry;        ///< Source industry substitute type. 0xFF for "town", 0xFE for "unknown".
-	uint8 dst_industry;        ///< Destination industry substitute type. 0xFF for "town", 0xFE for "unknown".
+	uint8 src_industry;        // Source industry substitute type. 0xFF for "town", 0xFE for "unknown".
+	uint8 dst_industry;        // Destination industry substitute type. 0xFF for "town", 0xFE for "unknown".
 	uint8 distance;
 	AIConstructionEvent event;
 	uint8 count;
@@ -45,7 +45,7 @@ struct GenericScopeResolver : public ScopeResolver {
 	uint32 GetVariable(byte variable, uint32 parameter, bool *available) const override;
 
 private:
-	bool ai_callback; ///< Callback comes from the AI.
+	bool ai_callback; // Callback comes from the AI.
 };
 
 

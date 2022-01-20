@@ -141,8 +141,8 @@ public:
 	void Invalidate();
 
 private:
-	SharesMap shares;  ///< Shares of flow to be sent via specified station (or consumed locally).
-	uint unrestricted; ///< Limit for unrestricted shares.
+	SharesMap shares;  // Shares of flow to be sent via specified station (or consumed locally).
+	uint unrestricted; // Limit for unrestricted shares.
 };
 
 /** Flow descriptions by origin stations. */
@@ -220,7 +220,7 @@ struct GoodsEntry {
 		max_waiting_cargo(0)
 	{}
 
-	byte status; ///< Status of this cargo, see #GoodsEntryStatus.
+	byte status; // Status of this cargo, see #GoodsEntryStatus.
 
 	/**
 	 * Number of rating-intervals (up to 255) since the last vehicle tried to load this cargo.
@@ -229,7 +229,7 @@ struct GoodsEntry {
 	 */
 	byte time_since_pickup;
 
-	byte rating;            ///< %Station rating for this cargo.
+	byte rating;            // %Station rating for this cargo.
 
 	/**
 	 * Maximum speed (up to 255) of the last vehicle that tried to load this cargo.
@@ -248,13 +248,13 @@ struct GoodsEntry {
 	 */
 	byte last_age;
 
-	byte amount_fract;      ///< Fractional part of the amount in the cargo list
-	StationCargoList cargo; ///< The cargo packets of cargo waiting in this station
+	byte amount_fract;      // Fractional part of the amount in the cargo list
+	StationCargoList cargo; // The cargo packets of cargo waiting in this station
 
-	LinkGraphID link_graph; ///< Link graph this station belongs to.
-	NodeID node;            ///< ID of node in link graph referring to this goods entry.
-	FlowStatMap flows;      ///< Planned flows through this station.
-	uint max_waiting_cargo; ///< Max cargo from this station waiting at any station.
+	LinkGraphID link_graph; // Link graph this station belongs to.
+	NodeID node;            // ID of node in link graph referring to this goods entry.
+	FlowStatMap flows;      // Planned flows through this station.
+	uint max_waiting_cargo; // Max cargo from this station waiting at any station.
 
 	/**
 	 * Reports whether a vehicle has ever tried to load the cargo at this station.
@@ -302,12 +302,12 @@ struct GoodsEntry {
 struct Airport : public TileArea {
 	Airport() : TileArea(INVALID_TILE, 0, 0) {}
 
-	uint64 flags;       ///< stores which blocks on the airport are taken. was 16 bit earlier on, then 32
-	byte type;          ///< Type of this airport, @see AirportTypes
-	byte layout;        ///< Airport layout number.
-	Direction rotation; ///< How this airport is rotated.
+	uint64 flags;       // stores which blocks on the airport are taken. was 16 bit earlier on, then 32
+	byte type;          // Type of this airport, @see AirportTypes
+	byte layout;        // Airport layout number.
+	Direction rotation; // How this airport is rotated.
 
-	PersistentStorage *psa; ///< Persistent storage for NewGRF airports.
+	PersistentStorage *psa; // Persistent storage for NewGRF airports.
 
 	/**
 	 * Get the AirportSpec that from the airport type of this airport. If there
@@ -453,18 +453,18 @@ public:
 
 	RoadStop *GetPrimaryRoadStop(const struct RoadVehicle *v) const;
 
-	RoadStop *bus_stops;    ///< All the road stops
-	TileArea bus_station;   ///< Tile area the bus 'station' part covers
-	RoadStop *truck_stops;  ///< All the truck stops
-	TileArea truck_station; ///< Tile area the truck 'station' part covers
+	RoadStop *bus_stops;    // All the road stops
+	TileArea bus_station;   // Tile area the bus 'station' part covers
+	RoadStop *truck_stops;  // All the truck stops
+	TileArea truck_station; // Tile area the truck 'station' part covers
 
-	Airport airport;          ///< Tile area the airport covers
-	TileArea ship_station;    ///< Tile area the ship 'station' part covers
-	TileArea docking_station; ///< Tile area the docking tiles cover
+	Airport airport;          // Tile area the airport covers
+	TileArea ship_station;    // Tile area the ship 'station' part covers
+	TileArea docking_station; // Tile area the docking tiles cover
 
-	IndustryType indtype;   ///< Industry type to get the name from
+	IndustryType indtype;   // Industry type to get the name from
 
-	BitmapTileArea catchment_tiles; ///< NOSAVE: Set of individual tiles covered by catchment area
+	BitmapTileArea catchment_tiles; // NOSAVE: Set of individual tiles covered by catchment area
 
 	StationHadVehicleOfType had_vehicle_of_type;
 
@@ -473,11 +473,11 @@ public:
 
 	byte last_vehicle_type;
 	std::list<Vehicle *> loading_vehicles;
-	GoodsEntry goods[NUM_CARGO];  ///< Goods at this station
-	CargoTypes always_accepted;       ///< Bitmask of always accepted cargo types (by houses, HQs, industry tiles when industry doesn't accept cargo)
+	GoodsEntry goods[NUM_CARGO];  // Goods at this station
+	CargoTypes always_accepted;       // Bitmask of always accepted cargo types (by houses, HQs, industry tiles when industry doesn't accept cargo)
 
-	IndustryList industries_near; ///< Cached list of industries near the station that can accept cargo, @see DeliverGoodsToIndustry()
-	Industry *industry;           ///< NOSAVE: Associated industry for neutral stations. (Rebuilt on load from Industry->st)
+	IndustryList industries_near; // Cached list of industries near the station that can accept cargo, @see DeliverGoodsToIndustry()
+	Industry *industry;           // NOSAVE: Associated industry for neutral stations. (Rebuilt on load from Industry->st)
 
 	Station(TileIndex tile = INVALID_TILE);
 	~Station();
@@ -526,7 +526,7 @@ public:
 /** Iterator to iterate over all tiles belonging to an airport. */
 class AirportTileIterator : public OrthogonalTileIterator {
 private:
-	const Station *st; ///< The station the airport is a part of.
+	const Station *st; // The station the airport is a part of.
 
 public:
 	/**

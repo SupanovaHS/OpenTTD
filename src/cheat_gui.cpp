@@ -152,16 +152,16 @@ static int32 ClickChangeMaxHlCheat(int32 p1, int32 p2)
 
 /** Available cheats. */
 enum CheatNumbers {
-	CHT_MONEY,           ///< Change amount of money.
-	CHT_CHANGE_COMPANY,  ///< Switch company.
-	CHT_EXTRA_DYNAMITE,  ///< Dynamite anything.
-	CHT_CROSSINGTUNNELS, ///< Allow tunnels to cross each other.
-	CHT_NO_JETCRASH,     ///< Disable jet-airplane crashes.
-	CHT_SETUP_PROD,      ///< Allow manually editing of industry production.
-	CHT_EDIT_MAX_HL,     ///< Edit maximum allowed heightlevel
-	CHT_CHANGE_DATE,     ///< Do time traveling.
+	CHT_MONEY,           // Change amount of money.
+	CHT_CHANGE_COMPANY,  // Switch company.
+	CHT_EXTRA_DYNAMITE,  // Dynamite anything.
+	CHT_CROSSINGTUNNELS, // Allow tunnels to cross each other.
+	CHT_NO_JETCRASH,     // Disable jet-airplane crashes.
+	CHT_SETUP_PROD,      // Allow manually editing of industry production.
+	CHT_EDIT_MAX_HL,     // Edit maximum allowed heightlevel
+	CHT_CHANGE_DATE,     // Do time traveling.
 
-	CHT_NUM_CHEATS,      ///< Number of cheats.
+	CHT_NUM_CHEATS,      // Number of cheats.
 };
 
 /**
@@ -173,11 +173,11 @@ typedef int32 CheckButtonClick(int32 p1, int32 p2);
 
 /** Information of a cheat. */
 struct CheatEntry {
-	VarType type;          ///< type of selector
-	StringID str;          ///< string with descriptive text
-	void *variable;        ///< pointer to the variable
-	bool *been_used;       ///< has this cheat been used before?
-	CheckButtonClick *proc;///< procedure
+	VarType type;          // type of selector
+	StringID str;          // string with descriptive text
+	void *variable;        // pointer to the variable
+	bool *been_used;       // has this cheat been used before?
+	CheckButtonClick *proc;// procedure
 };
 
 /**

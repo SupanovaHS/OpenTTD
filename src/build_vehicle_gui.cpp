@@ -89,15 +89,15 @@ static const NWidgetPart _nested_build_vehicle_widgets[] = {
 };
 
 /** Special cargo filter criteria */
-static const CargoID CF_ANY     = CT_NO_REFIT;   ///< Show all vehicles independent of carried cargo (i.e. no filtering)
-static const CargoID CF_NONE    = CT_INVALID;    ///< Show only vehicles which do not carry cargo (e.g. train engines)
-static const CargoID CF_ENGINES = CT_AUTO_REFIT; ///< Show only engines (for rail vehicles only)
+static const CargoID CF_ANY     = CT_NO_REFIT;   // Show all vehicles independent of carried cargo (i.e. no filtering)
+static const CargoID CF_NONE    = CT_INVALID;    // Show only vehicles which do not carry cargo (e.g. train engines)
+static const CargoID CF_ENGINES = CT_AUTO_REFIT; // Show only engines (for rail vehicles only)
 
-bool _engine_sort_direction; ///< \c false = descending, \c true = ascending.
-byte _engine_sort_last_criteria[]       = {0, 0, 0, 0};                 ///< Last set sort criteria, for each vehicle type.
-bool _engine_sort_last_order[]          = {false, false, false, false}; ///< Last set direction of the sort order, for each vehicle type.
-bool _engine_sort_show_hidden_engines[] = {false, false, false, false}; ///< Last set 'show hidden engines' setting for each vehicle type.
-static CargoID _engine_sort_last_cargo_criteria[] = {CF_ANY, CF_ANY, CF_ANY, CF_ANY}; ///< Last set filter criteria, for each vehicle type.
+bool _engine_sort_direction; // \c false = descending, \c true = ascending.
+byte _engine_sort_last_criteria[]       = {0, 0, 0, 0};                 // Last set sort criteria, for each vehicle type.
+bool _engine_sort_last_order[]          = {false, false, false, false}; // Last set direction of the sort order, for each vehicle type.
+bool _engine_sort_show_hidden_engines[] = {false, false, false, false}; // Last set 'show hidden engines' setting for each vehicle type.
+static CargoID _engine_sort_last_cargo_criteria[] = {CF_ANY, CF_ANY, CF_ANY, CF_ANY}; // Last set filter criteria, for each vehicle type.
 
 /**
  * Determines order of engines by engineID
@@ -1043,24 +1043,24 @@ void DisplayVehicleSortDropDown(Window *w, VehicleType vehicle_type, int selecte
 
 /** GUI for building vehicles. */
 struct BuildVehicleWindow : Window {
-	VehicleType vehicle_type;                   ///< Type of vehicles shown in the window.
+	VehicleType vehicle_type;                   // Type of vehicles shown in the window.
 	union {
-		RailType railtype;   ///< Rail type to show, or #INVALID_RAILTYPE.
-		RoadType roadtype;   ///< Road type to show, or #INVALID_ROADTYPE.
-	} filter;                                   ///< Filter to apply.
-	bool descending_sort_order;                 ///< Sort direction, @see _engine_sort_direction
-	byte sort_criteria;                         ///< Current sort criterium.
-	bool show_hidden_engines;                   ///< State of the 'show hidden engines' button.
-	bool listview_mode;                         ///< If set, only display the available vehicles and do not show a 'build' button.
-	EngineID sel_engine;                        ///< Currently selected engine, or #INVALID_ENGINE
-	EngineID rename_engine;                     ///< Engine being renamed.
+		RailType railtype;   // Rail type to show, or #INVALID_RAILTYPE.
+		RoadType roadtype;   // Road type to show, or #INVALID_ROADTYPE.
+	} filter;                                   // Filter to apply.
+	bool descending_sort_order;                 // Sort direction, @see _engine_sort_direction
+	byte sort_criteria;                         // Current sort criterium.
+	bool show_hidden_engines;                   // State of the 'show hidden engines' button.
+	bool listview_mode;                         // If set, only display the available vehicles and do not show a 'build' button.
+	EngineID sel_engine;                        // Currently selected engine, or #INVALID_ENGINE
+	EngineID rename_engine;                     // Engine being renamed.
 	GUIEngineList eng_list;
-	CargoID cargo_filter[NUM_CARGO + 3];        ///< Available cargo filters; CargoID or CF_ANY or CF_NONE or CF_ENGINES
-	StringID cargo_filter_texts[NUM_CARGO + 4]; ///< Texts for filter_cargo, terminated by INVALID_STRING_ID
-	byte cargo_filter_criteria;                 ///< Selected cargo filter
-	int details_height;                         ///< Minimal needed height of the details panels, in text lines (found so far).
+	CargoID cargo_filter[NUM_CARGO + 3];        // Available cargo filters; CargoID or CF_ANY or CF_NONE or CF_ENGINES
+	StringID cargo_filter_texts[NUM_CARGO + 4]; // Texts for filter_cargo, terminated by INVALID_STRING_ID
+	byte cargo_filter_criteria;                 // Selected cargo filter
+	int details_height;                         // Minimal needed height of the details panels, in text lines (found so far).
 	Scrollbar *vscroll;
-	TestedEngineDetails te;                     ///< Tested cost and capacity after refit.
+	TestedEngineDetails te;                     // Tested cost and capacity after refit.
 
 	void SetBuyVehicleText()
 	{

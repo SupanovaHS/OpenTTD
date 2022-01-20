@@ -48,7 +48,7 @@
 #include "safeguards.h"
 
 /* scriptfile handling */
-static uint _script_current_depth; ///< Depth of scripts running (used to abort execution when #ConReturn is encountered).
+static uint _script_current_depth; // Depth of scripts running (used to abort execution when #ConReturn is encountered).
 
 /** File list storage for the console, for caching the last 'ls' command. */
 class ConsoleFileList : public FileList {
@@ -77,10 +77,10 @@ public:
 		}
 	}
 
-	bool file_list_valid; ///< If set, the file list is valid.
+	bool file_list_valid; // If set, the file list is valid.
 };
 
-static ConsoleFileList _console_file_list; ///< File storage cache for the console.
+static ConsoleFileList _console_file_list; // File storage cache for the console.
 
 /* console command defines */
 #define DEF_CONSOLE_CMD(function) static bool function(byte argc, char *argv[])
@@ -1980,9 +1980,9 @@ DEF_CONSOLE_CMD(ConNewGRFReload)
 DEF_CONSOLE_CMD(ConListDirs)
 {
 	struct SubdirNameMap {
-		Subdirectory subdir; ///< Index of subdirectory type
-		const char *name;    ///< UI name for the directory
-		bool default_only;   ///< Whether only the default (first existing) directory for this is interesting
+		Subdirectory subdir; // Index of subdirectory type
+		const char *name;    // UI name for the directory
+		bool default_only;   // Whether only the default (first existing) directory for this is interesting
 	};
 	static const SubdirNameMap subdir_name_map[] = {
 		/* Game data directories */

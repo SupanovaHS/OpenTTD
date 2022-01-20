@@ -63,9 +63,9 @@ class TileMatrix {
 public:
 	static const uint GRID = N;
 
-	TileArea area; ///< Area covered by the matrix.
+	TileArea area; // Area covered by the matrix.
 
-	T *data; ///< Pointer to data array.
+	T *data; // Pointer to data array.
 
 	TileMatrix() : area(INVALID_TILE, 0, 0), data(nullptr) {}
 

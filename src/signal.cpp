@@ -20,10 +20,10 @@
 
 
 /** these are the maximums used for updating signal blocks */
-static const uint SIG_TBU_SIZE    =  64; ///< number of signals entering to block
-static const uint SIG_TBD_SIZE    = 256; ///< number of intersections - open nodes in current block
-static const uint SIG_GLOB_SIZE   = 128; ///< number of open blocks (block can be opened more times until detected)
-static const uint SIG_GLOB_UPDATE =  64; ///< how many items need to be in _globset to force update
+static const uint SIG_TBU_SIZE    =  64; // number of signals entering to block
+static const uint SIG_TBD_SIZE    = 256; // number of intersections - open nodes in current block
+static const uint SIG_GLOB_SIZE   = 128; // number of open blocks (block can be opened more times until detected)
+static const uint SIG_GLOB_UPDATE =  64; // how many items need to be in _globset to force update
 
 static_assert(SIG_GLOB_UPDATE <= SIG_GLOB_SIZE);
 
@@ -182,9 +182,9 @@ public:
 	}
 };
 
-static SmallSet<Trackdir, SIG_TBU_SIZE> _tbuset("_tbuset");         ///< set of signals that will be updated
-static SmallSet<DiagDirection, SIG_TBD_SIZE> _tbdset("_tbdset");    ///< set of open nodes in current signal block
-static SmallSet<DiagDirection, SIG_GLOB_SIZE> _globset("_globset"); ///< set of places to be updated in following runs
+static SmallSet<Trackdir, SIG_TBU_SIZE> _tbuset("_tbuset");         // set of signals that will be updated
+static SmallSet<DiagDirection, SIG_TBD_SIZE> _tbdset("_tbdset");    // set of open nodes in current signal block
+static SmallSet<DiagDirection, SIG_GLOB_SIZE> _globset("_globset"); // set of places to be updated in following runs
 
 
 /** Check whether there is a train on rail, not in a depot */
@@ -244,13 +244,13 @@ static inline bool MaybeAddToTodoSet(TileIndex t1, DiagDirection d1, TileIndex t
 /** Current signal block state flags */
 enum SigFlags {
 	SF_NONE   = 0,
-	SF_TRAIN  = 1 << 0, ///< train found in segment
-	SF_EXIT   = 1 << 1, ///< exitsignal found
-	SF_EXIT2  = 1 << 2, ///< two or more exits found
-	SF_GREEN  = 1 << 3, ///< green exitsignal found
-	SF_GREEN2 = 1 << 4, ///< two or more green exits found
-	SF_FULL   = 1 << 5, ///< some of buffers was full, do not continue
-	SF_PBS    = 1 << 6, ///< pbs signal found
+	SF_TRAIN  = 1 << 0, // train found in segment
+	SF_EXIT   = 1 << 1, // exitsignal found
+	SF_EXIT2  = 1 << 2, // two or more exits found
+	SF_GREEN  = 1 << 3, // green exitsignal found
+	SF_GREEN2 = 1 << 4, // two or more green exits found
+	SF_FULL   = 1 << 5, // some of buffers was full, do not continue
+	SF_PBS    = 1 << 6, // pbs signal found
 };
 
 DECLARE_ENUM_AS_BIT_SET(SigFlags)
@@ -552,7 +552,7 @@ static SigSegState UpdateSignalsInBuffer(Owner owner)
 }
 
 
-static Owner _last_owner = INVALID_OWNER; ///< last owner whose track was put into _globset
+static Owner _last_owner = INVALID_OWNER; // last owner whose track was put into _globset
 
 
 /**

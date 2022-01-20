@@ -16,7 +16,7 @@
 
 /** The queue of events for a script. */
 struct ScriptEventData {
-	std::queue<ScriptEvent *> stack; ///< The actual queue.
+	std::queue<ScriptEvent *> stack; // The actual queue.
 };
 
 /* static */ void ScriptEventController::CreateEventPointer()

@@ -57,12 +57,12 @@ template SocketList TCPListenHandler<ServerNetworkGameSocketHandler, PACKET_SERV
 
 /** Writing a savegame directly to a number of packets. */
 struct PacketWriter : SaveFilter {
-	ServerNetworkGameSocketHandler *cs; ///< Socket we are associated with.
-	Packet *current;                    ///< The packet we're currently writing to.
-	size_t total_size;                  ///< Total size of the compressed savegame.
-	Packet *packets;                    ///< Packet queue of the savegame; send these "slowly" to the client.
-	std::mutex mutex;                   ///< Mutex for making threaded saving safe.
-	std::condition_variable exit_sig;   ///< Signal for threaded destruction of this packet writer.
+	ServerNetworkGameSocketHandler *cs; // Socket we are associated with.
+	Packet *current;                    // The packet we're currently writing to.
+	size_t total_size;                  // Total size of the compressed savegame.
+	Packet *packets;                    // Packet queue of the savegame; send these "slowly" to the client.
+	std::mutex mutex;                   // Mutex for making threaded saving safe.
+	std::condition_variable exit_sig;   // Signal for threaded destruction of this packet writer.
 
 	/**
 	 * Create the packet writer.

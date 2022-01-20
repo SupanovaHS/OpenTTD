@@ -253,8 +253,8 @@ static PBSTileInfo FollowReservation(Owner o, RailTypes rts, TileIndex tile, Tra
  * Helper struct for finding the best matching vehicle on a specific track.
  */
 struct FindTrainOnTrackInfo {
-	PBSTileInfo res; ///< Information about the track.
-	Train *best;     ///< The currently "best" vehicle we have found.
+	PBSTileInfo res; // Information about the track.
+	Train *best;     // The currently "best" vehicle we have found.
 
 	/** Init the best location to nullptr always! */
 	FindTrainOnTrackInfo() : best(nullptr) {}

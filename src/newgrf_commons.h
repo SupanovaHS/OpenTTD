@@ -22,9 +22,9 @@
 
 /** Context for tile accesses */
 enum TileContext {
-	TCX_NORMAL,         ///< Nothing special.
-	TCX_UPPER_HALFTILE, ///< Querying information about the upper part of a tile with halftile foundation.
-	TCX_ON_BRIDGE,      ///< Querying information about stuff on the bridge (via some bridgehead).
+	TCX_NORMAL,         // Nothing special.
+	TCX_UPPER_HALFTILE, // Querying information about the upper part of a tile with halftile foundation.
+	TCX_ON_BRIDGE,      // Querying information about stuff on the bridge (via some bridgehead).
 };
 
 /**
@@ -33,21 +33,21 @@ enum TileContext {
 enum TileLayoutFlags {
 	TLF_NOTHING           = 0x00,
 
-	TLF_DODRAW            = 0x01,   ///< Only draw sprite if value of register TileLayoutRegisters::dodraw is non-zero.
-	TLF_SPRITE            = 0x02,   ///< Add signed offset to sprite from register TileLayoutRegisters::sprite.
-	TLF_PALETTE           = 0x04,   ///< Add signed offset to palette from register TileLayoutRegisters::palette.
-	TLF_CUSTOM_PALETTE    = 0x08,   ///< Palette is from Action 1 (moved to SPRITE_MODIFIER_CUSTOM_SPRITE in palette during loading).
+	TLF_DODRAW            = 0x01,   // Only draw sprite if value of register TileLayoutRegisters::dodraw is non-zero.
+	TLF_SPRITE            = 0x02,   // Add signed offset to sprite from register TileLayoutRegisters::sprite.
+	TLF_PALETTE           = 0x04,   // Add signed offset to palette from register TileLayoutRegisters::palette.
+	TLF_CUSTOM_PALETTE    = 0x08,   // Palette is from Action 1 (moved to SPRITE_MODIFIER_CUSTOM_SPRITE in palette during loading).
 
-	TLF_BB_XY_OFFSET      = 0x10,   ///< Add signed offset to bounding box X and Y positions from register TileLayoutRegisters::delta.parent[0..1].
-	TLF_BB_Z_OFFSET       = 0x20,   ///< Add signed offset to bounding box Z positions from register TileLayoutRegisters::delta.parent[2].
+	TLF_BB_XY_OFFSET      = 0x10,   // Add signed offset to bounding box X and Y positions from register TileLayoutRegisters::delta.parent[0..1].
+	TLF_BB_Z_OFFSET       = 0x20,   // Add signed offset to bounding box Z positions from register TileLayoutRegisters::delta.parent[2].
 
-	TLF_CHILD_X_OFFSET    = 0x10,   ///< Add signed offset to child sprite X positions from register TileLayoutRegisters::delta.child[0].
-	TLF_CHILD_Y_OFFSET    = 0x20,   ///< Add signed offset to child sprite Y positions from register TileLayoutRegisters::delta.child[1].
+	TLF_CHILD_X_OFFSET    = 0x10,   // Add signed offset to child sprite X positions from register TileLayoutRegisters::delta.child[0].
+	TLF_CHILD_Y_OFFSET    = 0x20,   // Add signed offset to child sprite Y positions from register TileLayoutRegisters::delta.child[1].
 
-	TLF_SPRITE_VAR10      = 0x40,   ///< Resolve sprite with a specific value in variable 10.
-	TLF_PALETTE_VAR10     = 0x80,   ///< Resolve palette with a specific value in variable 10.
+	TLF_SPRITE_VAR10      = 0x40,   // Resolve sprite with a specific value in variable 10.
+	TLF_PALETTE_VAR10     = 0x80,   // Resolve palette with a specific value in variable 10.
 
-	TLF_KNOWN_FLAGS       = 0xFF,   ///< Known flags. Any unknown set flag will disable the GRF.
+	TLF_KNOWN_FLAGS       = 0xFF,   // Known flags. Any unknown set flag will disable the GRF.
 
 	/** Flags which are still required after loading the GRF. */
 	TLF_DRAWING_FLAGS     = ~TLF_CUSTOM_PALETTE,
@@ -89,21 +89,21 @@ static inline uint GetConstructionStageOffset(uint construction_stage, uint num_
  * Additional modifiers for items in sprite layouts.
  */
 struct TileLayoutRegisters {
-	TileLayoutFlags flags; ///< Flags defining which members are valid and to be used.
-	uint8 dodraw;          ///< Register deciding whether the sprite shall be drawn at all. Non-zero means drawing.
-	uint8 sprite;          ///< Register specifying a signed offset for the sprite.
-	uint8 palette;         ///< Register specifying a signed offset for the palette.
-	uint16 max_sprite_offset;  ///< Maximum offset to add to the sprite. (limited by size of the spriteset)
-	uint16 max_palette_offset; ///< Maximum offset to add to the palette. (limited by size of the spriteset)
+	TileLayoutFlags flags; // Flags defining which members are valid and to be used.
+	uint8 dodraw;          // Register deciding whether the sprite shall be drawn at all. Non-zero means drawing.
+	uint8 sprite;          // Register specifying a signed offset for the sprite.
+	uint8 palette;         // Register specifying a signed offset for the palette.
+	uint16 max_sprite_offset;  // Maximum offset to add to the sprite. (limited by size of the spriteset)
+	uint16 max_palette_offset; // Maximum offset to add to the palette. (limited by size of the spriteset)
 	union {
-		uint8 parent[3];   ///< Registers for signed offsets for the bounding box position of parent sprites.
-		uint8 child[2];    ///< Registers for signed offsets for the position of child sprites.
+		uint8 parent[3];   // Registers for signed offsets for the bounding box position of parent sprites.
+		uint8 child[2];    // Registers for signed offsets for the position of child sprites.
 	} delta;
-	uint8 sprite_var10;    ///< Value for variable 10 when resolving the sprite.
-	uint8 palette_var10;   ///< Value for variable 10 when resolving the palette.
+	uint8 sprite_var10;    // Value for variable 10 when resolving the sprite.
+	uint8 palette_var10;   // Value for variable 10 when resolving the palette.
 };
 
-static const uint TLR_MAX_VAR10 = 7; ///< Maximum value for var 10.
+static const uint TLR_MAX_VAR10 = 7; // Maximum value for var 10.
 
 /**
  * NewGRF supplied spritelayout.
@@ -168,7 +168,7 @@ struct NewGRFSpriteLayout : ZeroedMemoryAllocator, DrawTileSprites {
 	}
 
 private:
-	static std::vector<DrawTileSeqStruct> result_seq; ///< Temporary storage when preprocessing spritelayouts.
+	static std::vector<DrawTileSeqStruct> result_seq; // Temporary storage when preprocessing spritelayouts.
 };
 
 /**
@@ -184,9 +184,9 @@ private:
  * if the GRF containing the new entity is not available.
  */
 struct EntityIDMapping {
-	uint32 grfid;          ///< The GRF ID of the file the entity belongs to
-	uint8  entity_id;      ///< The entity ID within the GRF file
-	uint8  substitute_id;  ///< The (original) entity ID to use if this GRF is not available
+	uint32 grfid;          // The GRF ID of the file the entity belongs to
+	uint8  entity_id;      // The entity ID within the GRF file
+	uint8  substitute_id;  // The (original) entity ID to use if this GRF is not available
 };
 
 class OverrideManagerBase {
@@ -194,14 +194,14 @@ protected:
 	uint16 *entity_overrides;
 	uint32 *grfid_overrides;
 
-	uint16 max_offset;       ///< what is the length of the original entity's array of specs
-	uint16 max_new_entities; ///< what is the amount of entities, old and new summed
+	uint16 max_offset;       // what is the length of the original entity's array of specs
+	uint16 max_new_entities; // what is the amount of entities, old and new summed
 
-	uint16 invalid_ID;       ///< ID used to detected invalid entities;
+	uint16 invalid_ID;       // ID used to detected invalid entities;
 	virtual bool CheckValidNewID(uint16 testid) { return true; }
 
 public:
-	EntityIDMapping *mapping_ID; ///< mapping of ids from grf files.  Public out of convenience
+	EntityIDMapping *mapping_ID; // mapping of ids from grf files.  Public out of convenience
 
 	OverrideManagerBase(uint16 offset, uint16 maximum, uint16 invalid);
 	virtual ~OverrideManagerBase();
@@ -316,9 +316,9 @@ struct GRFFilePropsBase {
 		memset(spritegroup, 0, sizeof(spritegroup));
 	}
 
-	uint16 local_id;                             ///< id defined by the grf file for this entity
-	const struct GRFFile *grffile;               ///< grf file that introduced this entity
-	const struct SpriteGroup *spritegroup[Tcnt]; ///< pointer to the different sprites of the entity
+	uint16 local_id;                             // id defined by the grf file for this entity
+	const struct GRFFile *grffile;               // grf file that introduced this entity
+	const struct SpriteGroup *spritegroup[Tcnt]; // pointer to the different sprites of the entity
 };
 
 /** Data related to the handling of grf files. */
@@ -330,7 +330,7 @@ struct GRFFileProps : GRFFilePropsBase<1> {
 	}
 
 	uint16 subst_id;
-	uint16 override;                      ///< id of the entity been replaced by
+	uint16 override;                      // id of the entity been replaced by
 };
 
 #endif /* NEWGRF_COMMONS_H */

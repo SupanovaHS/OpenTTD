@@ -20,8 +20,8 @@
 
 #include "safeguards.h"
 
-static const uint ICON_TOKEN_COUNT = 20;     ///< Maximum number of tokens in one command
-static const uint ICON_MAX_RECURSE = 10;     ///< Maximum number of recursion
+static const uint ICON_TOKEN_COUNT = 20;     // Maximum number of tokens in one command
+static const uint ICON_MAX_RECURSE = 10;     // Maximum number of recursion
 
 /* console parser */
 /* static */ IConsole::CommandList &IConsole::Commands()

@@ -15,30 +15,30 @@
 /** Class for handling the client side of the game connection. */
 class ClientNetworkGameSocketHandler : public ZeroedMemoryAllocator, public NetworkGameSocketHandler {
 private:
-	std::string connection_string; ///< Address we are connected to.
-	struct PacketReader *savegame; ///< Packet reader for reading the savegame.
-	byte token;                    ///< The token we need to send back to the server to prove we're the right client.
+	std::string connection_string; // Address we are connected to.
+	struct PacketReader *savegame; // Packet reader for reading the savegame.
+	byte token;                    // The token we need to send back to the server to prove we're the right client.
 
 	/** Status of the connection with the server. */
 	enum ServerStatus {
-		STATUS_INACTIVE,      ///< The client is not connected nor active.
-		STATUS_JOIN,          ///< We are trying to join a server.
-		STATUS_NEWGRFS_CHECK, ///< Last action was checking NewGRFs.
-		STATUS_AUTH_GAME,     ///< Last action was requesting game (server) password.
-		STATUS_AUTH_COMPANY,  ///< Last action was requesting company password.
-		STATUS_AUTHORIZED,    ///< The client is authorized at the server.
-		STATUS_MAP_WAIT,      ///< The client is waiting as someone else is downloading the map.
-		STATUS_MAP,           ///< The client is downloading the map.
-		STATUS_ACTIVE,        ///< The client is active within in the game.
-		STATUS_END,           ///< Must ALWAYS be on the end of this list!! (period)
+		STATUS_INACTIVE,      // The client is not connected nor active.
+		STATUS_JOIN,          // We are trying to join a server.
+		STATUS_NEWGRFS_CHECK, // Last action was checking NewGRFs.
+		STATUS_AUTH_GAME,     // Last action was requesting game (server) password.
+		STATUS_AUTH_COMPANY,  // Last action was requesting company password.
+		STATUS_AUTHORIZED,    // The client is authorized at the server.
+		STATUS_MAP_WAIT,      // The client is waiting as someone else is downloading the map.
+		STATUS_MAP,           // The client is downloading the map.
+		STATUS_ACTIVE,        // The client is active within in the game.
+		STATUS_END,           // Must ALWAYS be on the end of this list!! (period)
 	};
 
-	ServerStatus status; ///< Status of the connection with the server.
+	ServerStatus status; // Status of the connection with the server.
 
 protected:
 	friend void NetworkExecuteLocalCommandQueue();
 	friend void NetworkClose(bool close_admins);
-	static ClientNetworkGameSocketHandler *my_client; ///< This is us!
+	static ClientNetworkGameSocketHandler *my_client; // This is us!
 
 	NetworkRecvStatus Receive_SERVER_FULL(Packet *p) override;
 	NetworkRecvStatus Receive_SERVER_BANNED(Packet *p) override;
@@ -110,10 +110,10 @@ void NetworkClientSetCompanyPassword(const std::string &password);
 /** Information required to join a server. */
 struct NetworkJoinInfo {
 	NetworkJoinInfo() : company(COMPANY_SPECTATOR) {}
-	std::string connection_string; ///< The address of the server to join.
-	CompanyID company;             ///< The company to join.
-	std::string server_password;   ///< The password of the server to join.
-	std::string company_password;  ///< The password of the company to join.
+	std::string connection_string; // The address of the server to join.
+	CompanyID company;             // The company to join.
+	std::string server_password;   // The password of the server to join.
+	std::string company_password;  // The password of the company to join.
 };
 
 extern NetworkJoinInfo _network_join;

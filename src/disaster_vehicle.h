@@ -14,30 +14,30 @@
 
 /** Different sub types of disaster vehicles. */
 enum DisasterSubType {
-	ST_ZEPPELINER,               ///< Zeppelin, crashes at airports.
-	ST_ZEPPELINER_SHADOW,        ///< Shadow of the zeppelin.
-	ST_SMALL_UFO,                ///< Small UFO, tries to find a road vehicle to destroy.
-	ST_SMALL_UFO_SHADOW,         ///< Shadow of small UFO
-	ST_AIRPLANE,                 ///< Airplane destroying an oil refinery
-	ST_AIRPLANE_SHADOW,          ///< Shadow of airplane
-	ST_HELICOPTER,               ///< Helicopter destroying a factory.
-	ST_HELICOPTER_SHADOW,        ///< Shadow of helicopter.
-	ST_HELICOPTER_ROTORS,        ///< Rotors of helicopter.
-	ST_BIG_UFO,                  ///< Big UFO, finds a piece of railroad to "park" on
-	ST_BIG_UFO_SHADOW,           ///< Shadow of the big UFO
-	ST_BIG_UFO_DESTROYER,        ///< Aircraft the will bomb the big UFO
-	ST_BIG_UFO_DESTROYER_SHADOW, ///< Shadow of the aircraft.
-	ST_SMALL_SUBMARINE,          ///< Small submarine, pops up in the oceans but doesn't do anything
-	ST_BIG_SUBMARINE,            ///< Big submarine, pops up in the oceans but doesn't do anything
+	ST_ZEPPELINER,               // Zeppelin, crashes at airports.
+	ST_ZEPPELINER_SHADOW,        // Shadow of the zeppelin.
+	ST_SMALL_UFO,                // Small UFO, tries to find a road vehicle to destroy.
+	ST_SMALL_UFO_SHADOW,         // Shadow of small UFO
+	ST_AIRPLANE,                 // Airplane destroying an oil refinery
+	ST_AIRPLANE_SHADOW,          // Shadow of airplane
+	ST_HELICOPTER,               // Helicopter destroying a factory.
+	ST_HELICOPTER_SHADOW,        // Shadow of helicopter.
+	ST_HELICOPTER_ROTORS,        // Rotors of helicopter.
+	ST_BIG_UFO,                  // Big UFO, finds a piece of railroad to "park" on
+	ST_BIG_UFO_SHADOW,           // Shadow of the big UFO
+	ST_BIG_UFO_DESTROYER,        // Aircraft the will bomb the big UFO
+	ST_BIG_UFO_DESTROYER_SHADOW, // Shadow of the aircraft.
+	ST_SMALL_SUBMARINE,          // Small submarine, pops up in the oceans but doesn't do anything
+	ST_BIG_SUBMARINE,            // Big submarine, pops up in the oceans but doesn't do anything
 };
 
 /**
  * Disasters, like submarines, skyrangers and their shadows, belong to this class.
  */
 struct DisasterVehicle FINAL : public SpecializedVehicle<DisasterVehicle, VEH_DISASTER> {
-	SpriteID image_override;            ///< Override for the default disaster vehicle sprite.
-	VehicleID big_ufo_destroyer_target; ///< The big UFO that this destroyer is supposed to bomb.
-	byte flags;                         ///< Flags about the state of the vehicle, @see AirVehicleFlags
+	SpriteID image_override;            // Override for the default disaster vehicle sprite.
+	VehicleID big_ufo_destroyer_target; // The big UFO that this destroyer is supposed to bomb.
+	byte flags;                         // Flags about the state of the vehicle, @see AirVehicleFlags
 
 	/** For use by saveload. */
 	DisasterVehicle() : SpecializedVehicleBase() {}

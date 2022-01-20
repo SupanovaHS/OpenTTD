@@ -37,17 +37,17 @@ struct HTTPCallback {
 /** Base socket handler for HTTP traffic. */
 class NetworkHTTPSocketHandler : public NetworkSocketHandler {
 private:
-	char recv_buffer[4096];   ///< Partially received message.
-	int recv_pos;             ///< Current position in buffer.
-	int recv_length;          ///< Length of the data still retrieving.
-	HTTPCallback *callback;   ///< The callback to call for the incoming data.
-	const char *data;         ///< The (POST) data we might want to forward (to a redirect).
-	int redirect_depth;       ///< The depth of the redirection.
+	char recv_buffer[4096];   // Partially received message.
+	int recv_pos;             // Current position in buffer.
+	int recv_length;          // Length of the data still retrieving.
+	HTTPCallback *callback;   // The callback to call for the incoming data.
+	const char *data;         // The (POST) data we might want to forward (to a redirect).
+	int redirect_depth;       // The depth of the redirection.
 
 	int HandleHeader();
 	int Receive();
 public:
-	SOCKET sock;              ///< The socket currently connected to
+	SOCKET sock;              // The socket currently connected to
 
 	/**
 	 * Whether this socket is currently bound to a socket.
@@ -73,11 +73,11 @@ public:
 
 /** Connect with a HTTP server and do ONE query. */
 class NetworkHTTPContentConnecter : TCPConnecter {
-	std::string hostname;   ///< Hostname we are connecting to.
-	HTTPCallback *callback; ///< Callback to tell that we received some data (or won't).
-	const char *url;        ///< The URL we want to get at the server.
-	const char *data;       ///< The data to send
-	int depth;              ///< How far we have recursed
+	std::string hostname;   // Hostname we are connecting to.
+	HTTPCallback *callback; // Callback to tell that we received some data (or won't).
+	const char *url;        // The URL we want to get at the server.
+	const char *data;       // The data to send
+	int depth;              // How far we have recursed
 
 public:
 	/**

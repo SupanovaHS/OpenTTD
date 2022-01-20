@@ -36,17 +36,17 @@ struct CFollowTrackT
 		EC_RESERVED,
 	};
 
-	const VehicleType  *m_veh;           ///< moving vehicle
-	Owner               m_veh_owner;     ///< owner of the vehicle
-	TileIndex           m_old_tile;      ///< the origin (vehicle moved from) before move
-	Trackdir            m_old_td;        ///< the trackdir (the vehicle was on) before move
-	TileIndex           m_new_tile;      ///< the new tile (the vehicle has entered)
-	TrackdirBits        m_new_td_bits;   ///< the new set of available trackdirs
-	DiagDirection       m_exitdir;       ///< exit direction (leaving the old tile)
-	bool                m_is_tunnel;     ///< last turn passed tunnel
-	bool                m_is_bridge;     ///< last turn passed bridge ramp
-	bool                m_is_station;    ///< last turn passed station
-	int                 m_tiles_skipped; ///< number of skipped tunnel or station tiles
+	const VehicleType  *m_veh;           // moving vehicle
+	Owner               m_veh_owner;     // owner of the vehicle
+	TileIndex           m_old_tile;      // the origin (vehicle moved from) before move
+	Trackdir            m_old_td;        // the trackdir (the vehicle was on) before move
+	TileIndex           m_new_tile;      // the new tile (the vehicle has entered)
+	TrackdirBits        m_new_td_bits;   // the new set of available trackdirs
+	DiagDirection       m_exitdir;       // exit direction (leaving the old tile)
+	bool                m_is_tunnel;     // last turn passed tunnel
+	bool                m_is_bridge;     // last turn passed bridge ramp
+	bool                m_is_station;    // last turn passed station
+	int                 m_tiles_skipped; // number of skipped tunnel or station tiles
 	ErrorCode           m_err;
 	RailTypes           m_railtypes;
 

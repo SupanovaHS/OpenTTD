@@ -21,9 +21,9 @@
 #include <smmintrin.h>
 #endif
 
-#define META_LENGTH 2 ///< Number of uint32 inserted before each line of pixels in a sprite.
-#define MARGIN_NORMAL_THRESHOLD (zoom == ZOOM_LVL_OUT_32X ? 8 : 4) ///< Minimum width to use margins with BM_NORMAL.
-#define MARGIN_REMAP_THRESHOLD 4 ///< Minimum width to use margins with BM_COLOUR_REMAP.
+#define META_LENGTH 2 // Number of uint32 inserted before each line of pixels in a sprite.
+#define MARGIN_NORMAL_THRESHOLD (zoom == ZOOM_LVL_OUT_32X ? 8 : 4) // Minimum width to use margins with BM_NORMAL.
+#define MARGIN_REMAP_THRESHOLD 4 // Minimum width to use margins with BM_COLOUR_REMAP.
 
 #undef ALIGN
 

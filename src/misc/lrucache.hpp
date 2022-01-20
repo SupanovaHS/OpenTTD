@@ -29,10 +29,10 @@ private:
 	typedef std::pair<Tkey, Tdata *> Tpair;
 	typedef typename std::list<Tpair>::iterator Titer;
 
-	std::list<Tpair> data;                         ///< Ordered list of all items.
-	std::unordered_map<Tkey, Titer> lookup;  ///< Map of keys to items.
+	std::list<Tpair> data;                         // Ordered list of all items.
+	std::unordered_map<Tkey, Titer> lookup;  // Map of keys to items.
 
-	const size_t capacity; ///< Number of items to cache.
+	const size_t capacity; // Number of items to cache.
 
 public:
 	/**

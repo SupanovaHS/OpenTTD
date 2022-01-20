@@ -20,8 +20,8 @@
  *       and to check the town's persistent storage.
  */
 struct TownScopeResolver : public ScopeResolver {
-	Town *t;       ///< %Town of the scope.
-	bool readonly; ///< When set, persistent storage of the town is read-only,
+	Town *t;       // %Town of the scope.
+	bool readonly; // When set, persistent storage of the town is read-only,
 
 	/**
 	 * Resolver of a town scope.
@@ -40,7 +40,7 @@ struct TownScopeResolver : public ScopeResolver {
 
 /** Resolver of town properties. */
 struct TownResolverObject : public ResolverObject {
-	TownScopeResolver town_scope; ///< Scope resolver specific for towns.
+	TownScopeResolver town_scope; // Scope resolver specific for towns.
 
 	TownResolverObject(const struct GRFFile *grffile, Town *t, bool readonly);
 

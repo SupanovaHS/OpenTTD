@@ -34,7 +34,7 @@
 
 #include "safeguards.h"
 
-static const int LEVEL_WIDTH = 10; ///< Indenting width of a sub-group in pixels
+static const int LEVEL_WIDTH = 10; // Indenting width of a sub-group in pixels
 
 typedef GUIList<const Group*> GUIGroupList;
 
@@ -108,28 +108,28 @@ class VehicleGroupWindow : public BaseVehicleListWindow {
 private:
 	/* Columns in the group list */
 	enum ListColumns {
-		VGC_FOLD,          ///< Fold / Unfold button.
-		VGC_NAME,          ///< Group name.
-		VGC_PROTECT,       ///< Autoreplace protect icon.
-		VGC_AUTOREPLACE,   ///< Autoreplace active icon.
-		VGC_PROFIT,        ///< Profit icon.
-		VGC_NUMBER,        ///< Number of vehicles in the group.
+		VGC_FOLD,          // Fold / Unfold button.
+		VGC_NAME,          // Group name.
+		VGC_PROTECT,       // Autoreplace protect icon.
+		VGC_AUTOREPLACE,   // Autoreplace active icon.
+		VGC_PROFIT,        // Profit icon.
+		VGC_NUMBER,        // Number of vehicles in the group.
 
 		VGC_END
 	};
 
-	VehicleID vehicle_sel; ///< Selected vehicle
-	GroupID group_sel;     ///< Selected group (for drag/drop)
-	GroupID group_rename;  ///< Group being renamed, INVALID_GROUP if none
-	GroupID group_over;    ///< Group over which a vehicle is dragged, INVALID_GROUP if none
-	GroupID group_confirm; ///< Group awaiting delete confirmation
-	GUIGroupList groups;   ///< List of groups
-	uint tiny_step_height; ///< Step height for the group list
+	VehicleID vehicle_sel; // Selected vehicle
+	GroupID group_sel;     // Selected group (for drag/drop)
+	GroupID group_rename;  // Group being renamed, INVALID_GROUP if none
+	GroupID group_over;    // Group over which a vehicle is dragged, INVALID_GROUP if none
+	GroupID group_confirm; // Group awaiting delete confirmation
+	GUIGroupList groups;   // List of groups
+	uint tiny_step_height; // Step height for the group list
 	Scrollbar *group_sb;
 
-	std::vector<int> indents; ///< Indentation levels
+	std::vector<int> indents; // Indentation levels
 
-	Dimension column_size[VGC_END]; ///< Size of the columns in the group list.
+	Dimension column_size[VGC_END]; // Size of the columns in the group list.
 
 	void AddChildren(GUIGroupList *source, GroupID parent, int indent)
 	{
